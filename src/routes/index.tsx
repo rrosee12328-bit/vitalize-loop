@@ -183,32 +183,34 @@ function HomePage() {
             />
           </div>
           <div className="container-editorial pt-16 pb-24 lg:pt-20 lg:pb-32">
-            <p className="eyebrow">For growth-stage operator-owners</p>
-            <h1 className="mt-6 display-1 max-w-5xl">
-              The operating system <br />
-              your business has been{" "}
-              <span className="accent-underline">running without.</span>
-            </h1>
-            <p className="mt-8 max-w-2xl text-lg text-muted-foreground lg:text-xl">
-              Project intelligence, AI assistants, client portals, and media — engineered
-              into one connected system you actually run your company from.
-            </p>
-            <div className="mt-10 flex flex-wrap items-center gap-4">
-              <a
-                href="https://calendly.com/vektiss-info/30-minute-vektiss-discovery"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex h-12 items-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
-              >
-                Book a strategy call
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-              </a>
-              <Link
-                to="/how-we-work"
-                className="inline-flex h-12 items-center gap-2 rounded-md border border-border px-6 text-sm font-medium text-foreground transition-colors hover:bg-muted"
-              >
-                See how we work
-              </Link>
+            <div className="rounded-2xl border border-border bg-white p-10 shadow-card lg:p-14">
+              <p className="eyebrow">For growth-stage operator-owners</p>
+              <h1 className="mt-6 display-1 max-w-5xl">
+                The operating system <br />
+                your business has been{" "}
+                <span className="accent-underline">running without.</span>
+              </h1>
+              <p className="mt-8 max-w-2xl text-lg text-muted-foreground lg:text-xl">
+                Project intelligence, AI assistants, client portals, and media — engineered
+                into one connected system you actually run your company from.
+              </p>
+              <div className="mt-10 flex flex-wrap items-center gap-4">
+                <a
+                  href="https://calendly.com/vektiss-info/30-minute-vektiss-discovery"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex h-12 items-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+                >
+                  Book a strategy call
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                </a>
+                <Link
+                  to="/how-we-work"
+                  className="inline-flex h-12 items-center gap-2 rounded-md border border-border px-6 text-sm font-medium text-foreground transition-colors hover:bg-muted"
+                >
+                  See how we work
+                </Link>
+              </div>
             </div>
           </div>
         </div>
