@@ -85,7 +85,7 @@ function Feature({
 }) {
   return (
     <li className="flex gap-4 border-t border-border pt-5">
-      <span className="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-foreground text-background">
+      <span className="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground">
         {icon}
       </span>
       <div>
