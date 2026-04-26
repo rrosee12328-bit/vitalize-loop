@@ -138,12 +138,12 @@ function HomePage() {
           <div className="container-editorial relative w-full pt-28 pb-20">
             <p className="eyebrow">For growth-stage operator-owners</p>
             <h1 className="mt-6 display-1">
-              Stop running your business on{" "}
-              <span className="accent-underline">duct-taped tools.</span>
+              The operating system your business has been{" "}
+              <span className="accent-underline">running without.</span>
             </h1>
             <p className="mt-8 max-w-2xl text-lg text-foreground/80">
-              Vektiss is the systems company for growth-stage businesses. We build the
-              connected operating infrastructure that runs your company — so you can lead it.
+              Project intelligence, AI assistants, client portals, and media — engineered
+              into one connected system you actually run your company from.
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-4">
               <a
@@ -185,12 +185,13 @@ function HomePage() {
           <div className="container-editorial pt-16 pb-24 lg:pt-20 lg:pb-32">
             <p className="eyebrow">For growth-stage operator-owners</p>
             <h1 className="mt-6 display-1 max-w-5xl">
-              Stop running your business <br />
-              on <span className="accent-underline">duct-taped tools.</span>
+              The operating system <br />
+              your business has been{" "}
+              <span className="accent-underline">running without.</span>
             </h1>
             <p className="mt-8 max-w-2xl text-lg text-muted-foreground lg:text-xl">
-              Vektiss is the systems company for growth-stage businesses. We build the
-              connected operating infrastructure that runs your company — so you can lead it.
+              Project intelligence, AI assistants, client portals, and media — engineered
+              into one connected system you actually run your company from.
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-4">
               <a
