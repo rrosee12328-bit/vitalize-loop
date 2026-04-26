@@ -61,8 +61,8 @@ function PrivacyPage() {
           <Section title="Contact">
             <p className="text-muted-foreground">
               Questions about this policy? Email{" "}
-              <a className="font-medium text-foreground underline-offset-4 hover:underline" href="mailto:hello@vektiss.com">
-                hello@vektiss.com
+              <a className="font-medium text-foreground underline-offset-4 hover:underline" href="mailto:info@vektiss.com">
+                info@vektiss.com
               </a>
               .
             </p>

@@ -33,8 +33,8 @@ const channels = [
     Icon: Mail,
     label: "Email the team",
     body: "Prefer to send a note first? We respond within one business day.",
-    cta: "hello@vektiss.com",
-    href: "mailto:hello@vektiss.com",
+    cta: "info@vektiss.com",
+    href: "mailto:info@vektiss.com",
   },
   {
     Icon: MapPin,
