@@ -44,7 +44,7 @@ const pillars = [
   },
   {
     no: "03",
-    name: "Websites, Portals & Client Systems",
+    name: "Websites, Portals, Client Systems & Apps",
     desc: "A digital front door that actually works — built to capture leads, serve clients, and support operations.",
     Icon: Globe,
   },
