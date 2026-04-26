@@ -147,7 +147,7 @@ function FallbackPanel() {
         href={SCHEDULER_URL}
         target="_blank"
         rel="noreferrer"
-        className="mt-8 inline-flex h-11 items-center rounded-md bg-foreground px-6 text-sm font-medium text-background transition-opacity hover:opacity-90"
+        className="mt-8 inline-flex h-11 items-center rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
       >
         Open scheduler
       </a>
