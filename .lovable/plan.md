@@ -1,79 +1,71 @@
-## Vektiss — Marketing Site + Strategy Call Booking
+## Goal
 
-A light, editorial-style marketing site positioning Vektiss as a "systems company" for operator-owners, with a qualifying lead form that triggers a confirmation email containing a scheduling link.
-
----
-
-### Pages (separate routes for SEO + per-page social previews)
-
-1. **Home (`/`)** — Hero with sharp positioning, problem-recognition section, four-pillars overview, social proof strip, primary CTA to book a call.
-2. **How We Work (`/how-we-work`)** — Deep dive on the integrated systems approach vs. siloed tools; explains the four pillars working together.
-3. **Case Studies (`/case-studies`)** — Results-led case study cards (placeholder until you provide content).
-4. **About (`/about`)** — Positioning as a systems company, founder/team, philosophy.
-5. **Book a Strategy Call (`/book`)** — The qualifying form (name, company, email, role, primary challenge, revenue range).
-6. **Confirmation (`/book/confirmed`)** — "Check your inbox" page after submission.
-7. **Privacy (`/privacy`)** and **Terms (`/terms`)** — Compliance basics.
-
-A persistent header with nav + a "Book a strategy call" button, and a footer with company info, nav, and legal links.
+Make the homepage hero feel like the video IS the experience — not a boxed iframe sitting inside a container. On desktop, it goes full-bleed cinematic with the headline + CTAs overlaid. On mobile, swap to a 9:16 vertical version that fills the screen so it feels native to phone viewing.
 
 ---
 
-### Design system (light, premium, editorial)
+## 1. Render a new 9:16 vertical video with Remotion
 
-- **Background**: warm off-white (`#FAFAF7`)
-- **Foreground**: near-black (`#0A0A0A`) for strong editorial contrast
-- **Accent**: a single saturated accent for CTAs and key highlights (default proposal: a confident warm orange `#FF5B2E` — easy to swap)
-- **Muted/borders**: subtle warm grays
-- **Typography**: Inter for everything (400/500/600/700), tight tracking on headlines, generous body line-height. JetBrains Mono for small label/eyebrow text and metrics.
-- **Layout**: wide editorial whitespace, large display headlines, asymmetric section layouts where appropriate, subtle hover states only.
-- **Components**: shadcn/ui buttons (rounded-md), bordered cards with quiet shadows, clean form inputs with label-above pattern and accessible focus rings.
-- All tokens defined as CSS variables in `styles.css` so the accent and surfaces are easy to retune.
+The existing Remotion project (`remotion/`) only has a 1920×1080 horizontal composition. I'll add a parallel vertical composition.
 
----
+**Changes in `remotion/`:**
+- Add a new `MainVideoVertical.tsx` that re-uses the same scenes (`SceneHook`, `ScenePillarSolo`, `SceneAllPillars`, `SceneClose`) but tuned for 1080×1920 — adjusted padding, type sizes, and HUD positioning so nothing clips on a portrait canvas.
+- Register a second `<Composition id="main-vertical" width={1080} height={1920} ...>` in `Root.tsx`.
+- Render it via the existing `scripts/render-remotion.mjs` (parameterized to take a composition id) → output to `/mnt/documents/vektiss-hero-vertical.mp4`.
+- Hand you the file as a `<lov-artifact>` so you can upload it to Bunny.net (library 600055), then paste the new embed URL back to me. I'll wire it in.
 
-### Booking flow
+> Note: I can't upload directly to Bunny.net from the sandbox — you'll need to drop the rendered MP4 into your Bunny library and share the new iframe embed URL. Takes ~30 seconds on your end.
 
-1. Visitor clicks any "Book a strategy call" CTA → lands on `/book`.
-2. Form fields: name, company, work email, role, company stage/revenue range, primary operational challenge (textarea), how they heard about Vektiss (optional).
-3. Client-side validation with Zod (required fields, email format, length limits).
-4. Submission stores the request in a `strategy_call_requests` Supabase table.
-5. Server-side trigger sends two emails via Lovable's built-in email infrastructure:
-   - **To the visitor**: branded confirmation with a personal note and a scheduling link (a single configurable URL — e.g. your Cal.com or Calendly — stored in an env var so you can change it without a redeploy).
-   - **To you (Vektiss)**: a notification with the full submission so you can prep before the call.
-6. Visitor is redirected to `/book/confirmed` with clear next-steps copy.
+## 2. Rebuild the hero as full-bleed cinematic
 
-No public auth, no user accounts. Lead data is admin-only (RLS locks the table; only service role can read/write).
+**File: `src/routes/index.tsx`**
 
----
+Replace the current contained-iframe hero with a true full-bleed section:
 
-### Backend (Lovable Cloud)
+- Hero section becomes `relative min-h-[90vh] md:min-h-screen` with the video as an absolutely-positioned background layer (`absolute inset-0 -z-10`).
+- Break out of `container-editorial` for the video layer so it spans edge-to-edge of the viewport, while the text content stays inside the editorial container for readability.
+- Add a gradient overlay (`bg-gradient-to-b from-background/40 via-background/20 to-background`) over the video so the headline text stays legible regardless of video content.
+- Eyebrow, H1, subhead, and the two CTA buttons sit on top of the video, vertically centered.
+- Stats strip moves below the hero, on solid background (keeps it readable).
 
-- **Table**: `strategy_call_requests` (id, name, company, email, role, stage, challenge, source, created_at, status).
-- **RLS**: insert allowed via the server route only; no public read. No client-side direct writes — submission goes through a server route that validates input, inserts the row, and enqueues the two emails.
-- **Email**: Lovable's built-in transactional email system (no Resend account needed). Two templates:
-  - `strategy-call-confirmation` (to visitor, includes scheduling link).
-  - `strategy-call-internal-notification` (to your inbox, includes form details).
-- **Scheduling URL**: stored as an env var (e.g. `SCHEDULING_URL`) so swapping providers is one config change.
+## 3. Responsive video swap (desktop horizontal / mobile vertical)
 
----
+Render two iframes, toggle visibility via Tailwind:
 
-### Content
+```tsx
+{/* Desktop: 16:9 horizontal */}
+<iframe
+  src="https://iframe.mediadelivery.net/embed/600055/130db0d6-...?autoplay=true&loop=true&muted=true&preload=true"
+  className="absolute inset-0 hidden h-full w-full object-cover md:block"
+  ...
+/>
+{/* Mobile: 9:16 vertical */}
+<iframe
+  src="https://iframe.mediadelivery.net/embed/600055/<NEW_VERTICAL_ID>?autoplay=true&loop=true&muted=true&preload=true"
+  className="absolute inset-0 block h-full w-full object-cover md:hidden"
+  ...
+/>
+```
 
-I'll write strong placeholder copy aligned with the "systems company" positioning, four pillars (Project Intelligence, AI Assistants, etc.), and operator-owner pain points. You'll edit/replace it once the site is live. Case studies and testimonials use realistic placeholder structures (logo slots, metric, quote) ready for you to drop real content into.
+Both wrapped so they cover their parent (no letterboxing on either orientation). Mobile gets the portrait crop that fills the phone screen end-to-end.
 
----
+## 4. Move the HeroMockup dashboard down
 
-### Compliance basics included
+Since the video now owns the hero, the static `HeroMockup` dashboard component becomes redundant up top. I'll either:
+- Drop it into the "A closer look" deep-dive section (still useful as product demonstration), or
+- Remove it from `index.tsx` entirely (it's also re-used implicitly via the deep-dive mockups).
 
-- Cookie/analytics banner stub (no analytics wired by default — can be added later).
-- Privacy and Terms pages with sensible boilerplate you'll review with counsel.
-- Form: explicit consent checkbox for processing the submission and follow-up contact.
-- Accessibility: semantic HTML, keyboard-navigable nav and forms, visible focus rings, AA contrast.
+Default: remove from hero, leave the deep-dive section as-is.
 
----
+## What you'll need to do
 
-### Explicitly out of scope for v1
+1. Approve this plan.
+2. After I render, I'll send you `vektiss-hero-vertical.mp4`. Upload it to your Bunny.net library 600055.
+3. Paste the new video ID/embed URL to me — I'll plug it into the mobile iframe in 30 seconds.
 
-- Auth, dashboards, client portal, bookings/events tables (deferred per your scope choice).
-- Analytics integration (PostHog/GA), AI assistant integrations, Cloudinary — easy to add later.
-- Embedded scheduler — using a link in the confirmation email instead, per your choice.
+## Files touched
+
+- `remotion/src/MainVideoVertical.tsx` (new)
+- `remotion/src/Root.tsx` (add vertical composition)
+- `remotion/scripts/render-remotion.mjs` (accept composition id arg)
+- `src/routes/index.tsx` (full-bleed hero, dual iframes)
