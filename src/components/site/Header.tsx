@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { BarChart3, Bot, ChevronDown, Globe, Menu, Video, X } from "lucide-react";
+import { VektissLogo } from "./VektissLogo";
 
 const navItems = [
   { to: "/how-we-work", label: "How we work" },
@@ -43,9 +44,8 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur">
       <div className="container-editorial flex h-16 items-center justify-between">
-        <Link to="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
-          <span className="font-mono text-xs tracking-widest text-foreground">VEKTISS</span>
-          <span className="h-1.5 w-1.5 rounded-full bg-primary" aria-hidden />
+        <Link to="/" className="flex items-center" onClick={() => setOpen(false)} aria-label="Vektiss home">
+          <VektissLogo className="h-7 w-auto md:h-8" />
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
