@@ -43,12 +43,12 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur">
-      <div className="container-editorial flex h-28 items-center justify-between">
+      <div className="container-editorial flex h-24 items-center justify-between lg:h-28">
         <Link to="/" className="flex items-center" onClick={() => setOpen(false)} aria-label="Vektiss home">
-          <VektissLogo className="h-20 w-auto md:h-24" />
+          <VektissLogo className="h-16 w-auto lg:h-24" />
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-6 lg:flex xl:gap-8">
           {/* Solutions dropdown */}
           <div
             className="relative"
@@ -111,8 +111,8 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden md:block">
-          <a href="https://calendly.com/vektiss-info/30-minute-vektiss-discovery" target="_blank" rel="noopener noreferrer" className="inline-flex h-9 items-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+        <div className="hidden lg:block">
+          <a href="https://calendly.com/vektiss-info/30-minute-vektiss-discovery" target="_blank" rel="noopener noreferrer" className="inline-flex h-9 items-center whitespace-nowrap rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
           >
             Book a strategy call
           </a>
@@ -122,15 +122,15 @@ export function Header() {
           type="button"
           aria-label="Toggle menu"
           aria-expanded={open}
-          className="md:hidden inline-flex h-9 w-9 items-center justify-center rounded-md border border-border"
+          className="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-md border border-border"
           onClick={() => setOpen((v) => !v)}
         >
-          {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
 
       {open && (
-        <div className="md:hidden border-t border-border bg-background">
+        <div className="lg:hidden border-t border-border bg-background">
           <div className="container-editorial flex flex-col gap-1 py-4">
             <p className="px-2 pt-2 pb-1 text-[10px] font-mono uppercase tracking-widest text-muted-foreground">
               Solutions
