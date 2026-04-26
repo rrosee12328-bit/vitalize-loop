@@ -94,9 +94,10 @@ function SolutionsPage() {
       <section className="container-editorial pb-24 md:pb-32">
         <div className="grid gap-6 md:grid-cols-2">
           {solutions.map(({ no, to, name, Icon, headline, desc, bullets }) => (
-            <article
+            <Link
               key={no}
-              className="group flex flex-col rounded-xl border border-border bg-white p-8 shadow-card transition-shadow hover:shadow-md md:p-10"
+              to={to}
+              className="group flex flex-col rounded-xl border border-border bg-white p-8 shadow-card transition-all hover:shadow-md hover:border-primary/40 hover:-translate-y-0.5 md:p-10"
             >
               <div className="flex items-start justify-between">
                 <span className="font-mono text-xs tracking-widest text-primary">{no}</span>
@@ -116,15 +117,12 @@ function SolutionsPage() {
                 ))}
               </ul>
               <div className="mt-auto pt-6">
-                <Link
-                  to={to}
-                  className="group/cta inline-flex items-center gap-1.5 text-sm font-medium text-primary"
-                >
+                <span className="inline-flex items-center gap-1.5 text-sm font-medium text-primary">
                   Explore {name}
-                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/cta:translate-x-0.5" />
-                </Link>
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                </span>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
       </section>
