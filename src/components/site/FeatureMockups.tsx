@@ -1,4 +1,4 @@
-import { Phone, Play, Sparkles, Video } from "lucide-react";
+import { Globe, Phone, Play, Sparkles, Users, Video } from "lucide-react";
 
 function Frame({ title, children }: { title: string; children: React.ReactNode }) {
   return (
