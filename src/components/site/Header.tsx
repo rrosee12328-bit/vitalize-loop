@@ -45,7 +45,7 @@ export function Header() {
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur">
       <div className="container-editorial flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center" onClick={() => setOpen(false)} aria-label="Vektiss home">
-          <VektissLogo className="h-7 w-auto md:h-8" />
+          <VektissLogo className="h-11 w-auto md:h-14" />
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
