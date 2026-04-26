@@ -63,24 +63,28 @@ const pillars = [
 const deepDives = [
   {
     eyebrow: "01 · Project Intelligence",
+    to: "/solutions/project-intelligence" as const,
     title: "Project management with AI built into the workflow.",
     body: "Instead of scattered updates across emails and spreadsheets, get a shared system where AI summarizes progress, flags next steps, and keeps leadership informed.",
     Mockup: ProjectMockup,
   },
   {
     eyebrow: "02 · AI Assistants",
+    to: "/solutions/ai-assistants" as const,
     title: "Never let slow communication cost you another lead.",
     body: "AI assistants qualify requests, answer common questions, summarize conversations, and route priority moments to the right person instantly.",
     Mockup: AssistantMockup,
   },
   {
     eyebrow: "03 · Websites, Portals, Client Systems & Apps",
+    to: "/solutions/websites-portals-apps" as const,
     title: "A digital front door — and the systems behind it.",
     body: "Marketing site, client portal, and internal apps built as one connected experience. Capture leads, onboard clients, and run delivery without bolting on another tool.",
     Mockup: PortalMockup,
   },
   {
     eyebrow: "04 · Business Media",
+    to: "/solutions/business-media" as const,
     title: "Turn your expertise into income-producing assets.",
     body: "We help shape video, founder-led content, and AI avatar assets so your expertise, proof, and process become visible at scale.",
     Mockup: MediaMockup,
