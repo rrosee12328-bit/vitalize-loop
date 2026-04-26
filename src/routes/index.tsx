@@ -28,21 +28,25 @@ const pillars = [
     no: "01",
     name: "Project Intelligence",
     desc: "Real-time visibility into every initiative. The CEO dashboard you've never had.",
+    Icon: BarChart3,
   },
   {
     no: "02",
     name: "AI Assistants",
     desc: "Embedded AI that follows up leads, drafts replies, and removes the bottlenecks.",
+    Icon: Bot,
   },
   {
     no: "03",
     name: "Revenue Operations",
     desc: "Sales, marketing, and delivery on one connected pipeline. No more cold leads.",
+    Icon: GitBranch,
   },
   {
     no: "04",
     name: "Operating Systems",
     desc: "The processes, dashboards, and automations that turn your team into a system.",
+    Icon: Workflow,
   },
 ];
 
