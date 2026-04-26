@@ -78,6 +78,12 @@ const solutions = [
 ];
 
 function SolutionsPage() {
+  const location = useLocation();
+
+  if (location.pathname !== "/solutions") {
+    return <Outlet />;
+  }
+
   return (
     <SiteLayout>
       <section className="container-editorial pt-20 pb-16 md:pt-32 md:pb-24">
