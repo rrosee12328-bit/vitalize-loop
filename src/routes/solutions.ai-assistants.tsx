@@ -48,6 +48,37 @@ export const Route = createFileRoute("/solutions/ai-assistants")({
           desc: "When a human is needed, the right person gets pinged with the full context, not a cold hand-off.",
         },
       ]}
+      deepDive={[
+        {
+          title: "Phone coverage that feels trained on your business",
+          desc: "The assistant answers inbound calls with your service context, qualifying logic, tone, routing rules, and booking process so callers get a useful response instead of a generic bot experience.",
+        },
+        {
+          title: "Email intake that removes repetitive admin work",
+          desc: "Inbound messages are classified, summarized, prioritized, and drafted so your team can approve the right response quickly while still keeping control over sensitive conversations.",
+        },
+        {
+          title: "Escalation rules that protect the customer experience",
+          desc: "High-intent leads, urgent support issues, edge cases, and VIP conversations are routed to the right person with context, transcript, summary, and recommended next action.",
+        },
+      ]}
+      implementation={[
+        {
+          phase: "01",
+          title: "Audit communication flows",
+          desc: "We map call types, email categories, lead qualification criteria, escalation paths, and common questions.",
+        },
+        {
+          phase: "02",
+          title: "Train and configure assistants",
+          desc: "We build the scripts, knowledge base, routing logic, inbox workflow, approval steps, and booking handoffs.",
+        },
+        {
+          phase: "03",
+          title: "Launch with guardrails",
+          desc: "We test real scenarios, monitor early conversations, tune responses, and hand your team a reliable operating process.",
+        },
+      ]}
       outcomes={[
         "Cut response time from hours to under a minute.",
         "Stop losing leads to faster competitors and after-hours gaps.",

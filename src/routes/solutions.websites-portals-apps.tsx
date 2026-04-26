@@ -48,6 +48,37 @@ export const Route = createFileRoute("/solutions/websites-portals-apps")({
           desc: "Site, portal, and apps share one data layer — leads, clients, and projects flow without manual re-entry.",
         },
       ]}
+      deepDive={[
+        {
+          title: "A website that explains the business, not just a landing page",
+          desc: "We build a polished web presence with clear service architecture, credible proof, strong navigation, and content depth so visitors can understand what you do without being pushed through a generic funnel.",
+        },
+        {
+          title: "Client systems that make delivery feel premium",
+          desc: "Portals give clients a central place to view progress, submit information, access documents, approve work, and communicate with your team instead of relying on scattered email threads.",
+        },
+        {
+          title: "Apps that replace fragile internal workflows",
+          desc: "We turn the operational pieces currently living in spreadsheets, forms, and disconnected tools into clean internal apps with permissions, status tracking, automations, and shared data.",
+        },
+      ]}
+      implementation={[
+        {
+          phase: "01",
+          title: "Define the site and system map",
+          desc: "We map audiences, conversion paths, client workflows, internal processes, integrations, and the data that needs to move between them.",
+        },
+        {
+          phase: "02",
+          title: "Design and build the connected experience",
+          desc: "We create the marketing site, portal views, app workflows, database structure, and automations as one cohesive system.",
+        },
+        {
+          phase: "03",
+          title: "Deploy, train, and improve",
+          desc: "We launch the experience, onboard your team, review user behavior, and refine the system around real client and operator usage.",
+        },
+      ]}
       outcomes={[
         "One platform replaces 4–6 disconnected tools.",
         "Clients get a real portal — not a Drive folder.",
