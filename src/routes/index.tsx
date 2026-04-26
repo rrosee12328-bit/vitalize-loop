@@ -142,11 +142,11 @@ function HomePage() {
         {/* Legibility overlays */}
         <div
           aria-hidden
-          className="absolute inset-0 -z-10 bg-gradient-to-b from-background/70 via-background/40 to-background"
+          className="absolute inset-0 -z-10 bg-gradient-to-b from-background/40 via-background/10 via-60% to-background"
         />
         <div
           aria-hidden
-          className="absolute inset-0 -z-10 bg-gradient-to-r from-background/80 via-background/40 to-transparent"
+          className="absolute inset-0 -z-10 bg-gradient-to-r from-background/70 via-background/30 to-transparent md:from-background/60 md:via-transparent"
         />
 
         <div className="container-editorial relative w-full pt-28 pb-20 md:pt-36 md:pb-32">
