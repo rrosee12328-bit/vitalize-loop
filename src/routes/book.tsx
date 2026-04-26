@@ -85,7 +85,7 @@ function Feature({
 }) {
   return (
     <li className="flex gap-4 border-t border-border pt-5">
-      <span className="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-foreground text-background">
+      <span className="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground">
         {icon}
       </span>
       <div>
@@ -147,7 +147,7 @@ function FallbackPanel() {
         href={SCHEDULER_URL}
         target="_blank"
         rel="noreferrer"
-        className="mt-8 inline-flex h-11 items-center rounded-md bg-foreground px-6 text-sm font-medium text-background transition-opacity hover:opacity-90"
+        className="mt-8 inline-flex h-11 items-center rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
       >
         Open scheduler
       </a>

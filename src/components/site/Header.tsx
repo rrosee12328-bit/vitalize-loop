@@ -35,7 +35,7 @@ export function Header() {
         <div className="hidden md:block">
           <Link
             to="/book"
-            className="inline-flex h-9 items-center rounded-md bg-foreground px-4 text-sm font-medium text-background transition-opacity hover:opacity-90"
+            className="inline-flex h-9 items-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
           >
             Book a strategy call
           </Link>
@@ -67,7 +67,7 @@ export function Header() {
             ))}
             <Link
               to="/book"
-              className="mt-2 inline-flex h-10 items-center justify-center rounded-md bg-foreground px-4 text-sm font-medium text-background"
+              className="mt-2 inline-flex h-10 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground"
               onClick={() => setOpen(false)}
             >
               Book a strategy call

@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight, BarChart3, Bot, GitBranch, Workflow } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
+import { HeroMockup } from "@/components/site/HeroMockup";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -27,21 +28,25 @@ const pillars = [
     no: "01",
     name: "Project Intelligence",
     desc: "Real-time visibility into every initiative. The CEO dashboard you've never had.",
+    Icon: BarChart3,
   },
   {
     no: "02",
     name: "AI Assistants",
     desc: "Embedded AI that follows up leads, drafts replies, and removes the bottlenecks.",
+    Icon: Bot,
   },
   {
     no: "03",
     name: "Revenue Operations",
     desc: "Sales, marketing, and delivery on one connected pipeline. No more cold leads.",
+    Icon: GitBranch,
   },
   {
     no: "04",
     name: "Operating Systems",
     desc: "The processes, dashboards, and automations that turn your team into a system.",
+    Icon: Workflow,
   },
 ];
 
@@ -70,7 +75,7 @@ function HomePage() {
         <div className="mt-10 flex flex-wrap items-center gap-4">
           <Link
             to="/book"
-            className="group inline-flex h-12 items-center gap-2 rounded-md bg-foreground px-6 text-sm font-medium text-background transition-opacity hover:opacity-90"
+            className="group inline-flex h-12 items-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
           >
             Book a strategy call
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -81,6 +86,10 @@ function HomePage() {
           >
             See how we work
           </Link>
+        </div>
+
+        <div className="mt-16 md:mt-20">
+          <HeroMockup />
         </div>
 
         <div className="mt-20 grid gap-x-12 gap-y-6 border-t border-border pt-10 sm:grid-cols-3">
@@ -134,17 +143,23 @@ function HomePage() {
           </p>
         </div>
 
-        <div className="mt-16 grid gap-px overflow-hidden rounded-xl border border-border bg-border md:grid-cols-2">
-          {pillars.map((p) => (
-            <article key={p.no} className="bg-background p-8 md:p-10">
+        <div className="mt-16 grid gap-6 md:grid-cols-2">
+          {pillars.map(({ no, name, desc, Icon }) => (
+            <article
+              key={no}
+              className="group rounded-xl border border-border bg-white p-8 shadow-card transition-shadow hover:shadow-md md:p-10"
+            >
               <div className="flex items-start justify-between">
-                <span className="font-mono text-xs tracking-widest text-muted-foreground">
-                  {p.no}
+                <span className="font-mono text-xs tracking-widest text-primary">
+                  {no}
                 </span>
-                <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
               </div>
-              <h3 className="mt-6 text-2xl font-semibold tracking-tight">{p.name}</h3>
-              <p className="mt-3 text-muted-foreground">{p.desc}</p>
+              <div className="mt-6 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                <Icon className="h-5 w-5" />
+              </div>
+              <h3 className="mt-5 text-2xl font-semibold tracking-tight">{name}</h3>
+              <p className="mt-3 text-muted-foreground">{desc}</p>
             </article>
           ))}
         </div>
@@ -191,7 +206,7 @@ function HomePage() {
           <div className="md:col-span-4 md:text-right">
             <Link
               to="/book"
-              className="group inline-flex h-12 items-center gap-2 rounded-md bg-foreground px-6 text-sm font-medium text-background transition-opacity hover:opacity-90"
+              className="group inline-flex h-12 items-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
             >
               Book a strategy call
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
