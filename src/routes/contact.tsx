@@ -39,8 +39,8 @@ const channels = [
   {
     Icon: MapPin,
     label: "Where we work",
-    body: "Remote-first across North America and Europe. We meet on-site for kickoffs when it matters.",
-    cta: "Remote-first",
+    body: "525 North Sam Houston Pkwy East, Suite 415, Houston, TX 77060.",
+    cta: "Houston, TX",
   },
 ];
 
