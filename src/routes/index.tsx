@@ -226,6 +226,88 @@ function HomePage() {
         </div>
       </section>
 
+      {/* FEATURE DEEP-DIVE */}
+      <section className="border-t border-border bg-surface-elevated">
+        <div className="container-editorial py-24 md:py-32">
+          <div className="max-w-3xl">
+            <p className="eyebrow">A closer look</p>
+            <h2 className="mt-6 display-2">
+              See the systems in <span className="accent-underline">action.</span>
+            </h2>
+          </div>
+
+          <div className="mt-20 space-y-24 md:space-y-32">
+            {deepDives.map(({ eyebrow, title, body, Mockup }, i) => {
+              const reverse = i % 2 === 1;
+              return (
+                <div
+                  key={eyebrow}
+                  className="grid items-center gap-10 md:grid-cols-12 md:gap-16"
+                >
+                  <div
+                    className={`md:col-span-5 ${reverse ? "md:order-2 md:col-start-8" : ""}`}
+                  >
+                    <p className="eyebrow text-primary">{eyebrow}</p>
+                    <h3 className="mt-5 text-3xl font-semibold tracking-tight md:text-4xl">
+                      {title}
+                    </h3>
+                    <p className="mt-5 text-base text-muted-foreground md:text-lg">{body}</p>
+                    <Link
+                      to="/how-we-work"
+                      className="group mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-primary"
+                    >
+                      Learn more
+                      <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                    </Link>
+                  </div>
+                  <div
+                    className={`md:col-span-7 ${reverse ? "md:order-1 md:col-start-1" : ""}`}
+                  >
+                    <Mockup />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* HOW IT WORKS · 3-STEP PROCESS */}
+      <section className="container-editorial py-24 md:py-32">
+        <div className="max-w-3xl">
+          <p className="eyebrow">How it works</p>
+          <h2 className="mt-6 display-2">
+            From idea to <span className="accent-underline">implemented system.</span>
+          </h2>
+        </div>
+
+        <ol className="mt-16 grid gap-6 md:grid-cols-3">
+          {steps.map((step, i) => (
+            <li
+              key={step.no}
+              className="relative rounded-xl border border-border bg-white p-8 shadow-card"
+            >
+              <div className="flex items-baseline justify-between">
+                <span className="font-mono text-xs tracking-widest text-primary">
+                  STEP {step.no}
+                </span>
+                <span className="font-mono text-5xl font-semibold tracking-tight text-primary/15">
+                  {step.no}
+                </span>
+              </div>
+              <h3 className="mt-6 text-2xl font-semibold tracking-tight">{step.name}</h3>
+              <p className="mt-3 text-muted-foreground">{step.desc}</p>
+              {i < steps.length - 1 && (
+                <ArrowRight
+                  aria-hidden
+                  className="absolute -right-3 top-1/2 hidden h-5 w-5 -translate-y-1/2 text-border md:block"
+                />
+              )}
+            </li>
+          ))}
+        </ol>
+      </section>
+
       {/* SOCIAL PROOF / QUOTE */}
       <section className="border-y border-border bg-surface-elevated">
         <div className="container-editorial py-24 md:py-28">
