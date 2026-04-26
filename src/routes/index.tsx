@@ -143,17 +143,23 @@ function HomePage() {
           </p>
         </div>
 
-        <div className="mt-16 grid gap-px overflow-hidden rounded-xl border border-border bg-border md:grid-cols-2">
-          {pillars.map((p) => (
-            <article key={p.no} className="bg-background p-8 md:p-10">
+        <div className="mt-16 grid gap-6 md:grid-cols-2">
+          {pillars.map(({ no, name, desc, Icon }) => (
+            <article
+              key={no}
+              className="group rounded-xl border border-border bg-white p-8 shadow-card transition-shadow hover:shadow-md md:p-10"
+            >
               <div className="flex items-start justify-between">
-                <span className="font-mono text-xs tracking-widest text-muted-foreground">
-                  {p.no}
+                <span className="font-mono text-xs tracking-widest text-primary">
+                  {no}
                 </span>
-                <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
               </div>
-              <h3 className="mt-6 text-2xl font-semibold tracking-tight">{p.name}</h3>
-              <p className="mt-3 text-muted-foreground">{p.desc}</p>
+              <div className="mt-6 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                <Icon className="h-5 w-5" />
+              </div>
+              <h3 className="mt-5 text-2xl font-semibold tracking-tight">{name}</h3>
+              <p className="mt-3 text-muted-foreground">{desc}</p>
             </article>
           ))}
         </div>
