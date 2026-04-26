@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, Outlet, useLocation } from "@tanstack/react-router";
 import { ArrowRight, BarChart3, Bot, Globe, Video } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 
@@ -78,6 +78,12 @@ const solutions = [
 ];
 
 function SolutionsPage() {
+  const location = useLocation();
+
+  if (location.pathname !== "/solutions") {
+    return <Outlet />;
+  }
+
   return (
     <SiteLayout>
       <section className="container-editorial pt-20 pb-16 md:pt-32 md:pb-24">
