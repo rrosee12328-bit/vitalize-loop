@@ -120,7 +120,7 @@ function HomePage() {
   return (
     <SiteLayout>
       {/* HERO — full-bleed cinematic video with overlaid copy */}
-      <section className="relative isolate flex min-h-[92vh] w-full items-center overflow-hidden md:min-h-[88vh]">
+      <section className="relative isolate flex min-h-[92vh] w-full items-center overflow-hidden md:min-h-screen md:items-end">
         {/* Background video — desktop (16:9) */}
         <iframe
           src="https://iframe.mediadelivery.net/embed/600055/130db0d6-305b-4bed-8517-7cd5d839b9cd?autoplay=true&loop=true&muted=true&preload=true&responsive=true"
