@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight, BarChart3, Bot, GitBranch, Workflow } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
+import { HeroMockup } from "@/components/site/HeroMockup";
 
 export const Route = createFileRoute("/")({
   head: () => ({
