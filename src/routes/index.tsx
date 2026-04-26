@@ -5,6 +5,7 @@ import { HeroMockup } from "@/components/site/HeroMockup";
 import {
   ProjectMockup,
   AssistantMockup,
+  PortalMockup,
   MediaMockup,
 } from "@/components/site/FeatureMockups";
 
@@ -67,6 +68,12 @@ const deepDives = [
     title: "Never let slow communication cost you another lead.",
     body: "AI assistants qualify requests, answer common questions, summarize conversations, and route priority moments to the right person instantly.",
     Mockup: AssistantMockup,
+  },
+  {
+    eyebrow: "03 · Websites, Portals & Client Systems",
+    title: "A digital front door — and the systems behind it.",
+    body: "Marketing site, client portal, and internal apps built as one connected experience. Capture leads, onboard clients, and run delivery without bolting on another tool.",
+    Mockup: PortalMockup,
   },
   {
     eyebrow: "04 · Business Media",
