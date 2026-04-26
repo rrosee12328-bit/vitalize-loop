@@ -67,7 +67,7 @@ export function Header() {
             ))}
             <Link
               to="/book"
-              className="mt-2 inline-flex h-10 items-center justify-center rounded-md bg-foreground px-4 text-sm font-medium text-background"
+              className="mt-2 inline-flex h-10 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground"
               onClick={() => setOpen(false)}
             >
               Book a strategy call
