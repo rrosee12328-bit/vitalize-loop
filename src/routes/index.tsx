@@ -70,6 +70,12 @@ const deepDives = [
     Mockup: AssistantMockup,
   },
   {
+    eyebrow: "03 · Websites, Portals & Client Systems",
+    title: "A digital front door — and the systems behind it.",
+    body: "Marketing site, client portal, and internal apps built as one connected experience. Capture leads, onboard clients, and run delivery without bolting on another tool.",
+    Mockup: PortalMockup,
+  },
+  {
     eyebrow: "04 · Business Media",
     title: "Turn your expertise into income-producing assets.",
     body: "We help shape video, founder-led content, and AI avatar assets so your expertise, proof, and process become visible at scale.",
