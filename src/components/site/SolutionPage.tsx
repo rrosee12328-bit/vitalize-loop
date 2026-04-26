@@ -8,6 +8,8 @@ export type SolutionPageProps = {
   lede: string;
   Icon: LucideIcon;
   capabilities: { name: string; desc: string }[];
+  deepDive: { title: string; desc: string }[];
+  implementation: { phase: string; title: string; desc: string }[];
   outcomes: string[];
   builtFor: string[];
   Mockup: React.ComponentType;
