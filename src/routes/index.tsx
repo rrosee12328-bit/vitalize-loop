@@ -136,7 +136,7 @@ function HomePage() {
               aria-hidden
               className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-background"
             />
-            <div className="absolute inset-0 flex items-center justify-center">
+            <div className="absolute inset-x-0 bottom-10 flex justify-center">
               <a
                 href="https://calendly.com/vektiss-info/30-minute-vektiss-discovery"
                 target="_blank"
