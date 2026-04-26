@@ -32,24 +32,28 @@ export const Route = createFileRoute("/")({
 const pillars = [
   {
     no: "01",
+    to: "/solutions/project-intelligence" as const,
     name: "Project Intelligence",
     desc: "Real-time visibility into every initiative, deadline, and decision. The CEO dashboard you've never had.",
     Icon: BarChart3,
   },
   {
     no: "02",
+    to: "/solutions/ai-assistants" as const,
     name: "AI Phone & Email Assistants",
     desc: "Embedded AI that answers calls, follows up leads, drafts replies, and removes communication bottlenecks 24/7.",
     Icon: Bot,
   },
   {
     no: "03",
+    to: "/solutions/websites-portals-apps" as const,
     name: "Websites, Portals, Client Systems & Apps",
     desc: "A digital front door that actually works — built to capture leads, serve clients, and support operations.",
     Icon: Globe,
   },
   {
     no: "04",
+    to: "/solutions/business-media" as const,
     name: "Business Media",
     desc: "Turn your expertise into assets. Short-form video, AI avatars, and content systems that build trust at scale.",
     Icon: Video,
@@ -59,24 +63,28 @@ const pillars = [
 const deepDives = [
   {
     eyebrow: "01 · Project Intelligence",
+    to: "/solutions/project-intelligence" as const,
     title: "Project management with AI built into the workflow.",
     body: "Instead of scattered updates across emails and spreadsheets, get a shared system where AI summarizes progress, flags next steps, and keeps leadership informed.",
     Mockup: ProjectMockup,
   },
   {
     eyebrow: "02 · AI Assistants",
+    to: "/solutions/ai-assistants" as const,
     title: "Never let slow communication cost you another lead.",
     body: "AI assistants qualify requests, answer common questions, summarize conversations, and route priority moments to the right person instantly.",
     Mockup: AssistantMockup,
   },
   {
     eyebrow: "03 · Websites, Portals, Client Systems & Apps",
+    to: "/solutions/websites-portals-apps" as const,
     title: "A digital front door — and the systems behind it.",
     body: "Marketing site, client portal, and internal apps built as one connected experience. Capture leads, onboard clients, and run delivery without bolting on another tool.",
     Mockup: PortalMockup,
   },
   {
     eyebrow: "04 · Business Media",
+    to: "/solutions/business-media" as const,
     title: "Turn your expertise into income-producing assets.",
     body: "We help shape video, founder-led content, and AI avatar assets so your expertise, proof, and process become visible at scale.",
     Mockup: MediaMockup,
@@ -195,9 +203,10 @@ function HomePage() {
         </div>
 
         <div className="mt-16 grid gap-6 md:grid-cols-2">
-          {pillars.map(({ no, name, desc, Icon }) => (
-            <article
+          {pillars.map(({ no, to, name, desc, Icon }) => (
+            <Link
               key={no}
+              to={to}
               className="group rounded-xl border border-border bg-white p-8 shadow-card transition-shadow hover:shadow-md md:p-10"
             >
               <div className="flex items-start justify-between">
@@ -211,14 +220,11 @@ function HomePage() {
               </div>
               <h3 className="mt-5 text-2xl font-semibold tracking-tight">{name}</h3>
               <p className="mt-3 text-muted-foreground">{desc}</p>
-              <Link
-                to="/how-we-work"
-                className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-colors hover:text-primary/80"
-              >
-                Learn more
+              <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-colors group-hover:text-primary/80">
+                Open solution page
                 <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
-              </Link>
-            </article>
+              </span>
+            </Link>
           ))}
         </div>
 
@@ -244,7 +250,7 @@ function HomePage() {
           </div>
 
           <div className="mt-20 space-y-24 md:space-y-32">
-            {deepDives.map(({ eyebrow, title, body, Mockup }, i) => {
+            {deepDives.map(({ eyebrow, to, title, body, Mockup }, i) => {
               const reverse = i % 2 === 1;
               return (
                 <div
@@ -260,10 +266,10 @@ function HomePage() {
                     </h3>
                     <p className="mt-5 text-base text-muted-foreground md:text-lg">{body}</p>
                     <Link
-                      to="/how-we-work"
+                      to={to}
                       className="group mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-primary"
                     >
-                      Learn more
+                      Open solution page
                       <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                     </Link>
                   </div>

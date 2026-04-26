@@ -94,21 +94,22 @@ function SolutionsPage() {
       <section className="container-editorial pb-24 md:pb-32">
         <div className="grid gap-6 md:grid-cols-2">
           {solutions.map(({ no, to, name, Icon, headline, desc, bullets }) => (
-            <article
+            <Link
               key={no}
-              className="group relative flex flex-col rounded-xl border border-border bg-white p-8 shadow-card transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md md:p-10"
+              to={to}
+              className="group flex flex-col rounded-xl border border-border bg-white p-8 shadow-card transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md md:p-10"
+              aria-label={`Open ${name} solution page`}
             >
-              <Link to={to} className="absolute inset-0 z-0" aria-label={`Explore ${name}`} />
-              <div className="relative z-10 flex items-start justify-between">
+              <div className="flex items-start justify-between">
                 <span className="font-mono text-xs tracking-widest text-primary">{no}</span>
                 <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                   <Icon className="h-5 w-5" />
                 </span>
               </div>
-              <h2 className="relative z-10 mt-6 text-2xl font-semibold tracking-tight">{name}</h2>
-              <p className="relative z-10 mt-2 text-base font-medium text-foreground">{headline}</p>
-              <p className="relative z-10 mt-3 text-muted-foreground">{desc}</p>
-              <ul className="relative z-10 mt-5 space-y-2 text-sm text-muted-foreground">
+              <h2 className="mt-6 text-2xl font-semibold tracking-tight">{name}</h2>
+              <p className="mt-2 text-base font-medium text-foreground">{headline}</p>
+              <p className="mt-3 text-muted-foreground">{desc}</p>
+              <ul className="mt-5 space-y-2 text-sm text-muted-foreground">
                 {bullets.map((b) => (
                   <li key={b} className="flex items-start gap-2">
                     <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-primary" />
@@ -116,16 +117,13 @@ function SolutionsPage() {
                   </li>
                 ))}
               </ul>
-              <div className="relative z-20 mt-auto pt-6">
-                <Link
-                  to={to}
-                  className="inline-flex h-10 items-center gap-1.5 rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
-                >
-                  Explore {name}
+              <span className="mt-auto pt-6">
+                <span className="inline-flex h-10 items-center gap-1.5 rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground transition-opacity group-hover:opacity-90">
+                  Open solution page
                   <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
-                </Link>
-              </div>
-            </article>
+                </span>
+              </span>
+            </Link>
           ))}
         </div>
       </section>
