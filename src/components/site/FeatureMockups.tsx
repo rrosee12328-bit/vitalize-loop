@@ -212,3 +212,116 @@ export function MediaMockup() {
     </Frame>
   );
 }
+
+export function PortalMockup() {
+  const stats = [
+    { k: "Visitors", v: "12.4k", t: "+22%" },
+    { k: "Leads", v: "284", t: "+38%" },
+    { k: "Conv.", v: "4.6%", t: "+0.9" },
+  ];
+  const clients = [
+    { n: "Acme Co.", s: "Onboarding", tone: "primary" as const },
+    { n: "Northwind", s: "Active", tone: "muted" as const },
+    { n: "Helix Labs", s: "Renewal", tone: "warn" as const },
+  ];
+  return (
+    <Frame title="VEKTISS · CLIENT PORTAL">
+      <div className="grid grid-cols-12 gap-px bg-border">
+        {/* Left: site preview */}
+        <div className="col-span-12 bg-white p-4 sm:col-span-5">
+          <div className="overflow-hidden rounded-lg border border-border">
+            <div className="flex items-center gap-1.5 border-b border-border bg-[#FAFAFA] px-2.5 py-1.5">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#E5E5E5]" />
+              <span className="h-1.5 w-1.5 rounded-full bg-[#E5E5E5]" />
+              <span className="h-1.5 w-1.5 rounded-full bg-[#E5E5E5]" />
+              <span className="ml-2 inline-flex items-center gap-1 rounded bg-white px-1.5 py-0.5 text-[9px] text-muted-foreground">
+                <Globe className="h-2.5 w-2.5" /> yourbrand.com
+              </span>
+            </div>
+            <div className="space-y-2 bg-white p-3">
+              <div className="h-2 w-2/3 rounded bg-foreground/80" />
+              <div className="h-1.5 w-1/2 rounded bg-border" />
+              <div className="h-1.5 w-5/6 rounded bg-border" />
+              <div className="mt-2 inline-flex h-5 items-center rounded bg-primary px-2 text-[9px] font-medium text-primary-foreground">
+                Get started
+              </div>
+              <div className="mt-3 grid grid-cols-3 gap-1.5">
+                <div className="aspect-square rounded bg-[#F4F4F5]" />
+                <div className="aspect-square rounded bg-[#F4F4F5]" />
+                <div className="aspect-square rounded bg-primary/15" />
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-3 grid grid-cols-3 gap-2">
+            {stats.map((s) => (
+              <div key={s.k} className="rounded-md border border-border p-2">
+                <div className="text-[9px] uppercase tracking-wider text-muted-foreground">
+                  {s.k}
+                </div>
+                <div className="mt-0.5 flex items-baseline gap-1">
+                  <span className="text-sm font-semibold text-foreground">{s.v}</span>
+                  <span className="text-[9px] font-medium text-primary">{s.t}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Right: client portal app */}
+        <div className="col-span-12 bg-white p-4 sm:col-span-7">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <span className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-primary/10 text-primary">
+                <Users className="h-3.5 w-3.5" />
+              </span>
+              <div>
+                <div className="text-xs font-medium text-foreground">Client portal</div>
+                <div className="text-[10px] text-muted-foreground">3 active accounts</div>
+              </div>
+            </div>
+            <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-medium text-primary">
+              Live
+            </span>
+          </div>
+
+          <div className="mt-3 space-y-2">
+            {clients.map((c) => (
+              <div
+                key={c.n}
+                className="flex items-center justify-between rounded-md border border-border px-3 py-2.5"
+              >
+                <div className="flex items-center gap-2.5">
+                  <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-[#F4F4F5] text-[10px] font-medium text-foreground">
+                    {c.n.slice(0, 1)}
+                  </span>
+                  <div>
+                    <div className="text-xs font-medium text-foreground">{c.n}</div>
+                    <div className="text-[10px] text-muted-foreground">Project workspace</div>
+                  </div>
+                </div>
+                <span
+                  className={
+                    "rounded-full px-2 py-0.5 text-[10px] font-medium " +
+                    (c.tone === "primary"
+                      ? "bg-primary/10 text-primary"
+                      : c.tone === "warn"
+                        ? "bg-amber-500/10 text-amber-700"
+                        : "bg-muted text-muted-foreground")
+                  }
+                >
+                  {c.s}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-3 rounded-md border border-border bg-[#FAFAFA] p-2.5 text-[10px] text-foreground">
+            <span className="font-medium text-primary">New →</span> Sarah from Acme uploaded
+            brand assets · 2 min ago
+          </div>
+        </div>
+      </div>
+    </Frame>
+  );
+}
