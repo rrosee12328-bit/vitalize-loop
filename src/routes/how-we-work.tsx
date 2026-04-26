@@ -55,16 +55,16 @@ const pillars = [
     desc: "Live visibility into every initiative — status, blockers, owner, throughput. The visibility layer your leadership team has been asking for.",
   },
   {
-    name: "AI Assistants",
-    desc: "Embedded assistants that handle lead follow-up, draft replies, summarize meetings, and remove the manual work clogging your pipeline.",
+    name: "AI Phone & Email Assistants",
+    desc: "Always-on assistants that answer calls, qualify leads, draft replies, and route the moments that need a human — so communication stops being the bottleneck.",
   },
   {
-    name: "Revenue Operations",
-    desc: "Sales, marketing, and delivery connected on one pipeline. Leads stop going cold. Hand-offs stop dropping. Revenue stops leaking.",
+    name: "Websites, Portals & Apps",
+    desc: "Marketing site, branded client portal, and internal apps built as one connected experience. Lead capture, onboarding, and delivery on a single stack.",
   },
   {
-    name: "Operating Systems",
-    desc: "The processes, dashboards, and automations that turn an organization into a repeatable, scalable system.",
+    name: "Business Media",
+    desc: "Founder-led video, short-form cuts, and AI avatar assets — produced inside a system so your expertise stays visible at scale.",
   },
 ];
 

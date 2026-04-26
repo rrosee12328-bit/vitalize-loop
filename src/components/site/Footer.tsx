@@ -5,12 +5,10 @@ export function Footer() {
     <footer className="mt-32 bg-footer text-white/80">
       <div className="container-editorial py-16">
         <div className="grid gap-12 md:grid-cols-12">
-          <div className="md:col-span-5">
+          <div className="md:col-span-4">
             <div className="flex items-center gap-2">
-              <span className="font-mono text-xs tracking-widest text-white/60">
-                VEKTISS
-              </span>
-              <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden />
+              <span className="font-mono text-xs tracking-widest text-white">VEKTISS</span>
+              <span className="h-1.5 w-1.5 rounded-full bg-primary" aria-hidden />
             </div>
             <p className="mt-4 max-w-sm text-sm text-white/70">
               The systems company for growth-stage operators. We build the connected operating
@@ -24,13 +22,39 @@ export function Footer() {
             </Link>
           </div>
 
-          <div className="md:col-span-3 md:col-start-7">
-            <p className="eyebrow text-white/50">Site</p>
+          <div className="md:col-span-3">
+            <p className="eyebrow text-white/50">Solutions</p>
             <ul className="mt-4 space-y-3 text-sm">
-              <li><Link to="/" className="text-white/70 hover:text-white">Home</Link></li>
+              <li>
+                <Link to="/solutions/project-intelligence" className="text-white/70 hover:text-white">
+                  Project Intelligence
+                </Link>
+              </li>
+              <li>
+                <Link to="/solutions/ai-assistants" className="text-white/70 hover:text-white">
+                  AI Phone & Email Assistants
+                </Link>
+              </li>
+              <li>
+                <Link to="/solutions/websites-portals-apps" className="text-white/70 hover:text-white">
+                  Websites, Portals & Apps
+                </Link>
+              </li>
+              <li>
+                <Link to="/solutions/business-media" className="text-white/70 hover:text-white">
+                  Business Media
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div className="md:col-span-2">
+            <p className="eyebrow text-white/50">Company</p>
+            <ul className="mt-4 space-y-3 text-sm">
               <li><Link to="/how-we-work" className="text-white/70 hover:text-white">How we work</Link></li>
               <li><Link to="/case-studies" className="text-white/70 hover:text-white">Case studies</Link></li>
               <li><Link to="/about" className="text-white/70 hover:text-white">About</Link></li>
+              <li><Link to="/contact" className="text-white/70 hover:text-white">Contact</Link></li>
             </ul>
           </div>
 

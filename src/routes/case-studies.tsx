@@ -28,8 +28,8 @@ const cases = [
     metric: "92%",
     metricLabel: "faster time-to-quote",
     summary:
-      "Built an integrated intake-to-quote system with embedded AI drafting. The sales team stopped chasing context. Lost-to-cold-lead rate dropped to near zero.",
-    tags: ["AI Assistants", "Revenue Ops"],
+      "Built an AI phone & email assistant that qualifies inbound, drafts responses, and routes hot leads to the right closer in under a minute. The sales team stopped chasing context.",
+    tags: ["AI Phone & Email Assistants", "Project Intelligence"],
   },
   {
     industry: "B2B SaaS",
@@ -38,16 +38,25 @@ const cases = [
     metricLabel: "weekly status meetings",
     summary:
       "Replaced fragmented status reporting with a live Project Intelligence layer. Leadership reclaimed 6 hours a week and stopped flying blind on cross-functional initiatives.",
-    tags: ["Project Intelligence", "Operating Systems"],
+    tags: ["Project Intelligence", "Websites, Portals & Apps"],
   },
   {
-    industry: "Mid-market e-commerce",
-    headline: "An operating system the team actually uses.",
+    industry: "Mid-market services",
+    headline: "One stack replaced six tools — and the spreadsheets behind them.",
     metric: "2.4×",
     metricLabel: "ops throughput",
     summary:
-      "Connected three disconnected tools into one operating layer. Replaced manual hand-offs with automated routing. Same headcount, more than double the output.",
-    tags: ["Operating Systems", "Revenue Ops"],
+      "Rebuilt the marketing site, client portal, and internal delivery app on one connected stack. Manual hand-offs disappeared. Same headcount, more than double the output.",
+    tags: ["Websites, Portals & Apps", "Project Intelligence"],
+  },
+  {
+    industry: "Founder-led consultancy",
+    headline: "From invisible to inbound-driven in 90 days.",
+    metric: "5.1×",
+    metricLabel: "inbound qualified leads",
+    summary:
+      "Built a Business Media pipeline around the founder: monthly studio days, short-form cuts, and AI avatar localization. Inbound leads now drive most of new revenue.",
+    tags: ["Business Media", "AI Phone & Email Assistants"],
   },
 ];
 

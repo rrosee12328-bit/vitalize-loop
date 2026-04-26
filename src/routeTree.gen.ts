@@ -10,16 +10,27 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as SolutionsRouteImport } from './routes/solutions'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as HowWeWorkRouteImport } from './routes/how-we-work'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as BookRouteImport } from './routes/book'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as SolutionsWebsitesPortalsAppsRouteImport } from './routes/solutions.websites-portals-apps'
+import { Route as SolutionsProjectIntelligenceRouteImport } from './routes/solutions.project-intelligence'
+import { Route as SolutionsBusinessMediaRouteImport } from './routes/solutions.business-media'
+import { Route as SolutionsAiAssistantsRouteImport } from './routes/solutions.ai-assistants'
 
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SolutionsRoute = SolutionsRouteImport.update({
+  id: '/solutions',
+  path: '/solutions',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyRoute = PrivacyRouteImport.update({
@@ -30,6 +41,11 @@ const PrivacyRoute = PrivacyRouteImport.update({
 const HowWeWorkRoute = HowWeWorkRouteImport.update({
   id: '/how-we-work',
   path: '/how-we-work',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CaseStudiesRoute = CaseStudiesRouteImport.update({
@@ -52,24 +68,58 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SolutionsWebsitesPortalsAppsRoute =
+  SolutionsWebsitesPortalsAppsRouteImport.update({
+    id: '/websites-portals-apps',
+    path: '/websites-portals-apps',
+    getParentRoute: () => SolutionsRoute,
+  } as any)
+const SolutionsProjectIntelligenceRoute =
+  SolutionsProjectIntelligenceRouteImport.update({
+    id: '/project-intelligence',
+    path: '/project-intelligence',
+    getParentRoute: () => SolutionsRoute,
+  } as any)
+const SolutionsBusinessMediaRoute = SolutionsBusinessMediaRouteImport.update({
+  id: '/business-media',
+  path: '/business-media',
+  getParentRoute: () => SolutionsRoute,
+} as any)
+const SolutionsAiAssistantsRoute = SolutionsAiAssistantsRouteImport.update({
+  id: '/ai-assistants',
+  path: '/ai-assistants',
+  getParentRoute: () => SolutionsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/book': typeof BookRoute
   '/case-studies': typeof CaseStudiesRoute
+  '/contact': typeof ContactRoute
   '/how-we-work': typeof HowWeWorkRoute
   '/privacy': typeof PrivacyRoute
+  '/solutions': typeof SolutionsRouteWithChildren
   '/terms': typeof TermsRoute
+  '/solutions/ai-assistants': typeof SolutionsAiAssistantsRoute
+  '/solutions/business-media': typeof SolutionsBusinessMediaRoute
+  '/solutions/project-intelligence': typeof SolutionsProjectIntelligenceRoute
+  '/solutions/websites-portals-apps': typeof SolutionsWebsitesPortalsAppsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/book': typeof BookRoute
   '/case-studies': typeof CaseStudiesRoute
+  '/contact': typeof ContactRoute
   '/how-we-work': typeof HowWeWorkRoute
   '/privacy': typeof PrivacyRoute
+  '/solutions': typeof SolutionsRouteWithChildren
   '/terms': typeof TermsRoute
+  '/solutions/ai-assistants': typeof SolutionsAiAssistantsRoute
+  '/solutions/business-media': typeof SolutionsBusinessMediaRoute
+  '/solutions/project-intelligence': typeof SolutionsProjectIntelligenceRoute
+  '/solutions/websites-portals-apps': typeof SolutionsWebsitesPortalsAppsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -77,9 +127,15 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/book': typeof BookRoute
   '/case-studies': typeof CaseStudiesRoute
+  '/contact': typeof ContactRoute
   '/how-we-work': typeof HowWeWorkRoute
   '/privacy': typeof PrivacyRoute
+  '/solutions': typeof SolutionsRouteWithChildren
   '/terms': typeof TermsRoute
+  '/solutions/ai-assistants': typeof SolutionsAiAssistantsRoute
+  '/solutions/business-media': typeof SolutionsBusinessMediaRoute
+  '/solutions/project-intelligence': typeof SolutionsProjectIntelligenceRoute
+  '/solutions/websites-portals-apps': typeof SolutionsWebsitesPortalsAppsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -88,27 +144,45 @@ export interface FileRouteTypes {
     | '/about'
     | '/book'
     | '/case-studies'
+    | '/contact'
     | '/how-we-work'
     | '/privacy'
+    | '/solutions'
     | '/terms'
+    | '/solutions/ai-assistants'
+    | '/solutions/business-media'
+    | '/solutions/project-intelligence'
+    | '/solutions/websites-portals-apps'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
     | '/book'
     | '/case-studies'
+    | '/contact'
     | '/how-we-work'
     | '/privacy'
+    | '/solutions'
     | '/terms'
+    | '/solutions/ai-assistants'
+    | '/solutions/business-media'
+    | '/solutions/project-intelligence'
+    | '/solutions/websites-portals-apps'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/book'
     | '/case-studies'
+    | '/contact'
     | '/how-we-work'
     | '/privacy'
+    | '/solutions'
     | '/terms'
+    | '/solutions/ai-assistants'
+    | '/solutions/business-media'
+    | '/solutions/project-intelligence'
+    | '/solutions/websites-portals-apps'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -116,8 +190,10 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   BookRoute: typeof BookRoute
   CaseStudiesRoute: typeof CaseStudiesRoute
+  ContactRoute: typeof ContactRoute
   HowWeWorkRoute: typeof HowWeWorkRoute
   PrivacyRoute: typeof PrivacyRoute
+  SolutionsRoute: typeof SolutionsRouteWithChildren
   TermsRoute: typeof TermsRoute
 }
 
@@ -128,6 +204,13 @@ declare module '@tanstack/react-router' {
       path: '/terms'
       fullPath: '/terms'
       preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions': {
+      id: '/solutions'
+      path: '/solutions'
+      fullPath: '/solutions'
+      preLoaderRoute: typeof SolutionsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy': {
@@ -142,6 +225,13 @@ declare module '@tanstack/react-router' {
       path: '/how-we-work'
       fullPath: '/how-we-work'
       preLoaderRoute: typeof HowWeWorkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/case-studies': {
@@ -172,16 +262,64 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/solutions/websites-portals-apps': {
+      id: '/solutions/websites-portals-apps'
+      path: '/websites-portals-apps'
+      fullPath: '/solutions/websites-portals-apps'
+      preLoaderRoute: typeof SolutionsWebsitesPortalsAppsRouteImport
+      parentRoute: typeof SolutionsRoute
+    }
+    '/solutions/project-intelligence': {
+      id: '/solutions/project-intelligence'
+      path: '/project-intelligence'
+      fullPath: '/solutions/project-intelligence'
+      preLoaderRoute: typeof SolutionsProjectIntelligenceRouteImport
+      parentRoute: typeof SolutionsRoute
+    }
+    '/solutions/business-media': {
+      id: '/solutions/business-media'
+      path: '/business-media'
+      fullPath: '/solutions/business-media'
+      preLoaderRoute: typeof SolutionsBusinessMediaRouteImport
+      parentRoute: typeof SolutionsRoute
+    }
+    '/solutions/ai-assistants': {
+      id: '/solutions/ai-assistants'
+      path: '/ai-assistants'
+      fullPath: '/solutions/ai-assistants'
+      preLoaderRoute: typeof SolutionsAiAssistantsRouteImport
+      parentRoute: typeof SolutionsRoute
+    }
   }
 }
+
+interface SolutionsRouteChildren {
+  SolutionsAiAssistantsRoute: typeof SolutionsAiAssistantsRoute
+  SolutionsBusinessMediaRoute: typeof SolutionsBusinessMediaRoute
+  SolutionsProjectIntelligenceRoute: typeof SolutionsProjectIntelligenceRoute
+  SolutionsWebsitesPortalsAppsRoute: typeof SolutionsWebsitesPortalsAppsRoute
+}
+
+const SolutionsRouteChildren: SolutionsRouteChildren = {
+  SolutionsAiAssistantsRoute: SolutionsAiAssistantsRoute,
+  SolutionsBusinessMediaRoute: SolutionsBusinessMediaRoute,
+  SolutionsProjectIntelligenceRoute: SolutionsProjectIntelligenceRoute,
+  SolutionsWebsitesPortalsAppsRoute: SolutionsWebsitesPortalsAppsRoute,
+}
+
+const SolutionsRouteWithChildren = SolutionsRoute._addFileChildren(
+  SolutionsRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   BookRoute: BookRoute,
   CaseStudiesRoute: CaseStudiesRoute,
+  ContactRoute: ContactRoute,
   HowWeWorkRoute: HowWeWorkRoute,
   PrivacyRoute: PrivacyRoute,
+  SolutionsRoute: SolutionsRouteWithChildren,
   TermsRoute: TermsRoute,
 }
 export const routeTree = rootRouteImport
