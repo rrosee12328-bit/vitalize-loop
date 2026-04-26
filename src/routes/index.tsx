@@ -149,7 +149,7 @@ function HomePage() {
           className="absolute inset-0 -z-10 bg-gradient-to-r from-background/70 via-background/30 to-transparent md:from-background/60 md:via-transparent"
         />
 
-        <div className="container-editorial relative w-full pt-28 pb-20 md:pt-36 md:pb-32">
+        <div className="container-editorial relative w-full pt-28 pb-20 md:pt-0 md:pb-20">
           <p className="eyebrow">For growth-stage operator-owners</p>
           <h1 className="mt-6 display-1 max-w-5xl">
             Stop running your business <br className="hidden md:block" />
