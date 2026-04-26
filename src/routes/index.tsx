@@ -130,11 +130,11 @@ function HomePage() {
           allowFullScreen
           title="Vektiss brand intro"
         />
-        {/* Background video — mobile (9:16). TODO: replace embed ID after uploading vertical render to Bunny library 600055 */}
+        {/* Background video — mobile (9:16) */}
         <iframe
-          src="https://iframe.mediadelivery.net/embed/600055/130db0d6-305b-4bed-8517-7cd5d839b9cd?autoplay=true&loop=true&muted=true&preload=true&responsive=true"
+          src="https://iframe.mediadelivery.net/embed/600055/b69bd946-69ef-4424-93f8-c57806001f6f?autoplay=true&loop=true&muted=true&preload=true&responsive=true"
           loading="eager"
-          className="pointer-events-none absolute inset-0 -z-20 block h-full w-full scale-[2] md:hidden"
+          className="pointer-events-none absolute inset-0 -z-20 block h-full w-full md:hidden"
           allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
           allowFullScreen
           title="Vektiss brand intro (mobile)"
