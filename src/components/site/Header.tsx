@@ -130,7 +130,7 @@ export function Header() {
       </div>
 
       {open && (
-        <div className="md:hidden border-t border-border bg-background">
+        <div className="lg:hidden border-t border-border bg-background">
           <div className="container-editorial flex flex-col gap-1 py-4">
             <p className="px-2 pt-2 pb-1 text-[10px] font-mono uppercase tracking-widest text-muted-foreground">
               Solutions
