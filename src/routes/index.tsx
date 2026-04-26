@@ -32,24 +32,28 @@ export const Route = createFileRoute("/")({
 const pillars = [
   {
     no: "01",
+    to: "/solutions/project-intelligence" as const,
     name: "Project Intelligence",
     desc: "Real-time visibility into every initiative, deadline, and decision. The CEO dashboard you've never had.",
     Icon: BarChart3,
   },
   {
     no: "02",
+    to: "/solutions/ai-assistants" as const,
     name: "AI Phone & Email Assistants",
     desc: "Embedded AI that answers calls, follows up leads, drafts replies, and removes communication bottlenecks 24/7.",
     Icon: Bot,
   },
   {
     no: "03",
+    to: "/solutions/websites-portals-apps" as const,
     name: "Websites, Portals, Client Systems & Apps",
     desc: "A digital front door that actually works — built to capture leads, serve clients, and support operations.",
     Icon: Globe,
   },
   {
     no: "04",
+    to: "/solutions/business-media" as const,
     name: "Business Media",
     desc: "Turn your expertise into assets. Short-form video, AI avatars, and content systems that build trust at scale.",
     Icon: Video,
