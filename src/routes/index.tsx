@@ -75,7 +75,7 @@ function HomePage() {
         <div className="mt-10 flex flex-wrap items-center gap-4">
           <Link
             to="/book"
-            className="group inline-flex h-12 items-center gap-2 rounded-md bg-foreground px-6 text-sm font-medium text-background transition-opacity hover:opacity-90"
+            className="group inline-flex h-12 items-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
           >
             Book a strategy call
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -86,6 +86,10 @@ function HomePage() {
           >
             See how we work
           </Link>
+        </div>
+
+        <div className="mt-16 md:mt-20">
+          <HeroMockup />
         </div>
 
         <div className="mt-20 grid gap-x-12 gap-y-6 border-t border-border pt-10 sm:grid-cols-3">
