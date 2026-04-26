@@ -48,6 +48,37 @@ export const Route = createFileRoute("/solutions/project-intelligence")({
           desc: "Velocity, cycle time, and load by team — so you can see where capacity actually lives.",
         },
       ]}
+      deepDive={[
+        {
+          title: "A leadership view that replaces scattered status updates",
+          desc: "Project Intelligence gives owners, deadlines, blockers, priorities, and decisions a single operating layer so leadership can see what is happening without chasing updates across meetings, messages, and spreadsheets.",
+        },
+        {
+          title: "AI summaries built around how your company actually runs",
+          desc: "We configure the system around your teams, cadence, tools, and reporting language so weekly briefs surface the work that matters: what shipped, what slipped, what changed, and what needs executive attention.",
+        },
+        {
+          title: "Risk visibility before work becomes an escalation",
+          desc: "The dashboard highlights missed deadlines, stalled initiatives, overloaded owners, dependency issues, and recurring blockers so your team can intervene early instead of discovering problems during review meetings.",
+        },
+      ]}
+      implementation={[
+        {
+          phase: "01",
+          title: "Map the operating rhythm",
+          desc: "We document your projects, teams, reporting cadence, decision paths, and the tools currently holding project data.",
+        },
+        {
+          phase: "02",
+          title: "Build the dashboard layer",
+          desc: "We design the executive view, configure status logic, connect your sources, and create summaries that match your leadership priorities.",
+        },
+        {
+          phase: "03",
+          title: "Roll out the management system",
+          desc: "We launch with your team, train owners on updates, and refine the alerts and briefs based on real usage.",
+        },
+      ]}
       outcomes={[
         "Replace 3–4 standing status meetings with a live dashboard.",
         "Cut leadership reporting prep from hours to zero.",

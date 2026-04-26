@@ -48,6 +48,37 @@ export const Route = createFileRoute("/solutions/business-media")({
           desc: "Publishing cadence, performance dashboards, and feedback loops so content compounds instead of disappearing.",
         },
       ]}
+      deepDive={[
+        {
+          title: "A media system built around expertise",
+          desc: "We turn founder knowledge, client results, operating principles, and market perspective into a repeatable content engine instead of disconnected one-off posts.",
+        },
+        {
+          title: "Production designed for busy operators",
+          desc: "The process is built to capture strong source material efficiently, then turn it into long-form assets, short-form clips, written posts, newsletters, and reusable sales content.",
+        },
+        {
+          title: "AI-enabled scale without losing trust",
+          desc: "AI avatars, repurposing workflows, and content automation help expand output while keeping messaging, proof, and brand voice grounded in real business expertise.",
+        },
+      ]}
+      implementation={[
+        {
+          phase: "01",
+          title: "Extract the point of view",
+          desc: "We identify your strongest ideas, proof points, buyer questions, founder stories, and repeatable content themes.",
+        },
+        {
+          phase: "02",
+          title: "Build the production engine",
+          desc: "We plan shoots, create scripts and prompts, produce core assets, cut derivative content, and prepare publishing workflows.",
+        },
+        {
+          phase: "03",
+          title: "Publish and compound",
+          desc: "We distribute, measure performance, refine topics, and turn high-performing content into sales and brand assets.",
+        },
+      ]}
       outcomes={[
         "Founders produce months of content from one studio day.",
         "Short-form output multiplies without burning the team.",
