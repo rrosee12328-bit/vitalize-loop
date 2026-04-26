@@ -111,8 +111,8 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden md:block">
-          <a href="https://calendly.com/vektiss-info/30-minute-vektiss-discovery" target="_blank" rel="noopener noreferrer" className="inline-flex h-9 items-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+        <div className="hidden lg:block">
+          <a href="https://calendly.com/vektiss-info/30-minute-vektiss-discovery" target="_blank" rel="noopener noreferrer" className="inline-flex h-9 items-center whitespace-nowrap rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
           >
             Book a strategy call
           </a>
@@ -122,10 +122,10 @@ export function Header() {
           type="button"
           aria-label="Toggle menu"
           aria-expanded={open}
-          className="md:hidden inline-flex h-9 w-9 items-center justify-center rounded-md border border-border"
+          className="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-md border border-border"
           onClick={() => setOpen((v) => !v)}
         >
-          {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
 
