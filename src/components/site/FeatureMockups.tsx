@@ -1,4 +1,8 @@
 import { Globe, Phone, Play, Sparkles, Users, Video } from "lucide-react";
+import mediaFounder from "@/assets/media-founder.jpg";
+import mediaCaseStudy from "@/assets/media-casestudy.jpg";
+import mediaAvatar from "@/assets/media-avatar.jpg";
+import mediaReel from "@/assets/media-reel.jpg";
 
 function Frame({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -161,10 +165,10 @@ export function AssistantMockup() {
 
 export function MediaMockup() {
   const clips = [
-    { t: "Founder POV · Q2 thesis", d: "00:48", live: true },
-    { t: "Case study · Acme Co.", d: "01:12" },
-    { t: "AI avatar · onboarding", d: "00:30" },
-    { t: "Reel · 3 hidden costs", d: "00:42" },
+    { t: "Founder POV · Q2 thesis", d: "00:48", live: true, img: mediaFounder },
+    { t: "Case study · Acme Co.", d: "01:12", img: mediaCaseStudy },
+    { t: "AI avatar · onboarding", d: "00:30", img: mediaAvatar },
+    { t: "Reel · 3 hidden costs", d: "00:42", img: mediaReel },
   ];
   return (
     <Frame title="VEKTISS · MEDIA">
@@ -189,11 +193,18 @@ export function MediaMockup() {
               key={c.t}
               className="overflow-hidden rounded-lg border border-border bg-white"
             >
-              <div className="relative flex aspect-video items-center justify-center bg-gradient-to-br from-[#F4F4F5] to-white">
-                <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-card">
+              <div className="relative flex aspect-video items-center justify-center overflow-hidden bg-gradient-to-br from-[#F4F4F5] to-white">
+                <img
+                  src={c.img}
+                  alt={c.t}
+                  loading="lazy"
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+                <span className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/0 to-black/0" />
+                <span className="relative inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/95 text-foreground shadow-card backdrop-blur">
                   <Play className="h-4 w-4" fill="currentColor" />
                 </span>
-                <span className="absolute bottom-1.5 right-1.5 rounded bg-foreground/85 px-1.5 py-0.5 font-mono text-[9px] text-background">
+                <span className="absolute bottom-1.5 right-1.5 rounded bg-black/70 px-1.5 py-0.5 font-mono text-[9px] text-white">
                   {c.d}
                 </span>
                 {c.live && (
