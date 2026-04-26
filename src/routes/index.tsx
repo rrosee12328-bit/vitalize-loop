@@ -148,7 +148,18 @@ function HomePage() {
         </div>
 
         <div className="mt-16 md:mt-20">
-          <HeroMockup />
+          <div className="relative overflow-hidden rounded-2xl border border-border bg-white shadow-card">
+            <video
+              src="/vektiss-brand-intro.mp4"
+              className="block aspect-video w-full"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              aria-label="Vektiss brand intro — systems, not deliverables"
+            />
+          </div>
         </div>
 
         <div className="mt-20 grid gap-x-12 gap-y-6 border-t border-border pt-10 sm:grid-cols-3">
