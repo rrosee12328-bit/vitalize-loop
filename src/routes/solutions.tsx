@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, Outlet, useLocation } from "@tanstack/react-router";
 import { ArrowRight, BarChart3, Bot, Globe, Video } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 
