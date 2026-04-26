@@ -119,49 +119,75 @@ const painPoints = [
 function HomePage() {
   return (
     <SiteLayout>
-      {/* HERO */}
-      <section className="container-editorial pt-20 pb-24 md:pt-32 md:pb-36">
-        <p className="eyebrow">For growth-stage operator-owners</p>
-        <h1 className="mt-6 display-1 max-w-5xl">
-          Stop running your business <br className="hidden md:block" />
-          on <span className="accent-underline">duct-taped tools.</span>
-        </h1>
-        <p className="mt-8 max-w-2xl text-lg text-muted-foreground md:text-xl">
-          Vektiss is the systems company for growth-stage businesses. We build the connected
-          operating infrastructure that runs your company — so you can lead it.
-        </p>
+      {/* HERO — full-bleed cinematic video with overlaid copy */}
+      <section className="relative isolate flex min-h-[92vh] w-full items-center overflow-hidden md:min-h-[88vh]">
+        {/* Background video — desktop (16:9) */}
+        <iframe
+          src="https://iframe.mediadelivery.net/embed/600055/130db0d6-305b-4bed-8517-7cd5d839b9cd?autoplay=true&loop=true&muted=true&preload=true&responsive=true"
+          loading="eager"
+          className="pointer-events-none absolute inset-0 -z-20 hidden h-full w-full scale-110 md:block"
+          allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+          allowFullScreen
+          title="Vektiss brand intro"
+        />
+        {/* Background video — mobile (9:16). TODO: replace embed ID after uploading vertical render to Bunny library 600055 */}
+        <iframe
+          src="https://iframe.mediadelivery.net/embed/600055/130db0d6-305b-4bed-8517-7cd5d839b9cd?autoplay=true&loop=true&muted=true&preload=true&responsive=true"
+          loading="eager"
+          className="pointer-events-none absolute inset-0 -z-20 block h-full w-full scale-[2] md:hidden"
+          allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+          allowFullScreen
+          title="Vektiss brand intro (mobile)"
+        />
+        {/* Legibility overlays */}
+        <div
+          aria-hidden
+          className="absolute inset-0 -z-10 bg-gradient-to-b from-background/70 via-background/40 to-background"
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0 -z-10 bg-gradient-to-r from-background/80 via-background/40 to-transparent"
+        />
 
-        <div className="mt-10 flex flex-wrap items-center gap-4">
-          <a href="https://calendly.com/vektiss-info/30-minute-vektiss-discovery" target="_blank" rel="noopener noreferrer" className="group inline-flex h-12 items-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
-          >
-            Book a strategy call
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-          </a>
-          <Link
-            to="/how-we-work"
-            className="inline-flex h-12 items-center gap-2 rounded-md border border-border px-6 text-sm font-medium text-foreground transition-colors hover:bg-muted"
-          >
-            See how we work
-          </Link>
-        </div>
+        <div className="container-editorial relative w-full pt-28 pb-20 md:pt-36 md:pb-32">
+          <p className="eyebrow">For growth-stage operator-owners</p>
+          <h1 className="mt-6 display-1 max-w-5xl">
+            Stop running your business <br className="hidden md:block" />
+            on <span className="accent-underline">duct-taped tools.</span>
+          </h1>
+          <p className="mt-8 max-w-2xl text-lg text-foreground/80 md:text-xl">
+            Vektiss is the systems company for growth-stage businesses. We build the connected
+            operating infrastructure that runs your company — so you can lead it.
+          </p>
 
-        <div className="mt-16 md:mt-20">
-          <div className="relative aspect-video overflow-hidden rounded-2xl border border-border bg-white shadow-card">
-            <iframe
-              src="https://iframe.mediadelivery.net/embed/600055/130db0d6-305b-4bed-8517-7cd5d839b9cd?autoplay=true&loop=true&muted=true&preload=true&responsive=true"
-              loading="lazy"
-              className="absolute inset-0 h-full w-full"
-              allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-              allowFullScreen
-              title="Vektiss brand intro"
-            />
+          <div className="mt-10 flex flex-wrap items-center gap-4">
+            <a
+              href="https://calendly.com/vektiss-info/30-minute-vektiss-discovery"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex h-12 items-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground shadow-card transition-opacity hover:opacity-90"
+            >
+              Book a strategy call
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </a>
+            <Link
+              to="/how-we-work"
+              className="inline-flex h-12 items-center gap-2 rounded-md border border-border bg-background/70 px-6 text-sm font-medium text-foreground backdrop-blur-sm transition-colors hover:bg-background"
+            >
+              See how we work
+            </Link>
           </div>
         </div>
+      </section>
 
-        <div className="mt-20 grid gap-x-12 gap-y-6 border-t border-border pt-10 sm:grid-cols-3">
-          <Stat value="40+" label="Operators served" />
-          <Stat value="2.4×" label="Avg. ops throughput" />
-          <Stat value="11 days" label="Median time-to-system" />
+      {/* STATS */}
+      <section className="border-t border-border">
+        <div className="container-editorial py-12 md:py-16">
+          <div className="grid gap-x-12 gap-y-6 sm:grid-cols-3">
+            <Stat value="40+" label="Operators served" />
+            <Stat value="2.4×" label="Avg. ops throughput" />
+            <Stat value="11 days" label="Median time-to-system" />
+          </div>
         </div>
       </section>
 
