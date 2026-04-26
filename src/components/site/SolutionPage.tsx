@@ -22,6 +22,8 @@ export function SolutionPage({
   lede,
   Icon,
   capabilities,
+  deepDive,
+  implementation,
   outcomes,
   builtFor,
   Mockup,
