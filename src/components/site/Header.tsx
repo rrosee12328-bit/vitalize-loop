@@ -112,12 +112,10 @@ export function Header() {
         </nav>
 
         <div className="hidden md:block">
-          <Link
-            to="/book"
-            className="inline-flex h-9 items-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+          <a href="https://calendly.com/vektiss-info/30-minute-vektiss-discovery" target="_blank" rel="noopener noreferrer" className="inline-flex h-9 items-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
           >
             Book a strategy call
-          </Link>
+          </a>
         </div>
 
         <button
@@ -161,13 +159,11 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
-            <Link
-              to="/book"
-              className="mt-3 inline-flex h-10 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground"
+            <a href="https://calendly.com/vektiss-info/30-minute-vektiss-discovery" target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex h-10 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground"
               onClick={() => setOpen(false)}
             >
               Book a strategy call
-            </Link>
+            </a>
           </div>
         </div>
       )}
