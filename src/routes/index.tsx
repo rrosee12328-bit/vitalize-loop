@@ -136,6 +136,17 @@ function HomePage() {
               aria-hidden
               className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-background"
             />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <a
+                href="https://calendly.com/vektiss-info/30-minute-vektiss-discovery"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group pointer-events-auto inline-flex h-12 items-center gap-2 rounded-full bg-primary px-6 text-sm font-medium text-primary-foreground shadow-lg transition-opacity hover:opacity-90"
+              >
+                Book a strategy call
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              </a>
+            </div>
           </div>
           <div className="container-editorial pt-10 pb-16">
             <div className="rounded-2xl border border-border bg-white p-6 shadow-card">
