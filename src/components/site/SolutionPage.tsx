@@ -86,6 +86,43 @@ export function SolutionPage({
         </div>
       </section>
 
+      {/* Deep dive */}
+      <section className="container-editorial py-24 md:py-32">
+        <div className="grid gap-14 md:grid-cols-12">
+          <div className="md:col-span-4">
+            <p className="eyebrow">Solution detail</p>
+            <h2 className="mt-6 display-2">What this actually includes.</h2>
+          </div>
+          <div className="grid gap-6 md:col-span-8">
+            {deepDive.map((item) => (
+              <article key={item.title} className="border-t border-border pt-6">
+                <h3 className="text-xl font-semibold tracking-tight">{item.title}</h3>
+                <p className="mt-3 text-muted-foreground">{item.desc}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Implementation */}
+      <section className="border-t border-border bg-surface-elevated">
+        <div className="container-editorial py-24 md:py-32">
+          <div className="max-w-3xl">
+            <p className="eyebrow">Implementation</p>
+            <h2 className="mt-6 display-2">How it gets built into your business.</h2>
+          </div>
+          <div className="mt-14 grid gap-6 md:grid-cols-3">
+            {implementation.map((step) => (
+              <article key={step.phase} className="border-t border-border pt-6">
+                <span className="font-mono text-xs tracking-widest text-primary">{step.phase}</span>
+                <h3 className="mt-4 text-xl font-semibold tracking-tight">{step.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-muted-foreground">{step.desc}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Outcomes + Built for */}
       <section className="container-editorial py-24 md:py-32">
         <div className="grid gap-16 md:grid-cols-12">
