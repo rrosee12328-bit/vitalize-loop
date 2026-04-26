@@ -1,6 +1,6 @@
 import React from "react";
 import { AbsoluteFill, useCurrentFrame, useVideoConfig, interpolate } from "remotion";
-import { COLORS } from "./theme";
+import { COLORS } from "../theme";
 
 // Persistent layer: subtle warm-paper grain + slow drifting blue dot accent.
 // Visible across every scene to bind the piece together.

@@ -1,7 +1,7 @@
 import React from "react";
 import { AbsoluteFill, useCurrentFrame, useVideoConfig, spring, interpolate } from "remotion";
-import { COLORS } from "./theme";
-import { FONT_MONO, FONT_SANS } from "./fonts";
+import { COLORS } from "../theme";
+import { FONT_MONO, FONT_SANS } from "../fonts";
 
 // Persistent HUD: tiny mono frame info — feels like a product spec sheet.
 export const PersistentHUD: React.FC = () => {
