@@ -148,16 +148,14 @@ function HomePage() {
         </div>
 
         <div className="mt-16 md:mt-20">
-          <div className="relative overflow-hidden rounded-2xl border border-border bg-white shadow-card">
-            <video
-              src="/vektiss-brand-intro.mp4"
-              className="block aspect-video w-full"
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              aria-label="Vektiss brand intro — systems, not deliverables"
+          <div className="relative aspect-video overflow-hidden rounded-2xl border border-border bg-white shadow-card">
+            <iframe
+              src="https://iframe.mediadelivery.net/embed/600055/130db0d6-305b-4bed-8517-7cd5d839b9cd?autoplay=true&loop=true&muted=true&preload=true&responsive=true"
+              loading="lazy"
+              className="absolute inset-0 h-full w-full"
+              allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+              allowFullScreen
+              title="Vektiss brand intro"
             />
           </div>
         </div>
