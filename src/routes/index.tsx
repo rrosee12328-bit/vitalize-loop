@@ -203,9 +203,10 @@ function HomePage() {
         </div>
 
         <div className="mt-16 grid gap-6 md:grid-cols-2">
-          {pillars.map(({ no, name, desc, Icon }) => (
-            <article
+          {pillars.map(({ no, to, name, desc, Icon }) => (
+            <Link
               key={no}
+              to={to}
               className="group rounded-xl border border-border bg-white p-8 shadow-card transition-shadow hover:shadow-md md:p-10"
             >
               <div className="flex items-start justify-between">
@@ -219,14 +220,11 @@ function HomePage() {
               </div>
               <h3 className="mt-5 text-2xl font-semibold tracking-tight">{name}</h3>
               <p className="mt-3 text-muted-foreground">{desc}</p>
-              <Link
-                to="/how-we-work"
-                className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-colors hover:text-primary/80"
-              >
-                Learn more
+              <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-colors group-hover:text-primary/80">
+                Open solution page
                 <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
-              </Link>
-            </article>
+              </span>
+            </Link>
           ))}
         </div>
 
@@ -252,7 +250,7 @@ function HomePage() {
           </div>
 
           <div className="mt-20 space-y-24 md:space-y-32">
-            {deepDives.map(({ eyebrow, title, body, Mockup }, i) => {
+            {deepDives.map(({ eyebrow, to, title, body, Mockup }, i) => {
               const reverse = i % 2 === 1;
               return (
                 <div
@@ -268,10 +266,10 @@ function HomePage() {
                     </h3>
                     <p className="mt-5 text-base text-muted-foreground md:text-lg">{body}</p>
                     <Link
-                      to="/how-we-work"
+                      to={to}
                       className="group mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-primary"
                     >
-                      Learn more
+                      Open solution page
                       <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                     </Link>
                   </div>
