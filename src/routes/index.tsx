@@ -5,6 +5,7 @@ import { HeroMockup } from "@/components/site/HeroMockup";
 import {
   ProjectMockup,
   AssistantMockup,
+  PortalMockup,
   MediaMockup,
 } from "@/components/site/FeatureMockups";
 
