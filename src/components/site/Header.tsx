@@ -43,12 +43,12 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur">
-      <div className="container-editorial flex h-28 items-center justify-between">
+      <div className="container-editorial flex h-24 items-center justify-between lg:h-28">
         <Link to="/" className="flex items-center" onClick={() => setOpen(false)} aria-label="Vektiss home">
-          <VektissLogo className="h-20 w-auto md:h-24" />
+          <VektissLogo className="h-16 w-auto lg:h-24" />
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-6 lg:flex xl:gap-8">
           {/* Solutions dropdown */}
           <div
             className="relative"
