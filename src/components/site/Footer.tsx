@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { VektissLogo } from "./VektissLogo";
 
 export function Footer() {
   return (
@@ -6,10 +7,9 @@ export function Footer() {
       <div className="container-editorial py-16">
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-4">
-            <div className="flex items-center gap-2">
-              <span className="font-mono text-xs tracking-widest text-white">VEKTISS</span>
-              <span className="h-1.5 w-1.5 rounded-full bg-primary" aria-hidden />
-            </div>
+            <Link to="/" className="inline-flex items-center" aria-label="Vektiss home">
+              <VektissLogo variant="light" className="h-8 w-auto" />
+            </Link>
             <p className="mt-4 max-w-sm text-sm text-white/70">
               The systems company for growth-stage operators. We build the connected operating
               infrastructure that runs your business so you can lead it.
