@@ -204,6 +204,13 @@ function HomePage() {
               </div>
               <h3 className="mt-5 text-2xl font-semibold tracking-tight">{name}</h3>
               <p className="mt-3 text-muted-foreground">{desc}</p>
+              <Link
+                to="/how-we-work"
+                className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-colors hover:text-primary/80"
+              >
+                Learn more
+                <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+              </Link>
             </article>
           ))}
         </div>
