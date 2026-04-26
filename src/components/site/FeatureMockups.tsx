@@ -1,0 +1,214 @@
+import { Phone, Play, Sparkles, Video } from "lucide-react";
+
+function Frame({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div className="relative">
+      <div
+        aria-hidden
+        className="absolute -inset-4 -z-10 rounded-3xl bg-primary/10 blur-2xl"
+      />
+      <div className="overflow-hidden rounded-2xl border border-border bg-white shadow-card">
+        <div className="flex items-center justify-between border-b border-border bg-[#FAFAFA] px-4 py-3">
+          <div className="flex items-center gap-1.5">
+            <span className="h-2.5 w-2.5 rounded-full bg-[#E5E5E5]" />
+            <span className="h-2.5 w-2.5 rounded-full bg-[#E5E5E5]" />
+            <span className="h-2.5 w-2.5 rounded-full bg-[#E5E5E5]" />
+          </div>
+          <div className="font-mono text-[10px] tracking-widest text-muted-foreground">
+            {title}
+          </div>
+          <div className="h-2.5 w-12 rounded-full bg-primary/15" />
+        </div>
+        {children}
+      </div>
+    </div>
+  );
+}
+
+export function ProjectMockup() {
+  const tasks = [
+    { t: "Onboarding system v2", o: "Acme Co.", s: "On track", tone: "primary" as const, p: 72 },
+    { t: "RevOps pipeline rebuild", o: "Northwind", s: "At risk", tone: "warn" as const, p: 41 },
+    { t: "AI assistant rollout", o: "Helix Labs", s: "Done", tone: "muted" as const, p: 100 },
+  ];
+  return (
+    <Frame title="VEKTISS · PROJECTS">
+      <div className="p-5">
+        <div className="flex items-start justify-between">
+          <div>
+            <div className="text-[10px] uppercase tracking-wider text-muted-foreground">
+              This week
+            </div>
+            <div className="mt-1 text-sm font-semibold tracking-tight text-foreground">
+              7 active initiatives · 3 owners
+            </div>
+          </div>
+          <div className="inline-flex items-center gap-1.5 rounded-md bg-primary/10 px-2 py-1 text-[10px] font-medium text-primary">
+            <Sparkles className="h-3 w-3" /> AI summary ready
+          </div>
+        </div>
+
+        <div className="mt-4 rounded-lg border border-border bg-[#FAFAFA] p-3 text-xs text-foreground">
+          <span className="font-medium text-primary">AI:</span> Two projects shipped milestones
+          this week. Northwind needs scope alignment before Friday — flagged.
+        </div>
+
+        <div className="mt-4 space-y-2">
+          {tasks.map((row) => (
+            <div
+              key={row.t}
+              className="flex items-center justify-between rounded-md border border-border px-3 py-2.5"
+            >
+              <div className="min-w-0">
+                <div className="truncate text-xs font-medium text-foreground">{row.t}</div>
+                <div className="text-[10px] text-muted-foreground">{row.o}</div>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="hidden h-1.5 w-24 overflow-hidden rounded-full bg-border sm:block">
+                  <div
+                    className={
+                      row.tone === "primary"
+                        ? "h-full bg-primary"
+                        : row.tone === "warn"
+                          ? "h-full bg-amber-500"
+                          : "h-full bg-foreground/40"
+                    }
+                    style={{ width: `${row.p}%` }}
+                  />
+                </div>
+                <span
+                  className={
+                    "rounded-full px-2 py-0.5 text-[10px] font-medium " +
+                    (row.tone === "primary"
+                      ? "bg-primary/10 text-primary"
+                      : row.tone === "warn"
+                        ? "bg-amber-500/10 text-amber-700"
+                        : "bg-muted text-muted-foreground")
+                  }
+                >
+                  {row.s}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </Frame>
+  );
+}
+
+export function AssistantMockup() {
+  return (
+    <Frame title="VEKTISS · INBOX">
+      <div className="grid grid-cols-12 gap-px bg-border">
+        <div className="col-span-5 hidden flex-col gap-2 bg-white p-4 sm:flex">
+          {[
+            { n: "Lead · Sarah Chen", t: "Pricing question", b: "primary" as const },
+            { n: "Voicemail · 415-…", t: "Wants a callback", b: "muted" as const },
+            { n: "Lead · Mateo R.", t: "Demo request", b: "muted" as const },
+          ].map((r, i) => (
+            <div
+              key={r.n}
+              className={`rounded-md border px-3 py-2 ${
+                i === 0 ? "border-primary/30 bg-primary/5" : "border-border"
+              }`}
+            >
+              <div className="flex items-center justify-between">
+                <span className="text-[11px] font-medium text-foreground">{r.n}</span>
+                <span
+                  className={`h-1.5 w-1.5 rounded-full ${
+                    r.b === "primary" ? "bg-primary" : "bg-border"
+                  }`}
+                />
+              </div>
+              <div className="mt-1 text-[10px] text-muted-foreground">{r.t}</div>
+            </div>
+          ))}
+        </div>
+
+        <div className="col-span-12 bg-white p-4 sm:col-span-7">
+          <div className="flex items-center gap-2">
+            <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-primary/10 text-primary">
+              <Phone className="h-3.5 w-3.5" />
+            </span>
+            <div>
+              <div className="text-xs font-medium text-foreground">Sarah Chen · inbound</div>
+              <div className="text-[10px] text-muted-foreground">Qualified by AI · 00:42</div>
+            </div>
+          </div>
+
+          <div className="mt-3 space-y-2">
+            <div className="max-w-[85%] rounded-lg rounded-tl-sm bg-muted px-3 py-2 text-[11px] text-foreground">
+              Hi — checking pricing for a 40-person team.
+            </div>
+            <div className="ml-auto max-w-[85%] rounded-lg rounded-tr-sm bg-primary px-3 py-2 text-[11px] text-primary-foreground">
+              Happy to help. A few quick questions to point you to the right plan…
+            </div>
+            <div className="max-w-[85%] rounded-lg rounded-tl-sm bg-muted px-3 py-2 text-[11px] text-foreground">
+              We need SSO and onboarding support.
+            </div>
+          </div>
+
+          <div className="mt-3 rounded-md border border-border bg-[#FAFAFA] p-2.5 text-[10px] text-foreground">
+            <span className="font-medium text-primary">AI summary →</span> Qualified · 40 seats ·
+            SSO required · Routed to Maya (AE).
+          </div>
+        </div>
+      </div>
+    </Frame>
+  );
+}
+
+export function MediaMockup() {
+  const clips = [
+    { t: "Founder POV · Q2 thesis", d: "00:48", live: true },
+    { t: "Case study · Acme Co.", d: "01:12" },
+    { t: "AI avatar · onboarding", d: "00:30" },
+    { t: "Reel · 3 hidden costs", d: "00:42" },
+  ];
+  return (
+    <Frame title="VEKTISS · MEDIA">
+      <div className="p-5">
+        <div className="flex items-center justify-between">
+          <div>
+            <div className="text-[10px] uppercase tracking-wider text-muted-foreground">
+              Library
+            </div>
+            <div className="mt-1 text-sm font-semibold tracking-tight text-foreground">
+              24 assets · 6 in production
+            </div>
+          </div>
+          <span className="inline-flex items-center gap-1.5 rounded-md bg-primary/10 px-2 py-1 text-[10px] font-medium text-primary">
+            <Video className="h-3 w-3" /> Pipeline live
+          </span>
+        </div>
+
+        <div className="mt-4 grid grid-cols-2 gap-3">
+          {clips.map((c) => (
+            <div
+              key={c.t}
+              className="overflow-hidden rounded-lg border border-border bg-white"
+            >
+              <div className="relative flex aspect-video items-center justify-center bg-gradient-to-br from-[#F4F4F5] to-white">
+                <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-card">
+                  <Play className="h-4 w-4" fill="currentColor" />
+                </span>
+                <span className="absolute bottom-1.5 right-1.5 rounded bg-foreground/85 px-1.5 py-0.5 font-mono text-[9px] text-background">
+                  {c.d}
+                </span>
+                {c.live && (
+                  <span className="absolute left-1.5 top-1.5 inline-flex items-center gap-1 rounded bg-primary px-1.5 py-0.5 text-[9px] font-medium text-primary-foreground">
+                    <span className="h-1 w-1 rounded-full bg-white" /> LIVE
+                  </span>
+                )}
+              </div>
+              <div className="px-2.5 py-2 text-[11px] font-medium text-foreground">
+                {c.t}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </Frame>
+  );
+}
