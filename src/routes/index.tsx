@@ -121,46 +121,50 @@ function HomePage() {
     <SiteLayout>
       {/* HERO — full-bleed video on top, copy underneath on desktop; overlaid on mobile */}
       <section className="relative isolate w-full overflow-hidden">
-        {/* MOBILE: full-bleed overlay hero */}
-        <div className="relative flex min-h-[92vh] w-full items-center md:hidden">
-          <iframe
-            src="https://iframe.mediadelivery.net/embed/600055/b69bd946-69ef-4424-93f8-c57806001f6f?autoplay=true&loop=true&muted=true&preload=true&responsive=true"
-            loading="eager"
-            className="pointer-events-none absolute inset-0 -z-20 h-full w-full"
-            allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-            allowFullScreen
-            title="Vektiss brand intro (mobile)"
-          />
-          <div
-            aria-hidden
-            className="absolute inset-0 -z-10 bg-gradient-to-b from-background/40 via-background/10 to-background"
-          />
-          <div className="container-editorial relative w-full pt-28 pb-20">
-            <p className="eyebrow">For growth-stage operator-owners</p>
-            <h1 className="mt-6 display-1">
-              The operating system your business has been{" "}
-              <span className="accent-underline">running without.</span>
-            </h1>
-            <p className="mt-8 max-w-2xl text-lg text-foreground/80">
-              Project intelligence, AI assistants, client portals, and media — engineered
-              into one connected system you actually run your company from.
-            </p>
-            <div className="mt-10 flex flex-wrap items-center gap-4">
-              <a
-                href="https://calendly.com/vektiss-info/30-minute-vektiss-discovery"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex h-12 items-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground shadow-card transition-opacity hover:opacity-90"
-              >
-                Book a strategy call
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-              </a>
-              <Link
-                to="/how-we-work"
-                className="inline-flex h-12 items-center gap-2 rounded-md border border-border bg-background/70 px-6 text-sm font-medium text-foreground backdrop-blur-sm transition-colors hover:bg-background"
-              >
-                See how we work
-              </Link>
+        {/* MOBILE: vertical video on top, copy stacked below */}
+        <div className="md:hidden">
+          <div className="relative aspect-[9/16] max-h-[75vh] w-full overflow-hidden">
+            <iframe
+              src="https://iframe.mediadelivery.net/embed/600055/b69bd946-69ef-4424-93f8-c57806001f6f?autoplay=true&loop=true&muted=true&preload=true&responsive=true"
+              loading="eager"
+              className="pointer-events-none absolute inset-0 h-full w-full"
+              allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+              allowFullScreen
+              title="Vektiss brand intro (mobile)"
+            />
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-background"
+            />
+          </div>
+          <div className="container-editorial pt-10 pb-16">
+            <div className="rounded-2xl border border-border bg-white p-6 shadow-card">
+              <p className="eyebrow">For growth-stage operator-owners</p>
+              <h1 className="mt-5 display-1">
+                The operating system your business has been{" "}
+                <span className="accent-underline">running without.</span>
+              </h1>
+              <p className="mt-6 text-base text-muted-foreground">
+                Project intelligence, AI assistants, client portals, and media — engineered
+                into one connected system you actually run your company from.
+              </p>
+              <div className="mt-8 flex flex-wrap items-center gap-3">
+                <a
+                  href="https://calendly.com/vektiss-info/30-minute-vektiss-discovery"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex h-12 items-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+                >
+                  Book a strategy call
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                </a>
+                <Link
+                  to="/how-we-work"
+                  className="inline-flex h-12 items-center gap-2 rounded-md border border-border px-6 text-sm font-medium text-foreground transition-colors hover:bg-muted"
+                >
+                  See how we work
+                </Link>
+              </div>
             </div>
           </div>
         </div>
