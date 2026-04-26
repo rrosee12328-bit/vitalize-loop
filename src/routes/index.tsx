@@ -32,26 +32,65 @@ const pillars = [
   {
     no: "01",
     name: "Project Intelligence",
-    desc: "Real-time visibility into every initiative. The CEO dashboard you've never had.",
+    desc: "Real-time visibility into every initiative, deadline, and decision. The CEO dashboard you've never had.",
     Icon: BarChart3,
   },
   {
     no: "02",
-    name: "AI Assistants",
-    desc: "Embedded AI that follows up leads, drafts replies, and removes the bottlenecks.",
+    name: "AI Phone & Email Assistants",
+    desc: "Embedded AI that answers calls, follows up leads, drafts replies, and removes communication bottlenecks 24/7.",
     Icon: Bot,
   },
   {
     no: "03",
-    name: "Revenue Operations",
-    desc: "Sales, marketing, and delivery on one connected pipeline. No more cold leads.",
-    Icon: GitBranch,
+    name: "Websites, Portals & Client Systems",
+    desc: "A digital front door that actually works — built to capture leads, serve clients, and support operations.",
+    Icon: Globe,
   },
   {
     no: "04",
-    name: "Operating Systems",
-    desc: "The processes, dashboards, and automations that turn your team into a system.",
-    Icon: Workflow,
+    name: "Business Media",
+    desc: "Turn your expertise into assets. Short-form video, AI avatars, and content systems that build trust at scale.",
+    Icon: Video,
+  },
+];
+
+const deepDives = [
+  {
+    eyebrow: "01 · Project Intelligence",
+    title: "Project management with AI built into the workflow.",
+    body: "Instead of scattered updates across emails and spreadsheets, get a shared system where AI summarizes progress, flags next steps, and keeps leadership informed.",
+    Mockup: ProjectMockup,
+  },
+  {
+    eyebrow: "02 · AI Assistants",
+    title: "Never let slow communication cost you another lead.",
+    body: "AI assistants qualify requests, answer common questions, summarize conversations, and route priority moments to the right person instantly.",
+    Mockup: AssistantMockup,
+  },
+  {
+    eyebrow: "04 · Business Media",
+    title: "Turn your expertise into income-producing assets.",
+    body: "We help shape video, founder-led content, and AI avatar assets so your expertise, proof, and process become visible at scale.",
+    Mockup: MediaMockup,
+  },
+];
+
+const steps = [
+  {
+    no: "01",
+    name: "Discover",
+    desc: "We map your business model, operational gaps, and the systems that need to connect.",
+  },
+  {
+    no: "02",
+    name: "Build",
+    desc: "We develop the AI systems, dashboards, web experience, and media infrastructure you actually need.",
+  },
+  {
+    no: "03",
+    name: "Deploy",
+    desc: "We launch with a clear rollout, train your team, and optimize based on real usage.",
   },
 ];
 
