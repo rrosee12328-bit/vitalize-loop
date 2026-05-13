@@ -1,71 +1,57 @@
 ## Goal
 
-Make the homepage hero feel like the video IS the experience — not a boxed iframe sitting inside a container. On desktop, it goes full-bleed cinematic with the headline + CTAs overlaid. On mobile, swap to a 9:16 vertical version that fills the screen so it feels native to phone viewing.
+Build a new AI Phone & Email Assistants solution page that matches the existing Vektiss site exactly — same Header, Footer, design tokens (`--primary` blue, `--background` off-white, `--foreground` near-black, `eyebrow`, `display-1/2`, `container-editorial`, card styling) — with all 5 sections specified and exact copy.
 
----
+## Scope
 
-## 1. Render a new 9:16 vertical video with Remotion
+- **Replace** the contents of `src/routes/solutions.ai-assistants.tsx`. The current file uses the generic `SolutionPage` template; the new page is fully custom and structurally different, so we won't reuse `SolutionPage`. Route URL stays `/solutions/ai-assistants` so existing nav/links keep working.
+- Add two small new components for the interactive bits, kept colocated since they're page-specific:
+  - `src/components/site/ai-assistants/CallDemo.tsx` — animated phone-call card (typing transcript loop, replay button).
+  - `src/components/site/ai-assistants/PricingEstimator.tsx` — slider-driven plan card.
+- Wrap everything in `<SiteLayout>` so nav + footer match the rest of the site.
 
-The existing Remotion project (`remotion/`) only has a 1920×1080 horizontal composition. I'll add a parallel vertical composition.
+## Design conformance
 
-**Changes in `remotion/`:**
-- Add a new `MainVideoVertical.tsx` that re-uses the same scenes (`SceneHook`, `ScenePillarSolo`, `SceneAllPillars`, `SceneClose`) but tuned for 1080×1920 — adjusted padding, type sizes, and HUD positioning so nothing clips on a portrait canvas.
-- Register a second `<Composition id="main-vertical" width={1080} height={1920} ...>` in `Root.tsx`.
-- Render it via the existing `scripts/render-remotion.mjs` (parameterized to take a composition id) → output to `/mnt/documents/vektiss-hero-vertical.mp4`.
-- Hand you the file as a `<lov-artifact>` so you can upload it to Bunny.net (library 600055), then paste the new embed URL back to me. I'll wire it in.
+Use only existing tokens / utilities — no new colors:
+- Page bg: `bg-background`, sections alternate with `bg-surface-elevated` and top border (`border-t border-border`) — same pattern as `SolutionPage.tsx`.
+- Eyebrows: `<p className="eyebrow">` (mono, uppercase, tracked, muted).
+- Headlines: `display-1` for hero H1, `display-2` for section H2s.
+- Primary CTA: `bg-primary text-primary-foreground` button (`h-12 px-6 rounded-md`), with `ArrowRight` icon — copy exactly from `SolutionPage`'s strategy-call button (links to `https://calendly.com/vektiss-info/30-minute-vektiss-discovery`).
+- Ghost CTA: `border border-border bg-background hover:bg-muted` matching the "All solutions" button style.
+- Cards: `rounded-xl border border-border bg-card p-8 shadow-card`.
+- Container: `container-editorial`, section padding `py-24 md:py-32`.
+- Phone-demo card: dark surface using `bg-foreground text-background` (no new color), green pulse via `bg-emerald-500 animate-pulse` (lucide / tw built-ins are fine), accent badge using `bg-primary/10 text-primary`.
 
-> Note: I can't upload directly to Bunny.net from the sandbox — you'll need to drop the rendered MP4 into your Bunny library and share the new iframe embed URL. Takes ~30 seconds on your end.
+## Section breakdown
 
-## 2. Rebuild the hero as full-bleed cinematic
+1. **Hero** — split grid (`md:grid-cols-12`), 6/6. Left: eyebrow `02 · AI PHONE & EMAIL ASSISTANTS`, H1 "Never let a missed call cost you another client.", subhead, two CTAs ("Book a Strategy Call" → calendly, "Hear a Real Call" → triggers `replay()` on demo via shared state / ref). Right: `<CallDemo />`.
+2. **The Problem** — `bg-surface-elevated`, 12-col grid: left 5 cols eyebrow + H2; right 7 cols vertical stack of 3 numbered cards.
+3. **How It Works** — 3-col grid, same numbered-step pattern used in `SolutionPage.implementation` (`STEP 01/02/03` with mono primary label).
+4. **Pricing** — centered intro, then `<PricingEstimator />` card. Slider: shadcn `@/components/ui/slider`. Logic: tiers Starter (50–100), Growth (101–250), Pro (251–500); state holds current call value; derive plan via tiered function; compute included minutes label per tier (fixed values 200/500/1000 as spec'd). Smooth number transitions via simple CSS `transition-all` on opacity/translate when plan changes (track previous plan in state). CTA inside card: blue, "Get Started at This Plan →" → calendly. Footnotes for $1,500 setup + Smith.ai comparison in `text-xs text-muted-foreground`.
+5. **Final CTA** — full-width `bg-surface-elevated` band, same shape as `SolutionPage`'s closing CTA, copy: "Ready to hire your best employee?" + subhead + blue "Book a Strategy Call →".
 
-**File: `src/routes/index.tsx`**
+## CallDemo behavior
 
-Replace the current contained-iframe hero with a true full-bleed section:
+- `useState` for `visibleChars` per line, `useState` currentLineIndex.
+- `useEffect` with `setInterval` (~30ms/char) types each line; pause 800ms between lines; after final line, show "✓ Lead captured" badge; pause 2.5s, reset.
+- Expose `replay()` via `useImperativeHandle` so the hero's "Hear a Real Call" button restarts it. Cleanup interval on unmount.
+- Lines exactly as specified in the request (Caller / Vektiss AI alternating, with a small avatar/label per bubble).
 
-- Hero section becomes `relative min-h-[90vh] md:min-h-screen` with the video as an absolutely-positioned background layer (`absolute inset-0 -z-10`).
-- Break out of `container-editorial` for the video layer so it spans edge-to-edge of the viewport, while the text content stays inside the editorial container for readability.
-- Add a gradient overlay (`bg-gradient-to-b from-background/40 via-background/20 to-background`) over the video so the headline text stays legible regardless of video content.
-- Eyebrow, H1, subhead, and the two CTA buttons sit on top of the video, vertically centered.
-- Stats strip moves below the hero, on solid background (keeps it readable).
+## Head metadata
 
-## 3. Responsive video swap (desktop horizontal / mobile vertical)
+Update `head()` meta to reflect the new positioning:
+- title: "AI Phone & Email Assistants — Vektiss"
+- description: "A fully managed AI receptionist that answers calls, qualifies leads, books appointments, and replies to emails 24/7."
+- og:title / og:description mirrors.
 
-Render two iframes, toggle visibility via Tailwind:
+## Files
 
-```tsx
-{/* Desktop: 16:9 horizontal */}
-<iframe
-  src="https://iframe.mediadelivery.net/embed/600055/130db0d6-...?autoplay=true&loop=true&muted=true&preload=true"
-  className="absolute inset-0 hidden h-full w-full object-cover md:block"
-  ...
-/>
-{/* Mobile: 9:16 vertical */}
-<iframe
-  src="https://iframe.mediadelivery.net/embed/600055/<NEW_VERTICAL_ID>?autoplay=true&loop=true&muted=true&preload=true"
-  className="absolute inset-0 block h-full w-full object-cover md:hidden"
-  ...
-/>
-```
+- Edit: `src/routes/solutions.ai-assistants.tsx` (full rewrite of component, keep `createFileRoute` export).
+- New: `src/components/site/ai-assistants/CallDemo.tsx`.
+- New: `src/components/site/ai-assistants/PricingEstimator.tsx`.
 
-Both wrapped so they cover their parent (no letterboxing on either orientation). Mobile gets the portrait crop that fills the phone screen end-to-end.
+## Out of scope
 
-## 4. Move the HeroMockup dashboard down
-
-Since the video now owns the hero, the static `HeroMockup` dashboard component becomes redundant up top. I'll either:
-- Drop it into the "A closer look" deep-dive section (still useful as product demonstration), or
-- Remove it from `index.tsx` entirely (it's also re-used implicitly via the deep-dive mockups).
-
-Default: remove from hero, leave the deep-dive section as-is.
-
-## What you'll need to do
-
-1. Approve this plan.
-2. After I render, I'll send you `vektiss-hero-vertical.mp4`. Upload it to your Bunny.net library 600055.
-3. Paste the new video ID/embed URL to me — I'll plug it into the mobile iframe in 30 seconds.
-
-## Files touched
-
-- `remotion/src/MainVideoVertical.tsx` (new)
-- `remotion/src/Root.tsx` (add vertical composition)
-- `remotion/scripts/render-remotion.mjs` (accept composition id arg)
-- `src/routes/index.tsx` (full-bleed hero, dual iframes)
+- No changes to Header, Footer, homepage, or other solution pages.
+- No new design tokens or fonts.
+- No backend / form submission — CTAs link to existing Calendly URL.
