@@ -66,7 +66,7 @@ function AIAssistantsPage() {
   return (
     <SiteLayout>
       {/* Hero */}
-      <section className="container-editorial pt-20 pb-16 md:pt-32 md:pb-24">
+      <section className="container-editorial pt-12 pb-16 md:pt-20 md:pb-24">
         <div className="mx-auto max-w-3xl text-center">
           <p className="eyebrow text-primary">02 · AI Phone & Email Assistants</p>
           <h1 className="mt-6 display-1">
@@ -97,7 +97,7 @@ function AIAssistantsPage() {
           </div>
         </div>
 
-        <div id="live-call-demo" className="mt-14 md:mt-20 scroll-mt-24">
+        <div id="live-call-demo" className="mt-8 md:mt-10 scroll-mt-24">
           <LiveCallDemo />
         </div>
       </section>
