@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, PhoneOff, Wallet, MoonStar } from "lucide-react";
+import { ArrowRight, PhoneOff, Wallet, MoonStar, Play } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { LiveCallDemo } from "@/components/site/ai-assistants/LiveCallDemo";
 import { PricingEstimator } from "@/components/site/ai-assistants/PricingEstimator";
@@ -90,9 +90,16 @@ function AIAssistantsPage() {
             </a>
             <a
               href="#live-call-demo"
-              className="inline-flex h-12 items-center gap-2 rounded-md border border-border bg-background px-6 text-sm font-medium text-foreground hover:bg-muted"
+              className="group inline-flex h-12 items-center gap-2.5 rounded-md border border-primary/40 bg-primary/5 px-5 text-sm font-medium text-foreground transition-colors hover:bg-primary/10"
             >
-              Hear a Real Call
+              <span className="relative inline-flex h-7 w-7 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                <span className="absolute inset-0 animate-ping rounded-full bg-primary/40" />
+                <Play className="relative ml-0.5 h-3.5 w-3.5 fill-current" />
+              </span>
+              Hear a real AI call
+              <span className="hidden text-xs text-muted-foreground sm:inline">
+                · 4 industries · 2 min
+              </span>
             </a>
           </div>
         </div>
