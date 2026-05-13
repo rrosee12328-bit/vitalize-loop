@@ -1,8 +1,6 @@
-import { useRef } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, PhoneOff, Wallet, MoonStar } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
-import { CallDemo, type CallDemoHandle } from "@/components/site/ai-assistants/CallDemo";
 import { LiveCallDemo } from "@/components/site/ai-assistants/LiveCallDemo";
 import { PricingEstimator } from "@/components/site/ai-assistants/PricingEstimator";
 
