@@ -237,12 +237,24 @@ function AIAssistantsPage() {
             <p className="eyebrow">Pricing</p>
             <h2 className="mt-6 display-2">Simple pricing. No per-call surprises.</h2>
             <p className="mt-6 text-lg text-muted-foreground">
-              Most answering services charge by the call. We don't. Pick your volume and see your
-              flat monthly rate.
+              Flat monthly plans. Done-for-you setup. Cancel anytime.
             </p>
           </div>
-          <div className="mt-12">
-            <PricingEstimator />
+
+          <div className="mt-16">
+            <PricingTiers />
+          </div>
+
+          <div className="mt-20">
+            <div className="mx-auto max-w-2xl text-center">
+              <p className="eyebrow">Not sure which tier?</p>
+              <h3 className="mt-4 text-2xl font-semibold tracking-tight md:text-3xl">
+                Estimate your monthly volume
+              </h3>
+            </div>
+            <div className="mt-8">
+              <PricingEstimator />
+            </div>
           </div>
         </div>
       </section>
@@ -250,15 +262,13 @@ function AIAssistantsPage() {
       {/* Final CTA */}
       <section className="border-t border-border bg-surface-elevated">
         <div className="container-editorial py-24 md:py-28">
-          <div className="grid items-end gap-10 md:grid-cols-12">
-            <div className="md:col-span-8">
-              <h2 className="display-2">Ready to hire your best employee?</h2>
-              <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-                Book a 30-minute call. We'll show you exactly how the system works and what it
-                would look like for your business.
-              </p>
-            </div>
-            <div className="md:col-span-4 md:text-right">
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="display-2">Your best employee costs $29.99 a month.</h2>
+            <p className="mt-6 text-lg text-muted-foreground">
+              Never misses a call. Never takes a sick day. Never forgets to follow up.
+              Live in 48 hours.
+            </p>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <a
                 href={CALENDLY}
                 target="_blank"
@@ -268,7 +278,16 @@ function AIAssistantsPage() {
                 Book a Strategy Call
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </a>
+              <a
+                href="#live-call-demo"
+                className="inline-flex h-12 items-center gap-2 rounded-md border border-border bg-background px-6 text-sm font-medium text-foreground transition-colors hover:bg-muted"
+              >
+                Hear a Real AI Call
+              </a>
             </div>
+            <p className="mt-5 text-[13px] text-muted-foreground">
+              30-Day Money-Back Guarantee · No Contract · Cancel Anytime
+            </p>
           </div>
         </div>
       </section>
