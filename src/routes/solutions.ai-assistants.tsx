@@ -74,7 +74,7 @@ function AIAssistantsPage() {
           <div className="md:col-span-6">
             <p className="eyebrow text-primary">02 · AI Phone & Email Assistants</p>
             <h1 className="mt-6 display-1">
-              Never let a missed call <span className="accent-underline">cost another client.</span>
+              Never let a missed call <span className="accent-underline">cost you another client.</span>
             </h1>
             <p className="mt-8 text-lg text-muted-foreground md:text-xl">
               Vektiss embeds a fully managed AI receptionist into your business. It answers calls,
