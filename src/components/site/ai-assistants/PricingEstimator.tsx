@@ -55,20 +55,20 @@ export function PricingEstimator() {
     <div className="mx-auto max-w-2xl rounded-2xl border border-border bg-card p-8 shadow-card md:p-10">
       <div className="flex items-baseline justify-between">
         <p className="eyebrow">Estimated monthly calls</p>
-        <span className="font-mono text-sm text-foreground">{calls}</span>
+        <span className="font-mono text-sm text-foreground">{callsLabel}</span>
       </div>
 
       <div className="mt-4">
         <Slider
           value={[calls]}
           min={50}
-          max={500}
+          max={MAX_CALLS}
           step={10}
           onValueChange={(v) => setCalls(v[0] ?? 50)}
         />
         <div className="mt-2 flex justify-between font-mono text-[10px] tracking-widest text-muted-foreground">
           <span>50</span>
-          <span>500</span>
+          <span>500+</span>
         </div>
       </div>
 
@@ -80,12 +80,16 @@ export function PricingEstimator() {
           <div>
             <p className="eyebrow text-primary">Recommended plan</p>
             <h3 className="mt-2 text-3xl font-semibold tracking-tight">{tier.name}</h3>
-            <p className="mt-1 text-sm text-muted-foreground">{tier.minutes} included</p>
+            <p className="mt-1 text-sm text-muted-foreground">
+              {tier.isCustom ? tier.minutes : `${tier.minutes} included`}
+            </p>
           </div>
           <div className="text-right">
             <div className="text-4xl font-semibold tracking-tight">
               {tier.price}
-              <span className="text-base font-normal text-muted-foreground">/mo</span>
+              {!tier.isCustom && (
+                <span className="text-base font-normal text-muted-foreground">/mo</span>
+              )}
             </div>
           </div>
         </div>
