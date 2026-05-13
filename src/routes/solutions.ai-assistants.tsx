@@ -63,62 +63,42 @@ const steps = [
 ];
 
 function AIAssistantsPage() {
-  const demoRef = useRef<CallDemoHandle>(null);
-
   return (
     <SiteLayout>
       {/* Hero */}
-      <section className="container-editorial pt-20 pb-16 md:pt-32 md:pb-20">
-        <div className="grid items-center gap-12 md:grid-cols-12 md:gap-16">
-          <div className="md:col-span-6">
-            <p className="eyebrow text-primary">02 · AI Phone & Email Assistants</p>
-            <h1 className="mt-6 display-1">
-              Never let a missed call <span className="accent-underline">cost you another client.</span>
-            </h1>
-            <p className="mt-8 text-lg text-muted-foreground md:text-xl">
-              Vektiss embeds a fully managed AI receptionist into your business. It answers calls,
-              qualifies leads, books appointments, and replies to emails — 24/7, without adding
-              headcount.
-            </p>
-            <div className="mt-8 flex flex-wrap items-center gap-4">
-              <a
-                href={CALENDLY}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex h-12 items-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
-              >
-                Book a Strategy Call
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-              </a>
-              <button
-                type="button"
-                onClick={() => demoRef.current?.replay()}
-                className="inline-flex h-12 items-center gap-2 rounded-md border border-border bg-background px-6 text-sm font-medium text-foreground hover:bg-muted"
-              >
-                Hear a Real Call
-              </button>
-            </div>
-          </div>
-          <div className="md:col-span-6">
-            <CallDemo ref={demoRef} />
+      <section className="container-editorial pt-20 pb-16 md:pt-32 md:pb-24">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="eyebrow text-primary">02 · AI Phone & Email Assistants</p>
+          <h1 className="mt-6 display-1">
+            Never let a missed call{" "}
+            <span className="accent-underline">cost you another client.</span>
+          </h1>
+          <p className="mt-8 text-lg text-muted-foreground md:text-xl">
+            Vektiss embeds a fully managed AI receptionist into your business. It answers
+            calls, qualifies leads, books appointments, and replies to emails — 24/7,
+            without adding headcount.
+          </p>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+            <a
+              href={CALENDLY}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex h-12 items-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+            >
+              Book a Strategy Call
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </a>
+            <a
+              href="#live-call-demo"
+              className="inline-flex h-12 items-center gap-2 rounded-md border border-border bg-background px-6 text-sm font-medium text-foreground hover:bg-muted"
+            >
+              Hear a Real Call
+            </a>
           </div>
         </div>
-      </section>
 
-      {/* Live Call Demo */}
-      <section className="border-t border-border">
-        <div className="container-editorial py-20 md:py-28">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="eyebrow">Live Call Demo</p>
-            <h2 className="mt-6 display-2">Hear it handle a real call.</h2>
-            <p className="mt-6 text-lg text-muted-foreground">
-              Pick an industry and press play. Watch the AI greet, qualify, and close — stage
-              by stage, in real time.
-            </p>
-          </div>
-          <div className="mt-12">
-            <LiveCallDemo />
-          </div>
+        <div id="live-call-demo" className="mt-14 md:mt-20 scroll-mt-24">
+          <LiveCallDemo />
         </div>
       </section>
 
