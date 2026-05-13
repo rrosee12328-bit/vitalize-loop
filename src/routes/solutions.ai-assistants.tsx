@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, PhoneOff, Wallet, MoonStar, Play } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { LiveCallDemo } from "@/components/site/ai-assistants/LiveCallDemo";
+import { DashboardPreview } from "@/components/site/ai-assistants/DashboardPreview";
 import { PricingEstimator } from "@/components/site/ai-assistants/PricingEstimator";
 
 const CALENDLY = "https://calendly.com/vektiss-info/30-minute-vektiss-discovery";
@@ -158,6 +159,63 @@ function AIAssistantsPage() {
               <p className="mt-3 text-sm leading-6 text-muted-foreground">{s.desc}</p>
             </article>
           ))}
+        </div>
+      </section>
+
+      {/* Total Visibility — Client Dashboard */}
+      <section className="border-t border-border bg-foreground text-background">
+        <div className="container-editorial py-24 md:py-32">
+          <div className="grid items-center gap-12 md:grid-cols-12 md:gap-16">
+            {/* Dashboard first on mobile, right column on desktop */}
+            <div className="order-1 md:order-2 md:col-span-7">
+              <DashboardPreview />
+            </div>
+            <div className="order-2 md:order-1 md:col-span-5">
+              <p className="font-mono text-[11px] tracking-[0.18em] text-primary">
+                04 · CLIENT DASHBOARD
+              </p>
+              <h2 className="mt-6 display-2 text-background">
+                You see everything.{" "}
+                <span className="text-primary">In real time.</span>
+              </h2>
+              <p className="mt-6 text-lg text-background/70">
+                Every call logged. Every email handled. Every lead captured. Your Vektiss
+                dashboard gives you a live view of your AI assistant's activity — so you
+                always know what's happening with your business, even when you're not
+                there.
+              </p>
+              <ul className="mt-8 space-y-4">
+                {[
+                  {
+                    title: "Call Log",
+                    body: "Every inbound call recorded with date, time, caller number, and outcome.",
+                  },
+                  {
+                    title: "Lead Summaries",
+                    body: "Instant SMS and email recap after every call so you never miss a lead.",
+                  },
+                  {
+                    title: "Email Activity",
+                    body: "Track every email received, drafted, and sent by your AI assistant.",
+                  },
+                  {
+                    title: "Monthly Report",
+                    body: "Automated performance summary delivered to your inbox every month.",
+                  },
+                ].map((f) => (
+                  <li key={f.title} className="flex gap-3">
+                    <span className="mt-1.5 inline-flex h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                    <div>
+                      <span className="text-sm font-semibold tracking-tight text-background">
+                        {f.title}
+                      </span>
+                      <span className="text-sm text-background/70"> — {f.body}</span>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
 
