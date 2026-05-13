@@ -1,4 +1,4 @@
-import { ArrowRight, Mail, PhoneCall, Sparkles } from "lucide-react";
+import { Mail, PhoneCall, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 type Outcome = "Lead Captured" | "Appointment Set" | "Info Provided" | "Voicemail Left";
