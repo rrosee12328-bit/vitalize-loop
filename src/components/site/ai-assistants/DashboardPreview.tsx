@@ -1,4 +1,4 @@
-import { ArrowRight, Mail, PhoneCall, Sparkles } from "lucide-react";
+import { Mail, PhoneCall, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 type Outcome = "Lead Captured" | "Appointment Set" | "Info Provided" | "Voicemail Left";
@@ -133,13 +133,10 @@ export function DashboardPreview() {
           <Sparkles className="h-3 w-3" />
           Last updated: just now
         </span>
-        <button
-          type="button"
-          className="group inline-flex items-center gap-1 text-xs font-medium text-primary hover:underline"
-        >
-          View Full Dashboard
-          <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
-        </button>
+        <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-2.5 py-1 text-[10px] font-medium tracking-wide text-muted-foreground">
+          <Sparkles className="h-3 w-3 text-primary" />
+          Available to every Vektiss client
+        </span>
       </div>
     </div>
   );
