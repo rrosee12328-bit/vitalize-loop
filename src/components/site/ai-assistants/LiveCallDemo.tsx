@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Play, Pause, Phone, Check } from "lucide-react";
+import { Play, Pause, Phone } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 type Stage = { time: number; label: string };
@@ -17,64 +17,60 @@ const DEMOS: Demo[] = [
     id: "home_services",
     title: "Home Services — Plumbing Emergency",
     shortLabel: "Home Services",
-    audioSrc: "/demo_audio_v3/home_services.mp3",
-    duration: 171.7,
+    audioSrc: "/audio/home_services.mp3",
+    duration: 130,
     stages: [
-      { time: 0, label: "Opening & Greeting" },
-      { time: 10, label: "Triage: Identifying the Emergency" },
-      { time: 42, label: "Action: Shutting off the Water" },
-      { time: 64, label: "Intake: Collecting Contact Info" },
-      { time: 87, label: "Assessment: Diagnosing the Issue" },
-      { time: 115, label: "Resolution: Dispatch & Pricing" },
-      { time: 150, label: "Close: Final Confirmation" },
+      { time: 0, label: "AI answers immediately" },
+      { time: 12, label: "Identifies emergency situation" },
+      { time: 35, label: "Collects name and address" },
+      { time: 70, label: "Dispatches technician, gives ETA" },
+      { time: 105, label: "Confirms via SMS, captures lead" },
+      { time: 125, label: "Warm close" },
     ],
   },
   {
     id: "real_estate",
     title: "Real Estate — Buyer Inquiry & Showing",
     shortLabel: "Real Estate",
-    audioSrc: "/demo_audio_v3/real_estate.mp3",
-    duration: 156.2,
+    audioSrc: "/audio/real_estate.mp3",
+    duration: 130,
     stages: [
-      { time: 0, label: "Opening & Greeting" },
-      { time: 13, label: "Property Details & Pre-approval Check" },
-      { time: 37, label: "Discovery: Buyer Preferences" },
-      { time: 68, label: "Matching: Confirming Must-Haves" },
-      { time: 90, label: "Scheduling: Offering Time Slots" },
-      { time: 107, label: "Intake: Collecting Buyer Info" },
-      { time: 128, label: "Close: Setting Expectations" },
+      { time: 0, label: "AI answers as brokerage" },
+      { time: 15, label: "Identifies property interest" },
+      { time: 40, label: "Qualifies buyer" },
+      { time: 65, label: "Checks calendar availability" },
+      { time: 95, label: "Books showing, confirms date/time" },
+      { time: 125, label: "Sends confirmation, captures contact" },
     ],
   },
   {
     id: "medical_wellness",
     title: "Medical / Wellness — New Patient Booking",
     shortLabel: "Medical / Wellness",
-    audioSrc: "/demo_audio_v3/medical_wellness.mp3",
-    duration: 157.7,
+    audioSrc: "/audio/medical_wellness.mp3",
+    duration: 135,
     stages: [
-      { time: 0, label: "Opening & Greeting" },
-      { time: 12, label: "Triage: Understanding Symptoms" },
-      { time: 39, label: "Discovery: Treatment Preference" },
-      { time: 56, label: "Intake: Patient Details" },
-      { time: 82, label: "Insurance & Billing Verification" },
-      { time: 110, label: "Scheduling: Booking Appointment" },
-      { time: 135, label: "Close: Pre-visit Instructions" },
+      { time: 0, label: "AI answers as clinic" },
+      { time: 15, label: "New patient inquiry" },
+      { time: 45, label: "Collects insurance and concern" },
+      { time: 75, label: "Checks availability, offers slots" },
+      { time: 110, label: "Books appointment, confirms" },
+      { time: 130, label: "Warm close with next steps" },
     ],
   },
   {
     id: "professional_services",
     title: "Professional Services — B2B Consulting Intake",
     shortLabel: "Professional Services",
-    audioSrc: "/demo_audio_v3/professional_services.mp3",
-    duration: 201.9,
+    audioSrc: "/audio/professional_services.mp3",
+    duration: 140,
     stages: [
-      { time: 0, label: "Opening & Greeting" },
-      { time: 13, label: "Discovery: Identifying Bottlenecks" },
-      { time: 46, label: "Deep Dive: Specific Pain Points" },
-      { time: 83, label: "Pitch: Presenting the Solution" },
-      { time: 116, label: "Call to Action: Offering Discovery Call" },
-      { time: 140, label: "Intake: Company Details" },
-      { time: 169, label: "Close: Next Steps & Expectations" },
+      { time: 0, label: "AI answers as consulting firm" },
+      { time: 20, label: "Identifies business need" },
+      { time: 55, label: "Qualifies company size and urgency" },
+      { time: 85, label: "Routes to discovery call booking" },
+      { time: 115, label: "Confirms calendar slot" },
+      { time: 135, label: "Sends recap email, captures lead" },
     ],
   },
 ];
@@ -276,58 +272,39 @@ export function LiveCallDemo() {
             onEnded={() => setPlaying(false)}
           />
 
-          {/* Timeline */}
-          <ol className="mt-8 space-y-1">
-            {demo.stages.map((s, i) => {
-              const state =
-                i < activeStageIdx ? "done" : i === activeStageIdx ? "active" : "pending";
-              return (
-                <li key={i}>
+          {/* Horizontal pill timeline */}
+          <div className="mt-8">
+            <div className="flex flex-wrap gap-2">
+              {demo.stages.map((s, i) => {
+                const isActive = i === activeStageIdx;
+                const isDone = i < activeStageIdx;
+                return (
                   <button
+                    key={i}
                     type="button"
                     onClick={() => seekTo(s.time)}
-                    className="group flex w-full items-center gap-3 rounded-md px-2 py-2 text-left transition-colors hover:bg-muted/60"
+                    className={cn(
+                      "inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium transition-all duration-300",
+                      isActive
+                        ? "bg-primary text-primary-foreground shadow-sm scale-[1.02]"
+                        : isDone
+                          ? "bg-primary/15 text-primary"
+                          : "bg-muted text-muted-foreground hover:bg-muted/80",
+                    )}
                   >
-                    <span
-                      className={cn(
-                        "relative inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full border text-[10px] font-mono",
-                        state === "done" &&
-                          "border-primary bg-primary text-primary-foreground",
-                        state === "active" &&
-                          "border-primary bg-background text-primary",
-                        state === "pending" &&
-                          "border-border bg-background text-muted-foreground",
-                      )}
-                    >
-                      {state === "done" ? (
-                        <Check className="h-3.5 w-3.5" />
-                      ) : state === "active" ? (
-                        <span className="relative inline-flex h-2 w-2">
-                          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
-                          <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
-                        </span>
-                      ) : (
-                        i + 1
-                      )}
-                    </span>
-                    <span
-                      className={cn(
-                        "flex-1 text-sm transition-colors",
-                        state === "active" && "font-medium text-primary",
-                        state === "done" && "text-muted-foreground line-through/0",
-                        state === "pending" && "text-muted-foreground",
-                      )}
-                    >
-                      {s.label}
-                    </span>
-                    <span className="font-mono text-[10px] text-muted-foreground tabular-nums">
+                    <span className="font-mono text-[10px] tabular-nums opacity-80">
                       {fmt(s.time)}
                     </span>
+                    <span>{s.label}</span>
                   </button>
-                </li>
-              );
-            })}
-          </ol>
+                );
+              })}
+            </div>
+            <p className="mt-6 text-xs text-muted-foreground">
+              Want to hear your own business? Book a setup call and we'll build your
+              custom demo in 24 hours.
+            </p>
+          </div>
         </div>
       </div>
     </div>
