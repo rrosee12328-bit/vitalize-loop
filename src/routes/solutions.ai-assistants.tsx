@@ -3,7 +3,7 @@ import { ArrowRight, PhoneOff, Wallet, MoonStar, Play } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { LiveCallDemo } from "@/components/site/ai-assistants/LiveCallDemo";
 import { DashboardPreview } from "@/components/site/ai-assistants/DashboardPreview";
-import { PricingEstimator } from "@/components/site/ai-assistants/PricingEstimator";
+import { PricingEstimator, PricingTiers } from "@/components/site/ai-assistants/PricingEstimator";
 
 const CALENDLY = "https://calendly.com/vektiss-info/30-minute-vektiss-discovery";
 
