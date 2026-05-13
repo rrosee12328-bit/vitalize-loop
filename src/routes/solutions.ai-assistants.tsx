@@ -71,13 +71,13 @@ function AIAssistantsPage() {
         <div className="mx-auto max-w-3xl text-center">
           <p className="eyebrow text-primary">02 · AI Phone & Email Assistants</p>
           <h1 className="mt-6 display-1">
-            Never let a missed call{" "}
-            <span className="accent-underline">cost you another client.</span>
+            Stop letting missed calls{" "}
+            <span className="accent-underline">fund your competitors.</span>
           </h1>
           <p className="mt-8 text-lg text-muted-foreground md:text-xl">
-            Vektiss embeds a fully managed AI receptionist into your business. It answers
-            calls, qualifies leads, books appointments, and replies to emails — 24/7,
-            without adding headcount.
+            Your AI receptionist answers every call, books appointments, handles emails,
+            and sends you a summary — 24/7, fully managed by Vektiss. No contracts.
+            30-day money-back guarantee.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <a
@@ -102,6 +102,17 @@ function AIAssistantsPage() {
                 · 4 industries · 2 min
               </span>
             </a>
+          </div>
+          <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
+            {["Done For You", "No Contract", "30-Day Guarantee"].map((b) => (
+              <span
+                key={b}
+                className="inline-flex items-center gap-1.5 rounded-full bg-muted px-3 py-1 text-[12px] font-medium text-foreground/80"
+              >
+                <span className="text-primary">✓</span>
+                {b}
+              </span>
+            ))}
           </div>
         </div>
 
