@@ -3,6 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, PhoneOff, Wallet, MoonStar } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { CallDemo, type CallDemoHandle } from "@/components/site/ai-assistants/CallDemo";
+import { LiveCallDemo } from "@/components/site/ai-assistants/LiveCallDemo";
 import { PricingEstimator } from "@/components/site/ai-assistants/PricingEstimator";
 
 const CALENDLY = "https://calendly.com/vektiss-info/30-minute-vektiss-discovery";
@@ -102,6 +103,23 @@ function AIAssistantsPage() {
           </div>
           <div className="md:col-span-6">
             <CallDemo ref={demoRef} />
+          </div>
+        </div>
+      </section>
+
+      {/* Live Call Demo */}
+      <section className="border-t border-border">
+        <div className="container-editorial py-20 md:py-28">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="eyebrow">Live Call Demo</p>
+            <h2 className="mt-6 display-2">Hear it handle a real call.</h2>
+            <p className="mt-6 text-lg text-muted-foreground">
+              Pick an industry and press play. Watch the AI greet, qualify, and close — stage
+              by stage, in real time.
+            </p>
+          </div>
+          <div className="mt-12">
+            <LiveCallDemo />
           </div>
         </div>
       </section>
