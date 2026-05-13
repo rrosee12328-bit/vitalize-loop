@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Play, Pause, Phone, Check } from "lucide-react";
+import { Play, Pause, Phone } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 type Stage = { time: number; label: string };
