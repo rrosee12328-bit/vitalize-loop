@@ -272,58 +272,39 @@ export function LiveCallDemo() {
             onEnded={() => setPlaying(false)}
           />
 
-          {/* Timeline */}
-          <ol className="mt-8 space-y-1">
-            {demo.stages.map((s, i) => {
-              const state =
-                i < activeStageIdx ? "done" : i === activeStageIdx ? "active" : "pending";
-              return (
-                <li key={i}>
+          {/* Horizontal pill timeline */}
+          <div className="mt-8">
+            <div className="flex flex-wrap gap-2">
+              {demo.stages.map((s, i) => {
+                const isActive = i === activeStageIdx;
+                const isDone = i < activeStageIdx;
+                return (
                   <button
+                    key={i}
                     type="button"
                     onClick={() => seekTo(s.time)}
-                    className="group flex w-full items-center gap-3 rounded-md px-2 py-2 text-left transition-colors hover:bg-muted/60"
+                    className={cn(
+                      "inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium transition-all duration-300",
+                      isActive
+                        ? "bg-primary text-primary-foreground shadow-sm scale-[1.02]"
+                        : isDone
+                          ? "bg-primary/15 text-primary"
+                          : "bg-muted text-muted-foreground hover:bg-muted/80",
+                    )}
                   >
-                    <span
-                      className={cn(
-                        "relative inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full border text-[10px] font-mono",
-                        state === "done" &&
-                          "border-primary bg-primary text-primary-foreground",
-                        state === "active" &&
-                          "border-primary bg-background text-primary",
-                        state === "pending" &&
-                          "border-border bg-background text-muted-foreground",
-                      )}
-                    >
-                      {state === "done" ? (
-                        <Check className="h-3.5 w-3.5" />
-                      ) : state === "active" ? (
-                        <span className="relative inline-flex h-2 w-2">
-                          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
-                          <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
-                        </span>
-                      ) : (
-                        i + 1
-                      )}
-                    </span>
-                    <span
-                      className={cn(
-                        "flex-1 text-sm transition-colors",
-                        state === "active" && "font-medium text-primary",
-                        state === "done" && "text-muted-foreground line-through/0",
-                        state === "pending" && "text-muted-foreground",
-                      )}
-                    >
-                      {s.label}
-                    </span>
-                    <span className="font-mono text-[10px] text-muted-foreground tabular-nums">
+                    <span className="font-mono text-[10px] tabular-nums opacity-80">
                       {fmt(s.time)}
                     </span>
+                    <span>{s.label}</span>
                   </button>
-                </li>
-              );
-            })}
-          </ol>
+                );
+              })}
+            </div>
+            <p className="mt-6 text-xs text-muted-foreground">
+              Want to hear your own business? Book a setup call and we'll build your
+              custom demo in 24 hours.
+            </p>
+          </div>
         </div>
       </div>
     </div>
