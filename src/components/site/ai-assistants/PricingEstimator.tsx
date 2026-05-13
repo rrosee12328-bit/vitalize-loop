@@ -7,7 +7,10 @@ type Tier = {
   minutes: string;
   price: string;
   desc: string;
+  isCustom?: boolean;
 };
+
+const MAX_CALLS = 750;
 
 function tierFor(calls: number): Tier {
   if (calls <= 100) {
@@ -26,17 +29,27 @@ function tierFor(calls: number): Tier {
       desc: "Everything in Starter + bi-weekly reporting + outbound email.",
     };
   }
+  if (calls <= 500) {
+    return {
+      name: "Pro",
+      minutes: "1,000 min/mo",
+      price: "$423",
+      desc: "Everything in Growth + weekly reporting + full call analytics.",
+    };
+  }
   return {
-    name: "Pro",
-    minutes: "1,000 min/mo",
-    price: "$423",
-    desc: "Everything in Growth + weekly reporting + full call analytics.",
+    name: "Custom",
+    minutes: "Unlimited / tailored",
+    price: "Let's talk",
+    desc: "High call volume, multi-location, or custom integrations. We'll scope a plan built around your business.",
+    isCustom: true,
   };
 }
 
 export function PricingEstimator() {
   const [calls, setCalls] = useState(120);
   const tier = tierFor(calls);
+  const callsLabel = calls > 500 ? "500+" : String(calls);
 
   return (
     <div className="mx-auto max-w-2xl rounded-2xl border border-border bg-card p-8 shadow-card md:p-10">
