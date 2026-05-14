@@ -17,14 +17,24 @@ type Tier = {
   highlight?: boolean;
 };
 
-const TIERS: Tier[] = [
+type Feature = { label: string; included: boolean; emphasize?: boolean };
+
+type TierExt = Tier & {
+  tagline: string;
+  bestFor: string;
+  features: Feature[];
+};
+
+const TIERS: TierExt[] = [
   {
     name: "Phone Starter",
+    tagline: "Never miss another call.",
+    bestFor: "Solo operators & side businesses",
     monthly: 45.99,
     annual: 441,
-    included: "60 phone minutes/mo",
+    included: "60 phone minutes / mo",
     features: [
-      { label: "AI Phone Receptionist (24/7)", included: true },
+      { label: "AI Phone Receptionist (24/7)", included: true, emphasize: true },
       { label: "Blind & Warm Call Transfers", included: true },
       { label: "After-Hours Rules & Escalation", included: true },
       { label: "Spam Detection & Call Blocking", included: true },
@@ -41,13 +51,15 @@ const TIERS: Tier[] = [
   },
   {
     name: "Phone + Email",
+    tagline: "Phone + inbox, fully covered.",
+    bestFor: "Growing teams handling 100+ calls/mo",
     monthly: 89.99,
     annual: 863,
-    included: "200 phone minutes + 200 email replies/mo",
+    included: "200 phone minutes + 200 email replies / mo",
     features: [
-      { label: "Everything in Tier 1", included: true },
-      { label: "Full Call Transcripts", included: true },
-      { label: "Email AI Assistant (200 replies/mo)", included: true },
+      { label: "Everything in Phone Starter", included: true },
+      { label: "Full Call Transcripts", included: true, emphasize: true },
+      { label: "Email AI Assistant (200 replies/mo)", included: true, emphasize: true },
       { label: "Limited Analytics Dashboard", included: true },
       { label: "Monthly Performance Report", included: true },
       { label: "Calendar Sync (Google/Outlook)", included: false },
@@ -59,17 +71,19 @@ const TIERS: Tier[] = [
   },
   {
     name: "AI Front Office",
+    tagline: "Your full virtual receptionist.",
+    bestFor: "Established businesses scaling fast",
     monthly: 199,
     annual: 1910,
-    included: "500 phone minutes + 500 email replies/mo",
+    included: "500 phone minutes + 500 email replies / mo",
     features: [
-      { label: "Everything in Tier 2", included: true },
-      { label: "Auto Follow-Up Email (with custom links)", included: true },
-      { label: "Calendar Sync (Google & Outlook)", included: true },
+      { label: "Everything in Phone + Email", included: true },
+      { label: "Auto Follow-Up Email (with custom links)", included: true, emphasize: true },
+      { label: "Calendar Sync (Google & Outlook)", included: true, emphasize: true },
       { label: "Caller Memory (remembers past callers)", included: true },
       { label: "Bilingual Support (EN/ES)", included: true },
       { label: "Lead Scoring (Hot/Warm/Cold)", included: true },
-      { label: "Full Analytics Dashboard", included: true },
+      { label: "Full Analytics Dashboard", included: true, emphasize: true },
       { label: "Priority Support", included: true },
     ],
     overage: "Overage: $0.15/min · $0.03/email",
@@ -77,16 +91,18 @@ const TIERS: Tier[] = [
   },
   {
     name: "Custom",
+    tagline: "Built around your workflow.",
+    bestFor: "Multi-location & enterprise",
     monthly: null,
     annual: null,
     customLabel: "Let's Talk",
     included: "Unlimited volume",
     features: [
-      { label: "Everything in Tier 3", included: true },
-      { label: "Custom CRM Integrations", included: true },
-      { label: "Multi-location / Multi-agent", included: true },
-      { label: "Outbound AI Calling", included: true },
-      { label: "Dedicated Account Manager", included: true },
+      { label: "Everything in AI Front Office", included: true },
+      { label: "Custom CRM Integrations", included: true, emphasize: true },
+      { label: "Multi-location / Multi-agent", included: true, emphasize: true },
+      { label: "Outbound AI Calling", included: true, emphasize: true },
+      { label: "Dedicated Account Manager", included: true, emphasize: true },
     ],
     cta: "Contact Us",
   },
