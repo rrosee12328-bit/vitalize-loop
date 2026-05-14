@@ -22,9 +22,9 @@ const DEMOS: Demo[] = [
     stages: [
       { time: 0, label: "AI answers immediately" },
       { time: 12, label: "Identifies emergency situation" },
-      { time: 35, label: "Collects name and address" },
+      { time: 35, label: "Collects caller name and address" },
       { time: 70, label: "Dispatches technician, gives ETA" },
-      { time: 105, label: "Confirms via SMS, captures lead" },
+      { time: 105, label: "Confirms via email, captures lead" },
       { time: 125, label: "Warm close" },
     ],
   },
@@ -37,7 +37,7 @@ const DEMOS: Demo[] = [
     stages: [
       { time: 0, label: "AI answers as brokerage" },
       { time: 15, label: "Identifies property interest" },
-      { time: 40, label: "Qualifies buyer" },
+      { time: 40, label: "Qualifies buyer (pre-approved?)" },
       { time: 65, label: "Checks calendar availability" },
       { time: 95, label: "Books showing, confirms date/time" },
       { time: 125, label: "Sends confirmation, captures contact" },
@@ -101,7 +101,6 @@ export function LiveCallDemo() {
     return idx;
   }, [currentTime, demo.stages]);
 
-  // Switch demo: reset
   useEffect(() => {
     const a = audioRef.current;
     if (!a) return;
@@ -141,169 +140,153 @@ export function LiveCallDemo() {
 
   const pct = duration > 0 ? Math.min(100, (currentTime / duration) * 100) : 0;
 
+  // Waveform bars (static visualization, animated by progress)
+  const bars = useMemo(
+    () =>
+      Array.from({ length: 56 }, (_, i) => {
+        // pseudo-random but stable per index
+        const seed = Math.sin(i * 12.9898) * 43758.5453;
+        const r = seed - Math.floor(seed);
+        return 24 + Math.round(r * 60); // 24% - 84%
+      }),
+    [],
+  );
+
   return (
-    <div className="rounded-2xl border border-border bg-card shadow-card overflow-hidden">
-      <div className="grid md:grid-cols-12">
-        {/* Scenarios */}
-        <div className="md:col-span-4 border-b border-border md:border-b-0 md:border-r bg-surface-elevated">
-          <div className="p-5 md:p-6">
-            <p className="font-mono text-[10px] tracking-[0.18em] text-muted-foreground">
-              SCENARIOS
-            </p>
-            <h3 className="mt-2 text-base font-semibold tracking-tight">
-              Hear the AI in action
-            </h3>
+    <div className="rounded-2xl border border-white/10 bg-[#111827] text-white shadow-2xl shadow-black/40 overflow-hidden">
+      <div className="p-5 md:p-6">
+        {/* Header */}
+        <div className="flex items-center justify-between gap-4">
+          <div className="flex items-center gap-2">
+            <span className="relative inline-flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+            </span>
+            <span className="font-mono text-[10px] tracking-[0.18em] text-emerald-400">
+              {playing ? "ON CALL" : "READY"}
+            </span>
           </div>
-          <ul className="px-2 pb-3 md:px-3 md:pb-5">
-            {DEMOS.map((d) => {
-              const isActive = d.id === activeId;
-              return (
-                <li key={d.id}>
-                  <button
-                    type="button"
-                    onClick={() => setActiveId(d.id)}
-                    className={cn(
-                      "group w-full rounded-lg px-3 py-3 text-left transition-colors",
-                      isActive
-                        ? "bg-primary/10 text-foreground"
-                        : "hover:bg-muted text-muted-foreground hover:text-foreground",
-                    )}
-                  >
-                    <div className="flex items-center gap-3">
-                      <span
-                        className={cn(
-                          "inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-md",
-                          isActive
-                            ? "bg-primary text-primary-foreground"
-                            : "bg-background text-muted-foreground border border-border",
-                        )}
-                      >
-                        <Phone className="h-4 w-4" />
-                      </span>
-                      <div className="min-w-0">
-                        <div className="text-sm font-medium leading-tight">
-                          {d.shortLabel}
-                        </div>
-                        <div className="mt-0.5 truncate text-xs text-muted-foreground">
-                          {d.title.split("—")[1]?.trim() ?? ""}
-                        </div>
-                      </div>
-                    </div>
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
+          <p className="font-mono text-[10px] tracking-[0.18em] text-white/60">
+            LIVE CALL DEMO
+          </p>
         </div>
 
-        {/* Player + Timeline */}
-        <div className="md:col-span-8 p-5 md:p-8">
-          <div className="flex items-start justify-between gap-4">
-            <div>
-              <p className="font-mono text-[10px] tracking-[0.18em] text-primary">
-                LIVE CALL DEMO
-              </p>
-              <h3 className="mt-2 text-lg font-semibold tracking-tight md:text-xl">
-                {demo.title}
-              </h3>
-            </div>
-            <div className="hidden items-center gap-2 rounded-full border border-border bg-background px-3 py-1 sm:inline-flex">
-              <span className="relative inline-flex h-2 w-2">
-                <span
-                  className={cn(
-                    "absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75",
-                    playing && "animate-ping",
-                  )}
-                />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
-              </span>
-              <span className="font-mono text-[10px] tracking-widest text-muted-foreground">
-                {playing ? "ON CALL" : "READY"}
-              </span>
-            </div>
-          </div>
-
-          {/* Player */}
-          <div className="mt-6 flex items-center gap-4">
-            <button
-              type="button"
-              onClick={toggle}
-              aria-label={playing ? "Pause" : "Play"}
-              className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-card transition-transform hover:scale-105"
-            >
-              {playing ? (
-                <Pause className="h-5 w-5" />
-              ) : (
-                <Play className="ml-0.5 h-5 w-5" />
-              )}
-            </button>
-            <div className="min-w-0 flex-1">
-              <div
-                ref={progressRef}
-                onClick={onProgressClick}
-                className="group relative h-2 w-full cursor-pointer rounded-full bg-muted"
+        {/* Industry pills */}
+        <div className="mt-5 flex flex-wrap gap-2">
+          {DEMOS.map((d) => {
+            const isActive = d.id === activeId;
+            return (
+              <button
+                key={d.id}
+                type="button"
+                onClick={() => setActiveId(d.id)}
+                className={cn(
+                  "inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium transition-colors",
+                  isActive
+                    ? "bg-primary text-primary-foreground"
+                    : "bg-white/5 text-white/70 hover:bg-white/10 hover:text-white",
+                )}
               >
-                <div
-                  className="absolute inset-y-0 left-0 rounded-full bg-primary transition-[width] duration-100"
-                  style={{ width: `${pct}%` }}
-                />
-                <div
-                  className="absolute top-1/2 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary opacity-0 shadow transition-opacity group-hover:opacity-100"
-                  style={{ left: `${pct}%` }}
-                />
-              </div>
-              <div className="mt-2 flex items-center justify-between font-mono text-[11px] text-muted-foreground">
-                <span>{fmt(currentTime)}</span>
-                <span>{fmt(duration)}</span>
-              </div>
-            </div>
-          </div>
+                <Phone className="h-3 w-3" />
+                {d.shortLabel}
+              </button>
+            );
+          })}
+        </div>
 
-          <audio
-            ref={audioRef}
-            src={demo.audioSrc}
-            preload="metadata"
-            onTimeUpdate={(e) => setCurrentTime(e.currentTarget.currentTime)}
-            onLoadedMetadata={(e) => {
-              if (isFinite(e.currentTarget.duration) && e.currentTarget.duration > 0) {
-                setDuration(e.currentTarget.duration);
-              }
-            }}
-            onEnded={() => setPlaying(false)}
-          />
+        {/* Title */}
+        <h3 className="mt-5 text-base font-semibold tracking-tight text-white md:text-lg">
+          {demo.title}
+        </h3>
 
-          {/* Horizontal pill timeline */}
-          <div className="mt-8">
-            <div className="flex flex-wrap gap-2">
-              {demo.stages.map((s, i) => {
-                const isActive = i === activeStageIdx;
-                const isDone = i < activeStageIdx;
+        {/* Player + waveform */}
+        <div className="mt-4 flex items-center gap-4">
+          <button
+            type="button"
+            onClick={toggle}
+            aria-label={playing ? "Pause" : "Play"}
+            className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg transition-transform hover:scale-105"
+          >
+            {playing ? (
+              <Pause className="h-5 w-5" />
+            ) : (
+              <Play className="ml-0.5 h-5 w-5" />
+            )}
+          </button>
+          <div className="min-w-0 flex-1">
+            <div
+              ref={progressRef}
+              onClick={onProgressClick}
+              className="relative flex h-10 w-full cursor-pointer items-center gap-[3px] overflow-hidden"
+            >
+              {bars.map((h, i) => {
+                const barPct = ((i + 0.5) / bars.length) * 100;
+                const isPast = barPct <= pct;
                 return (
-                  <button
+                  <span
                     key={i}
-                    type="button"
-                    onClick={() => seekTo(s.time)}
                     className={cn(
-                      "inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium transition-all duration-300",
-                      isActive
-                        ? "bg-primary text-primary-foreground shadow-sm scale-[1.02]"
-                        : isDone
-                          ? "bg-primary/15 text-primary"
-                          : "bg-muted text-muted-foreground hover:bg-muted/80",
+                      "flex-1 rounded-sm transition-colors",
+                      isPast ? "bg-primary" : "bg-white/15",
                     )}
-                  >
-                    <span className="font-mono text-[10px] tabular-nums opacity-80">
-                      {fmt(s.time)}
-                    </span>
-                    <span>{s.label}</span>
-                  </button>
+                    style={{ height: `${h}%` }}
+                  />
                 );
               })}
             </div>
-            <p className="mt-6 text-xs text-muted-foreground">
-              Want to hear your own business? Book a setup call and we'll build your
-              custom demo in 24 hours.
-            </p>
+            <div className="mt-1.5 flex items-center justify-between font-mono text-[11px] text-white/50">
+              <span>{fmt(currentTime)}</span>
+              <span>{fmt(duration)}</span>
+            </div>
+          </div>
+        </div>
+
+        <audio
+          ref={audioRef}
+          src={demo.audioSrc}
+          preload="metadata"
+          onTimeUpdate={(e) => setCurrentTime(e.currentTarget.currentTime)}
+          onLoadedMetadata={(e) => {
+            if (
+              isFinite(e.currentTarget.duration) &&
+              e.currentTarget.duration > 0
+            ) {
+              setDuration(e.currentTarget.duration);
+            }
+          }}
+          onEnded={() => setPlaying(false)}
+        />
+
+        {/* Timeline */}
+        <div className="mt-5 border-t border-white/10 pt-5">
+          <p className="font-mono text-[10px] tracking-[0.18em] text-white/50">
+            CALL PROGRESS
+          </p>
+          <div className="mt-3 flex flex-wrap gap-2">
+            {demo.stages.map((s, i) => {
+              const isActive = i === activeStageIdx;
+              const isDone = i < activeStageIdx;
+              return (
+                <button
+                  key={i}
+                  type="button"
+                  onClick={() => seekTo(s.time)}
+                  className={cn(
+                    "inline-flex items-center gap-2 rounded-full px-2.5 py-1 text-[11px] font-medium transition-all",
+                    isActive
+                      ? "bg-primary text-primary-foreground shadow-sm"
+                      : isDone
+                        ? "bg-primary/20 text-primary"
+                        : "bg-[#374151] text-white/70 hover:bg-[#475569]",
+                  )}
+                >
+                  <span className="font-mono text-[10px] tabular-nums opacity-80">
+                    {fmt(s.time)}
+                  </span>
+                  <span>{s.label}</span>
+                </button>
+              );
+            })}
           </div>
         </div>
       </div>

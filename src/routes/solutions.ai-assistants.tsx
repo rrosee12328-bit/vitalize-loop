@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, PhoneOff, Inbox, MoonStar } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
-import { HeroCallCard } from "@/components/site/ai-assistants/HeroCallCard";
 import { LiveCallDemo } from "@/components/site/ai-assistants/LiveCallDemo";
 import { DashboardPreview } from "@/components/site/ai-assistants/DashboardPreview";
 import { PricingEstimator, PricingTiers } from "@/components/site/ai-assistants/PricingEstimator";
@@ -98,7 +97,7 @@ function AIAssistantsPage() {
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </a>
               <a
-                href="#live-call-demo"
+                href="#dashboard"
                 className="inline-flex h-12 items-center gap-2 rounded-md border border-foreground/80 bg-transparent px-6 text-sm font-medium text-foreground transition-colors hover:bg-foreground hover:text-background"
               >
                 Hear a Live Demo
@@ -117,7 +116,11 @@ function AIAssistantsPage() {
             </div>
           </div>
           <div className="md:col-span-6">
-            <HeroCallCard />
+            <LiveCallDemo />
+            <p className="mt-4 text-xs text-muted-foreground">
+              Want to hear your own business? Book a setup call and we'll build
+              your custom demo in 24 hours.
+            </p>
           </div>
         </div>
       </section>
@@ -174,30 +177,11 @@ function AIAssistantsPage() {
         </div>
       </section>
 
-      {/* Live Demo Player */}
-      <section
-        id="live-call-demo"
-        className="scroll-mt-24 border-t border-border bg-surface-elevated"
-      >
-        <div className="container-editorial py-24 md:py-32">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="eyebrow">Hear It Live</p>
-            <h2 className="mt-6 display-2">
-              Listen to your AI receptionist in action.
-            </h2>
-            <p className="mt-6 text-lg text-muted-foreground">
-              Real conversations. Real industries. This is exactly what your
-              callers will hear.
-            </p>
-          </div>
-          <div className="mt-12">
-            <LiveCallDemo />
-          </div>
-        </div>
-      </section>
-
       {/* Total Visibility — Dashboard */}
-      <section className="border-t border-border bg-[#111827] text-white">
+      <section
+        id="dashboard"
+        className="scroll-mt-24 border-t border-border bg-[#111827] text-white"
+      >
         <div className="container-editorial py-24 md:py-32">
           <div className="mx-auto mb-14 max-w-3xl text-center">
             <p className="font-mono text-[11px] tracking-[0.18em] text-primary">
