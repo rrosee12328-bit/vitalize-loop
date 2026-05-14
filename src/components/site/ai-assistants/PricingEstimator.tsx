@@ -192,51 +192,87 @@ export function PricingTiers() {
         <BillingToggle value={billing} onChange={setBilling} />
       </div>
 
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid items-stretch gap-6 md:grid-cols-2 lg:grid-cols-4">
         {TIERS.map((tier) => {
           const { price, suffix, sub } = priceDisplay(tier, billing);
           return (
             <div
               key={tier.name}
               className={cn(
-                "relative flex flex-col rounded-2xl border bg-card p-6 shadow-card",
+                "relative flex h-full flex-col rounded-2xl border bg-card shadow-card transition-shadow hover:shadow-lg",
                 tier.highlight
-                  ? "border-primary ring-2 ring-primary/30"
+                  ? "border-primary ring-2 ring-primary/30 lg:scale-[1.02]"
                   : "border-border",
               )}
             >
               {tier.highlight && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-primary px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-primary-foreground">
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-primary px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-primary-foreground shadow">
                   Most Popular
                 </span>
               )}
-              <h3 className="text-lg font-semibold tracking-tight">{tier.name}</h3>
-              <div className="mt-3 flex items-baseline gap-1">
-                <span className="text-3xl font-semibold tracking-tight">
-                  {price}
-                </span>
-                {suffix && (
-                  <span className="text-sm text-muted-foreground">{suffix}</span>
-                )}
-              </div>
-              {sub && (
-                <p className="mt-1 text-xs text-muted-foreground">{sub}</p>
-              )}
-              <p className="mt-2 text-xs text-muted-foreground">{tier.included}</p>
 
-              <ul className="mt-5 space-y-2.5 text-sm">
+              {/* Header */}
+              <div className="border-b border-border p-6 pb-5">
+                <h3 className="text-lg font-bold tracking-tight">{tier.name}</h3>
+                <p className="mt-1 text-xs text-muted-foreground">{tier.tagline}</p>
+
+                <div className="mt-4 flex items-baseline gap-1">
+                  <span className="text-4xl font-bold tracking-tight text-foreground">
+                    {price}
+                  </span>
+                  {suffix && (
+                    <span className="text-sm font-medium text-muted-foreground">
+                      {suffix}
+                    </span>
+                  )}
+                </div>
+                {sub ? (
+                  <p className="mt-1 text-xs text-muted-foreground">{sub}</p>
+                ) : (
+                  <p className="mt-1 select-none text-xs text-transparent">.</p>
+                )}
+
+                <div
+                  className={cn(
+                    "mt-4 rounded-lg border px-3 py-2 text-xs",
+                    tier.highlight
+                      ? "border-primary/30 bg-primary/5"
+                      : "border-border bg-surface-elevated",
+                  )}
+                >
+                  <span className="font-semibold text-foreground">Includes:</span>{" "}
+                  <span className="text-foreground/80">{tier.included}</span>
+                </div>
+
+                <p className="mt-3 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+                  Best for
+                </p>
+                <p className="text-xs font-medium text-foreground/85">
+                  {tier.bestFor}
+                </p>
+              </div>
+
+              {/* Features */}
+              <ul className="flex-1 space-y-2.5 p-6 pt-5 text-sm">
                 {tier.features.map((f) => (
                   <li key={f.label} className="flex items-start gap-2">
                     {f.included ? (
-                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                      <Check
+                        className={cn(
+                          "mt-0.5 h-4 w-4 shrink-0",
+                          f.emphasize ? "text-primary" : "text-primary/70",
+                        )}
+                      />
                     ) : (
-                      <X className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground/50" />
+                      <X className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground/40" />
                     )}
                     <span
                       className={cn(
                         f.included
-                          ? "text-foreground/90"
-                          : "text-muted-foreground/70",
+                          ? f.emphasize
+                            ? "font-semibold text-foreground"
+                            : "text-foreground/85"
+                          : "text-muted-foreground/60 line-through decoration-muted-foreground/30",
                       )}
                     >
                       {f.label}
@@ -245,33 +281,37 @@ export function PricingTiers() {
                 ))}
               </ul>
 
-              {tier.overage && (
-                <p className="mt-5 font-mono text-[11px] text-muted-foreground">
-                  {tier.overage}
-                </p>
-              )}
-
-              <a
-                href={CALENDLY}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={cn(
-                  "group mt-6 inline-flex h-11 items-center justify-center gap-2 rounded-md px-5 text-sm font-medium transition-opacity hover:opacity-90",
-                  tier.highlight
-                    ? "bg-primary text-primary-foreground"
-                    : "border border-border bg-background text-foreground",
+              {/* Footer */}
+              <div className="border-t border-border p-6 pt-5">
+                {tier.overage && (
+                  <p className="mb-4 font-mono text-[11px] text-muted-foreground">
+                    {tier.overage}
+                  </p>
                 )}
-              >
-                {tier.cta}
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-              </a>
+                <a
+                  href={CALENDLY}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cn(
+                    "group inline-flex h-11 w-full items-center justify-center gap-2 rounded-md px-5 text-sm font-semibold transition-opacity hover:opacity-90",
+                    tier.highlight
+                      ? "bg-primary text-primary-foreground shadow-sm"
+                      : "border border-border bg-background text-foreground hover:bg-accent",
+                  )}
+                >
+                  {tier.cta}
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                </a>
+              </div>
             </div>
           );
         })}
       </div>
       <p className="mt-6 text-center text-xs text-muted-foreground">
-        Dialzara charges $0.48/min for overages — ours start at $0.15. They make
-        you build it yourself — we build it for you.
+        Dialzara charges <span className="font-semibold text-foreground">$0.48/min</span> for overages — ours start at{" "}
+        <span className="font-semibold text-foreground">$0.15</span>. They make
+        you build it yourself —{" "}
+        <span className="font-semibold text-foreground">we build it for you</span>.
       </p>
     </div>
   );
