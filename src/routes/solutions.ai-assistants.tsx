@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, PhoneOff, Wallet, MoonStar, Play } from "lucide-react";
+import { ArrowRight, PhoneOff, Inbox, MoonStar } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
+import { HeroCallCard } from "@/components/site/ai-assistants/HeroCallCard";
 import { LiveCallDemo } from "@/components/site/ai-assistants/LiveCallDemo";
 import { DashboardPreview } from "@/components/site/ai-assistants/DashboardPreview";
 import { PricingEstimator, PricingTiers } from "@/components/site/ai-assistants/PricingEstimator";
@@ -30,37 +31,43 @@ export const Route = createFileRoute("/solutions/ai-assistants")({
 const problems = [
   {
     Icon: PhoneOff,
-    title: "62% of calls to small businesses go unanswered.",
-    body: "Every missed call is a lead that called your competitor next.",
+    title: "The Missed Call",
+    body: "You're on a job. The phone rings. Nobody answers. That caller just called your competitor.",
   },
   {
-    Icon: Wallet,
-    title: "A full-time receptionist costs $4,000+/month.",
-    body: "Answering services charge by the call and still sound robotic.",
+    Icon: Inbox,
+    title: "The Inbox Backlog",
+    body: "Emails pile up. Leads go cold. You spend your evenings responding to questions your AI could handle in seconds.",
   },
   {
     Icon: MoonStar,
-    title: "Business doesn't stop at 5 PM.",
-    body: "But your staff does — and so does your ability to capture after-hours leads.",
+    title: "The After-Hours Gap",
+    body: "Your business hours end at 5pm. Your customers' emergencies don't.",
   },
 ];
 
 const steps = [
   {
     phase: "STEP 01",
-    title: "We Build It.",
-    desc: "We custom-train the AI on your business: your FAQs, your services, your booking links, and how you want calls handled.",
+    title: "We Build It",
+    desc: "We configure your AI receptionist, write the scripts, set up call routing, and connect your email. You don't touch a thing.",
   },
   {
     phase: "STEP 02",
-    title: "You Forward Your Number.",
-    desc: "Dial *72 from your existing business phone to forward calls to the AI. No porting. No new number. No carrier change required.",
+    title: "You Forward Your Number",
+    desc: "Dial *72 + your Vektiss number from your existing phone. Takes 10 seconds. Works with AT&T, Verizon, T-Mobile — any carrier.",
   },
   {
     phase: "STEP 03",
-    title: "You Get Leads.",
-    desc: "The AI answers, qualifies, and books. You get an instant summary after every call — name, number, reason for calling, and next step.",
+    title: "You Get Leads",
+    desc: "Every call answered. Every email handled. Every lead captured and sent to you instantly.",
   },
+];
+
+const dashFeatures = [
+  "Real-time call log with outcome tags (Lead, Appointment, Info, Spam)",
+  "Email activity tracker — drafts queued, sent, and pending review",
+  "Monthly performance report delivered to your inbox automatically",
 ];
 
 function AIAssistantsPage() {
@@ -68,90 +75,78 @@ function AIAssistantsPage() {
     <SiteLayout>
       {/* Hero */}
       <section className="container-editorial pt-12 pb-16 md:pt-20 md:pb-24">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="eyebrow text-primary">02 · AI Phone & Email Assistants</p>
-          <h1 className="mt-6 display-1">
-            Stop letting missed calls{" "}
-            <span className="accent-underline">fund your competitors.</span>
-          </h1>
-          <p className="mt-8 text-lg text-muted-foreground md:text-xl">
-            Your AI receptionist answers every call, books appointments, handles emails,
-            and sends you a summary — 24/7, fully managed by Vektiss. No contracts.
-            30-day money-back guarantee.
-          </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <a
-              href={CALENDLY}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex h-12 items-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
-            >
-              Book a Strategy Call
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-            </a>
-            <a
-              href="#live-call-demo"
-              className="group inline-flex h-12 items-center gap-2.5 rounded-md border border-primary/40 bg-primary/5 px-5 text-sm font-medium text-foreground transition-colors hover:bg-primary/10"
-            >
-              <span className="relative inline-flex h-7 w-7 items-center justify-center rounded-full bg-primary text-primary-foreground">
-                <span className="absolute inset-0 animate-ping rounded-full bg-primary/40" />
-                <Play className="relative ml-0.5 h-3.5 w-3.5 fill-current" />
-              </span>
-              Hear a real AI call
-              <span className="hidden text-xs text-muted-foreground sm:inline">
-                · 4 industries · 2 min
-              </span>
-            </a>
-          </div>
-          <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
-            {["Done For You", "No Contract", "30-Day Guarantee"].map((b) => (
-              <span
-                key={b}
-                className="inline-flex items-center gap-1.5 rounded-full bg-muted px-3 py-1 text-[12px] font-medium text-foreground/80"
+        <div className="grid items-center gap-12 md:grid-cols-12 md:gap-12 lg:gap-16">
+          <div className="md:col-span-6">
+            <p className="eyebrow text-primary">02 · AI Phone & Email Assistants</p>
+            <h1 className="mt-6 display-1">
+              Stop letting missed calls{" "}
+              <span className="accent-underline">fund your competitors.</span>
+            </h1>
+            <p className="mt-8 text-lg text-muted-foreground md:text-xl">
+              Your AI receptionist answers every call, books appointments, handles
+              emails, and sends you a summary — 24/7, fully managed by Vektiss. No
+              contracts. 30-day money-back guarantee.
+            </p>
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <a
+                href={CALENDLY}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex h-12 items-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
               >
-                <span className="text-primary">✓</span>
-                {b}
-              </span>
-            ))}
+                Book Your Setup Call
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              </a>
+              <a
+                href="#live-call-demo"
+                className="inline-flex h-12 items-center gap-2 rounded-md border border-foreground/80 bg-transparent px-6 text-sm font-medium text-foreground transition-colors hover:bg-foreground hover:text-background"
+              >
+                Hear a Live Demo
+              </a>
+            </div>
+            <div className="mt-5 flex flex-wrap items-center gap-2">
+              {["Done For You", "No Contract", "30-Day Guarantee"].map((b) => (
+                <span
+                  key={b}
+                  className="inline-flex items-center gap-1.5 rounded-full bg-muted px-3 py-1 text-[12px] font-medium text-foreground/80"
+                >
+                  <span className="text-primary">✓</span>
+                  {b}
+                </span>
+              ))}
+            </div>
           </div>
-        </div>
-
-        <div id="live-call-demo" className="mt-8 md:mt-10 scroll-mt-24">
-          <LiveCallDemo />
+          <div className="md:col-span-6">
+            <HeroCallCard />
+          </div>
         </div>
       </section>
 
-      {/* Problem */}
+      {/* Pain Points */}
       <section className="border-t border-border bg-surface-elevated">
         <div className="container-editorial py-24 md:py-32">
-          <div className="grid gap-12 md:grid-cols-12 md:gap-16">
-            <div className="md:col-span-5">
-              <p className="eyebrow">The Problem</p>
-              <h2 className="mt-6 display-2">
-                You're losing business every time your phone goes unanswered.
-              </h2>
-            </div>
-            <div className="md:col-span-7 space-y-5">
-              {problems.map((p, i) => (
-                <article
-                  key={p.title}
-                  className="rounded-xl border border-border bg-card p-6 shadow-card md:p-8"
-                >
-                  <div className="flex items-start gap-4">
-                    <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                      <p.Icon className="h-5 w-5" />
-                    </span>
-                    <div>
-                      <span className="font-mono text-xs tracking-widest text-muted-foreground">
-                        0{i + 1}
-                      </span>
-                      <h3 className="mt-1 text-lg font-semibold tracking-tight">{p.title}</h3>
-                      <p className="mt-2 text-muted-foreground">{p.body}</p>
-                    </div>
-                  </div>
-                </article>
-              ))}
-            </div>
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="eyebrow">The Problem</p>
+            <h2 className="mt-6 display-2">Every missed call is a missed client.</h2>
+          </div>
+          <div className="mt-14 grid gap-6 md:grid-cols-3">
+            {problems.map((p, i) => (
+              <article
+                key={p.title}
+                className="rounded-xl border border-border bg-card p-6 shadow-card md:p-8"
+              >
+                <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                  <p.Icon className="h-5 w-5" />
+                </span>
+                <span className="mt-4 block font-mono text-xs tracking-widest text-muted-foreground">
+                  0{i + 1}
+                </span>
+                <h3 className="mt-1 text-lg font-semibold tracking-tight">
+                  {p.title}
+                </h3>
+                <p className="mt-3 text-muted-foreground">{p.body}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
@@ -160,113 +155,134 @@ function AIAssistantsPage() {
       <section className="container-editorial py-24 md:py-32">
         <div className="max-w-3xl">
           <p className="eyebrow">How It Works</p>
-          <h2 className="mt-6 display-2">Fully managed. Zero tech skills required.</h2>
+          <h2 className="mt-6 display-2">Live in 48 hours. Three steps.</h2>
         </div>
         <div className="mt-14 grid gap-6 md:grid-cols-3">
           {steps.map((s) => (
             <article key={s.phase} className="border-t border-border pt-6">
-              <span className="font-mono text-xs tracking-widest text-primary">{s.phase}</span>
-              <h3 className="mt-4 text-xl font-semibold tracking-tight">{s.title}</h3>
-              <p className="mt-3 text-sm leading-6 text-muted-foreground">{s.desc}</p>
+              <span className="font-mono text-xs tracking-widest text-primary">
+                {s.phase}
+              </span>
+              <h3 className="mt-4 text-xl font-semibold tracking-tight">
+                {s.title}
+              </h3>
+              <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                {s.desc}
+              </p>
             </article>
           ))}
         </div>
       </section>
 
-      {/* Total Visibility — Client Dashboard */}
-      <section className="border-t border-border bg-foreground text-background">
+      {/* Live Demo Player */}
+      <section
+        id="live-call-demo"
+        className="scroll-mt-24 border-t border-border bg-surface-elevated"
+      >
         <div className="container-editorial py-24 md:py-32">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="eyebrow">Hear It Live</p>
+            <h2 className="mt-6 display-2">
+              Listen to your AI receptionist in action.
+            </h2>
+            <p className="mt-6 text-lg text-muted-foreground">
+              Real conversations. Real industries. This is exactly what your
+              callers will hear.
+            </p>
+          </div>
+          <div className="mt-12">
+            <LiveCallDemo />
+          </div>
+        </div>
+      </section>
+
+      {/* Total Visibility — Dashboard */}
+      <section className="border-t border-border bg-[#111827] text-white">
+        <div className="container-editorial py-24 md:py-32">
+          <div className="mx-auto mb-14 max-w-3xl text-center">
+            <p className="font-mono text-[11px] tracking-[0.18em] text-primary">
+              TOTAL VISIBILITY
+            </p>
+            <h2 className="mt-6 display-2 text-white">
+              You always know exactly what's happening.
+            </h2>
+            <p className="mt-6 text-lg text-white/70">
+              Every call logged. Every email tracked. Every lead captured. Your
+              dashboard updates in real time.
+            </p>
+          </div>
           <div className="grid items-center gap-12 md:grid-cols-12 md:gap-16">
-            {/* Dashboard first on mobile, right column on desktop */}
             <div className="order-1 md:order-2 md:col-span-7">
               <DashboardPreview />
             </div>
             <div className="order-2 md:order-1 md:col-span-5">
-              <p className="font-mono text-[11px] tracking-[0.18em] text-primary">
-                04 · CLIENT DASHBOARD
-              </p>
-              <h2 className="mt-6 display-2 text-background">
-                You see everything.{" "}
-                <span className="text-primary">In real time.</span>
-              </h2>
-              <p className="mt-6 text-lg text-background/70">
-                Every call logged. Every email handled. Every lead captured. Your Vektiss
-                dashboard gives you a live view of your AI assistant's activity — so you
-                always know what's happening with your business, even when you're not
-                there.
-              </p>
-              <ul className="mt-8 space-y-4">
-                {[
-                  {
-                    title: "Call Log",
-                    body: "Every inbound call recorded with date, time, caller number, and outcome.",
-                  },
-                  {
-                    title: "Lead Summaries",
-                    body: "Instant SMS and email recap after every call so you never miss a lead.",
-                  },
-                  {
-                    title: "Email Activity",
-                    body: "Track every email received, drafted, and sent by your AI assistant.",
-                  },
-                  {
-                    title: "Monthly Report",
-                    body: "Automated performance summary delivered to your inbox every month.",
-                  },
-                ].map((f) => (
-                  <li key={f.title} className="flex gap-3">
-                    <span className="mt-1.5 inline-flex h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-                    <div>
-                      <span className="text-sm font-semibold tracking-tight text-background">
-                        {f.title}
-                      </span>
-                      <span className="text-sm text-background/70"> — {f.body}</span>
-                    </div>
+              <ul className="space-y-4">
+                {dashFeatures.map((f) => (
+                  <li key={f} className="flex items-start gap-3">
+                    <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-[11px]">
+                      ✓
+                    </span>
+                    <span className="text-base text-white/85">{f}</span>
                   </li>
                 ))}
               </ul>
+              <a
+                href={CALENDLY}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 inline-flex h-12 items-center gap-2 rounded-md border border-white/40 bg-transparent px-6 text-sm font-medium text-white transition-colors hover:bg-white hover:text-foreground"
+              >
+                See a Sample Report
+                <ArrowRight className="h-4 w-4" />
+              </a>
             </div>
           </div>
         </div>
       </section>
 
       {/* Pricing */}
-      <section className="border-t border-border bg-surface-elevated">
+      <section className="border-t border-border">
         <div className="container-editorial py-24 md:py-32">
           <div className="mx-auto max-w-2xl text-center">
             <p className="eyebrow">Pricing</p>
-            <h2 className="mt-6 display-2">Simple pricing. No per-call surprises.</h2>
+            <h2 className="mt-6 display-2">
+              Flat rate. No surprises. Cancel anytime.
+            </h2>
             <p className="mt-6 text-lg text-muted-foreground">
-              Flat monthly plans. Done-for-you setup. Cancel anytime.
+              Every plan includes done-for-you setup, 24/7 coverage, and a 30-day
+              money-back guarantee.
             </p>
           </div>
 
-          <div className="mt-16">
+          <div className="mt-14">
             <PricingTiers />
           </div>
+        </div>
+      </section>
 
-          <div className="mt-20">
-            <div className="mx-auto max-w-2xl text-center">
-              <p className="eyebrow">Not sure which tier?</p>
-              <h3 className="mt-4 text-2xl font-semibold tracking-tight md:text-3xl">
-                Estimate your monthly volume
-              </h3>
-            </div>
-            <div className="mt-8">
-              <PricingEstimator />
-            </div>
+      {/* Estimator */}
+      <section className="border-t border-border bg-surface-elevated">
+        <div className="container-editorial py-24 md:py-32">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="eyebrow">Estimate Your Cost</p>
+            <h2 className="mt-6 display-2">See which plan fits your business.</h2>
+          </div>
+          <div className="mt-12">
+            <PricingEstimator />
           </div>
         </div>
       </section>
 
       {/* Final CTA */}
-      <section className="border-t border-border bg-surface-elevated">
+      <section className="border-t border-border bg-[#111827]">
         <div className="container-editorial py-24 md:py-28">
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="display-2">Your best employee costs $29.99 a month.</h2>
-            <p className="mt-6 text-lg text-muted-foreground">
-              Never misses a call. Never takes a sick day. Never forgets to follow up.
-              Live in 48 hours.
+            <h2 className="display-2 text-white">
+              Your best employee costs $45.99 a month.
+            </h2>
+            <p className="mt-6 text-lg text-white/70">
+              Never misses a call. Never takes a sick day. Never forgets to follow
+              up. Live in 48 hours.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <a
@@ -275,17 +291,17 @@ function AIAssistantsPage() {
                 rel="noopener noreferrer"
                 className="group inline-flex h-12 items-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
               >
-                Book a Strategy Call
+                Book Your Setup Call
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </a>
               <a
-                href="#live-call-demo"
-                className="inline-flex h-12 items-center gap-2 rounded-md border border-border bg-background px-6 text-sm font-medium text-foreground transition-colors hover:bg-muted"
+                href="#pricing"
+                className="inline-flex h-12 items-center gap-2 rounded-md border border-white/50 bg-transparent px-6 text-sm font-medium text-white transition-colors hover:bg-white hover:text-foreground"
               >
-                Hear a Real AI Call
+                See Pricing
               </a>
             </div>
-            <p className="mt-5 text-[13px] text-muted-foreground">
+            <p className="mt-5 text-[13px] text-white/60">
               30-Day Money-Back Guarantee · No Contract · Cancel Anytime
             </p>
           </div>
