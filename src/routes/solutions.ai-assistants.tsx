@@ -116,7 +116,11 @@ function AIAssistantsPage() {
             </div>
           </div>
           <div className="md:col-span-6">
-            <HeroCallCard />
+            <LiveCallDemo />
+            <p className="mt-4 text-xs text-muted-foreground">
+              Want to hear your own business? Book a setup call and we'll build
+              your custom demo in 24 hours.
+            </p>
           </div>
         </div>
       </section>
