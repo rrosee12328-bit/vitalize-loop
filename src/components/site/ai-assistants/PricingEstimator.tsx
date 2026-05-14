@@ -11,20 +11,30 @@ type Tier = {
   annual: number | null; // total annual price
   customLabel?: string;
   included: string;
-  features: { label: string; included: boolean }[];
+  features: { label: string; included: boolean; emphasize?: boolean }[];
   overage?: string;
   cta: string;
   highlight?: boolean;
 };
 
-const TIERS: Tier[] = [
+type Feature = { label: string; included: boolean; emphasize?: boolean };
+
+type TierExt = Tier & {
+  tagline: string;
+  bestFor: string;
+  features: Feature[];
+};
+
+const TIERS: TierExt[] = [
   {
     name: "Phone Starter",
+    tagline: "Never miss another call.",
+    bestFor: "Solo operators & side businesses",
     monthly: 45.99,
     annual: 441,
-    included: "60 phone minutes/mo",
+    included: "60 phone minutes / mo",
     features: [
-      { label: "AI Phone Receptionist (24/7)", included: true },
+      { label: "AI Phone Receptionist (24/7)", included: true, emphasize: true },
       { label: "Blind & Warm Call Transfers", included: true },
       { label: "After-Hours Rules & Escalation", included: true },
       { label: "Spam Detection & Call Blocking", included: true },
@@ -41,13 +51,15 @@ const TIERS: Tier[] = [
   },
   {
     name: "Phone + Email",
+    tagline: "Phone + inbox, fully covered.",
+    bestFor: "Growing teams handling 100+ calls/mo",
     monthly: 89.99,
     annual: 863,
-    included: "200 phone minutes + 200 email replies/mo",
+    included: "200 phone minutes + 200 email replies / mo",
     features: [
-      { label: "Everything in Tier 1", included: true },
-      { label: "Full Call Transcripts", included: true },
-      { label: "Email AI Assistant (200 replies/mo)", included: true },
+      { label: "Everything in Phone Starter", included: true },
+      { label: "Full Call Transcripts", included: true, emphasize: true },
+      { label: "Email AI Assistant (200 replies/mo)", included: true, emphasize: true },
       { label: "Limited Analytics Dashboard", included: true },
       { label: "Monthly Performance Report", included: true },
       { label: "Calendar Sync (Google/Outlook)", included: false },
@@ -59,17 +71,19 @@ const TIERS: Tier[] = [
   },
   {
     name: "AI Front Office",
+    tagline: "Your full virtual receptionist.",
+    bestFor: "Established businesses scaling fast",
     monthly: 199,
     annual: 1910,
-    included: "500 phone minutes + 500 email replies/mo",
+    included: "500 phone minutes + 500 email replies / mo",
     features: [
-      { label: "Everything in Tier 2", included: true },
-      { label: "Auto Follow-Up Email (with custom links)", included: true },
-      { label: "Calendar Sync (Google & Outlook)", included: true },
+      { label: "Everything in Phone + Email", included: true },
+      { label: "Auto Follow-Up Email (with custom links)", included: true, emphasize: true },
+      { label: "Calendar Sync (Google & Outlook)", included: true, emphasize: true },
       { label: "Caller Memory (remembers past callers)", included: true },
       { label: "Bilingual Support (EN/ES)", included: true },
       { label: "Lead Scoring (Hot/Warm/Cold)", included: true },
-      { label: "Full Analytics Dashboard", included: true },
+      { label: "Full Analytics Dashboard", included: true, emphasize: true },
       { label: "Priority Support", included: true },
     ],
     overage: "Overage: $0.15/min · $0.03/email",
@@ -77,16 +91,18 @@ const TIERS: Tier[] = [
   },
   {
     name: "Custom",
+    tagline: "Built around your workflow.",
+    bestFor: "Multi-location & enterprise",
     monthly: null,
     annual: null,
     customLabel: "Let's Talk",
     included: "Unlimited volume",
     features: [
-      { label: "Everything in Tier 3", included: true },
-      { label: "Custom CRM Integrations", included: true },
-      { label: "Multi-location / Multi-agent", included: true },
-      { label: "Outbound AI Calling", included: true },
-      { label: "Dedicated Account Manager", included: true },
+      { label: "Everything in AI Front Office", included: true },
+      { label: "Custom CRM Integrations", included: true, emphasize: true },
+      { label: "Multi-location / Multi-agent", included: true, emphasize: true },
+      { label: "Outbound AI Calling", included: true, emphasize: true },
+      { label: "Dedicated Account Manager", included: true, emphasize: true },
     ],
     cta: "Contact Us",
   },
@@ -176,51 +192,87 @@ export function PricingTiers() {
         <BillingToggle value={billing} onChange={setBilling} />
       </div>
 
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid items-stretch gap-6 md:grid-cols-2 lg:grid-cols-4">
         {TIERS.map((tier) => {
           const { price, suffix, sub } = priceDisplay(tier, billing);
           return (
             <div
               key={tier.name}
               className={cn(
-                "relative flex flex-col rounded-2xl border bg-card p-6 shadow-card",
+                "relative flex h-full flex-col rounded-2xl border bg-card shadow-card transition-shadow hover:shadow-lg",
                 tier.highlight
-                  ? "border-primary ring-2 ring-primary/30"
+                  ? "border-primary ring-2 ring-primary/30 lg:scale-[1.02]"
                   : "border-border",
               )}
             >
               {tier.highlight && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-primary px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-primary-foreground">
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-primary px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-primary-foreground shadow">
                   Most Popular
                 </span>
               )}
-              <h3 className="text-lg font-semibold tracking-tight">{tier.name}</h3>
-              <div className="mt-3 flex items-baseline gap-1">
-                <span className="text-3xl font-semibold tracking-tight">
-                  {price}
-                </span>
-                {suffix && (
-                  <span className="text-sm text-muted-foreground">{suffix}</span>
-                )}
-              </div>
-              {sub && (
-                <p className="mt-1 text-xs text-muted-foreground">{sub}</p>
-              )}
-              <p className="mt-2 text-xs text-muted-foreground">{tier.included}</p>
 
-              <ul className="mt-5 space-y-2.5 text-sm">
+              {/* Header */}
+              <div className="border-b border-border p-6 pb-5">
+                <h3 className="text-lg font-bold tracking-tight">{tier.name}</h3>
+                <p className="mt-1 text-xs text-muted-foreground">{tier.tagline}</p>
+
+                <div className="mt-4 flex items-baseline gap-1">
+                  <span className="text-4xl font-bold tracking-tight text-foreground">
+                    {price}
+                  </span>
+                  {suffix && (
+                    <span className="text-sm font-medium text-muted-foreground">
+                      {suffix}
+                    </span>
+                  )}
+                </div>
+                {sub ? (
+                  <p className="mt-1 text-xs text-muted-foreground">{sub}</p>
+                ) : (
+                  <p className="mt-1 select-none text-xs text-transparent">.</p>
+                )}
+
+                <div
+                  className={cn(
+                    "mt-4 rounded-lg border px-3 py-2 text-xs",
+                    tier.highlight
+                      ? "border-primary/30 bg-primary/5"
+                      : "border-border bg-surface-elevated",
+                  )}
+                >
+                  <span className="font-semibold text-foreground">Includes:</span>{" "}
+                  <span className="text-foreground/80">{tier.included}</span>
+                </div>
+
+                <p className="mt-3 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+                  Best for
+                </p>
+                <p className="text-xs font-medium text-foreground/85">
+                  {tier.bestFor}
+                </p>
+              </div>
+
+              {/* Features */}
+              <ul className="flex-1 space-y-2.5 p-6 pt-5 text-sm">
                 {tier.features.map((f) => (
                   <li key={f.label} className="flex items-start gap-2">
                     {f.included ? (
-                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                      <Check
+                        className={cn(
+                          "mt-0.5 h-4 w-4 shrink-0",
+                          f.emphasize ? "text-primary" : "text-primary/70",
+                        )}
+                      />
                     ) : (
-                      <X className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground/50" />
+                      <X className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground/40" />
                     )}
                     <span
                       className={cn(
                         f.included
-                          ? "text-foreground/90"
-                          : "text-muted-foreground/70",
+                          ? f.emphasize
+                            ? "font-semibold text-foreground"
+                            : "text-foreground/85"
+                          : "text-muted-foreground/60 line-through decoration-muted-foreground/30",
                       )}
                     >
                       {f.label}
@@ -229,33 +281,37 @@ export function PricingTiers() {
                 ))}
               </ul>
 
-              {tier.overage && (
-                <p className="mt-5 font-mono text-[11px] text-muted-foreground">
-                  {tier.overage}
-                </p>
-              )}
-
-              <a
-                href={CALENDLY}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={cn(
-                  "group mt-6 inline-flex h-11 items-center justify-center gap-2 rounded-md px-5 text-sm font-medium transition-opacity hover:opacity-90",
-                  tier.highlight
-                    ? "bg-primary text-primary-foreground"
-                    : "border border-border bg-background text-foreground",
+              {/* Footer */}
+              <div className="border-t border-border p-6 pt-5">
+                {tier.overage && (
+                  <p className="mb-4 font-mono text-[11px] text-muted-foreground">
+                    {tier.overage}
+                  </p>
                 )}
-              >
-                {tier.cta}
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-              </a>
+                <a
+                  href={CALENDLY}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cn(
+                    "group inline-flex h-11 w-full items-center justify-center gap-2 rounded-md px-5 text-sm font-semibold transition-opacity hover:opacity-90",
+                    tier.highlight
+                      ? "bg-primary text-primary-foreground shadow-sm"
+                      : "border border-border bg-background text-foreground hover:bg-accent",
+                  )}
+                >
+                  {tier.cta}
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                </a>
+              </div>
             </div>
           );
         })}
       </div>
       <p className="mt-6 text-center text-xs text-muted-foreground">
-        Dialzara charges $0.48/min for overages — ours start at $0.15. They make
-        you build it yourself — we build it for you.
+        Dialzara charges <span className="font-semibold text-foreground">$0.48/min</span> for overages — ours start at{" "}
+        <span className="font-semibold text-foreground">$0.15</span>. They make
+        you build it yourself —{" "}
+        <span className="font-semibold text-foreground">we build it for you</span>.
       </p>
     </div>
   );
