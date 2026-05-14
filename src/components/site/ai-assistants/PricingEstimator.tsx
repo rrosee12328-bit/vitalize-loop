@@ -11,7 +11,7 @@ type Tier = {
   annual: number | null; // total annual price
   customLabel?: string;
   included: string;
-  features: { label: string; included: boolean }[];
+  features: { label: string; included: boolean; emphasize?: boolean }[];
   overage?: string;
   cta: string;
   highlight?: boolean;
