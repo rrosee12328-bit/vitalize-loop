@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, PhoneOff, Inbox, MoonStar } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
-import { HeroCallCard } from "@/components/site/ai-assistants/HeroCallCard";
 import { LiveCallDemo } from "@/components/site/ai-assistants/LiveCallDemo";
 import { DashboardPreview } from "@/components/site/ai-assistants/DashboardPreview";
 import { PricingEstimator, PricingTiers } from "@/components/site/ai-assistants/PricingEstimator";
