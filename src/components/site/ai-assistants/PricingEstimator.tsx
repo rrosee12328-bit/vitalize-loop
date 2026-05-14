@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { ArrowRight, Check, X } from "lucide-react";
+import { useMemo, useState } from "react";
+import { ArrowRight, Check, X, Zap } from "lucide-react";
 import { Slider } from "@/components/ui/slider";
 import { cn } from "@/lib/utils";
 
@@ -7,8 +7,9 @@ const CALENDLY = "https://calendly.com/vektiss-info/30-minute-vektiss-discovery"
 
 type Tier = {
   name: string;
-  price: string;
-  priceSuffix?: string;
+  monthly: number | null; // null = custom
+  annual: number | null; // total annual price
+  customLabel?: string;
   included: string;
   features: { label: string; included: boolean }[];
   overage?: string;
@@ -19,19 +20,19 @@ type Tier = {
 const TIERS: Tier[] = [
   {
     name: "Phone Starter",
-    price: "$29.99",
-    priceSuffix: "/mo",
+    monthly: 45.99,
+    annual: 441,
     included: "60 phone minutes/mo",
     features: [
       { label: "AI Phone Receptionist (24/7)", included: true },
-      { label: "Blind Call Transfer", included: true },
-      { label: "Call Recordings & Summaries", included: true },
-      { label: "SMS/Email Alert After Every Call", included: true },
-      { label: "Spam Detection & Blocking", included: true },
+      { label: "Blind & Warm Call Transfers", included: true },
+      { label: "After-Hours Rules & Escalation", included: true },
+      { label: "Spam Detection & Call Blocking", included: true },
+      { label: "Call Recordings & AI Summary", included: true },
+      { label: "Email Alert After Every Call", included: true },
       { label: "Done-For-You Setup & Management", included: true },
       { label: "30-Day Money-Back Guarantee", included: true },
-      { label: "Warm Transfer to Human", included: false },
-      { label: "After-Hours Rules", included: false },
+      { label: "Full Call Transcripts", included: false },
       { label: "Email AI Assistant", included: false },
       { label: "Analytics Dashboard", included: false },
     ],
@@ -40,13 +41,12 @@ const TIERS: Tier[] = [
   },
   {
     name: "Phone + Email",
-    price: "$79.99",
-    priceSuffix: "/mo",
+    monthly: 89.99,
+    annual: 863,
     included: "200 phone minutes + 200 email replies/mo",
     features: [
       { label: "Everything in Tier 1", included: true },
-      { label: "Warm Call Transfer to Human", included: true },
-      { label: "After-Hours Rules & Escalation", included: true },
+      { label: "Full Call Transcripts", included: true },
       { label: "Email AI Assistant (200 replies/mo)", included: true },
       { label: "Limited Analytics Dashboard", included: true },
       { label: "Monthly Performance Report", included: true },
@@ -58,15 +58,17 @@ const TIERS: Tier[] = [
     highlight: true,
   },
   {
-    name: "Full Suite",
-    price: "$199.00",
-    priceSuffix: "/mo",
+    name: "AI Front Office",
+    monthly: 199,
+    annual: 1910,
     included: "500 phone minutes + 500 email replies/mo",
     features: [
       { label: "Everything in Tier 2", included: true },
+      { label: "Auto Follow-Up Email (with custom links)", included: true },
       { label: "Calendar Sync (Google & Outlook)", included: true },
       { label: "Caller Memory (remembers past callers)", included: true },
       { label: "Bilingual Support (EN/ES)", included: true },
+      { label: "Lead Scoring (Hot/Warm/Cold)", included: true },
       { label: "Full Analytics Dashboard", included: true },
       { label: "Priority Support", included: true },
     ],
@@ -75,21 +77,189 @@ const TIERS: Tier[] = [
   },
   {
     name: "Custom",
-    price: "Custom Quote",
+    monthly: null,
+    annual: null,
+    customLabel: "Let's Talk",
     included: "Unlimited volume",
     features: [
       { label: "Everything in Tier 3", included: true },
       { label: "Custom CRM Integrations", included: true },
       { label: "Multi-location / Multi-agent", included: true },
       { label: "Outbound AI Calling", included: true },
-      { label: "Custom Dashboard & Reporting", included: true },
       { label: "Dedicated Account Manager", included: true },
     ],
     cta: "Contact Us",
   },
 ];
 
-const MAX_MINUTES = 750;
+function fmtMoney(n: number) {
+  return n % 1 === 0
+    ? `$${n.toLocaleString()}`
+    : `$${n.toFixed(2)}`;
+}
+
+function priceDisplay(tier: Tier, billing: "monthly" | "annual") {
+  if (tier.monthly == null) {
+    return { price: tier.customLabel ?? "Custom", suffix: "", sub: undefined };
+  }
+  if (billing === "monthly") {
+    return { price: fmtMoney(tier.monthly), suffix: "/mo", sub: undefined };
+  }
+  const perMo = (tier.annual ?? 0) / 12;
+  return {
+    price: fmtMoney(tier.annual ?? 0),
+    suffix: "/yr",
+    sub: `${fmtMoney(Number(perMo.toFixed(2)))}/mo billed annually`,
+  };
+}
+
+function BillingToggle({
+  value,
+  onChange,
+}: {
+  value: "monthly" | "annual";
+  onChange: (v: "monthly" | "annual") => void;
+}) {
+  return (
+    <div className="inline-flex items-center rounded-full border border-border bg-card p-1 shadow-card">
+      {(["monthly", "annual"] as const).map((opt) => (
+        <button
+          key={opt}
+          type="button"
+          onClick={() => onChange(opt)}
+          className={cn(
+            "relative inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-colors",
+            value === opt
+              ? "bg-primary text-primary-foreground"
+              : "text-muted-foreground hover:text-foreground",
+          )}
+        >
+          {opt === "monthly" ? "Monthly" : "Annually"}
+          {opt === "annual" && (
+            <span
+              className={cn(
+                "rounded-full px-1.5 py-0.5 text-[10px] font-semibold",
+                value === "annual"
+                  ? "bg-white/20 text-white"
+                  : "bg-primary/10 text-primary",
+              )}
+            >
+              Save 20%
+            </span>
+          )}
+        </button>
+      ))}
+    </div>
+  );
+}
+
+export function PricingTiers() {
+  const [billing, setBilling] = useState<"monthly" | "annual">("monthly");
+
+  return (
+    <div>
+      {/* Setup fee banner */}
+      <div className="mb-8 rounded-xl border border-primary/20 border-l-4 border-l-primary bg-primary/5 px-5 py-4 md:px-6">
+        <div className="flex flex-col gap-1 md:flex-row md:items-center md:justify-between md:gap-6">
+          <p className="text-sm text-foreground md:text-base">
+            <span className="font-semibold">Done-For-You Setup: $500</span> — We
+            build, configure, and test your custom AI agent.
+          </p>
+          <p className="inline-flex items-center gap-1.5 text-sm font-medium text-primary">
+            <Zap className="h-4 w-4 fill-current" />
+            Fast-Action Bonus: 50% off setup today — only $250.
+          </p>
+        </div>
+      </div>
+
+      <div className="mb-10 flex justify-center">
+        <BillingToggle value={billing} onChange={setBilling} />
+      </div>
+
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        {TIERS.map((tier) => {
+          const { price, suffix, sub } = priceDisplay(tier, billing);
+          return (
+            <div
+              key={tier.name}
+              className={cn(
+                "relative flex flex-col rounded-2xl border bg-card p-6 shadow-card",
+                tier.highlight
+                  ? "border-primary ring-2 ring-primary/30"
+                  : "border-border",
+              )}
+            >
+              {tier.highlight && (
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-primary px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-primary-foreground">
+                  Most Popular
+                </span>
+              )}
+              <h3 className="text-lg font-semibold tracking-tight">{tier.name}</h3>
+              <div className="mt-3 flex items-baseline gap-1">
+                <span className="text-3xl font-semibold tracking-tight">
+                  {price}
+                </span>
+                {suffix && (
+                  <span className="text-sm text-muted-foreground">{suffix}</span>
+                )}
+              </div>
+              {sub && (
+                <p className="mt-1 text-xs text-muted-foreground">{sub}</p>
+              )}
+              <p className="mt-2 text-xs text-muted-foreground">{tier.included}</p>
+
+              <ul className="mt-5 space-y-2.5 text-sm">
+                {tier.features.map((f) => (
+                  <li key={f.label} className="flex items-start gap-2">
+                    {f.included ? (
+                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                    ) : (
+                      <X className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground/50" />
+                    )}
+                    <span
+                      className={cn(
+                        f.included
+                          ? "text-foreground/90"
+                          : "text-muted-foreground/70",
+                      )}
+                    >
+                      {f.label}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+
+              {tier.overage && (
+                <p className="mt-5 font-mono text-[11px] text-muted-foreground">
+                  {tier.overage}
+                </p>
+              )}
+
+              <a
+                href={CALENDLY}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={cn(
+                  "group mt-6 inline-flex h-11 items-center justify-center gap-2 rounded-md px-5 text-sm font-medium transition-opacity hover:opacity-90",
+                  tier.highlight
+                    ? "bg-primary text-primary-foreground"
+                    : "border border-border bg-background text-foreground",
+                )}
+              >
+                {tier.cta}
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              </a>
+            </div>
+          );
+        })}
+      </div>
+      <p className="mt-6 text-center text-xs text-muted-foreground">
+        Dialzara charges $0.48/min for overages — ours start at $0.15. They make
+        you build it yourself — we build it for you.
+      </p>
+    </div>
+  );
+}
 
 function recommendedIdx(min: number): number {
   if (min <= 60) return 0;
@@ -98,131 +268,79 @@ function recommendedIdx(min: number): number {
   return 3;
 }
 
-export function PricingTiers() {
-  return (
-    <div>
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-        {TIERS.map((tier) => (
-          <div
-            key={tier.name}
-            className={cn(
-              "relative flex flex-col rounded-2xl border bg-card p-6 shadow-card",
-              tier.highlight
-                ? "border-primary ring-2 ring-primary/30"
-                : "border-border",
-            )}
-          >
-            {tier.highlight && (
-              <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-primary px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-primary-foreground">
-                Most Popular
-              </span>
-            )}
-            <h3 className="text-lg font-semibold tracking-tight">{tier.name}</h3>
-            <div className="mt-3 flex items-baseline gap-1">
-              <span className="text-3xl font-semibold tracking-tight">
-                {tier.price}
-              </span>
-              {tier.priceSuffix && (
-                <span className="text-sm text-muted-foreground">{tier.priceSuffix}</span>
-              )}
-            </div>
-            <p className="mt-2 text-xs text-muted-foreground">{tier.included}</p>
-
-            <ul className="mt-5 space-y-2.5 text-sm">
-              {tier.features.map((f) => (
-                <li key={f.label} className="flex items-start gap-2">
-                  {f.included ? (
-                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                  ) : (
-                    <X className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground/50" />
-                  )}
-                  <span
-                    className={cn(
-                      f.included ? "text-foreground/90" : "text-muted-foreground/70",
-                    )}
-                  >
-                    {f.label}
-                  </span>
-                </li>
-              ))}
-            </ul>
-
-            {tier.overage && (
-              <p className="mt-5 font-mono text-[11px] text-muted-foreground">
-                {tier.overage}
-              </p>
-            )}
-
-            <a
-              href={CALENDLY}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={cn(
-                "group mt-6 inline-flex h-11 items-center justify-center gap-2 rounded-md px-5 text-sm font-medium transition-opacity hover:opacity-90",
-                tier.highlight
-                  ? "bg-primary text-primary-foreground"
-                  : "border border-border bg-background text-foreground",
-              )}
-            >
-              {tier.cta}
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-            </a>
-          </div>
-        ))}
-      </div>
-      <p className="mt-6 text-center text-xs text-muted-foreground">
-        One-time $500 setup fee applies to all plans. Dialzara charges $0.48/min for
-        overages — ours start at $0.25.
-      </p>
-    </div>
-  );
-}
-
 export function PricingEstimator() {
-  const [minutes, setMinutes] = useState(120);
-  const idx = recommendedIdx(minutes);
+  const [calls, setCalls] = useState(50);
+  const [avgLen, setAvgLen] = useState(3);
+  const totalMinutes = calls * avgLen;
+  const idx = recommendedIdx(totalMinutes);
   const tier = TIERS[idx];
-  const minutesLabel = minutes >= MAX_MINUTES ? "500+" : String(minutes);
+  const minutesLabel = totalMinutes > 500 ? "500+" : String(totalMinutes);
+
+  const priceText = useMemo(() => {
+    if (tier.monthly == null) return "Custom Quote";
+    return `${fmtMoney(tier.monthly)}/mo`;
+  }, [tier]);
 
   return (
     <div className="mx-auto max-w-2xl rounded-2xl border border-border bg-card p-8 shadow-card md:p-10">
-      <div className="flex items-baseline justify-between">
-        <p className="eyebrow">Estimated monthly minutes</p>
-        <span className="font-mono text-sm text-foreground">{minutesLabel}</span>
-      </div>
-
-      <div className="mt-4">
-        <Slider
-          value={[minutes]}
-          min={20}
-          max={MAX_MINUTES}
-          step={10}
-          onValueChange={(v) => setMinutes(v[0] ?? 20)}
-        />
-        <div className="mt-2 flex justify-between font-mono text-[10px] tracking-widest text-muted-foreground">
-          <span>20</span>
-          <span>500+</span>
+      <div>
+        <div className="flex items-baseline justify-between">
+          <p className="eyebrow">Monthly Calls</p>
+          <span className="font-mono text-sm text-foreground">{calls}</span>
+        </div>
+        <div className="mt-3">
+          <Slider
+            value={[calls]}
+            min={10}
+            max={500}
+            step={5}
+            onValueChange={(v) => setCalls(v[0] ?? 10)}
+          />
+          <div className="mt-2 flex justify-between font-mono text-[10px] tracking-widest text-muted-foreground">
+            <span>10</span>
+            <span>500</span>
+          </div>
         </div>
       </div>
 
-      <div
-        key={tier.name}
-        className="mt-8 rounded-xl border border-border bg-surface-elevated p-6 transition-all duration-300 animate-in fade-in"
-      >
-        <div className="flex flex-wrap items-end justify-between gap-4">
+      <div className="mt-8">
+        <div className="flex items-baseline justify-between">
+          <p className="eyebrow">Avg Call Length (minutes)</p>
+          <span className="font-mono text-sm text-foreground">{avgLen}</span>
+        </div>
+        <div className="mt-3">
+          <Slider
+            value={[avgLen]}
+            min={1}
+            max={10}
+            step={1}
+            onValueChange={(v) => setAvgLen(v[0] ?? 1)}
+          />
+          <div className="mt-2 flex justify-between font-mono text-[10px] tracking-widest text-muted-foreground">
+            <span>1</span>
+            <span>10</span>
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-8 rounded-xl border border-border bg-surface-elevated p-6">
+        <div className="flex items-center justify-between border-b border-border pb-4">
+          <span className="text-sm text-muted-foreground">Estimated Minutes</span>
+          <span className="font-mono text-lg font-semibold tabular-nums">
+            {minutesLabel}
+          </span>
+        </div>
+        <div className="mt-5 flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p className="eyebrow text-primary">Recommended plan</p>
-            <h3 className="mt-2 text-3xl font-semibold tracking-tight">{tier.name}</h3>
+            <p className="eyebrow text-primary">Recommended Plan</p>
+            <h3 className="mt-2 text-2xl font-semibold tracking-tight md:text-3xl">
+              {tier.name}
+            </h3>
             <p className="mt-1 text-sm text-muted-foreground">{tier.included}</p>
           </div>
           <div className="text-right">
-            <div className="text-4xl font-semibold tracking-tight">
-              {tier.price}
-              {tier.priceSuffix && (
-                <span className="text-base font-normal text-muted-foreground">
-                  {tier.priceSuffix}
-                </span>
-              )}
+            <div className="text-3xl font-semibold tracking-tight md:text-4xl">
+              {priceText}
             </div>
           </div>
         </div>
