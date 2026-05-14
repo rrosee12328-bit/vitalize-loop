@@ -177,30 +177,11 @@ function AIAssistantsPage() {
         </div>
       </section>
 
-      {/* Live Demo Player */}
-      <section
-        id="live-call-demo"
-        className="scroll-mt-24 border-t border-border bg-surface-elevated"
-      >
-        <div className="container-editorial py-24 md:py-32">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="eyebrow">Hear It Live</p>
-            <h2 className="mt-6 display-2">
-              Listen to your AI receptionist in action.
-            </h2>
-            <p className="mt-6 text-lg text-muted-foreground">
-              Real conversations. Real industries. This is exactly what your
-              callers will hear.
-            </p>
-          </div>
-          <div className="mt-12">
-            <LiveCallDemo />
-          </div>
-        </div>
-      </section>
-
       {/* Total Visibility — Dashboard */}
-      <section className="border-t border-border bg-[#111827] text-white">
+      <section
+        id="dashboard"
+        className="scroll-mt-24 border-t border-border bg-[#111827] text-white"
+      >
         <div className="container-editorial py-24 md:py-32">
           <div className="mx-auto mb-14 max-w-3xl text-center">
             <p className="font-mono text-[11px] tracking-[0.18em] text-primary">
