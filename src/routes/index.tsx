@@ -116,42 +116,6 @@ function HomePage() {
       {/* HERO — Live demo player leads */}
       <section className="container-editorial pt-12 pb-16 md:pt-20 md:pb-20">
         <div className="grid items-center gap-12 md:grid-cols-12 md:gap-12 lg:gap-16">
-          <div className="md:col-span-6">
-            <p className="eyebrow text-primary">Vektiss Voice</p>
-            <h1 className="mt-6 display-1">
-              Your business should never miss a call again.
-            </h1>
-            <p className="mt-8 text-lg text-muted-foreground md:text-xl">
-              Pick an industry and hear exactly what your customers would hear — 24/7, handled by AI, managed by us.
-            </p>
-            <div className="mt-8 flex flex-wrap items-center gap-3">
-              <Link
-                to="/solutions/ai-assistants"
-                className="group inline-flex h-12 items-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
-              >
-                Get Vektiss Voice
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-              </Link>
-              <Link
-                to="/solutions/ai-assistants"
-                hash="pricing"
-                className="inline-flex h-12 items-center gap-2 rounded-md border border-foreground/80 bg-transparent px-6 text-sm font-medium text-foreground transition-colors hover:bg-foreground hover:text-background"
-              >
-                See Pricing
-              </Link>
-            </div>
-            <div className="mt-5 flex flex-wrap items-center gap-2">
-              {["Done For You", "No Contract", "$45.99/mo"].map((b) => (
-                <span
-                  key={b}
-                  className="inline-flex items-center gap-1.5 rounded-full bg-muted px-3 py-1 text-[12px] font-medium text-foreground/80"
-                >
-                  <span className="text-primary">✓</span>
-                  {b}
-                </span>
-              ))}
-            </div>
-          </div>
           <div className="md:col-span-6 animate-fade-in [animation-duration:700ms]">
             <p className="eyebrow text-primary">Vektiss Voice</p>
             <h1 className="mt-6 display-1">
