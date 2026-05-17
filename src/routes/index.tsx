@@ -32,17 +32,17 @@ export const Route = createFileRoute("/")({
 const pillars = [
   {
     no: "01",
+    to: "/solutions/ai-assistants" as const,
+    name: "Vektiss Voice",
+    desc: "Embedded AI that answers calls, follows up leads, drafts replies, and removes communication bottlenecks 24/7.",
+    Icon: Bot,
+  },
+  {
+    no: "02",
     to: "/solutions/project-intelligence" as const,
     name: "Project Intelligence",
     desc: "Real-time visibility into every initiative, deadline, and decision. The CEO dashboard you've never had.",
     Icon: BarChart3,
-  },
-  {
-    no: "02",
-    to: "/solutions/ai-assistants" as const,
-    name: "AI Phone & Email Assistants",
-    desc: "Embedded AI that answers calls, follows up leads, drafts replies, and removes communication bottlenecks 24/7.",
-    Icon: Bot,
   },
   {
     no: "03",
@@ -62,18 +62,18 @@ const pillars = [
 
 const deepDives = [
   {
-    eyebrow: "01 · Project Intelligence",
-    to: "/solutions/project-intelligence" as const,
-    title: "Project management with AI built into the workflow.",
-    body: "Instead of scattered updates across emails and spreadsheets, get a shared system where AI summarizes progress, flags next steps, and keeps leadership informed.",
-    Mockup: ProjectMockup,
-  },
-  {
-    eyebrow: "02 · AI Assistants",
+    eyebrow: "01 · Vektiss Voice",
     to: "/solutions/ai-assistants" as const,
     title: "Never let slow communication cost you another lead.",
     body: "AI assistants qualify requests, answer common questions, summarize conversations, and route priority moments to the right person instantly.",
     Mockup: AssistantMockup,
+  },
+  {
+    eyebrow: "02 · Project Intelligence",
+    to: "/solutions/project-intelligence" as const,
+    title: "Project management with AI built into the workflow.",
+    body: "Instead of scattered updates across emails and spreadsheets, get a shared system where AI summarizes progress, flags next steps, and keeps leadership informed.",
+    Mockup: ProjectMockup,
   },
   {
     eyebrow: "03 · Websites, Portals, Client Systems & Apps",
