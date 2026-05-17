@@ -6,13 +6,13 @@ import { PortalMockup } from "@/components/site/FeatureMockups";
 export const Route = createFileRoute("/solutions/websites-portals-apps")({
   head: () => ({
     meta: [
-      { title: "Vektiss Sites — Vektiss" },
+      { title: "Vektiss Sites — Websites, Portals & Apps Built for Your Business" },
       {
         name: "description",
         content:
           "Marketing site, client portal, and internal apps built as one connected experience. Capture leads, onboard clients, and run delivery without bolting on another tool.",
       },
-      { property: "og:title", content: "Vektiss Sites — Vektiss" },
+      { property: "og:title", content: "Vektiss Sites — Websites, Portals & Apps Built for Your Business" },
       {
         property: "og:description",
         content: "A digital front door — and the systems behind it.",

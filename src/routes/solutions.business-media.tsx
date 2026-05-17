@@ -6,13 +6,13 @@ import { MediaMockup } from "@/components/site/FeatureMockups";
 export const Route = createFileRoute("/solutions/business-media")({
   head: () => ({
     meta: [
-      { title: "Vektiss Media — Vektiss" },
+      { title: "Vektiss Media — Content & Visibility for Your Business" },
       {
         name: "description",
         content:
           "Turn your expertise into income-producing assets. Founder video, short-form content, and AI avatars — produced inside a system, not a one-off project.",
       },
-      { property: "og:title", content: "Vektiss Media — Vektiss" },
+      { property: "og:title", content: "Vektiss Media — Content & Visibility for Your Business" },
       {
         property: "og:description",
         content: "Make your expertise visible at scale.",

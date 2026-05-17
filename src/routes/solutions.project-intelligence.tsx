@@ -6,13 +6,13 @@ import { ProjectMockup } from "@/components/site/FeatureMockups";
 export const Route = createFileRoute("/solutions/project-intelligence")({
   head: () => ({
     meta: [
-      { title: "Vektiss Intelligence — Vektiss" },
+      { title: "Vektiss Intelligence — Real-Time Visibility for Your Business" },
       {
         name: "description",
         content:
           "The CEO dashboard you've never had. Live initiative status, AI summaries, and risk flags across every project — without another tool.",
       },
-      { property: "og:title", content: "Vektiss Intelligence — Vektiss" },
+      { property: "og:title", content: "Vektiss Intelligence — Real-Time Visibility for Your Business" },
       {
         property: "og:description",
         content: "Real-time visibility into every initiative, deadline, and decision.",
