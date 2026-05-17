@@ -76,13 +76,13 @@ function AIAssistantsPage() {
       <section className="container-editorial pt-12 pb-16 md:pt-20 md:pb-24">
         <div className="grid items-center gap-12 md:grid-cols-12 md:gap-12 lg:gap-16">
           <div className="md:col-span-6">
-            <p className="eyebrow text-primary">02 · AI Phone & Email Assistants</p>
+            <p className="eyebrow text-primary">02 · Vektiss Voice</p>
             <h1 className="mt-6 display-1">
               Stop letting missed calls{" "}
               <span className="accent-underline">fund your competitors.</span>
             </h1>
             <p className="mt-8 text-lg text-muted-foreground md:text-xl">
-              Your AI receptionist answers every call, books appointments, handles
+              Vektiss Voice answers every call, books appointments, handles
               emails, and sends you a summary — 24/7, fully managed by Vektiss. No
               contracts. 30-day money-back guarantee.
             </p>
