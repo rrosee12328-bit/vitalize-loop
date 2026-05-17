@@ -8,6 +8,15 @@ export function SiteLayout({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    window.scrollTo(0, 0);
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     // Collect targets: direct children of every <section> inside <main>,
