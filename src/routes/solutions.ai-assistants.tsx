@@ -266,8 +266,8 @@ function AIAssistantsPage() {
               Your best employee costs $45.99 a month.
             </h2>
             <p className="mt-6 text-lg text-white/70">
-              Never misses a call. Never takes a sick day. Never forgets to follow
-              up. Live in 48 hours.
+              Vektiss Voice — never misses a call, never takes a sick day,
+              never forgets to follow up. Live in 48 hours.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <a
