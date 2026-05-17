@@ -48,7 +48,7 @@ const problems = [
 const steps = [
   {
     phase: "STEP 01",
-    title: "We Build It",
+    title: "We Develop It",
     desc: "We configure your AI receptionist, write the scripts, set up call routing, and connect your email. You don't touch a thing.",
   },
   {

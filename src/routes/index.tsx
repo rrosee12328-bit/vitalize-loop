@@ -99,7 +99,7 @@ const steps = [
   },
   {
     no: "02",
-    name: "Build",
+    name: "Develop",
     desc: "We develop the AI systems, dashboards, web experience, and media infrastructure you actually need.",
   },
   {
