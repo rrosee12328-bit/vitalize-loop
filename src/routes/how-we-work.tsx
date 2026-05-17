@@ -51,19 +51,19 @@ const phases = [
 
 const pillars = [
   {
-    name: "Project Intelligence",
+    name: "Vektiss Intelligence",
     desc: "Live visibility into every initiative — status, blockers, owner, throughput. The visibility layer your leadership team has been asking for.",
   },
   {
-    name: "AI Phone & Email Assistants",
+    name: "Vektiss Voice",
     desc: "Always-on assistants that answer calls, qualify leads, draft replies, and route the moments that need a human — so communication stops being the bottleneck.",
   },
   {
-    name: "Websites, Portals & Apps",
+    name: "Vektiss Sites",
     desc: "Marketing site, branded client portal, and internal apps built as one connected experience. Lead capture, onboarding, and delivery on a single stack.",
   },
   {
-    name: "Business Media",
+    name: "Vektiss Media",
     desc: "Founder-led video, short-form cuts, and AI avatar assets — produced inside a system so your expertise stays visible at scale.",
   },
 ];

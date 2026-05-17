@@ -6,13 +6,13 @@ import { PortalMockup } from "@/components/site/FeatureMockups";
 export const Route = createFileRoute("/solutions/websites-portals-apps")({
   head: () => ({
     meta: [
-      { title: "Websites, Portals & Apps — Vektiss" },
+      { title: "Vektiss Sites — Websites, Portals & Apps Built for Your Business" },
       {
         name: "description",
         content:
           "Marketing site, client portal, and internal apps built as one connected experience. Capture leads, onboard clients, and run delivery without bolting on another tool.",
       },
-      { property: "og:title", content: "Websites, Portals & Apps — Vektiss" },
+      { property: "og:title", content: "Vektiss Sites — Websites, Portals & Apps Built for Your Business" },
       {
         property: "og:description",
         content: "A digital front door — and the systems behind it.",
@@ -21,7 +21,7 @@ export const Route = createFileRoute("/solutions/websites-portals-apps")({
   }),
   component: () => (
     <SolutionPage
-      eyebrow="03 · Websites, Portals & Apps"
+      eyebrow="03 · Vektiss Sites"
       title={
         <>
           A digital front door — <span className="accent-underline">and the rooms behind it.</span>
@@ -91,7 +91,7 @@ export const Route = createFileRoute("/solutions/websites-portals-apps")({
         "Teams holding ops together with spreadsheets",
         "Companies that want one stack, not seven",
       ]}
-      next={{ label: "Business Media", to: "/solutions/business-media" }}
+      next={{ label: "Vektiss Media", to: "/solutions/business-media" }}
     />
   ),
 });

@@ -9,7 +9,7 @@ export const Route = createFileRoute("/solutions")({
       {
         name: "description",
         content:
-          "The four pillars of the Vektiss operating system: Project Intelligence, AI Phone & Email Assistants, Websites/Portals/Apps, and Business Media.",
+          "The four pillars of the Vektiss operating system: Vektiss Intelligence, Vektiss Voice, Websites/Portals/Apps, and Vektiss Media.",
       },
       { property: "og:title", content: "Solutions — Vektiss" },
       {
@@ -26,7 +26,7 @@ const solutions = [
   {
     no: "01",
     to: "/solutions/project-intelligence" as const,
-    name: "Project Intelligence",
+    name: "Vektiss Intelligence",
     Icon: BarChart3,
     headline: "The CEO dashboard you've never had.",
     desc: "Real-time visibility into every initiative, deadline, and decision. AI summarizes progress and surfaces what needs your attention.",
@@ -39,7 +39,7 @@ const solutions = [
   {
     no: "02",
     to: "/solutions/ai-assistants" as const,
-    name: "AI Phone & Email Assistants",
+    name: "Vektiss Voice",
     Icon: Bot,
     headline: "Communication that never sleeps.",
     desc: "Embedded AI that answers calls, qualifies leads, drafts replies, and routes the moments that need a human — 24/7.",
@@ -52,7 +52,7 @@ const solutions = [
   {
     no: "03",
     to: "/solutions/websites-portals-apps" as const,
-    name: "Websites, Portals & Apps",
+    name: "Vektiss Sites",
     Icon: Globe,
     headline: "Your digital front door — and the rooms behind it.",
     desc: "Marketing site, client portal, and internal apps built as one connected experience that captures, converts, and serves.",
@@ -65,7 +65,7 @@ const solutions = [
   {
     no: "04",
     to: "/solutions/business-media" as const,
-    name: "Business Media",
+    name: "Vektiss Media",
     Icon: Video,
     headline: "Turn expertise into income-producing assets.",
     desc: "Founder-led video, short-form content, and AI avatars — produced inside a system, not a one-off project.",

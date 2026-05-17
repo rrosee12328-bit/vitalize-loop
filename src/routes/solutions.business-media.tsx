@@ -6,13 +6,13 @@ import { MediaMockup } from "@/components/site/FeatureMockups";
 export const Route = createFileRoute("/solutions/business-media")({
   head: () => ({
     meta: [
-      { title: "Business Media — Vektiss" },
+      { title: "Vektiss Media — Content & Visibility for Your Business" },
       {
         name: "description",
         content:
           "Turn your expertise into income-producing assets. Founder video, short-form content, and AI avatars — produced inside a system, not a one-off project.",
       },
-      { property: "og:title", content: "Business Media — Vektiss" },
+      { property: "og:title", content: "Vektiss Media — Content & Visibility for Your Business" },
       {
         property: "og:description",
         content: "Make your expertise visible at scale.",
@@ -21,7 +21,7 @@ export const Route = createFileRoute("/solutions/business-media")({
   }),
   component: () => (
     <SolutionPage
-      eyebrow="04 · Business Media"
+      eyebrow="04 · Vektiss Media"
       title={
         <>
           Turn expertise into <span className="accent-underline">income-producing assets.</span>
@@ -91,7 +91,7 @@ export const Route = createFileRoute("/solutions/business-media")({
         "Companies whose differentiation is the team itself",
         "Operators tired of one-off content sprints",
       ]}
-      next={{ label: "Project Intelligence", to: "/solutions/project-intelligence" }}
+      next={{ label: "Vektiss Intelligence", to: "/solutions/project-intelligence" }}
     />
   ),
 });

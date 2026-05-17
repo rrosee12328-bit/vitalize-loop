@@ -29,7 +29,7 @@ const cases = [
     metricLabel: "faster time-to-quote",
     summary:
       "Built an AI phone & email assistant that qualifies inbound, drafts responses, and routes hot leads to the right closer in under a minute. The sales team stopped chasing context.",
-    tags: ["AI Phone & Email Assistants", "Project Intelligence"],
+    tags: ["Vektiss Voice", "Vektiss Intelligence"],
   },
   {
     industry: "B2B SaaS",
@@ -37,8 +37,8 @@ const cases = [
     metric: "4 → 0",
     metricLabel: "weekly status meetings",
     summary:
-      "Replaced fragmented status reporting with a live Project Intelligence layer. Leadership reclaimed 6 hours a week and stopped flying blind on cross-functional initiatives.",
-    tags: ["Project Intelligence", "Websites, Portals & Apps"],
+      "Replaced fragmented status reporting with a live Vektiss Intelligence layer. Leadership reclaimed 6 hours a week and stopped flying blind on cross-functional initiatives.",
+    tags: ["Vektiss Intelligence", "Vektiss Sites"],
   },
   {
     industry: "Mid-market services",
@@ -47,7 +47,7 @@ const cases = [
     metricLabel: "ops throughput",
     summary:
       "Rebuilt the marketing site, client portal, and internal delivery app on one connected stack. Manual hand-offs disappeared. Same headcount, more than double the output.",
-    tags: ["Websites, Portals & Apps", "Project Intelligence"],
+    tags: ["Vektiss Sites", "Vektiss Intelligence"],
   },
   {
     industry: "Founder-led consultancy",
@@ -55,8 +55,8 @@ const cases = [
     metric: "5.1×",
     metricLabel: "inbound qualified leads",
     summary:
-      "Built a Business Media pipeline around the founder: monthly studio days, short-form cuts, and AI avatar localization. Inbound leads now drive most of new revenue.",
-    tags: ["Business Media", "AI Phone & Email Assistants"],
+      "Built a Vektiss Media pipeline around the founder: monthly studio days, short-form cuts, and AI avatar localization. Inbound leads now drive most of new revenue.",
+    tags: ["Vektiss Media", "Vektiss Voice"],
   },
 ];
 
