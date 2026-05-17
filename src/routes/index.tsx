@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight, BarChart3, Bot, Globe, Video } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
-import { HeroMockup } from "@/components/site/HeroMockup";
+import { LiveCallDemo } from "@/components/site/ai-assistants/LiveCallDemo";
 import {
   ProjectMockup,
   AssistantMockup,
