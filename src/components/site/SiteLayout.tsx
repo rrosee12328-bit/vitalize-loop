@@ -54,13 +54,28 @@ export function SiteLayout({ children }: { children: ReactNode }) {
       });
     });
 
+    let lastY = window.scrollY;
+    let scrollDir: "down" | "up" = "down";
+    const onScroll = () => {
+      const y = window.scrollY;
+      scrollDir = y > lastY ? "down" : "up";
+      lastY = y;
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
+          const el = entry.target as HTMLElement;
           if (entry.isIntersecting) {
-            entry.target.classList.add("in-view");
+            // Direction the element is entering from determines the animation origin
+            el.dataset.revealFrom = scrollDir === "down" ? "below" : "above";
+            el.classList.add("in-view");
           } else {
-            entry.target.classList.remove("in-view");
+            // Mark where it's exiting toward so next re-entry starts from the right side
+            const rect = el.getBoundingClientRect();
+            el.dataset.revealFrom = rect.top >= window.innerHeight ? "below" : "above";
+            el.classList.remove("in-view");
           }
         });
       },
