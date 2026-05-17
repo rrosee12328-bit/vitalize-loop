@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ArrowUpRight, BarChart3, Bot, Globe, Video } from "lucide-react";
+import { ArrowRight, ArrowUpRight, BarChart3, Bot, Globe, Inbox, Moon, PhoneMissed, Video } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { LiveCallDemo } from "@/components/site/ai-assistants/LiveCallDemo";
 import {
@@ -109,12 +109,6 @@ const steps = [
   },
 ];
 
-const painPoints = [
-  "Tools that don't talk to each other",
-  "Leads going cold while your team scrambles",
-  "No visibility into where projects actually stand",
-  "Spreadsheets stitched together with hope",
-];
 
 function HomePage() {
   return (
@@ -125,12 +119,10 @@ function HomePage() {
           <div className="md:col-span-6">
             <p className="eyebrow text-primary">Vektiss Voice</p>
             <h1 className="mt-6 display-1">
-              Hear what your customers{" "}
-              <span className="accent-underline">would hear.</span>
+              Your business should never miss a call again.
             </h1>
             <p className="mt-8 text-lg text-muted-foreground md:text-xl">
-              Pick an industry and press play. This is exactly what your callers
-              hear — 24/7, fully managed by Vektiss.
+              Pick an industry and hear exactly what your customers would hear — 24/7, handled by AI, managed by us.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <Link
@@ -211,44 +203,63 @@ function HomePage() {
         </div>
       </section>
 
-      {/* STATS */}
-      <section className="border-t border-border">
-        <div className="container-editorial py-12 md:py-16">
-          <div className="grid gap-x-12 gap-y-6 sm:grid-cols-3">
-            <Stat value="40+" label="Operators served" />
-            <Stat value="2.4×" label="Avg. ops throughput" />
-            <Stat value="11 days" label="Median time-to-system" />
-          </div>
-        </div>
-      </section>
 
       {/* PROBLEM RECOGNITION */}
       <section className="border-t border-border bg-surface-elevated">
         <div className="container-editorial py-24 md:py-32">
-          <div className="grid gap-16 md:grid-cols-12">
-            <div className="md:col-span-5">
-              <p className="eyebrow">The problem</p>
-              <h2 className="mt-6 display-2">
-                You didn't build a business to <span className="accent-underline">manage chaos.</span>
-              </h2>
-            </div>
-            <div className="md:col-span-7 md:pt-4">
-              <p className="text-lg text-muted-foreground">
-                Most growth-stage businesses run on a stack of half-connected tools, manual
-                hand-offs, and tribal knowledge. It works — until it doesn't. Sound familiar?
+          <div className="text-center">
+            <p className="eyebrow">THE PROBLEM</p>
+            <h2 className="mt-6 display-2">
+              Your phone is costing you money.
+            </h2>
+            <p className="mx-auto mt-6 max-w-3xl text-lg text-muted-foreground">
+              Every missed call is a missed client. Every slow reply is a lost deal. Most businesses don't have a system — they have a gap.
+            </p>
+          </div>
+
+          <div className="mt-16 grid gap-6 md:grid-cols-3">
+            <div className="rounded-xl border border-border bg-white p-8 shadow-card">
+              <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                <PhoneMissed className="h-5 w-5" />
+              </div>
+              <h3 className="mt-5 text-xl font-semibold tracking-tight">The Missed Call</h3>
+              <p className="mt-3 text-muted-foreground">
+                You're busy. The phone rings. Nobody answers. That caller doesn't leave a voicemail — they call your competitor.
               </p>
-              <ul className="mt-8 space-y-4">
-                {painPoints.map((p) => (
-                  <li
-                    key={p}
-                    className="flex items-start gap-3 border-t border-border pt-4 text-base text-foreground"
-                  >
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-                    {p}
-                  </li>
-                ))}
-              </ul>
             </div>
+
+            <div className="rounded-xl border border-border bg-white p-8 shadow-card">
+              <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                <Inbox className="h-5 w-5" />
+              </div>
+              <h3 className="mt-5 text-xl font-semibold tracking-tight">The Slow Reply</h3>
+              <p className="mt-3 text-muted-foreground">
+                Leads email you. You see it three hours later. By then they've already moved on. Speed wins — every time.
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-border bg-white p-8 shadow-card">
+              <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                <Moon className="h-5 w-5" />
+              </div>
+              <h3 className="mt-5 text-xl font-semibold tracking-tight">The After-Hours Gap</h3>
+              <p className="mt-3 text-muted-foreground">
+                Your business closes at 5pm. Your customers' problems don't. Every night and weekend is a window your competitors are open and you're not.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-16 text-center">
+            <p className="text-lg font-bold text-[#111827]">
+              Vektiss Voice closes all three gaps — automatically, 24/7, starting at $45.99/mo.
+            </p>
+            <Link
+              to="/solutions/ai-assistants"
+              className="group mt-6 inline-flex h-12 items-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+            >
+              See How It Works
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </Link>
           </div>
         </div>
       </section>
@@ -426,11 +437,3 @@ function HomePage() {
   );
 }
 
-function Stat({ value, label }: { value: string; label: string }) {
-  return (
-    <div>
-      <div className="text-3xl font-semibold tracking-tight md:text-4xl">{value}</div>
-      <div className="mt-1 text-sm text-muted-foreground">{label}</div>
-    </div>
-  );
-}
