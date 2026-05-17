@@ -84,7 +84,10 @@ export function SiteLayout({ children }: { children: ReactNode }) {
 
     targets.forEach((el) => observer.observe(el));
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", onScroll);
+    };
   }, [pathname]);
 
   return (
