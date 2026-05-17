@@ -30,7 +30,7 @@ export function Footer() {
               </li>
               <li>
                 <Link to="/solutions/ai-assistants" className="text-white/70 hover:text-white">
-                  AI Phone & Email Assistants
+                  Vektiss Voice
                 </Link>
               </li>
               <li>
