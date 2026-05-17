@@ -10,13 +10,13 @@ const CALENDLY = "https://calendly.com/vektiss-info/30-minute-vektiss-discovery"
 export const Route = createFileRoute("/solutions/ai-assistants")({
   head: () => ({
     meta: [
-      { title: "AI Phone & Email Assistants — Vektiss" },
+      { title: "Vektiss Voice — AI Receptionist for Your Business" },
       {
         name: "description",
         content:
-          "A fully managed AI receptionist that answers calls, qualifies leads, books appointments, and replies to emails 24/7.",
+          "Vektiss Voice is a fully managed AI receptionist that answers calls, qualifies leads, books appointments, and replies to emails 24/7.",
       },
-      { property: "og:title", content: "AI Phone & Email Assistants — Vektiss" },
+      { property: "og:title", content: "Vektiss Voice — AI Receptionist for Your Business" },
       {
         property: "og:description",
         content:
