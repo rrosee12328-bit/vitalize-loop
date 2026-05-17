@@ -228,7 +228,8 @@ function AIAssistantsPage() {
       <section className="border-t border-border">
         <div className="container-editorial py-24 md:py-32">
           <div className="mx-auto max-w-2xl text-center">
-            <p className="eyebrow">Pricing</p>
+            <p className="eyebrow text-primary">Vektiss Voice Plans</p>
+            <p className="eyebrow mt-3">Pricing</p>
             <h2 className="mt-6 display-2">
               Flat rate. No surprises. Cancel anytime.
             </h2>
