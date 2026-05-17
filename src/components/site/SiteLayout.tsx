@@ -59,22 +59,15 @@ export function SiteLayout({ children }: { children: ReactNode }) {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("in-view");
-            observer.unobserve(entry.target);
+          } else {
+            entry.target.classList.remove("in-view");
           }
         });
       },
       { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
     );
 
-    targets.forEach((el) => {
-      const rect = el.getBoundingClientRect();
-      // Reveal immediately for anything already in view (hero, above the fold)
-      if (rect.top < window.innerHeight * 0.9) {
-        el.classList.add("in-view");
-      } else {
-        observer.observe(el);
-      }
-    });
+    targets.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
   }, [pathname]);
