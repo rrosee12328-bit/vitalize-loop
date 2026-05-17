@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight, BarChart3, Bot, Globe, Video } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
-import { HeroMockup } from "@/components/site/HeroMockup";
+import { LiveCallDemo } from "@/components/site/ai-assistants/LiveCallDemo";
 import {
   ProjectMockup,
   AssistantMockup,
@@ -32,17 +32,17 @@ export const Route = createFileRoute("/")({
 const pillars = [
   {
     no: "01",
+    to: "/solutions/ai-assistants" as const,
+    name: "Vektiss Voice",
+    desc: "Embedded AI that answers calls, follows up leads, drafts replies, and removes communication bottlenecks 24/7.",
+    Icon: Bot,
+  },
+  {
+    no: "02",
     to: "/solutions/project-intelligence" as const,
     name: "Project Intelligence",
     desc: "Real-time visibility into every initiative, deadline, and decision. The CEO dashboard you've never had.",
     Icon: BarChart3,
-  },
-  {
-    no: "02",
-    to: "/solutions/ai-assistants" as const,
-    name: "AI Phone & Email Assistants",
-    desc: "Embedded AI that answers calls, follows up leads, drafts replies, and removes communication bottlenecks 24/7.",
-    Icon: Bot,
   },
   {
     no: "03",
@@ -62,18 +62,18 @@ const pillars = [
 
 const deepDives = [
   {
-    eyebrow: "01 · Project Intelligence",
-    to: "/solutions/project-intelligence" as const,
-    title: "Project management with AI built into the workflow.",
-    body: "Instead of scattered updates across emails and spreadsheets, get a shared system where AI summarizes progress, flags next steps, and keeps leadership informed.",
-    Mockup: ProjectMockup,
-  },
-  {
-    eyebrow: "02 · AI Assistants",
+    eyebrow: "01 · Vektiss Voice",
     to: "/solutions/ai-assistants" as const,
     title: "Never let slow communication cost you another lead.",
     body: "AI assistants qualify requests, answer common questions, summarize conversations, and route priority moments to the right person instantly.",
     Mockup: AssistantMockup,
+  },
+  {
+    eyebrow: "02 · Project Intelligence",
+    to: "/solutions/project-intelligence" as const,
+    title: "Project management with AI built into the workflow.",
+    body: "Instead of scattered updates across emails and spreadsheets, get a shared system where AI summarizes progress, flags next steps, and keeps leadership informed.",
+    Mockup: ProjectMockup,
   },
   {
     eyebrow: "03 · Websites, Portals, Client Systems & Apps",
@@ -119,114 +119,94 @@ const painPoints = [
 function HomePage() {
   return (
     <SiteLayout>
-      {/* HERO — full-bleed video on top, copy underneath on desktop; overlaid on mobile */}
-      <section className="relative isolate w-full overflow-hidden">
-        {/* MOBILE: vertical video on top, copy stacked below */}
-        <div className="md:hidden">
-          <div className="relative aspect-[9/16] max-h-[75vh] w-full overflow-hidden">
-            <iframe
-              src="https://iframe.mediadelivery.net/embed/600055/b69bd946-69ef-4424-93f8-c57806001f6f?autoplay=true&loop=true&muted=true&preload=true&responsive=true"
-              loading="eager"
-              className="pointer-events-none absolute inset-0 h-full w-full"
-              allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-              allowFullScreen
-              title="Vektiss brand intro (mobile)"
-            />
-            <div
-              aria-hidden
-              className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-background"
-            />
-            <div className="absolute inset-x-0 bottom-10 flex justify-center">
-              <a
-                href="https://calendly.com/vektiss-info/30-minute-vektiss-discovery"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group pointer-events-auto inline-flex h-12 items-center gap-2 rounded-full bg-primary px-6 text-sm font-medium text-primary-foreground shadow-lg transition-opacity hover:opacity-90"
+      {/* HERO — Live demo player leads */}
+      <section className="container-editorial pt-12 pb-16 md:pt-20 md:pb-20">
+        <div className="grid items-center gap-12 md:grid-cols-12 md:gap-12 lg:gap-16">
+          <div className="md:col-span-6">
+            <p className="eyebrow text-primary">Vektiss Voice</p>
+            <h1 className="mt-6 display-1">
+              Hear what your customers{" "}
+              <span className="accent-underline">would hear.</span>
+            </h1>
+            <p className="mt-8 text-lg text-muted-foreground md:text-xl">
+              Pick an industry and press play. This is exactly what your callers
+              hear — 24/7, fully managed by Vektiss.
+            </p>
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <Link
+                to="/solutions/ai-assistants"
+                className="group inline-flex h-12 items-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
               >
-                Book a strategy call
+                Get Vektiss Voice
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-              </a>
+              </Link>
+              <Link
+                to="/solutions/ai-assistants"
+                hash="pricing"
+                className="inline-flex h-12 items-center gap-2 rounded-md border border-foreground/80 bg-transparent px-6 text-sm font-medium text-foreground transition-colors hover:bg-foreground hover:text-background"
+              >
+                See Pricing
+              </Link>
+            </div>
+            <div className="mt-5 flex flex-wrap items-center gap-2">
+              {["Done For You", "No Contract", "$45.99/mo"].map((b) => (
+                <span
+                  key={b}
+                  className="inline-flex items-center gap-1.5 rounded-full bg-muted px-3 py-1 text-[12px] font-medium text-foreground/80"
+                >
+                  <span className="text-primary">✓</span>
+                  {b}
+                </span>
+              ))}
             </div>
           </div>
-          <div className="container-editorial pt-10 pb-16">
-            <div className="rounded-2xl border border-border bg-white p-6 shadow-card">
-              <p className="eyebrow">For growth-stage operator-owners</p>
-              <h1 className="mt-5 display-1">
-                The operating system your business has been{" "}
-                <span className="accent-underline">running without.</span>
-              </h1>
-              <p className="mt-6 text-base text-muted-foreground">
-                Project intelligence, AI assistants, client portals, and media — engineered
-                into one connected system you actually run your company from.
-              </p>
-              <div className="mt-8 flex flex-wrap items-center gap-3">
-                <a
-                  href="https://calendly.com/vektiss-info/30-minute-vektiss-discovery"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group inline-flex h-12 items-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
-                >
-                  Book a strategy call
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                </a>
-                <Link
-                  to="/how-we-work"
-                  className="inline-flex h-12 items-center gap-2 rounded-md border border-border px-6 text-sm font-medium text-foreground transition-colors hover:bg-muted"
-                >
-                  See how we work
-                </Link>
-              </div>
-            </div>
+          <div className="md:col-span-6">
+            <LiveCallDemo />
+            <p className="mt-4 text-center text-xs text-muted-foreground">
+              Want to hear your own business? Book a setup call and we'll build
+              your custom demo in 24 hours.
+            </p>
           </div>
         </div>
+      </section>
 
-        {/* DESKTOP: video on top, copy stacked below */}
-        <div className="hidden md:block">
-          <div className="relative aspect-video w-full overflow-hidden">
-            <iframe
-              src="https://iframe.mediadelivery.net/embed/600055/130db0d6-305b-4bed-8517-7cd5d839b9cd?autoplay=true&loop=true&muted=true&preload=true&responsive=true"
-              loading="eager"
-              className="pointer-events-none absolute inset-0 h-full w-full"
-              allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-              allowFullScreen
-              title="Vektiss brand intro"
-            />
-            {/* Soft fade into the page */}
-            <div
-              aria-hidden
-              className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-background"
-            />
-          </div>
-          <div className="container-editorial pt-16 pb-24 lg:pt-20 lg:pb-32">
-            <div className="rounded-2xl border border-border bg-white p-10 shadow-card lg:p-14">
-              <p className="eyebrow">For growth-stage operator-owners</p>
-              <h1 className="mt-6 display-1 max-w-5xl">
-                The operating system <br />
-                your business has been{" "}
-                <span className="accent-underline">running without.</span>
-              </h1>
-              <p className="mt-8 max-w-2xl text-lg text-muted-foreground lg:text-xl">
-                Project intelligence, AI assistants, client portals, and media — engineered
-                into one connected system you actually run your company from.
+      {/* PHONE ASSISTANT CTA STRIP */}
+      <section className="border-y border-border bg-[#EFF6FF]">
+        <div className="container-editorial py-8 md:py-10">
+          <div className="flex flex-col items-start gap-5 border-l-4 border-primary pl-5 md:flex-row md:items-center md:justify-between md:gap-8">
+            <div>
+              <p className="text-lg font-semibold text-foreground md:text-xl">
+                Vektiss Voice. Starting at $45.99/mo.
               </p>
-              <div className="mt-10 flex flex-wrap items-center gap-4">
-                <a
-                  href="https://calendly.com/vektiss-info/30-minute-vektiss-discovery"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group inline-flex h-12 items-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
-                >
-                  Book a strategy call
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                </a>
-                <Link
-                  to="/how-we-work"
-                  className="inline-flex h-12 items-center gap-2 rounded-md border border-border px-6 text-sm font-medium text-foreground transition-colors hover:bg-muted"
-                >
-                  See how we work
-                </Link>
-              </div>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Done-for-you setup. 30-day money-back guarantee. No contracts.
+              </p>
             </div>
+            <Link
+              to="/solutions/ai-assistants"
+              className="group inline-flex h-12 shrink-0 items-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+            >
+              See Vektiss Voice Plans
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* SYSTEMS BRIDGE */}
+      <section className="border-b border-border">
+        <div className="container-editorial py-20 md:py-28">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="eyebrow">The Bigger Picture</p>
+            <h2 className="mt-6 display-2">
+              Start with Vektiss Voice.{" "}
+              <span className="accent-underline">Scale to the whole business.</span>
+            </h2>
+            <p className="mt-6 text-lg text-muted-foreground">
+              Vektiss Voice is your entry point. When you're ready, we build the
+              connected infrastructure that ties your entire operation into a
+              single system.
+            </p>
           </div>
         </div>
       </section>
