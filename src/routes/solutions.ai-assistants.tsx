@@ -10,13 +10,13 @@ const CALENDLY = "https://calendly.com/vektiss-info/30-minute-vektiss-discovery"
 export const Route = createFileRoute("/solutions/ai-assistants")({
   head: () => ({
     meta: [
-      { title: "AI Phone & Email Assistants — Vektiss" },
+      { title: "Vektiss Voice — AI Receptionist for Your Business" },
       {
         name: "description",
         content:
-          "A fully managed AI receptionist that answers calls, qualifies leads, books appointments, and replies to emails 24/7.",
+          "Vektiss Voice is a fully managed AI receptionist that answers calls, qualifies leads, books appointments, and replies to emails 24/7.",
       },
-      { property: "og:title", content: "AI Phone & Email Assistants — Vektiss" },
+      { property: "og:title", content: "Vektiss Voice — AI Receptionist for Your Business" },
       {
         property: "og:description",
         content:
@@ -76,13 +76,13 @@ function AIAssistantsPage() {
       <section className="container-editorial pt-12 pb-16 md:pt-20 md:pb-24">
         <div className="grid items-center gap-12 md:grid-cols-12 md:gap-12 lg:gap-16">
           <div className="md:col-span-6">
-            <p className="eyebrow text-primary">02 · AI Phone & Email Assistants</p>
+            <p className="eyebrow text-primary">02 · Vektiss Voice</p>
             <h1 className="mt-6 display-1">
               Stop letting missed calls{" "}
               <span className="accent-underline">fund your competitors.</span>
             </h1>
             <p className="mt-8 text-lg text-muted-foreground md:text-xl">
-              Your AI receptionist answers every call, books appointments, handles
+              Vektiss Voice answers every call, books appointments, handles
               emails, and sends you a summary — 24/7, fully managed by Vektiss. No
               contracts. 30-day money-back guarantee.
             </p>
@@ -228,7 +228,8 @@ function AIAssistantsPage() {
       <section className="border-t border-border">
         <div className="container-editorial py-24 md:py-32">
           <div className="mx-auto max-w-2xl text-center">
-            <p className="eyebrow">Pricing</p>
+            <p className="eyebrow text-primary">Vektiss Voice Plans</p>
+            <p className="eyebrow mt-3">Pricing</p>
             <h2 className="mt-6 display-2">
               Flat rate. No surprises. Cancel anytime.
             </h2>
@@ -265,8 +266,8 @@ function AIAssistantsPage() {
               Your best employee costs $45.99 a month.
             </h2>
             <p className="mt-6 text-lg text-white/70">
-              Never misses a call. Never takes a sick day. Never forgets to follow
-              up. Live in 48 hours.
+              Vektiss Voice — never misses a call, never takes a sick day,
+              never forgets to follow up. Live in 48 hours.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <a
