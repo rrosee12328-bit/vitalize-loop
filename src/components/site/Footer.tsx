@@ -25,7 +25,7 @@ export function Footer() {
             <ul className="mt-4 space-y-3 text-sm">
               <li>
                 <Link to="/solutions/project-intelligence" className="text-white/70 hover:text-white">
-                  Project Intelligence
+                  Vektiss Intelligence
                 </Link>
               </li>
               <li>
@@ -35,12 +35,12 @@ export function Footer() {
               </li>
               <li>
                 <Link to="/solutions/websites-portals-apps" className="text-white/70 hover:text-white">
-                  Websites, Portals & Apps
+                  Vektiss Sites
                 </Link>
               </li>
               <li>
                 <Link to="/solutions/business-media" className="text-white/70 hover:text-white">
-                  Business Media
+                  Vektiss Media
                 </Link>
               </li>
             </ul>

@@ -13,25 +13,25 @@ const navItems = [
 const solutions = [
   {
     to: "/solutions/project-intelligence",
-    label: "Project Intelligence",
+    label: "Vektiss Intelligence",
     desc: "Live visibility across every initiative.",
     Icon: BarChart3,
   },
   {
     to: "/solutions/ai-assistants",
-    label: "AI Phone & Email Assistants",
+    label: "Vektiss Voice",
     desc: "Always-on lead qualification and follow-up.",
     Icon: Bot,
   },
   {
     to: "/solutions/websites-portals-apps",
-    label: "Websites, Portals & Apps",
+    label: "Vektiss Sites",
     desc: "Marketing site, client portal, internal apps.",
     Icon: Globe,
   },
   {
     to: "/solutions/business-media",
-    label: "Business Media",
+    label: "Vektiss Media",
     desc: "Founder content, video, AI avatars.",
     Icon: Video,
   },

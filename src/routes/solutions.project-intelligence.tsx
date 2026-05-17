@@ -6,13 +6,13 @@ import { ProjectMockup } from "@/components/site/FeatureMockups";
 export const Route = createFileRoute("/solutions/project-intelligence")({
   head: () => ({
     meta: [
-      { title: "Project Intelligence — Vektiss" },
+      { title: "Vektiss Intelligence — Vektiss" },
       {
         name: "description",
         content:
           "The CEO dashboard you've never had. Live initiative status, AI summaries, and risk flags across every project — without another tool.",
       },
-      { property: "og:title", content: "Project Intelligence — Vektiss" },
+      { property: "og:title", content: "Vektiss Intelligence — Vektiss" },
       {
         property: "og:description",
         content: "Real-time visibility into every initiative, deadline, and decision.",
@@ -21,7 +21,7 @@ export const Route = createFileRoute("/solutions/project-intelligence")({
   }),
   component: () => (
     <SolutionPage
-      eyebrow="01 · Project Intelligence"
+      eyebrow="01 · Vektiss Intelligence"
       title={
         <>
           The CEO dashboard <span className="accent-underline">you've never had.</span>
@@ -51,7 +51,7 @@ export const Route = createFileRoute("/solutions/project-intelligence")({
       deepDive={[
         {
           title: "A leadership view that replaces scattered status updates",
-          desc: "Project Intelligence gives owners, deadlines, blockers, priorities, and decisions a single operating layer so leadership can see what is happening without chasing updates across meetings, messages, and spreadsheets.",
+          desc: "Vektiss Intelligence gives owners, deadlines, blockers, priorities, and decisions a single operating layer so leadership can see what is happening without chasing updates across meetings, messages, and spreadsheets.",
         },
         {
           title: "AI summaries built around how your company actually runs",
@@ -91,7 +91,7 @@ export const Route = createFileRoute("/solutions/project-intelligence")({
         "Leadership teams running 4+ weekly syncs",
         "Companies with 3+ tools holding project data",
       ]}
-      next={{ label: "AI Phone & Email Assistants", to: "/solutions/ai-assistants" }}
+      next={{ label: "Vektiss Voice", to: "/solutions/ai-assistants" }}
     />
   ),
 });
