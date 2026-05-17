@@ -203,16 +203,6 @@ function HomePage() {
         </div>
       </section>
 
-      {/* STATS */}
-      <section className="border-t border-border">
-        <div className="container-editorial py-12 md:py-16">
-          <div className="grid gap-x-12 gap-y-6 sm:grid-cols-3">
-            <Stat value="40+" label="Operators served" />
-            <Stat value="2.4×" label="Avg. ops throughput" />
-            <Stat value="11 days" label="Median time-to-system" />
-          </div>
-        </div>
-      </section>
 
       {/* PROBLEM RECOGNITION */}
       <section className="border-t border-border bg-surface-elevated">
