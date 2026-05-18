@@ -17,7 +17,7 @@ const steps = [
   {
     Icon: FileText,
     label: "Form Sent to Caller",
-    sub: "AI texts or emails the caller your intake form, application, or quote request — mid-call or immediately after",
+    sub: "AI asks for the caller's email, confirms it back, and sends your intake form, application, or quote request — mid-call or immediately after",
   },
   {
     Icon: BellRing,
@@ -158,7 +158,7 @@ export function VoiceLoopSection() {
                 <div className="flex gap-2">
                   <dt className="w-32 shrink-0 text-[#64748B]">Action taken</dt>
                   <dd className="text-[#1E293B]">
-                    Intake form sent to caller via email during call.
+                    Intake form emailed to caller at sarah.j@email.com during call.
                   </dd>
                 </div>
                 <div className="flex items-start gap-2">
@@ -190,15 +190,15 @@ export function VoiceLoopSection() {
                 <div className="space-y-1.5 text-[11px] leading-snug">
                   <p>
                     <span className="font-semibold text-[#2563EB]">Vektiss AI:</span>{" "}
-                    <span className="text-[#1E293B]">I can text you our intake form right now — what's the best number?</span>
+                    <span className="text-[#1E293B]">Can you please tell me your email? I'll send our intake form over right now.</span>
                   </p>
                   <p>
                     <span className="font-semibold text-[#475569]">Caller:</span>{" "}
-                    <span className="text-[#1E293B]">Yeah, this number's fine. Send it over.</span>
+                    <span className="text-[#1E293B]">Sure — it's sarah.j@email.com.</span>
                   </p>
                   <p>
                     <span className="font-semibold text-[#2563EB]">Vektiss AI:</span>{" "}
-                    <span className="text-[#1E293B]">Sent. You'll also get a call back within the hour.</span>
+                    <span className="text-[#1E293B]">Got it — sarah.j@email.com. Sending the intake form to your inbox now.</span>
                   </p>
                 </div>
               </div>
