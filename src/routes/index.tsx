@@ -94,30 +94,46 @@ const deepDives = [
   },
 ];
 
-const voiceFaqs = [
+const faqs = [
   {
-    q: "How fast can Vektiss Voice go live?",
-    a: "Most businesses are live within 48 hours. We handle setup, scripting, and integration with your phone system — you just point your number to us.",
+    q: "What does Vektiss actually do?",
+    a: "Vektiss builds AI-powered business systems that help companies save time, capture leads, and operate with more clarity. That can include Vektiss Voice, email assistants, websites, client portals, internal dashboards, automations, apps, and business media systems.",
   },
   {
-    q: "What does it actually do on a call?",
-    a: "Answers 24/7, qualifies the caller, books appointments, captures intake details, and texts/emails follow-ups. It handles FAQs and routes urgent calls to a human when needed.",
+    q: "What is Vektiss Voice?",
+    a: "Vektiss Voice is an AI voice assistant for your business. It can answer calls, respond to common questions, collect caller information, qualify leads, route urgent requests, and send summaries to your team.",
   },
   {
-    q: "Will it sound like a robot?",
-    a: "No. It uses natural voice models tuned to your brand. Most callers don't realize they're talking to AI — and the ones who do still get what they need.",
+    q: "Can Vektiss Voice answer calls for my business?",
+    a: "Yes. Vektiss Voice can answer incoming calls based on your business information, services, FAQs, pricing, availability, and instructions. It helps make sure your business is not missing calls, leads, or opportunities when your team is busy.",
   },
   {
-    q: "What happens if it can't answer something?",
-    a: "It escalates: warm-transfers to a human, sends a transcript to your team, or schedules a callback — based on rules you set.",
+    q: "Will Vektiss Voice replace my team?",
+    a: "No. Vektiss Voice is designed to support your team, not replace them. It handles repetitive calls, basic questions, intake, and routing so your team can focus on sales, service, and decisions that need a real person.",
   },
   {
-    q: "Is there a contract?",
-    a: "No contracts. Month-to-month, cancel anytime, with a 30-day money-back guarantee.",
+    q: "Can Vektiss Voice transfer calls to a real person?",
+    a: "Yes. Vektiss Voice can be set up to transfer calls, escalate urgent requests, or notify your team when a human needs to step in. The goal is not to trap people in automation. The goal is to make sure every call gets handled the right way.",
   },
   {
-    q: "Does it integrate with my CRM and calendar?",
-    a: "Yes — Google Calendar, Outlook, HubSpot, GoHighLevel, Jobber, Housecall Pro, and most modern CRMs out of the box. Custom integrations on request.",
+    q: "Is Vektiss only a voice assistant company?",
+    a: "No. Vektiss Voice is one part of the larger Vektiss system. We can also build the follow-up, email automation, landing pages, portals, dashboards, and workflows around it so your business can manage what happens after the call.",
+  },
+  {
+    q: "Do I have to replace the tools I already use?",
+    a: "No. In most cases, Vektiss builds around the tools your business already uses. The goal is to connect your calls, emails, forms, leads, projects, and client communication into a cleaner system instead of forcing you to start over.",
+  },
+  {
+    q: "What kind of businesses is Vektiss Voice for?",
+    a: "Vektiss Voice is for service businesses, founders, operators, and growing teams that miss calls, lose leads, answer the same questions repeatedly, rely too much on manual follow-up, or need a faster way to respond to customers.",
+  },
+  {
+    q: "What makes Vektiss different from buying another AI phone tool?",
+    a: "Most tools give you software. Vektiss helps build the system around your business. We help set up the voice assistant, train it on your business information, connect your follow-up, organize your workflows, and make sure it works in real life.",
+  },
+  {
+    q: "How do we get started?",
+    a: "Start by booking a strategy call. We'll look at where your business is missing calls, losing time, or handling too much manually. From there, we'll recommend the first system to build and show you how Vektiss Voice or another Vektiss solution can help.",
   },
 ];
 
