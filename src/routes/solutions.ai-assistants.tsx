@@ -853,21 +853,23 @@ function BuildItVisual() {
         <span className="h-2.5 w-2.5 rounded-full bg-[#28C840]" />
         <span className="ml-3 text-[10px] tracking-wider text-white/40">vektiss.config.ts</span>
       </div>
-      <pre className="overflow-hidden">
-{`{
-  `}<span className="text-[#7DD3FC]">"agent"</span>{`: {
-    `}<span className="text-[#7DD3FC]">"name"</span>{`: `}<span className="text-[#FCD34D]">"Maya"</span>{`,
-    `}<span className="text-[#7DD3FC]">"voice"</span>{`: `}<span className="text-[#FCD34D]">"warm-female-01"</span>{`,
-    `}<span className="text-[#7DD3FC]">"hours"</span>{`: `}<span className="text-[#FCD34D]">"24/7"</span>{`
-  },
-  `}<span className="text-[#7DD3FC]">"routing"</span>{`: [
-    { intent: `}<span className="text-[#FCD34D]">"sales"</span>{` → owner },
-    { intent: `}<span className="text-[#FCD34D]">"billing"</span>{` → acct },
-    { intent: `}<span className="text-[#FCD34D]">"general"</span>{` → AI }
-  ],
-  `}<span className="text-[#7DD3FC]">"intake"</span>{`: `}<span className="text-[#86EFAC]">true</span>{`
-}`}
-      </pre>
+      <div className="overflow-x-auto">
+        <code className="block whitespace-pre font-mono text-[11px] leading-5 text-white/90">
+          <div><span className="text-white/40">{"{"}</span></div>
+          <div>  <span className="text-[#7DD3FC]">"agent"</span>: {"{"}</div>
+          <div>    <span className="text-[#7DD3FC]">"name"</span>: <span className="text-[#FCD34D]">"Maya"</span>,</div>
+          <div>    <span className="text-[#7DD3FC]">"voice"</span>: <span className="text-[#FCD34D]">"warm-female-01"</span>,</div>
+          <div>    <span className="text-[#7DD3FC]">"hours"</span>: <span className="text-[#FCD34D]">"24/7"</span></div>
+          <div>  {"}"},</div>
+          <div>  <span className="text-[#7DD3FC]">"routing"</span>: [</div>
+          <div>    <span className="text-white/60">{"{"} intent:</span> <span className="text-[#FCD34D]">"sales"</span> <span className="text-[#2563EB]">→</span> owner <span className="text-white/60">{"}"}</span>,</div>
+          <div>    <span className="text-white/60">{"{"} intent:</span> <span className="text-[#FCD34D]">"billing"</span> <span className="text-[#2563EB]">→</span> acct <span className="text-white/60">{"}"}</span>,</div>
+          <div>    <span className="text-white/60">{"{"} intent:</span> <span className="text-[#FCD34D]">"general"</span> <span className="text-[#2563EB]">→</span> AI <span className="text-white/60">{"}"}</span></div>
+          <div>  ],</div>
+          <div>  <span className="text-[#7DD3FC]">"intake"</span>: <span className="text-[#86EFAC]">true</span></div>
+          <div><span className="text-white/40">{"}"}</span></div>
+        </code>
+      </div>
       <p className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-[#2563EB]/15 px-2 py-0.5 text-[10px] text-[#7DD3FC]">
         <Code2 className="h-3 w-3" /> Configured by Vektiss
       </p>
