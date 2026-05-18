@@ -329,8 +329,8 @@ function AIAssistantsPage() {
               </div>
             ))}
           </div>
-          <p className="mt-14 text-center font-mono text-[11px] tracking-widest text-muted-foreground">
-            SOURCES · BIA/KELSEY · 411 LOCALS
+          <p className="mt-14 text-center text-xs text-muted-foreground">
+            Sources: BIA/Kelsey, 411 Locals, GetAira Research
           </p>
         </div>
       </section>
