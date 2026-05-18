@@ -54,7 +54,7 @@ const tagStyles: Record<AlertTag["tone"], string> = {
 
 export function DashboardPreview() {
   return (
-    <div className="rounded-2xl border border-border bg-card text-card-foreground shadow-2xl shadow-black/40 overflow-hidden">
+    <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card text-card-foreground shadow-2xl shadow-black/40">
       {/* Header */}
       <div className="flex items-center justify-between border-b border-border bg-surface-elevated px-5 py-4 md:px-6">
         <div>
