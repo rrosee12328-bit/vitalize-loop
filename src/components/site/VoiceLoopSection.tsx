@@ -130,7 +130,7 @@ export function VoiceLoopSection() {
                 </div>
               </div>
             </div>
-            <div className="px-5 py-5 md:px-6 md:py-6" style={{ borderTop: "1px solid #F1F5F9" }}>
+            <div className="flex flex-1 flex-col px-5 py-5 md:px-6 md:py-6" style={{ borderTop: "1px solid #F1F5F9" }}>
               <p className="text-sm font-semibold text-[#1E293B]">
                 New caller alert from Vektiss Voice
               </p>
@@ -178,7 +178,32 @@ export function VoiceLoopSection() {
                   </dd>
                 </div>
               </dl>
-              <div className="mt-5 flex flex-wrap gap-4 pt-4 text-sm font-medium" style={{ borderTop: "1px solid #F1F5F9" }}>
+
+              {/* Transcript snippet */}
+              <div className="mt-5 rounded-lg border border-[#E2E8F0] bg-[#F8FAFC] p-3">
+                <div className="mb-2 flex items-center justify-between">
+                  <span className="font-mono text-[10px] font-semibold uppercase tracking-widest text-[#64748B]">
+                    Call Transcript · Excerpt
+                  </span>
+                  <span className="font-mono text-[10px] tabular-nums text-[#94A3B8]">00:42</span>
+                </div>
+                <div className="space-y-1.5 text-[11px] leading-snug">
+                  <p>
+                    <span className="font-semibold text-[#2563EB]">Vektiss AI:</span>{" "}
+                    <span className="text-[#1E293B]">I can text you our intake form right now — what's the best number?</span>
+                  </p>
+                  <p>
+                    <span className="font-semibold text-[#475569]">Caller:</span>{" "}
+                    <span className="text-[#1E293B]">Yeah, this number's fine. Send it over.</span>
+                  </p>
+                  <p>
+                    <span className="font-semibold text-[#2563EB]">Vektiss AI:</span>{" "}
+                    <span className="text-[#1E293B]">Sent. You'll also get a call back within the hour.</span>
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-auto flex flex-wrap gap-4 pt-5 text-sm font-medium" style={{ borderTop: "1px solid #F1F5F9", marginTop: "auto" }}>
                 <a className="inline-flex items-center gap-1 text-[#2563EB] hover:underline" href="#">
                   Listen to Recording <ArrowRight className="h-3.5 w-3.5" />
                 </a>
