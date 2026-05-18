@@ -70,20 +70,20 @@ export function DashboardPreview() {
         </div>
       </div>
 
-      <div className="p-5 md:p-6 space-y-6">
+      <div className="flex-1 space-y-6 p-5 md:p-6">
         {/* Stat tiles */}
         <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
           {stats.map((s) => (
             <div
               key={s.label}
-              className="rounded-lg border border-border bg-background p-4"
+              className="min-w-0 rounded-lg border border-border bg-background p-3"
             >
-              <div className="flex items-baseline gap-1.5">
-                <div className="text-2xl font-semibold tracking-tight text-primary md:text-[26px]">
+              <div className="flex items-baseline gap-1 min-w-0">
+                <div className="truncate text-xl font-semibold leading-tight tracking-tight text-primary">
                   {s.value}
                 </div>
                 {s.delta && (
-                  <span className="inline-flex items-center gap-0.5 text-[10px] font-semibold text-emerald-600">
+                  <span className="inline-flex shrink-0 items-center gap-0.5 text-[10px] font-semibold text-emerald-600">
                     <TrendingUp className="h-3 w-3" />
                     {s.delta}
                   </span>
