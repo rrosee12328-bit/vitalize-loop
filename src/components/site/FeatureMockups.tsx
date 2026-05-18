@@ -227,7 +227,7 @@ export function MediaMockup() {
   );
 }
 
-export function PortalMockup() {
+export function PortalMockup({ compact = false }: { compact?: boolean } = {}) {
   const stats = [
     { k: "Visitors", v: "12.4k", t: "+22%" },
     { k: "Leads", v: "284", t: "+38%" },
@@ -242,7 +242,7 @@ export function PortalMockup() {
     <Frame title="VEKTISS · CLIENT PORTAL">
       <div className="grid grid-cols-12 gap-px bg-border">
         {/* Left: site preview */}
-        <div className="col-span-12 bg-white p-4 sm:col-span-5">
+        <div className={compact ? "col-span-12 bg-white p-3" : "col-span-12 bg-white p-4 sm:col-span-5"}>
           <div className="overflow-hidden rounded-lg border border-border">
             <div className="flex items-center gap-1.5 border-b border-border bg-[#FAFAFA] px-2.5 py-1.5">
               <span className="h-1.5 w-1.5 rounded-full bg-[#E5E5E5]" />
@@ -290,13 +290,13 @@ export function PortalMockup() {
 
           <div className="mt-3 grid grid-cols-3 gap-2">
             {stats.map((s) => (
-              <div key={s.k} className="rounded-md border border-border p-2">
-                <div className="text-[9px] uppercase tracking-wider text-muted-foreground">
+              <div key={s.k} className="min-w-0 rounded-md border border-border p-2">
+                <div className="truncate text-[8px] uppercase tracking-wider text-muted-foreground">
                   {s.k}
                 </div>
                 <div className="mt-1 flex flex-col">
-                  <span className="text-sm font-semibold leading-tight text-foreground">{s.v}</span>
-                  <span className="mt-0.5 text-[9px] font-medium leading-none text-primary">{s.t}</span>
+                  <span className="truncate text-xs font-semibold leading-tight text-foreground">{s.v}</span>
+                  <span className="mt-0.5 truncate text-[8px] font-medium leading-none text-primary">{s.t}</span>
                 </div>
               </div>
             ))}
@@ -304,7 +304,7 @@ export function PortalMockup() {
         </div>
 
         {/* Right: client portal app */}
-        <div className="col-span-12 bg-white p-4 sm:col-span-7">
+        <div className={compact ? "col-span-12 bg-white p-3" : "col-span-12 bg-white p-4 sm:col-span-7"}>
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <span className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-primary/10 text-primary">
