@@ -243,19 +243,19 @@ function AIAssistantsPage() {
           <div className="mt-14 grid gap-6 md:grid-cols-3">
             {[
               {
-                Icon: PhoneForwarded,
-                title: "Smart Routing",
-                body: "New lead? Route to sales. Billing question? Route to the right person. Emergency? Route to on-call. The AI knows the difference and acts instantly.",
+                Icon: BarChart3,
+                title: "Call Volume & Staffing Trends",
+                body: "See exactly when your phone rings the most. Identify your busiest days and hours so you can staff accordingly and stop guessing when your customers need you.",
               },
               {
-                Icon: FileText,
-                title: "Intake Forms on Demand",
-                body: "The AI sends callers a link to your application, intake form, or quote request — mid-call or immediately after. Leads arrive pre-qualified.",
+                Icon: ListChecks,
+                title: "Top Call Reasons Report",
+                body: "Are people calling because your website is confusing? Are they asking the same pricing question? The dashboard categorizes every call intent so you can fix operational bottlenecks at the source.",
               },
               {
-                Icon: BellRing,
-                title: "Live Follow-Up Alerts",
-                body: "Every call that needs action triggers an instant alert to your inbox — caller name, number, what they asked, and whether it is a hot lead. Nothing falls through the cracks.",
+                Icon: Flame,
+                title: "Automated Lead Scoring",
+                body: "Not every lead is equal. The AI automatically tags every caller as Hot, Warm, or Cold based on their intent and urgency, so you know exactly who to call back first.",
               },
             ].map((c) => (
               <article
