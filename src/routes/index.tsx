@@ -136,7 +136,7 @@ function HomePage() {
               </Link>
               <Link
                 to="/solutions/ai-assistants"
-                hash="pricing"
+                hash="pricing-tiers"
                 className="inline-flex h-12 items-center gap-2 rounded-md border border-foreground/80 bg-transparent px-6 text-sm font-medium text-foreground transition-colors hover:bg-foreground hover:text-background"
               >
                 See Pricing
