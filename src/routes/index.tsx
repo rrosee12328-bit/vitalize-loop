@@ -3,6 +3,7 @@ import { ArrowRight, ArrowUpRight, BarChart3, Bot, Globe, Inbox, Moon, PhoneMiss
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { LiveCallDemo } from "@/components/site/ai-assistants/LiveCallDemo";
 import { DashboardPreview } from "@/components/site/ai-assistants/DashboardPreview";
+import { VoiceLoopSection } from "@/components/site/VoiceLoopSection";
 import {
   ProjectMockup,
   AssistantMockup,
