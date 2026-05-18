@@ -12,6 +12,7 @@ import {
   PlayCircle,
 } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
+import { PortalMockup } from "@/components/site/FeatureMockups";
 import mediaFounder from "@/assets/media-founder.jpg";
 
 export const Route = createFileRoute("/how-we-work")({
