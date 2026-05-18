@@ -245,7 +245,7 @@ export function PricingTiers() {
                     {tier.name}
                   </h3>
                 </div>
-                <p className="mt-2.5 text-xs leading-relaxed text-muted-foreground">
+                <p className="mt-2.5 min-h-[2.5rem] text-xs leading-relaxed text-muted-foreground">
                   {tier.tagline}
                 </p>
 
