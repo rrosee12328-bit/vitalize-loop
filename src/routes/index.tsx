@@ -188,52 +188,6 @@ function HomePage() {
         </div>
       </section>
 
-      {/* TOTAL VISIBILITY — Dashboard */}
-      <section className="scroll-mt-32 border-b border-border bg-[#0F172A] text-white">
-        <div className="container-editorial py-32 md:py-40">
-          <div className="mx-auto mb-14 max-w-3xl text-center">
-            <p className="font-mono text-[11px] tracking-[0.18em] text-primary">
-              TOTAL VISIBILITY
-            </p>
-            <h2 className="mt-6 text-3xl font-semibold tracking-tight text-white sm:text-4xl md:text-5xl">
-              You always know exactly what's happening.
-            </h2>
-            <p className="mt-6 text-lg text-white/70">
-              Every call logged. Every lead captured. Every follow-up flagged.
-              Your dashboard updates in real time.
-            </p>
-          </div>
-          <div className="grid items-center gap-12 md:grid-cols-12 md:gap-16">
-            <div className="order-2 md:order-1 md:col-span-5">
-              <ul className="space-y-4">
-                {[
-                  "Real-time call log with outcome tags (Lead, Appointment, Info, Spam)",
-                  "Email activity tracker — drafts queued, sent, and pending review",
-                  "Monthly performance report delivered to your inbox automatically",
-                ].map((f) => (
-                  <li key={f} className="flex items-start gap-3">
-                    <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-[11px]">
-                      ✓
-                    </span>
-                    <span className="text-base text-white/85">{f}</span>
-                  </li>
-                ))}
-              </ul>
-              <Link
-                to="/solutions/ai-assistants"
-                className="mt-8 inline-flex h-12 items-center gap-2 rounded-md border border-white/40 bg-transparent px-6 text-sm font-medium text-white transition-colors hover:bg-white hover:text-foreground"
-              >
-                See Full Dashboard
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
-            <div className="order-1 md:order-2 md:col-span-7">
-              <DashboardPreview />
-            </div>
-          </div>
-        </div>
-      </section>
-
       <VoiceLoopSection />
 
       <section className="border-b border-border">
