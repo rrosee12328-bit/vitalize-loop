@@ -99,7 +99,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
       observer.disconnect();
       window.removeEventListener("scroll", onScroll);
     };
-  }, [pathname]);
+  }, [pathname, hash]);
 
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground">
