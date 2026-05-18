@@ -9,7 +9,7 @@ export const Route = createFileRoute("/contact")({
       {
         name: "description",
         content:
-          "Talk to Vektiss. Email us, book a strategy call, or send a note about your operational challenges.",
+          "Talk to Vektiss. Email us, get started, or send a note about your operational challenges.",
       },
       { property: "og:title", content: "Contact — Vektiss" },
       {

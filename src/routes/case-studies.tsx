@@ -122,7 +122,7 @@ function CaseStudiesPage() {
             <div className="md:col-span-8">
               <h2 className="display-2">Want a walkthrough of one of these?</h2>
               <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-                On a strategy call we'll show you the system that's closest to what your business
+                On a intro call we'll show you the system that's closest to what your business
                 needs — and how we'd adapt it.
               </p>
             </div>

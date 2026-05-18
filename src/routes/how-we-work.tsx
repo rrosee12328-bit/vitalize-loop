@@ -171,7 +171,7 @@ function HowWeWorkPage() {
           <div className="md:col-span-8">
             <h2 className="display-2">Ready to see the system you actually need?</h2>
             <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-              Book a 30-minute strategy call. We'll map your operations and show you exactly where
+              Book a 30-minute intro call. We'll map your operations and show you exactly where
               the highest-leverage system lives.
             </p>
           </div>

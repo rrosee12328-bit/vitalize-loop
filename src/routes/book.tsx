@@ -111,7 +111,7 @@ function SchedulerEmbed() {
       {embedSrc ? (
         <iframe
           src={embedSrc}
-          title="Schedule a strategy call"
+          title="Schedule a intro call"
           className="h-[720px] w-full"
           frameBorder={0}
         />
