@@ -28,7 +28,7 @@ function PrivacyPage() {
           <Section title="Overview">
             <p className="text-muted-foreground">
               Vektiss ("we", "us") respects your privacy. This policy describes what information we
-              collect when you visit our website or book a strategy call, how we use it, and your
+              collect when you visit our website or get started, how we use it, and your
               rights. This is template content — please replace it with policy reviewed by your
               legal counsel before going to production.
             </p>
@@ -44,7 +44,7 @@ function PrivacyPage() {
 
           <Section title="How we use your information">
             <ul className="list-disc space-y-2 pl-5 text-muted-foreground">
-              <li>To schedule and conduct strategy calls.</li>
+              <li>To schedule and conduct intro calls.</li>
               <li>To follow up on inquiries and respond to your messages.</li>
               <li>To improve our website and services.</li>
             </ul>

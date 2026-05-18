@@ -122,14 +122,14 @@ function CaseStudiesPage() {
             <div className="md:col-span-8">
               <h2 className="display-2">Want a walkthrough of one of these?</h2>
               <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-                On a strategy call we'll show you the system that's closest to what your business
+                On a intro call we'll show you the system that's closest to what your business
                 needs — and how we'd adapt it.
               </p>
             </div>
             <div className="md:col-span-4 md:text-right">
               <a href="https://calendly.com/vektiss-info/30-minute-vektiss-discovery" target="_blank" rel="noopener noreferrer" className="group inline-flex h-12 items-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
               >
-                Book a strategy call
+                Get Started
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </a>
             </div>

@@ -114,7 +114,7 @@ export function Header() {
         <div className="hidden lg:block">
           <a href="https://calendly.com/vektiss-info/30-minute-vektiss-discovery" target="_blank" rel="noopener noreferrer" className="inline-flex h-9 items-center whitespace-nowrap rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
           >
-            Book a strategy call
+            Get Started
           </a>
         </div>
 
@@ -162,7 +162,7 @@ export function Header() {
             <a href="https://calendly.com/vektiss-info/30-minute-vektiss-discovery" target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex h-10 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground"
               onClick={() => setOpen(false)}
             >
-              Book a strategy call
+              Get Started
             </a>
           </div>
         </div>

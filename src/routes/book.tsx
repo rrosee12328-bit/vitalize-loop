@@ -15,13 +15,13 @@ const isCalendly = /(^https?:\/\/)?(www\.)?calendly\.com\//i.test(SCHEDULER_URL)
 export const Route = createFileRoute("/book")({
   head: () => ({
     meta: [
-      { title: "Book a strategy call — Vektiss" },
+      { title: "Get Started — Vektiss" },
       {
         name: "description",
         content:
           "30 minutes with a Vektiss systems architect. Walk us through where your operations are stuck, leave with a map of the system you actually need.",
       },
-      { property: "og:title", content: "Book a strategy call — Vektiss" },
+      { property: "og:title", content: "Get Started — Vektiss" },
       {
         property: "og:description",
         content: "Pick a time. Walk away with operational clarity, even if we never work together.",
@@ -37,7 +37,7 @@ function BookPage() {
       <section className="container-editorial pt-20 pb-12 md:pt-32 md:pb-16">
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
-            <p className="eyebrow">Book a strategy call</p>
+            <p className="eyebrow">Get Started</p>
             <h1 className="mt-6 display-1">
               30 minutes. <span className="accent-underline">Real clarity.</span>
             </h1>
@@ -111,7 +111,7 @@ function SchedulerEmbed() {
       {embedSrc ? (
         <iframe
           src={embedSrc}
-          title="Schedule a strategy call"
+          title="Schedule a intro call"
           className="h-[720px] w-full"
           frameBorder={0}
         />

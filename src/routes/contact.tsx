@@ -9,7 +9,7 @@ export const Route = createFileRoute("/contact")({
       {
         name: "description",
         content:
-          "Talk to Vektiss. Email us, book a strategy call, or send a note about your operational challenges.",
+          "Talk to Vektiss. Email us, get started, or send a note about your operational challenges.",
       },
       { property: "og:title", content: "Contact — Vektiss" },
       {
@@ -24,7 +24,7 @@ export const Route = createFileRoute("/contact")({
 const channels = [
   {
     Icon: Calendar,
-    label: "Book a strategy call",
+    label: "Get Started",
     body: "30 minutes with a systems architect. Bring your messiest operational headache.",
     cta: "Pick a time",
     to: "/book" as const,
