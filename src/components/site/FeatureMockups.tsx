@@ -294,9 +294,9 @@ export function PortalMockup() {
                 <div className="text-[9px] uppercase tracking-wider text-muted-foreground">
                   {s.k}
                 </div>
-                <div className="mt-0.5 flex items-baseline gap-1">
-                  <span className="text-sm font-semibold text-foreground">{s.v}</span>
-                  <span className="text-[9px] font-medium text-primary">{s.t}</span>
+                <div className="mt-1 flex flex-col">
+                  <span className="text-sm font-semibold leading-tight text-foreground">{s.v}</span>
+                  <span className="mt-0.5 text-[9px] font-medium leading-none text-primary">{s.t}</span>
                 </div>
               </div>
             ))}
