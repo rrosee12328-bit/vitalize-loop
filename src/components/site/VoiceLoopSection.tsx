@@ -31,17 +31,6 @@ const steps = [
   },
 ];
 
-function FlowArrow() {
-  return (
-    <div className="hidden md:flex flex-1 items-center justify-center px-2">
-      <div className="relative h-px w-full overflow-hidden bg-white/15">
-        <span className="absolute inset-y-0 -left-1/3 w-1/3 bg-gradient-to-r from-transparent via-[#2563EB] to-transparent animate-flow-pulse" />
-      </div>
-      <ArrowRight className="ml-2 h-4 w-4 shrink-0 text-[#2563EB]" />
-    </div>
-  );
-}
-
 export function VoiceLoopSection() {
   return (
     <section className="border-b border-border bg-[#0F172A] text-white">
@@ -63,21 +52,33 @@ export function VoiceLoopSection() {
         </div>
 
         {/* Loop diagram */}
-        <div className="mb-14 flex flex-col items-stretch gap-4 md:flex-row md:items-stretch">
+        <div className="mb-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map(({ Icon, label, sub }, i) => (
-            <div key={label} className="flex flex-1 items-stretch md:items-center">
-              <div className="flex-1 rounded-xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur">
-                <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[#2563EB]/15 text-[#60A5FA]">
-                  <Icon className="h-5 w-5" />
+            <div key={label} className="relative">
+              <div className="h-full rounded-xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur">
+                <div className="flex items-center gap-3">
+                  <div className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#2563EB]/15 text-[#60A5FA]">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <div className="font-mono text-[10px] tracking-widest text-white/50">
+                    STEP {i + 1}
+                  </div>
                 </div>
                 <div className="mt-4 text-sm font-semibold text-white">
-                  {`Step ${i + 1} — ${label}`}
+                  {label}
                 </div>
                 <p className="mt-1.5 text-xs leading-snug text-white/65">
                   {sub}
                 </p>
               </div>
-              {i < steps.length - 1 && <FlowArrow />}
+              {i < steps.length - 1 && (
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute right-0 top-1/2 hidden h-px w-4 -translate-y-1/2 translate-x-full overflow-hidden bg-white/15 lg:block"
+                >
+                  <span className="absolute inset-y-0 -left-1/2 w-1/2 bg-gradient-to-r from-transparent via-[#2563EB] to-transparent animate-flow-pulse" />
+                </div>
+              )}
             </div>
           ))}
         </div>
