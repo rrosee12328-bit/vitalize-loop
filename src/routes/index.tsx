@@ -188,13 +188,13 @@ function HomePage() {
       </section>
 
       {/* TOTAL VISIBILITY — Dashboard */}
-      <section className="border-b border-border bg-[#0F172A] text-white">
-        <div className="container-editorial py-24 md:py-32">
+      <section className="scroll-mt-32 border-b border-border bg-[#0F172A] text-white">
+        <div className="container-editorial py-32 md:py-40">
           <div className="mx-auto mb-14 max-w-3xl text-center">
             <p className="font-mono text-[11px] tracking-[0.18em] text-primary">
               TOTAL VISIBILITY
             </p>
-            <h2 className="mt-6 display-2 text-white">
+            <h2 className="mt-6 text-3xl font-semibold tracking-tight text-white sm:text-4xl md:text-5xl">
               You always know exactly what's happening.
             </h2>
             <p className="mt-6 text-lg text-white/70">
