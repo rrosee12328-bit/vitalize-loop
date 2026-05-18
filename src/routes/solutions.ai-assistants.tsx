@@ -1338,7 +1338,7 @@ function IntakeFormPhoneMockup() {
                     <span className="inline-flex h-5 w-5 items-center justify-center rounded-md bg-emerald-500 text-[9px] font-bold text-white">
                       ✓
                     </span>
-                    <p className="flex-1 truncate text-[10.5px] font-medium text-[#0f172a]">Form delivered · SMS</p>
+                    <p className="flex-1 truncate text-[10.5px] font-medium text-[#0f172a]">Form delivered · Email</p>
                     <span className="text-[9px] text-[#475569]">now</span>
                   </div>
                 </div>
