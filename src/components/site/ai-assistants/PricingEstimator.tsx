@@ -205,7 +205,7 @@ export function PricingTiers() {
             <div
               key={tier.name}
               className={cn(
-                "group/card relative flex h-full flex-col overflow-hidden rounded-2xl border transition-all duration-300 hover:-translate-y-1.5",
+                "group/card relative flex h-full flex-col rounded-2xl border transition-all duration-300 hover:-translate-y-1.5",
                 tier.highlight
                   ? "border-primary/40 bg-gradient-to-b from-white to-primary/[0.04] shadow-[0_30px_60px_-25px_rgba(37,99,235,0.4)] hover:shadow-[0_40px_70px_-25px_rgba(37,99,235,0.5)] lg:-translate-y-3"
                   : "border-border bg-card shadow-card hover:shadow-xl",
