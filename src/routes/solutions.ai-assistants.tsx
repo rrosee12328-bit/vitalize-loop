@@ -64,10 +64,19 @@ const steps = [
   },
 ];
 
-const dashFeatures = [
-  "Call volume trends — see when your busiest hours are and staff accordingly",
-  "Top call reasons report — know exactly what your customers are calling about every month",
-  "Lead scoring on every call — Hot, Warm, or Cold tagged automatically so you know who to call back first",
+const proofStatements = [
+  {
+    lead: "Your busiest hours, mapped.",
+    rest: "Know exactly when your phone rings the most — so you stop guessing and start planning.",
+  },
+  {
+    lead: "Your customers are telling you what they want.",
+    rest: "Every call is categorized. Every pattern is visible. You finally know what to fix.",
+  },
+  {
+    lead: "Not every lead is worth the same call back.",
+    rest: "Hot, Warm, and Cold — auto-tagged on every call so you spend your time on the ones that matter.",
+  },
 ];
 
 function AIAssistantsPage() {
