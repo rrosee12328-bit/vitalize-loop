@@ -257,9 +257,31 @@ export function PortalMockup() {
                 Get started
               </div>
               <div className="mt-3 grid grid-cols-3 gap-1.5">
-                <div className="aspect-square rounded bg-[#F4F4F5]" />
-                <div className="aspect-square rounded bg-[#F4F4F5]" />
-                <div className="aspect-square rounded bg-primary/15" />
+                <div className="relative aspect-square overflow-hidden rounded">
+                  <img
+                    src={mediaFounder}
+                    alt="Founder thumbnail"
+                    loading="lazy"
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                </div>
+                <div className="relative aspect-square overflow-hidden rounded">
+                  <img
+                    src={mediaCaseStudy}
+                    alt="Case study thumbnail"
+                    loading="lazy"
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                </div>
+                <div className="relative aspect-square overflow-hidden rounded">
+                  <img
+                    src={mediaReel}
+                    alt="Reel thumbnail"
+                    loading="lazy"
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                  <span className="absolute inset-0 bg-primary/30 mix-blend-multiply" />
+                </div>
               </div>
             </div>
           </div>
