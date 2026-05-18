@@ -64,9 +64,9 @@ const steps = [
 ];
 
 const dashFeatures = [
-  "Real-time call log with outcome tags (Lead, Appointment, Info, Spam)",
-  "Email activity tracker — drafts queued, sent, and pending review",
-  "Monthly performance report delivered to your inbox automatically",
+  "Call volume trends — see when your busiest hours are and staff accordingly",
+  "Top call reasons report — know exactly what your customers are calling about every month",
+  "Lead scoring on every call — Hot, Warm, or Cold tagged automatically so you know who to call back first",
 ];
 
 function AIAssistantsPage() {
