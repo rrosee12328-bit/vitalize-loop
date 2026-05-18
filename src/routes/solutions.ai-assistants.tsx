@@ -227,8 +227,8 @@ function AIAssistantsPage() {
       </section>
 
       {/* Business Intelligence */}
-      <section className="border-t border-border">
-        <div className="container-editorial py-24 md:py-32">
+      <section id="pricing" className="border-t border-border">
+        <div className="container-editorial pt-16 pb-24 md:pt-16 md:pb-32">
           <div className="mx-auto max-w-3xl text-center">
             <p className="eyebrow text-primary">Business Intelligence</p>
             <h2 className="mt-6 display-2 mx-auto max-w-[640px]">
