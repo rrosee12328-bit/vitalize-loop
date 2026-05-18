@@ -439,6 +439,33 @@ function HomePage() {
         </div>
       </section>
 
+      {/* FAQ */}
+      <section className="border-t border-border bg-surface-elevated">
+        <div className="container-editorial py-24 md:py-32">
+          <div className="grid gap-16 md:grid-cols-12">
+            <div className="md:col-span-4">
+              <p className="eyebrow">FAQ</p>
+              <h2 className="mt-6 display-2">Vektiss Voice, answered.</h2>
+              <p className="mt-6 text-muted-foreground">
+                Quick answers to what operators ask us most before getting started.
+              </p>
+            </div>
+            <div className="md:col-span-8">
+              <dl className="space-y-px overflow-hidden rounded-xl border border-border bg-border">
+                {voiceFaqs.map((f) => (
+                  <div key={f.q} className="bg-background p-6 md:p-8">
+                    <dt className="text-lg font-semibold tracking-tight text-foreground">
+                      {f.q}
+                    </dt>
+                    <dd className="mt-3 text-muted-foreground">{f.a}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FINAL CTA */}
       <section className="container-editorial py-24 md:py-32">
         <div className="grid items-end gap-10 md:grid-cols-12">
