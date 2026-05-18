@@ -492,38 +492,7 @@ function AIAssistantsPage() {
               call, and what is driving your business — without lifting a finger.
             </p>
           </div>
-          <div className="mt-14 grid gap-6 md:grid-cols-3">
-            {[
-              {
-                Icon: BarChart3,
-                title: "Call Volume & Staffing Trends",
-                body: "See exactly when your phone rings the most. Identify your busiest days and hours so you can staff accordingly and stop guessing when your customers need you.",
-              },
-              {
-                Icon: ListChecks,
-                title: "Top Call Reasons Report",
-                body: "Are people calling because your website is confusing? Are they asking the same pricing question? The dashboard categorizes every call intent so you can fix operational bottlenecks at the source.",
-              },
-              {
-                Icon: Flame,
-                title: "Automated Lead Scoring",
-                body: "Not every lead is equal. The AI automatically tags every caller as Hot, Warm, or Cold based on their intent and urgency, so you know exactly who to call back first.",
-              },
-            ].map((c) => (
-              <article
-                key={c.title}
-                className="rounded-xl border border-[rgba(0,0,0,0.08)] bg-white p-6 shadow-[0_2px_12px_rgba(0,0,0,0.06)] border-t-[3px] border-t-[#3B82F6] md:p-8"
-              >
-                <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[#3B82F6]/10 text-[#3B82F6]">
-                  <c.Icon className="h-5 w-5" />
-                </span>
-                <h3 className="mt-4 text-lg font-semibold tracking-tight">
-                  {c.title}
-                </h3>
-                <p className="mt-3 text-muted-foreground">{c.body}</p>
-              </article>
-            ))}
-          </div>
+          <BentoIntelligenceCards />
         </div>
       </section>
 
