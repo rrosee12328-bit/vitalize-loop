@@ -169,7 +169,7 @@ export function AssistantMockup() {
 export function MediaMockup() {
   const clips = [
     { t: "Founder POV · Q2 thesis", d: "00:48", live: true, img: mediaFounder },
-    { t: "Case study · Acme Co.", d: "01:12", img: mediaCaseStudy },
+    { t: "Client story · Acme Co.", d: "01:12", img: mediaCaseStudy },
     { t: "AI avatar · onboarding", d: "00:30", img: mediaAvatar },
     { t: "Reel · 3 hidden costs", d: "00:42", img: mediaReel },
   ];
