@@ -234,6 +234,8 @@ function HomePage() {
         </div>
       </section>
 
+      <VoiceLoopSection />
+
       <section className="border-b border-border">
         <div className="container-editorial py-20 md:py-28">
           <div className="mx-auto max-w-3xl text-center">
