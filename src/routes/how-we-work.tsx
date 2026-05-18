@@ -1,16 +1,11 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowRight,
-  CreditCard,
-  FileText,
-  CalendarX,
-  PhoneOff,
+  X,
   LayoutDashboard,
   Activity,
   Rocket,
   Handshake,
-  Search,
-  Blocks,
   BarChart3,
   AudioLines,
   Smartphone,
@@ -82,24 +77,28 @@ const pillars = [
     desc: "Live visibility into every initiative — status, blockers, owner, throughput. The visibility layer your leadership team has been asking for.",
     Visual: IntelligenceVisual,
     icon: BarChart3,
+    link: "/solutions/project-intelligence",
   },
   {
     name: "Vektiss Voice",
     desc: "Always-on assistants that answer calls, qualify leads, draft replies, and route the moments that need a human — so communication stops being the bottleneck.",
     Visual: VoiceVisual,
     icon: AudioLines,
+    link: "/solutions/ai-assistants",
   },
   {
     name: "Vektiss Sites",
     desc: "Marketing site, branded client portal, and internal apps built as one connected experience. Lead capture, onboarding, and delivery on a single stack.",
     Visual: SitesVisual,
     icon: Smartphone,
+    link: "/solutions/websites-portals-apps",
   },
   {
     name: "Vektiss Media",
     desc: "Founder-led video, short-form cuts, and AI avatar assets — produced inside a system so your expertise stays visible at scale.",
     Visual: MediaVisual,
     icon: PlayCircle,
+    link: "/solutions/business-media",
   },
 ];
 
