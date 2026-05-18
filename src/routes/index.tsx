@@ -94,7 +94,32 @@ const deepDives = [
   },
 ];
 
-const steps = [
+const voiceFaqs = [
+  {
+    q: "How fast can Vektiss Voice go live?",
+    a: "Most businesses are live within 48 hours. We handle setup, scripting, and integration with your phone system — you just point your number to us.",
+  },
+  {
+    q: "What does it actually do on a call?",
+    a: "Answers 24/7, qualifies the caller, books appointments, captures intake details, and texts/emails follow-ups. It handles FAQs and routes urgent calls to a human when needed.",
+  },
+  {
+    q: "Will it sound like a robot?",
+    a: "No. It uses natural voice models tuned to your brand. Most callers don't realize they're talking to AI — and the ones who do still get what they need.",
+  },
+  {
+    q: "What happens if it can't answer something?",
+    a: "It escalates: warm-transfers to a human, sends a transcript to your team, or schedules a callback — based on rules you set.",
+  },
+  {
+    q: "Is there a contract?",
+    a: "No contracts. Month-to-month, cancel anytime, with a 30-day money-back guarantee.",
+  },
+  {
+    q: "Does it integrate with my CRM and calendar?",
+    a: "Yes — Google Calendar, Outlook, HubSpot, GoHighLevel, Jobber, Housecall Pro, and most modern CRMs out of the box. Custom integrations on request.",
+  },
+];
   {
     no: "01",
     name: "Discover",
