@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, PhoneOff, Inbox, MoonStar } from "lucide-react";
+import { ArrowRight, PhoneOff, Inbox, MoonStar, PhoneForwarded, FileText, BellRing } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { LiveCallDemo } from "@/components/site/ai-assistants/LiveCallDemo";
 import { DashboardPreview } from "@/components/site/ai-assistants/DashboardPreview";
