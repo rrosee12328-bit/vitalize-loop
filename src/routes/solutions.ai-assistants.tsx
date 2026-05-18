@@ -347,6 +347,11 @@ function AIAssistantsPage() {
               </ul>
               <a
                 href="#pricing"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth", block: "start" });
+                  history.replaceState(null, "", "#pricing");
+                }}
                 className="mt-8 inline-flex h-12 items-center gap-2 rounded-md border border-white/40 bg-transparent px-6 text-sm font-medium text-white transition-colors hover:bg-white hover:text-foreground"
               >
                 See Pricing
@@ -464,6 +469,11 @@ function AIAssistantsPage() {
               </a>
               <a
                 href="#pricing"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth", block: "start" });
+                  history.replaceState(null, "", "#pricing");
+                }}
                 className="inline-flex h-12 items-center gap-2 rounded-md border border-white/50 bg-transparent px-6 text-sm font-medium text-white transition-colors hover:bg-white hover:text-foreground"
               >
                 See Pricing
