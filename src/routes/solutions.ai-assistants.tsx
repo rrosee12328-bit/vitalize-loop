@@ -745,3 +745,568 @@ function DynamicEmailPreview() {
     </div>
   );
 }
+
+// =====================================================================
+// Interactive timeline for "How It Works"
+// =====================================================================
+const timelineSteps = [
+  {
+    label: "01",
+    title: "We Build It",
+    short: "We Build It",
+    desc: "We configure your AI receptionist, write the scripts, set up call routing, and connect your email. You don't touch a thing.",
+    Visual: BuildItVisual,
+  },
+  {
+    label: "02",
+    title: "Forward Number",
+    short: "Forward Number",
+    desc: "Dial *72 + your Vektiss number from your existing phone. Takes 10 seconds. Works with AT&T, Verizon, T-Mobile — any carrier.",
+    Visual: ForwardNumberVisual,
+  },
+  {
+    label: "03",
+    title: "Get Leads",
+    short: "Get Leads",
+    desc: "Every call answered. Every email handled. Every lead captured and sent to you instantly.",
+    Visual: GetLeadsVisual,
+  },
+];
+
+function HowItWorksTimeline() {
+  const [active, setActive] = useState(0);
+  const Visual = timelineSteps[active].Visual;
+  return (
+    <div className="mt-16">
+      {/* Timeline track */}
+      <div className="relative mx-auto max-w-3xl px-4">
+        <div className="absolute left-4 right-4 top-1/2 h-[2px] -translate-y-1/2 bg-border" />
+        <div
+          className="absolute left-4 top-1/2 h-[2px] -translate-y-1/2 bg-[#2563EB] transition-all duration-500"
+          style={{ width: `calc((100% - 32px) * ${active / (timelineSteps.length - 1)})` }}
+        />
+        <div className="relative flex items-center justify-between">
+          {timelineSteps.map((s, i) => {
+            const isActive = i === active;
+            const isDone = i < active;
+            return (
+              <button
+                key={s.label}
+                onClick={() => setActive(i)}
+                className="group flex flex-col items-center gap-3"
+                aria-label={`Step ${s.label} — ${s.short}`}
+              >
+                <span
+                  className={`relative flex h-12 w-12 items-center justify-center rounded-full border-2 font-mono text-sm font-bold transition-all ${
+                    isActive
+                      ? "scale-110 border-[#2563EB] bg-[#2563EB] text-white shadow-[0_0_0_6px_rgba(37,99,235,0.15)]"
+                      : isDone
+                        ? "border-[#2563EB] bg-white text-[#2563EB]"
+                        : "border-border bg-white text-muted-foreground group-hover:border-[#2563EB]/50"
+                  }`}
+                >
+                  {s.label}
+                </span>
+                <span
+                  className={`hidden text-xs font-semibold tracking-wide transition-colors sm:block ${
+                    isActive ? "text-foreground" : "text-muted-foreground"
+                  }`}
+                >
+                  {s.short}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Active card */}
+      <div
+        key={active}
+        className="animate-fade-in mx-auto mt-12 grid max-w-5xl items-center gap-10 rounded-2xl border border-border bg-card p-6 shadow-card md:grid-cols-2 md:gap-12 md:p-10"
+      >
+        <div>
+          <p className="font-mono text-xs tracking-widest text-[#2563EB]">
+            STEP {timelineSteps[active].label}
+          </p>
+          <h3 className="mt-3 text-2xl font-semibold tracking-tight md:text-3xl">
+            {timelineSteps[active].title}
+          </h3>
+          <p className="mt-4 text-muted-foreground md:text-lg">
+            {timelineSteps[active].desc}
+          </p>
+        </div>
+        <div className="overflow-hidden rounded-xl border border-border bg-[#F5EFE6]">
+          <Visual />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function BuildItVisual() {
+  return (
+    <div className="bg-[#0B1220] p-5 font-mono text-[11px] leading-5 text-white/90">
+      <div className="mb-3 flex items-center gap-1.5">
+        <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]" />
+        <span className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]" />
+        <span className="h-2.5 w-2.5 rounded-full bg-[#28C840]" />
+        <span className="ml-3 text-[10px] tracking-wider text-white/40">vektiss.config.ts</span>
+      </div>
+      <pre className="overflow-hidden">
+{`{
+  `}<span className="text-[#7DD3FC]">"agent"</span>{`: {
+    `}<span className="text-[#7DD3FC]">"name"</span>{`: `}<span className="text-[#FCD34D]">"Maya"</span>{`,
+    `}<span className="text-[#7DD3FC]">"voice"</span>{`: `}<span className="text-[#FCD34D]">"warm-female-01"</span>{`,
+    `}<span className="text-[#7DD3FC]">"hours"</span>{`: `}<span className="text-[#FCD34D]">"24/7"</span>{`
+  },
+  `}<span className="text-[#7DD3FC]">"routing"</span>{`: [
+    { intent: `}<span className="text-[#FCD34D]">"sales"</span>{` → owner },
+    { intent: `}<span className="text-[#FCD34D]">"billing"</span>{` → acct },
+    { intent: `}<span className="text-[#FCD34D]">"general"</span>{` → AI }
+  ],
+  `}<span className="text-[#7DD3FC]">"intake"</span>{`: `}<span className="text-[#86EFAC]">true</span>{`
+}`}
+      </pre>
+      <p className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-[#2563EB]/15 px-2 py-0.5 text-[10px] text-[#7DD3FC]">
+        <Code2 className="h-3 w-3" /> Configured by Vektiss
+      </p>
+    </div>
+  );
+}
+
+function ForwardNumberVisual() {
+  return (
+    <div className="flex items-center justify-center gap-6 p-8">
+      {/* Phone */}
+      <div className="relative h-44 w-24 shrink-0 rounded-[20px] border-[3px] border-[#1F2937] bg-[#0B1220] p-1.5 shadow-lg">
+        <div className="flex h-full w-full flex-col items-center justify-center rounded-[14px] bg-[#0B1220] text-white">
+          <p className="font-mono text-[9px] tracking-widest text-white/50">DIALING</p>
+          <p className="mt-2 font-mono text-xl font-bold tracking-wider">*72</p>
+          <p className="mt-1 font-mono text-[9px] text-white/70">+ (346) 594…</p>
+          <span className="mt-3 inline-flex h-6 w-6 items-center justify-center rounded-full bg-[#22C55E]">
+            <Phone className="h-3 w-3 text-white" />
+          </span>
+        </div>
+      </div>
+      {/* Arrow */}
+      <div className="flex flex-col items-center gap-1">
+        <PhoneForwarded className="h-6 w-6 text-[#2563EB]" />
+        <div className="h-[2px] w-12 bg-gradient-to-r from-[#2563EB] to-[#2563EB]/30" />
+        <span className="font-mono text-[9px] tracking-widest text-muted-foreground">FORWARD</span>
+      </div>
+      {/* Vektiss badge */}
+      <div className="flex h-20 w-20 shrink-0 flex-col items-center justify-center rounded-2xl border-2 border-[#2563EB] bg-white shadow-md">
+        <span className="font-mono text-[10px] tracking-widest text-[#2563EB]">VEKTISS</span>
+        <span className="mt-1 text-[10px] font-semibold text-foreground">Voice AI</span>
+        <span className="mt-1 inline-flex h-1.5 w-1.5 animate-pulse rounded-full bg-[#22C55E]" />
+      </div>
+    </div>
+  );
+}
+
+function GetLeadsVisual() {
+  const leads = [
+    { tag: "Hot Lead", tone: "bg-red-500/15 text-red-600 border-red-500/30", caller: "(214) 555-0182", note: "Pricing — 3BR renovation" },
+    { tag: "Form Sent", tone: "bg-amber-500/15 text-amber-700 border-amber-500/30", caller: "(817) 555-0394", note: "New patient inquiry" },
+    { tag: "Booked", tone: "bg-emerald-500/15 text-emerald-700 border-emerald-500/30", caller: "(972) 555-0271", note: "Tuesday 10am consult" },
+  ];
+  return (
+    <div className="bg-white p-5">
+      <div className="mb-3 flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <Inbox className="h-4 w-4 text-[#2563EB]" />
+          <span className="text-xs font-semibold">Inbox</span>
+        </div>
+        <span className="font-mono text-[10px] tracking-widest text-[#2563EB]">3 NEW</span>
+      </div>
+      <ul className="space-y-2">
+        {leads.map((l, i) => (
+          <li
+            key={l.caller}
+            className="flex items-start justify-between gap-3 rounded-lg border border-border bg-[#F8FAFC] px-3 py-2 text-xs animate-fade-in"
+            style={{ animationDelay: `${i * 100}ms` }}
+          >
+            <div className="min-w-0">
+              <p className="font-mono text-[10px] tabular-nums text-muted-foreground">{l.caller}</p>
+              <p className="mt-0.5 truncate text-foreground">{l.note}</p>
+            </div>
+            <span className={`shrink-0 rounded-full border px-2 py-0.5 text-[10px] font-medium ${l.tone}`}>
+              {l.tag}
+            </span>
+          </li>
+        ))}
+      </ul>
+      <div className="mt-3 flex items-center gap-1.5 text-[10px] text-muted-foreground">
+        <Bell className="h-3 w-3 text-[#2563EB]" />
+        Live alerts sent to your phone
+      </div>
+    </div>
+  );
+}
+
+// =====================================================================
+// Chat conversation visual (iMessage-style)
+// =====================================================================
+function ChatConversationVisual() {
+  return (
+    <div className="relative overflow-hidden rounded-2xl border border-border p-6 shadow-card md:p-8"
+      style={{ background: "linear-gradient(135deg, #EEF2FF 0%, #F5EFE6 100%)" }}
+    >
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-[#2563EB] text-[10px] font-bold text-white">AI</span>
+          <div>
+            <p className="text-xs font-semibold leading-none">Vektiss Voice</p>
+            <p className="mt-0.5 text-[10px] text-muted-foreground">Live call · 00:42</p>
+          </div>
+        </div>
+        <span className="font-mono text-[10px] tracking-widest text-[#2563EB]">TRANSCRIPT</span>
+      </div>
+
+      <div className="mt-6 space-y-3">
+        {/* Caller bubble */}
+        <div className="flex justify-end">
+          <div className="max-w-[78%] rounded-2xl rounded-br-sm bg-[#2563EB] px-4 py-2.5 text-sm leading-snug text-white shadow-sm">
+            Hi — my kitchen sink is leaking pretty bad. What do you charge?
+          </div>
+        </div>
+        {/* AI bubble */}
+        <div className="flex justify-start">
+          <div className="max-w-[82%] rounded-2xl rounded-bl-sm bg-white px-4 py-2.5 text-sm leading-snug text-foreground shadow-sm">
+            Our standard service call is <span className="font-semibold">$150</span>. Since it's a leak, I'd classify that as an emergency. Let me grab your address and get a technician out today.
+          </div>
+        </div>
+        {/* Caller bubble */}
+        <div className="flex justify-end">
+          <div className="max-w-[60%] rounded-2xl rounded-br-sm bg-[#2563EB] px-4 py-2.5 text-sm leading-snug text-white shadow-sm">
+            Perfect. 4218 Oak Lane.
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-6 flex flex-wrap items-center gap-2">
+        <span className="inline-flex items-center gap-1 rounded-full bg-[#2563EB]/10 px-2.5 py-1 text-[11px] font-medium text-[#2563EB]">
+          <Check className="h-3 w-3" /> Lead Captured
+        </span>
+        <span
+          className="relative inline-flex items-center gap-1 rounded-full bg-red-500 px-2.5 py-1 text-[11px] font-semibold text-white shadow-[0_0_18px_rgba(239,68,68,0.45)]"
+        >
+          <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-white" />
+          Hot · Emergency
+        </span>
+        <span className="ml-auto font-mono text-[10px] tracking-widest text-muted-foreground">SENT TO OWNER</span>
+      </div>
+    </div>
+  );
+}
+
+// =====================================================================
+// Routing flowchart
+// =====================================================================
+function RoutingFlowchart() {
+  const paths = [
+    { Icon: User, label: "Sales Inquiry", target: "Maya", color: "#2563EB" },
+    { Icon: CreditCard, label: "Billing", target: "Accounting", color: "#7C3AED" },
+    { Icon: Bot, label: "General", target: "Handled by AI", color: "#0EA5E9" },
+  ];
+  return (
+    <div className="rounded-2xl border border-border bg-white p-6 shadow-card md:p-8">
+      <div className="flex items-center justify-between">
+        <p className="font-mono text-[11px] tracking-widest text-muted-foreground">ROUTING LOGIC</p>
+        <span className="font-mono text-[10px] tracking-widest text-[#2563EB]">LIVE</span>
+      </div>
+
+      <div className="mt-6 grid grid-cols-[auto_1fr] items-center gap-x-4">
+        {/* Source */}
+        <div className="col-span-2 flex items-center gap-3 rounded-xl border border-border bg-[#F8FAFC] px-4 py-3">
+          <span className="relative inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#2563EB] text-white">
+            <Phone className="h-4 w-4" />
+            <span className="absolute inset-0 animate-ping rounded-full bg-[#2563EB] opacity-30" />
+          </span>
+          <div>
+            <p className="text-sm font-semibold">Incoming Call</p>
+            <p className="text-[11px] text-muted-foreground">Intent detection running…</p>
+          </div>
+        </div>
+
+        {/* SVG branching */}
+        <svg viewBox="0 0 80 180" className="col-start-1 ml-1 h-[180px] w-[80px] shrink-0" aria-hidden="true">
+          <path d="M40 0 C 40 28, 70 28, 70 56" stroke="#2563EB" strokeWidth="2" fill="none" strokeLinecap="round" />
+          <path d="M40 0 L40 90" stroke="#7C3AED" strokeWidth="2" fill="none" strokeLinecap="round" />
+          <path d="M40 0 C 40 28, 70 28, 70 56 M40 0 C 40 100, 70 100, 70 124 M40 0 C 40 144, 70 144, 70 168"
+                stroke="transparent" fill="none" />
+          <path d="M40 12 C 40 36, 72 36, 72 56" stroke="#2563EB" strokeWidth="2" fill="none" />
+          <path d="M40 12 L40 90" stroke="#7C3AED" strokeWidth="2" fill="none" />
+          <path d="M40 12 C 40 104, 72 104, 72 124" stroke="#0EA5E9" strokeWidth="2" fill="none" />
+          {/* animated dot along middle path */}
+          <circle r="3" fill="#7C3AED">
+            <animateMotion dur="2.2s" repeatCount="indefinite" path="M40 12 L40 90" />
+          </circle>
+          <circle r="3" fill="#2563EB">
+            <animateMotion dur="2.6s" repeatCount="indefinite" path="M40 12 C 40 36, 72 36, 72 56" />
+          </circle>
+          <circle r="3" fill="#0EA5E9">
+            <animateMotion dur="3s" repeatCount="indefinite" path="M40 12 C 40 104, 72 104, 72 124" />
+          </circle>
+        </svg>
+
+        {/* Destinations */}
+        <div className="col-start-2 -ml-2 flex flex-col gap-3">
+          {paths.map((p) => (
+            <div
+              key={p.label}
+              className="flex items-center gap-3 rounded-lg border border-border bg-white px-3 py-2.5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow"
+            >
+              <span
+                className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg"
+                style={{ backgroundColor: `${p.color}1a`, color: p.color }}
+              >
+                <p.Icon className="h-4 w-4" />
+              </span>
+              <div className="min-w-0 flex-1">
+                <p className="text-sm font-medium leading-tight">{p.label}</p>
+                <p className="text-[11px] text-muted-foreground">→ {p.target}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// =====================================================================
+// Intake form phone mockup with notification
+// =====================================================================
+function IntakeFormPhoneMockup() {
+  return (
+    <div
+      className="relative overflow-hidden rounded-2xl border border-border p-6 shadow-card md:p-10"
+      style={{ background: "linear-gradient(160deg, #F5EFE6 0%, #EEF2FF 100%)" }}
+    >
+      {/* faint form behind phone */}
+      <div className="pointer-events-none absolute right-4 top-6 hidden w-[55%] rounded-xl border border-border bg-white/70 p-4 opacity-60 shadow-sm backdrop-blur sm:block">
+        <p className="font-mono text-[9px] tracking-widest text-[#2563EB]">CLIENT INTAKE</p>
+        <div className="mt-2 space-y-1.5">
+          <div className="h-2 w-3/4 rounded bg-border" />
+          <div className="h-2 w-2/3 rounded bg-border" />
+          <div className="h-2 w-1/2 rounded bg-border" />
+          <div className="mt-3 h-6 w-24 rounded bg-[#2563EB]/30" />
+        </div>
+      </div>
+
+      {/* Phone */}
+      <div className="relative mx-auto h-[340px] w-[180px] rounded-[34px] border-[3px] border-[#1F2937] bg-[#0B1220] p-1.5 shadow-2xl rotate-[-4deg]">
+        <div className="absolute left-1/2 top-2 z-10 h-4 w-16 -translate-x-1/2 rounded-full bg-[#1F2937]" />
+        <div className="flex h-full w-full flex-col rounded-[28px] bg-gradient-to-b from-[#1F2937] to-[#0B1220] p-3 pt-8">
+          <p className="text-center font-mono text-[10px] tracking-widest text-white/60">9:41</p>
+          {/* Notification */}
+          <div className="mt-6 animate-fade-in rounded-2xl bg-white/95 p-3 shadow-xl backdrop-blur">
+            <div className="flex items-center gap-2">
+              <span className="inline-flex h-6 w-6 items-center justify-center rounded-md bg-[#2563EB] text-[9px] font-bold text-white">V</span>
+              <p className="flex-1 truncate text-[10px] font-semibold text-foreground">Vektiss Voice</p>
+              <span className="text-[9px] text-muted-foreground">now</span>
+            </div>
+            <p className="mt-1.5 text-[11px] leading-snug text-foreground">
+              Here is the link to the intake form we discussed:
+            </p>
+            <p className="mt-1 text-[10px] font-medium text-[#2563EB] underline">
+              vektiss.com/intake/apex
+            </p>
+          </div>
+          {/* Second smaller notification */}
+          <div className="mt-2 rounded-xl bg-white/70 p-2 backdrop-blur">
+            <div className="flex items-center gap-2">
+              <span className="inline-flex h-5 w-5 items-center justify-center rounded bg-emerald-500 text-[9px] font-bold text-white">✓</span>
+              <p className="truncate text-[10px] text-foreground">Form delivered · SMS</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// =====================================================================
+// Bento Intelligence Cards
+// =====================================================================
+function BentoIntelligenceCards() {
+  return (
+    <div className="mt-14 grid gap-5 md:grid-cols-6 md:grid-rows-2">
+      {/* Large card top — Call volume trends */}
+      <article className="group md:col-span-4 md:row-span-1 rounded-2xl border border-border bg-white p-6 shadow-card transition-all hover:-translate-y-1 hover:shadow-lg md:p-8">
+        <div className="flex items-center justify-between">
+          <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[#2563EB]/10 text-[#2563EB]">
+            <BarChart3 className="h-5 w-5" />
+          </span>
+          <span className="font-mono text-[10px] tracking-widest text-muted-foreground">LAST 7 DAYS</span>
+        </div>
+        <VolumeAreaChart />
+        <h3 className="mt-4 text-lg font-semibold tracking-tight">
+          Call Volume & Staffing Trends
+        </h3>
+        <p className="mt-2 text-sm text-muted-foreground">
+          See exactly when your phone rings the most. Identify your busiest days and hours so you can staff accordingly and stop guessing when your customers need you.
+        </p>
+      </article>
+
+      {/* Lead scoring */}
+      <article className="group md:col-span-2 md:row-span-2 rounded-2xl border border-border bg-white p-6 shadow-card transition-all hover:-translate-y-1 hover:shadow-lg md:p-8">
+        <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[#2563EB]/10 text-[#2563EB]">
+          <Flame className="h-5 w-5" />
+        </span>
+        <div className="mt-6 space-y-3">
+          <div className="relative rounded-xl border border-red-500/40 bg-gradient-to-r from-red-500/10 to-red-500/0 px-4 py-3 shadow-[0_0_24px_rgba(239,68,68,0.25)]">
+            <div className="flex items-center justify-between">
+              <span className="text-sm font-bold text-red-600">🔥 Hot</span>
+              <span className="font-mono text-xs tabular-nums text-foreground">38%</span>
+            </div>
+            <p className="mt-1 text-[11px] text-muted-foreground">Urgent · ready to buy</p>
+          </div>
+          <div className="rounded-xl border border-amber-500/40 bg-amber-500/5 px-4 py-3">
+            <div className="flex items-center justify-between">
+              <span className="text-sm font-semibold text-amber-700">Warm</span>
+              <span className="font-mono text-xs tabular-nums text-foreground">44%</span>
+            </div>
+            <p className="mt-1 text-[11px] text-muted-foreground">Comparing options</p>
+          </div>
+          <div className="rounded-xl border border-border bg-muted/40 px-4 py-3">
+            <div className="flex items-center justify-between">
+              <span className="text-sm font-medium text-muted-foreground">Cold</span>
+              <span className="font-mono text-xs tabular-nums text-muted-foreground">18%</span>
+            </div>
+            <p className="mt-1 text-[11px] text-muted-foreground">Just browsing</p>
+          </div>
+        </div>
+        <h3 className="mt-6 text-lg font-semibold tracking-tight">
+          Automated Lead Scoring
+        </h3>
+        <p className="mt-2 text-sm text-muted-foreground">
+          Every caller is auto-tagged Hot, Warm, or Cold so you know exactly who to call back first.
+        </p>
+      </article>
+
+      {/* Top call reasons */}
+      <article className="group md:col-span-4 md:row-span-1 rounded-2xl border border-border bg-white p-6 shadow-card transition-all hover:-translate-y-1 hover:shadow-lg md:p-8">
+        <div className="flex items-center justify-between">
+          <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[#2563EB]/10 text-[#2563EB]">
+            <ListChecks className="h-5 w-5" />
+          </span>
+          <span className="font-mono text-[10px] tracking-widest text-muted-foreground">THIS MONTH</span>
+        </div>
+        <div className="mt-5 grid items-center gap-6 sm:grid-cols-[140px_1fr]">
+          <DonutChart />
+          <ul className="space-y-2.5 text-xs">
+            {[
+              { label: "Pricing / Quotes", pct: 34, color: "#2563EB" },
+              { label: "Appointments", pct: 28, color: "#7C3AED" },
+              { label: "Emergencies", pct: 16, color: "#EF4444" },
+              { label: "General", pct: 14, color: "#0EA5E9" },
+              { label: "Existing Clients", pct: 8, color: "#10B981" },
+            ].map((r) => (
+              <li key={r.label}>
+                <div className="flex items-center justify-between">
+                  <span className="flex items-center gap-2 text-foreground">
+                    <span className="h-2 w-2 rounded-full" style={{ backgroundColor: r.color }} />
+                    {r.label}
+                  </span>
+                  <span className="font-mono tabular-nums text-foreground">{r.pct}%</span>
+                </div>
+                <div className="mt-1 h-1.5 w-full overflow-hidden rounded-full bg-muted">
+                  <div className="h-full rounded-full" style={{ width: `${(r.pct / 34) * 100}%`, backgroundColor: r.color }} />
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <h3 className="mt-5 text-lg font-semibold tracking-tight">
+          Top Call Reasons Report
+        </h3>
+        <p className="mt-2 text-sm text-muted-foreground">
+          Every call intent is categorized so you can fix operational bottlenecks at the source.
+        </p>
+      </article>
+    </div>
+  );
+}
+
+function VolumeAreaChart() {
+  // 14 data points; simulate two-week volume
+  const data = [12, 18, 14, 22, 28, 19, 11, 16, 24, 32, 38, 30, 22, 17];
+  const max = Math.max(...data);
+  const w = 320;
+  const h = 90;
+  const stepX = w / (data.length - 1);
+  const points = data.map((v, i) => `${i * stepX},${h - (v / max) * (h - 8) - 4}`);
+  const areaPath = `M0,${h} L${points.join(" L")} L${w},${h} Z`;
+  const linePath = `M${points.join(" L")}`;
+  return (
+    <div className="mt-6">
+      <svg viewBox={`0 0 ${w} ${h}`} className="h-24 w-full" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="volGrad" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0%" stopColor="#2563EB" stopOpacity="0.45" />
+            <stop offset="100%" stopColor="#2563EB" stopOpacity="0" />
+          </linearGradient>
+        </defs>
+        <path d={areaPath} fill="url(#volGrad)" />
+        <path d={linePath} fill="none" stroke="#2563EB" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        {/* peak dot */}
+        {(() => {
+          const peakIdx = data.indexOf(max);
+          const [px, py] = points[peakIdx].split(",").map(Number);
+          return (
+            <g>
+              <circle cx={px} cy={py} r="4" fill="#2563EB" />
+              <circle cx={px} cy={py} r="8" fill="#2563EB" opacity="0.2" />
+            </g>
+          );
+        })()}
+      </svg>
+      <div className="mt-2 flex items-center justify-between font-mono text-[10px] tracking-widest text-muted-foreground">
+        <span>MON</span><span>WED</span><span>FRI</span><span>SUN</span><span>TUE</span><span>THU</span><span>SAT</span>
+      </div>
+    </div>
+  );
+}
+
+function DonutChart() {
+  const segments = [
+    { pct: 34, color: "#2563EB" },
+    { pct: 28, color: "#7C3AED" },
+    { pct: 16, color: "#EF4444" },
+    { pct: 14, color: "#0EA5E9" },
+    { pct: 8,  color: "#10B981" },
+  ];
+  const R = 36;
+  const C = 2 * Math.PI * R;
+  let offset = 0;
+  return (
+    <div className="relative mx-auto h-32 w-32">
+      <svg viewBox="0 0 100 100" className="h-full w-full -rotate-90">
+        <circle cx="50" cy="50" r={R} fill="none" stroke="#F1F5F9" strokeWidth="14" />
+        {segments.map((s, i) => {
+          const len = (s.pct / 100) * C;
+          const el = (
+            <circle
+              key={i}
+              cx="50" cy="50" r={R}
+              fill="none"
+              stroke={s.color}
+              strokeWidth="14"
+              strokeDasharray={`${len} ${C - len}`}
+              strokeDashoffset={-offset}
+            />
+          );
+          offset += len;
+          return el;
+        })}
+      </svg>
+      <div className="absolute inset-0 flex flex-col items-center justify-center">
+        <span className="font-mono text-[10px] tracking-widest text-muted-foreground">CALLS</span>
+        <span className="text-xl font-bold tabular-nums">147</span>
+      </div>
+    </div>
+  );
+}
