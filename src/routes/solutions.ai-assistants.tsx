@@ -231,7 +231,7 @@ function AIAssistantsPage() {
         <div className="container-editorial py-24 md:py-32">
           <div className="mx-auto max-w-3xl text-center">
             <p className="eyebrow text-primary">Business Intelligence</p>
-            <h2 className="mt-6 display-2">
+            <h2 className="mt-6 display-2 mx-auto max-w-[640px]">
               Your calls are telling you something. Now you can hear it.
             </h2>
             <p className="mt-6 text-lg text-muted-foreground">
