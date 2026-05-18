@@ -107,25 +107,29 @@ export function DashboardPreview() {
             </span>
           </div>
           <ul className="mt-3 space-y-2.5">
-            {reasons.map((r) => (
-              <li key={r.label} className="text-xs">
-                <div className="flex items-center justify-between gap-3">
-                  <span className="text-foreground/85 truncate">{r.label}</span>
-                  <span className="font-mono tabular-nums text-foreground">
-                    {r.pct}%
-                  </span>
-                </div>
-                <div className="mt-1 h-2 w-full overflow-hidden rounded-full bg-muted">
-                  <div
-                    className="h-full rounded-full"
-                    style={{
-                      width: `${(r.pct / 34) * 100}%`,
-                      backgroundColor: "#2563EB",
-                    }}
-                  />
-                </div>
-              </li>
-            ))}
+            {reasons.map((r, i) => {
+              const opacities = [0.85, 0.75, 0.65, 0.55, 0.45];
+              const op = opacities[i] ?? 0.55;
+              return (
+                <li key={r.label} className="text-xs">
+                  <div className="flex items-center justify-between gap-3">
+                    <span className="text-foreground/85 truncate">{r.label}</span>
+                    <span className="font-mono tabular-nums text-foreground">
+                      {r.pct}%
+                    </span>
+                  </div>
+                  <div className="mt-1 h-2 w-full overflow-hidden rounded-full bg-muted">
+                    <div
+                      className="h-full rounded-full"
+                      style={{
+                        width: `${(r.pct / 34) * 100}%`,
+                        backgroundColor: `rgba(59, 130, 246, ${op})`,
+                      }}
+                    />
+                  </div>
+                </li>
+              );
+            })}
           </ul>
         </div>
 
