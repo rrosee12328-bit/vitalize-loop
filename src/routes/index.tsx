@@ -495,7 +495,7 @@ function HomePage() {
             </div>
             <div className="md:col-span-8">
               <dl className="space-y-px overflow-hidden rounded-xl border border-border bg-border">
-                {voiceFaqs.map((f) => (
+                {faqs.map((f) => (
                   <div key={f.q} className="bg-background p-6 md:p-8">
                     <dt className="text-lg font-semibold tracking-tight text-foreground">
                       {f.q}
