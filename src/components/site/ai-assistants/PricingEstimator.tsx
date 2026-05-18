@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { ArrowRight, Check, X, Zap } from "lucide-react";
+import { ArrowRight, Check, X, Zap, Phone, Mail, Sparkles, Crown, Sparkle } from "lucide-react";
 import { Slider } from "@/components/ui/slider";
 import { cn } from "@/lib/utils";
 
@@ -188,36 +188,69 @@ export function PricingTiers() {
       </div>
 
       <div className="grid items-stretch gap-6 md:grid-cols-2 lg:grid-cols-4">
-        {TIERS.map((tier) => {
+        {TIERS.map((tier, idx) => {
           const { price, suffix, sub } = priceDisplay(tier, billing);
-          const includedFeatures = tier.features.filter((f) => f.included);
+          const tierIcons = [Phone, Mail, Sparkles, Crown];
+          const TierIcon = tierIcons[idx] ?? Sparkles;
+
+          // Split "Everything in X" inheritance line from net-new features
+          const inheritFeature = tier.features.find((f) =>
+            f.label.toLowerCase().startsWith("everything in"),
+          );
+          const newFeatures = tier.features.filter(
+            (f) => f.included && f !== inheritFeature,
+          );
+
           return (
             <div
               key={tier.name}
               className={cn(
-                "relative flex h-full flex-col rounded-2xl border bg-card transition-all duration-200 hover:-translate-y-1 hover:shadow-lg",
+                "group/card relative flex h-full flex-col overflow-hidden rounded-2xl border transition-all duration-300 hover:-translate-y-1.5",
                 tier.highlight
-                  ? "border-primary shadow-[0_20px_50px_-20px_rgba(37,99,235,0.45)] lg:-translate-y-2"
-                  : "border-border shadow-card",
+                  ? "border-primary/40 bg-gradient-to-b from-white to-primary/[0.04] shadow-[0_30px_60px_-25px_rgba(37,99,235,0.4)] hover:shadow-[0_40px_70px_-25px_rgba(37,99,235,0.5)] lg:-translate-y-3"
+                  : "border-border bg-card shadow-card hover:shadow-xl",
               )}
             >
               {tier.highlight && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-primary px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-primary-foreground shadow-md">
-                  Most Popular
-                </span>
+                <>
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute inset-x-0 top-0 h-px"
+                    style={{
+                      background:
+                        "linear-gradient(90deg, transparent, rgba(37,99,235,0.6), transparent)",
+                    }}
+                  />
+                  <span className="absolute -top-3 left-1/2 inline-flex -translate-x-1/2 items-center gap-1 rounded-full bg-primary px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-primary-foreground shadow-lg shadow-primary/30">
+                    <Sparkle className="h-3 w-3 fill-current" />
+                    Most Popular
+                  </span>
+                </>
               )}
 
               {/* Header */}
               <div className="p-6 pb-5">
-                <h3 className="text-base font-semibold tracking-tight text-foreground">
-                  {tier.name}
-                </h3>
-                <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-muted-foreground">
+                <div className="flex items-center gap-2.5">
+                  <span
+                    className={cn(
+                      "inline-flex h-8 w-8 items-center justify-center rounded-lg",
+                      tier.highlight
+                        ? "bg-primary text-primary-foreground"
+                        : "bg-primary/10 text-primary",
+                    )}
+                  >
+                    <TierIcon className="h-4 w-4" />
+                  </span>
+                  <h3 className="text-base font-semibold tracking-tight text-foreground">
+                    {tier.name}
+                  </h3>
+                </div>
+                <p className="mt-2.5 text-xs leading-relaxed text-muted-foreground">
                   {tier.tagline}
                 </p>
 
                 <div className="mt-5 flex items-baseline gap-1">
-                  <span className="text-[2.25rem] font-semibold leading-none tracking-tight text-foreground">
+                  <span className="text-[2.5rem] font-semibold leading-none tracking-tight text-foreground">
                     {price}
                   </span>
                   {suffix && (
@@ -240,73 +273,90 @@ export function PricingTiers() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={cn(
-                    "group mt-5 inline-flex h-10 w-full items-center justify-center gap-1.5 rounded-md px-4 text-sm font-semibold transition-opacity hover:opacity-90",
+                    "group/cta mt-5 inline-flex h-10 w-full items-center justify-center gap-1.5 rounded-md px-4 text-sm font-semibold transition-all hover:opacity-90",
                     tier.highlight
-                      ? "bg-primary text-primary-foreground shadow-sm"
-                      : "border border-border bg-background text-foreground",
+                      ? "bg-primary text-primary-foreground shadow-md shadow-primary/25 hover:shadow-lg hover:shadow-primary/30"
+                      : "border border-border bg-background text-foreground hover:border-primary/40 hover:bg-primary/[0.03]",
                   )}
                 >
                   {tier.cta}
-                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/cta:translate-x-0.5" />
                 </a>
               </div>
 
-              <div className="mx-6 border-t border-dashed border-border" />
+              <div className="mx-6 border-t border-dashed border-border/70" />
 
-              {/* Included + Best for */}
-              <div className="space-y-4 px-6 py-5">
-                <div>
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+              {/* Included quota — visual highlight */}
+              <div className="px-6 py-5">
+                <div
+                  className={cn(
+                    "rounded-xl px-4 py-3",
+                    tier.highlight
+                      ? "bg-primary/[0.08] ring-1 ring-primary/20"
+                      : "bg-muted/40 ring-1 ring-border",
+                  )}
+                >
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
                     Includes
                   </p>
-                  <p className="mt-1 text-sm font-medium text-foreground">
+                  <p className="mt-1 text-sm font-semibold leading-snug text-foreground">
                     {tier.included}
                   </p>
                 </div>
-                <div>
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
-                    Best for
-                  </p>
-                  <p className="mt-1 text-xs text-foreground/80">{tier.bestFor}</p>
-                </div>
+                <p className="mt-4 text-[10px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                  Best for
+                </p>
+                <p className="mt-1 text-xs leading-relaxed text-foreground/80">
+                  {tier.bestFor}
+                </p>
               </div>
 
               {/* Features */}
-              <div className="flex-1 border-t border-border px-6 py-5">
-                <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
-                  What's included
-                </p>
-                <ul className="space-y-2 text-sm">
-                  {includedFeatures.map((f) => (
-                    <li key={f.label} className="flex items-start gap-2.5">
-                      <span
-                        className={cn(
-                          "mt-0.5 inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full",
-                          f.emphasize
-                            ? "bg-primary/15 text-primary"
-                            : "bg-emerald-50 text-emerald-600",
-                        )}
-                      >
-                        <Check className="h-2.5 w-2.5" strokeWidth={3.5} />
-                      </span>
-                      <span
-                        className={cn(
-                          "leading-snug",
-                          f.emphasize
-                            ? "font-medium text-foreground"
-                            : "text-foreground/75",
-                        )}
-                      >
-                        {f.label}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
+              <div className="flex-1 border-t border-border/70 px-6 py-5">
+                {inheritFeature && (
+                  <div className="mb-4 inline-flex items-center gap-1.5 rounded-full bg-foreground/[0.04] px-3 py-1 text-[11px] font-medium text-foreground/75 ring-1 ring-border">
+                    <Check className="h-3 w-3 text-emerald-600" strokeWidth={3.5} />
+                    {inheritFeature.label}
+                  </div>
+                )}
+                {newFeatures.length > 0 && (
+                  <>
+                    <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">
+                      {inheritFeature ? "Plus" : "What's included"}
+                    </p>
+                    <ul className="space-y-2.5 text-sm">
+                      {newFeatures.map((f) => (
+                        <li key={f.label} className="flex items-start gap-2.5">
+                          <span
+                            className={cn(
+                              "mt-[3px] inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full",
+                              f.emphasize
+                                ? "bg-primary text-primary-foreground"
+                                : "bg-emerald-50 text-emerald-600 ring-1 ring-emerald-100",
+                            )}
+                          >
+                            <Check className="h-2.5 w-2.5" strokeWidth={4} />
+                          </span>
+                          <span
+                            className={cn(
+                              "leading-snug",
+                              f.emphasize
+                                ? "font-semibold text-foreground"
+                                : "text-foreground/80",
+                            )}
+                          >
+                            {f.label}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                )}
               </div>
 
               {/* Footer */}
               {tier.overage && (
-                <div className="rounded-b-2xl border-t border-border bg-muted/30 px-6 py-3">
+                <div className="border-t border-border/70 bg-muted/20 px-6 py-3">
                   <p className="font-mono text-[10px] tracking-wider text-muted-foreground">
                     {tier.overage}
                   </p>
