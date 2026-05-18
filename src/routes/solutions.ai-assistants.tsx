@@ -301,36 +301,8 @@ function AIAssistantsPage() {
                 </p>
               </div>
               <div className="md:col-span-6">
-                <div className="rounded-2xl border border-[rgba(0,0,0,0.08)] bg-white p-6 shadow-[0_2px_12px_rgba(0,0,0,0.06)] md:p-8">
-                  <p className="font-mono text-[11px] tracking-widest text-muted-foreground">
-                    EMAIL PREVIEW
-                  </p>
-                  <div className="mt-4 space-y-2 border-b border-[rgba(0,0,0,0.08)] pb-3 text-sm">
-                    <div className="flex gap-2">
-                      <span className="text-muted-foreground">From:</span>
-                      <span className="font-medium">Vektiss Voice &lt;assistant@vektiss.com&gt;</span>
-                    </div>
-                    <div className="flex gap-2">
-                      <span className="text-muted-foreground">To:</span>
-                      <span className="font-medium">sarah@example.com</span>
-                    </div>
-                    <div className="flex gap-2">
-                      <span className="text-muted-foreground">Subject:</span>
-                      <span className="font-medium">Your intake form — Apex Restoration</span>
-                    </div>
-                  </div>
-                  <div className="mt-4 text-sm leading-6 text-foreground">
-                    <p>Hi Sarah,</p>
-                    <p className="mt-2">
-                      Thanks for calling Apex Restoration. Here is the link to the intake form we discussed:{" "}
-                      <span className="text-[#3B82F6] underline">vektiss.com/intake/apex-restoration</span>
-                    </p>
-                    <p className="mt-2">
-                      Fill this out and our team will review it shortly. You will hear back within 24 hours.
-                    </p>
-                    <p className="mt-4 text-muted-foreground">— Vektiss Voice</p>
-                  </div>
-                </div>
+                <DynamicEmailPreview />
+
               </div>
             </div>
           </div>
