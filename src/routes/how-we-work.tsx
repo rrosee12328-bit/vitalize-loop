@@ -560,7 +560,7 @@ function VoiceVisual() {
 function SitesVisual() {
   return (
     <div className="-mx-1">
-      <PortalMockup />
+      <PortalMockup compact />
     </div>
   );
 }
