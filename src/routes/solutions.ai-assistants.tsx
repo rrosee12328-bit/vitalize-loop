@@ -601,7 +601,7 @@ function AIAssistantsPage() {
                 <thead>
                   <tr className="border-b border-border">
                     <th className="px-6 py-5 text-left text-sm font-semibold text-muted-foreground">Feature</th>
-                    <th className="bg-primary/10 px-6 py-5 text-left text-sm font-bold text-primary border-x-2 border-primary">
+                    <th className="bg-primary/10 px-6 py-5 text-left text-sm font-bold text-primary border-x-2 border-t-4 border-primary">
                       Vektiss Voice
                     </th>
                     <th className="px-6 py-5 text-left text-sm font-semibold text-muted-foreground">Human Receptionist</th>
