@@ -587,8 +587,11 @@ function AIAssistantsPage() {
       <section className="border-t border-border bg-surface-elevated">
         <div className="container-editorial py-24 md:py-32">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="eyebrow text-primary">Comparison</p>
-            <h2 className="mt-6 display-2">Why Vektiss Voice wins.</h2>
+            <p className="eyebrow text-primary">Why Vektiss Voice</p>
+            <h2 className="mt-6 display-2">The math is simple.</h2>
+            <p className="mt-6 text-lg text-muted-foreground">
+              A human receptionist costs $3,500/month. Voicemail costs you deals. Vektiss Voice does more than both — for less than your phone bill.
+            </p>
           </div>
 
           {/* Desktop table */}
