@@ -55,12 +55,19 @@ export function VoiceLoopSection() {
         <div className="mb-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map(({ Icon, label, sub }, i) => (
             <div key={label} className="relative">
-              <div className="h-full rounded-xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur">
+              <div
+                className="h-full rounded-xl p-5 backdrop-blur"
+                style={{
+                  background: "rgba(255, 255, 255, 0.04)",
+                  border: "1px solid rgba(255, 255, 255, 0.08)",
+                  boxShadow: "0 1px 3px rgba(0, 0, 0, 0.3)",
+                }}
+              >
                 <div className="flex items-center gap-3">
-                  <div className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#2563EB]/15 text-[#60A5FA]">
+                  <div className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#3B82F6]/15 text-[#60A5FA]">
                     <Icon className="h-5 w-5" />
                   </div>
-                  <div className="font-mono text-[10px] tracking-widest text-white/50">
+                  <div className="font-mono text-[10px] font-semibold tracking-widest text-[#3B82F6]">
                     STEP {i + 1}
                   </div>
                 </div>
