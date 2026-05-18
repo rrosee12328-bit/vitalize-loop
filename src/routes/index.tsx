@@ -4,6 +4,7 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { LiveCallDemo } from "@/components/site/ai-assistants/LiveCallDemo";
 import { DashboardPreview } from "@/components/site/ai-assistants/DashboardPreview";
 import { VoiceLoopSection } from "@/components/site/VoiceLoopSection";
+import { PricingTiers } from "@/components/site/ai-assistants/PricingEstimator";
 import {
   ProjectMockup,
   AssistantMockup,
@@ -134,13 +135,16 @@ function HomePage() {
                 Get Vektiss Voice
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
-              <Link
-                to="/solutions/ai-assistants"
-                hash="pricing-tiers"
+              <a
+                href="#voice-pricing"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById("voice-pricing")?.scrollIntoView({ behavior: "smooth", block: "start" });
+                }}
                 className="inline-flex h-12 items-center gap-2 rounded-md border border-foreground/80 bg-transparent px-6 text-sm font-medium text-foreground transition-colors hover:bg-foreground hover:text-background"
               >
                 See Pricing
-              </Link>
+              </a>
             </div>
             <div className="mt-5 flex flex-wrap items-center gap-2">
               {["Done For You", "No Contract", "$45.99/mo"].map((b, i) => (
@@ -411,6 +415,26 @@ function HomePage() {
           <div className="mt-8 flex items-center gap-3 text-sm text-muted-foreground">
             <span className="h-px w-10 bg-border" />
             <span>COO, mid-market services firm</span>
+          </div>
+        </div>
+      </section>
+
+      {/* VOICE PRICING */}
+      <section id="voice-pricing" className="border-t border-border scroll-mt-24">
+        <div className="container-editorial py-24 md:py-32">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="eyebrow text-primary">Vektiss Voice Plans</p>
+            <p className="eyebrow mt-3">Pricing</p>
+            <h2 className="mt-6 display-2">
+              Flat rate. No surprises. Cancel anytime.
+            </h2>
+            <p className="mt-6 text-lg text-muted-foreground">
+              Every plan includes done-for-you setup, 24/7 coverage, and a 30-day
+              money-back guarantee.
+            </p>
+          </div>
+          <div className="mt-14">
+            <PricingTiers />
           </div>
         </div>
       </section>
