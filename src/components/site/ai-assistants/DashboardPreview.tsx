@@ -21,25 +21,28 @@ const alerts: {
   time: string;
   caller: string;
   summary: string;
-  tag: AlertTag;
+  tags: AlertTag[];
 }[] = [
   {
     time: "Today 3:14 PM",
     caller: "(214) 555-0182",
-    summary: "Pricing inquiry — 3BR renovation. Wants callback.",
-    tag: { label: "Hot Lead", tone: "red" },
+    summary: "Pricing inquiry — 3BR renovation. Intake form sent.",
+    tags: [
+      { label: "Hot Lead", tone: "red" },
+      { label: "Form Sent", tone: "yellow" },
+    ],
   },
   {
     time: "Today 11:42 AM",
     caller: "(817) 555-0394",
     summary: "New patient inquiry. Intake form sent.",
-    tag: { label: "Form Sent", tone: "yellow" },
+    tags: [{ label: "Form Sent", tone: "yellow" }],
   },
   {
     time: "Yesterday 5:08 PM",
     caller: "(972) 555-0271",
     summary: "After-hours emergency. Routed to on-call.",
-    tag: { label: "Routed", tone: "green" },
+    tags: [{ label: "Routed", tone: "green" }],
   },
 ];
 
