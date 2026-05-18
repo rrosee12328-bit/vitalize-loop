@@ -201,29 +201,34 @@ export function PricingTiers() {
       <div className="grid items-stretch gap-6 md:grid-cols-2 lg:grid-cols-4">
         {TIERS.map((tier) => {
           const { price, suffix, sub } = priceDisplay(tier, billing);
+          const includedFeatures = tier.features.filter((f) => f.included);
           return (
             <div
               key={tier.name}
               className={cn(
-                "relative flex h-full flex-col rounded-2xl border bg-card shadow-card transition-shadow hover:shadow-lg",
+                "relative flex h-full flex-col rounded-2xl border bg-card transition-all duration-200 hover:-translate-y-1 hover:shadow-lg",
                 tier.highlight
-                  ? "border-primary ring-2 ring-primary/30 lg:scale-[1.02]"
-                  : "border-border",
+                  ? "border-primary shadow-[0_20px_50px_-20px_rgba(37,99,235,0.45)] lg:-translate-y-2"
+                  : "border-border shadow-card",
               )}
             >
               {tier.highlight && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-primary px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-primary-foreground shadow">
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-primary px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-primary-foreground shadow-md">
                   Most Popular
                 </span>
               )}
 
               {/* Header */}
-              <div className="border-b border-border p-6 pb-5">
-                <h3 className="text-lg font-bold tracking-tight">{tier.name}</h3>
-                <p className="mt-1 text-xs text-muted-foreground">{tier.tagline}</p>
+              <div className="p-6 pb-5">
+                <h3 className="text-base font-semibold tracking-tight text-foreground">
+                  {tier.name}
+                </h3>
+                <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-muted-foreground">
+                  {tier.tagline}
+                </p>
 
-                <div className="mt-4 flex items-baseline gap-1">
-                  <span className="text-4xl font-bold tracking-tight text-foreground">
+                <div className="mt-5 flex items-baseline gap-1">
+                  <span className="text-[2.25rem] font-semibold leading-none tracking-tight text-foreground">
                     {price}
                   </span>
                   {suffix && (
@@ -232,83 +237,92 @@ export function PricingTiers() {
                     </span>
                   )}
                 </div>
-                {sub ? (
-                  <p className="mt-1 text-xs text-muted-foreground">{sub}</p>
-                ) : (
-                  <p className="mt-1 select-none text-xs text-transparent">.</p>
-                )}
-
-                <div
+                <p
                   className={cn(
-                    "mt-4 rounded-lg border px-3 py-2 text-xs",
-                    tier.highlight
-                      ? "border-primary/30 bg-primary/5"
-                      : "border-border bg-surface-elevated",
+                    "mt-1.5 text-[11px] leading-tight",
+                    sub ? "text-muted-foreground" : "select-none text-transparent",
                   )}
                 >
-                  <span className="font-semibold text-foreground">Includes:</span>{" "}
-                  <span className="text-foreground/80">{tier.included}</span>
-                </div>
-
-                <p className="mt-3 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
-                  Best for
+                  {sub ?? "."}
                 </p>
-                <p className="text-xs font-medium text-foreground/85">
-                  {tier.bestFor}
-                </p>
-              </div>
 
-              {/* Features */}
-              <ul className="flex-1 space-y-2.5 p-6 pt-5 text-sm">
-                {tier.features.map((f) => (
-                  <li key={f.label} className="flex items-start gap-2">
-                    {f.included ? (
-                      <Check
-                        className={cn(
-                          "mt-0.5 h-4 w-4 shrink-0",
-                          f.emphasize ? "text-primary" : "text-primary/70",
-                        )}
-                      />
-                    ) : (
-                      <X className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground/40" />
-                    )}
-                    <span
-                      className={cn(
-                        f.included
-                          ? f.emphasize
-                            ? "font-semibold text-foreground"
-                            : "text-foreground/85"
-                          : "text-muted-foreground/60 line-through decoration-muted-foreground/30",
-                      )}
-                    >
-                      {f.label}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-
-              {/* Footer */}
-              <div className="border-t border-border p-6 pt-5">
-                {tier.overage && (
-                  <p className="mb-4 font-mono text-[11px] text-muted-foreground">
-                    {tier.overage}
-                  </p>
-                )}
                 <a
                   href={CALENDLY}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={cn(
-                    "group inline-flex h-11 w-full items-center justify-center gap-2 rounded-md px-5 text-sm font-semibold transition-opacity hover:opacity-90",
+                    "group mt-5 inline-flex h-10 w-full items-center justify-center gap-1.5 rounded-md px-4 text-sm font-semibold transition-opacity hover:opacity-90",
                     tier.highlight
                       ? "bg-primary text-primary-foreground shadow-sm"
-                      : "border border-border bg-background text-foreground hover:bg-accent",
+                      : "border border-border bg-background text-foreground",
                   )}
                 >
                   {tier.cta}
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                 </a>
               </div>
+
+              <div className="mx-6 border-t border-dashed border-border" />
+
+              {/* Included + Best for */}
+              <div className="space-y-4 px-6 py-5">
+                <div>
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                    Includes
+                  </p>
+                  <p className="mt-1 text-sm font-medium text-foreground">
+                    {tier.included}
+                  </p>
+                </div>
+                <div>
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                    Best for
+                  </p>
+                  <p className="mt-1 text-xs text-foreground/80">{tier.bestFor}</p>
+                </div>
+              </div>
+
+              {/* Features */}
+              <div className="flex-1 border-t border-border px-6 py-5">
+                <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                  What's included
+                </p>
+                <ul className="space-y-2 text-sm">
+                  {includedFeatures.map((f) => (
+                    <li key={f.label} className="flex items-start gap-2.5">
+                      <span
+                        className={cn(
+                          "mt-0.5 inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full",
+                          f.emphasize
+                            ? "bg-primary/15 text-primary"
+                            : "bg-emerald-50 text-emerald-600",
+                        )}
+                      >
+                        <Check className="h-2.5 w-2.5" strokeWidth={3.5} />
+                      </span>
+                      <span
+                        className={cn(
+                          "leading-snug",
+                          f.emphasize
+                            ? "font-medium text-foreground"
+                            : "text-foreground/75",
+                        )}
+                      >
+                        {f.label}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Footer */}
+              {tier.overage && (
+                <div className="rounded-b-2xl border-t border-border bg-muted/30 px-6 py-3">
+                  <p className="font-mono text-[10px] tracking-wider text-muted-foreground">
+                    {tier.overage}
+                  </p>
+                </div>
+              )}
             </div>
           );
         })}
