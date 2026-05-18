@@ -559,33 +559,69 @@ function VoiceVisual() {
 function SitesVisual() {
   return (
     <div className="flex items-end gap-4">
-      {/* Desktop */}
-      <div className="flex-1 rounded-md border border-border bg-card p-2">
-        <div className="mb-1.5 flex gap-1">
+      {/* Desktop — mimics the real Vektiss hero */}
+      <div className="flex-1 overflow-hidden rounded-md border border-border bg-card shadow-sm">
+        {/* browser chrome */}
+        <div className="flex items-center gap-1 border-b border-border bg-surface-elevated px-2 py-1.5">
           <div className="h-1.5 w-1.5 rounded-full bg-border" />
           <div className="h-1.5 w-1.5 rounded-full bg-border" />
           <div className="h-1.5 w-1.5 rounded-full bg-border" />
+          <div className="ml-2 h-2 flex-1 rounded-sm bg-background/60" />
         </div>
-        <div className="space-y-1.5">
-          <div className="h-2 w-2/3 rounded bg-primary" />
-          <div className="h-1.5 w-full rounded bg-border" />
-          <div className="h-1.5 w-4/5 rounded bg-border" />
-          <div className="mt-2 grid grid-cols-2 gap-1">
-            <div className="h-6 rounded bg-surface-elevated" />
-            <div className="h-6 rounded bg-surface-elevated" />
+        {/* site nav */}
+        <div className="flex items-center justify-between border-b border-border px-3 py-2">
+          <div className="font-semibold tracking-tight text-[10px] text-foreground">
+            vektiss<span className="text-primary">.</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="h-1 w-5 rounded bg-border" />
+            <div className="h-1 w-5 rounded bg-border" />
+            <div className="h-1 w-5 rounded bg-border" />
+            <div className="h-3 w-10 rounded bg-foreground" />
+          </div>
+        </div>
+        {/* hero */}
+        <div className="px-3 py-3">
+          <div className="inline-flex items-center gap-1 rounded-full border border-border px-1.5 py-0.5">
+            <span className="h-1 w-1 rounded-full bg-primary" />
+            <span className="text-[7px] font-medium uppercase tracking-wider text-muted-foreground">
+              Operating system
+            </span>
+          </div>
+          <div className="mt-2 space-y-1">
+            <div className="h-2 w-5/6 rounded bg-foreground" />
+            <div className="h-2 w-3/5 rounded bg-foreground/70" />
+            <div className="h-2 w-2/5 rounded bg-primary" />
+          </div>
+          <div className="mt-2 h-1 w-full rounded bg-border" />
+          <div className="mt-1 h-1 w-4/5 rounded bg-border" />
+          <div className="mt-2.5 flex items-center gap-1.5">
+            <div className="h-3.5 w-12 rounded bg-primary" />
+            <div className="h-3.5 w-10 rounded border border-border" />
           </div>
         </div>
       </div>
       {/* Arrow */}
       <ArrowRight className="mb-4 h-4 w-4 text-primary" />
       {/* Mobile */}
-      <div className="w-12 rounded-md border border-border bg-card p-1.5">
+      <div className="w-14 overflow-hidden rounded-md border border-border bg-card p-1.5 shadow-sm">
         <div className="mx-auto mb-1 h-0.5 w-3 rounded-full bg-border" />
         <div className="space-y-1">
-          <div className="h-1.5 w-full rounded bg-primary" />
-          <div className="h-1 w-3/4 rounded bg-border" />
-          <div className="h-4 w-full rounded bg-surface-elevated" />
-          <div className="h-1 w-2/3 rounded bg-border" />
+          <div className="flex items-center justify-between">
+            <div className="text-[6px] font-semibold tracking-tight text-foreground">
+              vektiss<span className="text-primary">.</span>
+            </div>
+            <div className="flex gap-0.5">
+              <div className="h-0.5 w-0.5 rounded-full bg-foreground" />
+              <div className="h-0.5 w-0.5 rounded-full bg-foreground" />
+              <div className="h-0.5 w-0.5 rounded-full bg-foreground" />
+            </div>
+          </div>
+          <div className="h-1.5 w-full rounded bg-foreground" />
+          <div className="h-1.5 w-2/3 rounded bg-primary" />
+          <div className="h-0.5 w-full rounded bg-border" />
+          <div className="h-0.5 w-3/4 rounded bg-border" />
+          <div className="mt-1 h-2.5 w-full rounded bg-primary" />
         </div>
       </div>
     </div>
