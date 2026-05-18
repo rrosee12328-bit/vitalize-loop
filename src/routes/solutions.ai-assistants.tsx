@@ -64,9 +64,9 @@ const steps = [
 ];
 
 const dashFeatures = [
-  "Real-time call log with outcome tags (Lead, Appointment, Info, Spam)",
-  "Email activity tracker — drafts queued, sent, and pending review",
-  "Monthly performance report delivered to your inbox automatically",
+  "Call volume trends — see when your busiest hours are and staff accordingly",
+  "Top call reasons report — know exactly what your customers are calling about every month",
+  "Lead scoring on every call — Hot, Warm, or Cold tagged automatically so you know who to call back first",
 ];
 
 function AIAssistantsPage() {
@@ -215,12 +215,10 @@ function AIAssistantsPage() {
                 ))}
               </ul>
               <a
-                href={CALENDLY}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#pricing"
                 className="mt-8 inline-flex h-12 items-center gap-2 rounded-md border border-white/40 bg-transparent px-6 text-sm font-medium text-white transition-colors hover:bg-white hover:text-foreground"
               >
-                See a Sample Report
+                See Pricing
                 <ArrowRight className="h-4 w-4" />
               </a>
             </div>
@@ -229,11 +227,11 @@ function AIAssistantsPage() {
       </section>
 
       {/* Business Intelligence */}
-      <section className="border-t border-border">
-        <div className="container-editorial py-24 md:py-32">
+      <section id="pricing" className="border-t border-border">
+        <div className="container-editorial pt-16 pb-24 md:pt-16 md:pb-32">
           <div className="mx-auto max-w-3xl text-center">
             <p className="eyebrow text-primary">Business Intelligence</p>
-            <h2 className="mt-6 display-2">
+            <h2 className="mt-6 display-2 mx-auto max-w-[640px]">
               Your calls are telling you something. Now you can hear it.
             </h2>
             <p className="mt-6 text-lg text-muted-foreground">
@@ -262,9 +260,9 @@ function AIAssistantsPage() {
             ].map((c) => (
               <article
                 key={c.title}
-                className="rounded-xl border border-border bg-card p-6 shadow-card md:p-8"
+                className="rounded-xl border border-[rgba(0,0,0,0.08)] bg-white p-6 shadow-[0_2px_12px_rgba(0,0,0,0.06)] border-t-[3px] border-t-[#3B82F6] md:p-8"
               >
-                <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[#3B82F6]/10 text-[#3B82F6]">
                   <c.Icon className="h-5 w-5" />
                 </span>
                 <h3 className="mt-4 text-lg font-semibold tracking-tight">
