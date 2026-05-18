@@ -260,9 +260,9 @@ function AIAssistantsPage() {
             ].map((c) => (
               <article
                 key={c.title}
-                className="rounded-xl border border-border bg-card p-6 shadow-card md:p-8"
+                className="rounded-xl border border-[rgba(0,0,0,0.08)] bg-white p-6 shadow-[0_2px_12px_rgba(0,0,0,0.06)] border-t-[3px] border-t-[#3B82F6] md:p-8"
               >
-                <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[#3B82F6]/10 text-[#3B82F6]">
                   <c.Icon className="h-5 w-5" />
                 </span>
                 <h3 className="mt-4 text-lg font-semibold tracking-tight">
