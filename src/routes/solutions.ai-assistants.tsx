@@ -257,27 +257,25 @@ function AIAssistantsPage() {
       </section>
 
       {/* Live Demo Phone Strip */}
-      <section className="border-t border-border bg-[#111827] text-white">
-        <div className="container-editorial py-10 md:py-12">
-          <div className="flex flex-col items-center gap-6 text-center md:flex-row md:justify-between md:text-left">
-            <div className="flex items-center gap-4">
-              <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary/15 text-primary">
-                <Phone className="h-5 w-5" />
+      <section className="border-t border-border bg-[#0B1220] text-white">
+        <div className="container-editorial py-10 md:py-14">
+          <div className="flex flex-col items-center gap-4 text-center">
+            <div className="flex items-center gap-3">
+              <span className="relative inline-flex h-3 w-3">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex h-3 w-3 rounded-full bg-emerald-500" />
               </span>
-              <div>
-                <p className="font-mono text-[11px] tracking-[0.18em] text-primary">CALL TO TEST IT LIVE</p>
-                <p className="mt-1 text-sm text-white/70 md:text-base">
-                  Call our live AI front office right now to experience Vektiss Voice firsthand.
-                </p>
-              </div>
+              <span className="font-mono text-[11px] tracking-[0.2em] text-emerald-400">LIVE · CALL OUR AI NOW</span>
             </div>
             <a
               href="tel:+13465947686"
-              className="inline-flex items-center gap-3 rounded-md bg-primary px-6 py-4 text-2xl font-bold tracking-tight text-primary-foreground transition-opacity hover:opacity-90 md:text-3xl"
+              className="text-4xl font-bold tracking-tight text-white transition-opacity hover:opacity-90 md:text-6xl"
             >
-              <Phone className="h-6 w-6" />
-              (346) 594-7686
+              Call (346) 594-7686
             </a>
+            <p className="max-w-2xl text-base text-white/70 md:text-lg">
+              Call our live AI front office right now and experience Vektiss Voice firsthand — no signup required.
+            </p>
           </div>
         </div>
       </section>
