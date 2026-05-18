@@ -424,7 +424,7 @@ function AIAssistantsPage() {
                 </p>
               </div>
               <div className="md:col-span-6">
-                <DynamicEmailPreview />
+                <IntakeFormPhoneMockup />
 
               </div>
             </div>
