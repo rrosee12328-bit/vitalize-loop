@@ -24,7 +24,7 @@ export const Route = createFileRoute("/contact")({
 const channels = [
   {
     Icon: Calendar,
-    label: "Book a strategy call",
+    label: "Get Started",
     body: "30 minutes with a systems architect. Bring your messiest operational headache.",
     cta: "Pick a time",
     to: "/book" as const,
