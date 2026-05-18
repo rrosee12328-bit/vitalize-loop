@@ -82,8 +82,9 @@ function AIAssistantsPage() {
               <span className="accent-underline">fund your competitors.</span>
             </h1>
             <p className="mt-8 text-lg text-muted-foreground md:text-xl">
-              Vektiss Voice answers every call, books appointments, handles
-              emails, and sends you a summary — 24/7, fully managed by Vektiss. No
+              Vektiss Voice answers every call, routes leads intelligently, sends
+              intake forms, and gives you real-time alerts and analytics on
+              everything callers ask — 24/7, fully managed by Vektiss. No
               contracts. 30-day money-back guarantee.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
