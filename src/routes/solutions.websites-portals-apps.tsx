@@ -58,7 +58,7 @@ export const Route = createFileRoute("/solutions/websites-portals-apps")({
           desc: "Portals give clients a central place to view progress, submit information, access documents, approve work, and communicate with your team instead of relying on scattered email threads.",
         },
         {
-          title: "Custom internal apps",
+          title: "Apps",
           desc: "We turn the operational pieces currently living in spreadsheets, forms, and disconnected tools into clean internal apps with permissions, status tracking, automations, and shared data.",
         },
       ]}
