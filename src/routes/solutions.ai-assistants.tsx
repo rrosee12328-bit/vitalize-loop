@@ -532,11 +532,11 @@ function AIAssistantsPage() {
                   ))}
                 </div>
                 <a
-                  href="#pricing"
+                  href="#pricing-tiers"
                   onClick={(e) => {
                     e.preventDefault();
-                    document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth", block: "start" });
-                    history.replaceState(null, "", "#pricing");
+                    document.getElementById("pricing-tiers")?.scrollIntoView({ behavior: "smooth", block: "start" });
+                    history.replaceState(null, "", "#pricing-tiers");
                   }}
                   className="mt-8 inline-flex h-12 items-center gap-2 rounded-md border border-white/40 bg-transparent px-6 text-sm font-medium text-white transition-colors hover:bg-white hover:text-foreground"
                 >
@@ -677,7 +677,7 @@ function AIAssistantsPage() {
             </p>
           </div>
 
-          <div className="mt-14">
+          <div id="pricing-tiers" className="mt-14 scroll-mt-24">
             <PricingTiers />
           </div>
         </div>
@@ -718,11 +718,11 @@ function AIAssistantsPage() {
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </a>
               <a
-                href="#pricing"
+                href="#pricing-tiers"
                 onClick={(e) => {
                   e.preventDefault();
-                  document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth", block: "start" });
-                  history.replaceState(null, "", "#pricing");
+                  document.getElementById("pricing-tiers")?.scrollIntoView({ behavior: "smooth", block: "start" });
+                  history.replaceState(null, "", "#pricing-tiers");
                 }}
                 className="inline-flex h-12 items-center gap-2 rounded-md border border-white/50 bg-transparent px-6 text-sm font-medium text-white transition-colors hover:bg-white hover:text-foreground"
               >
