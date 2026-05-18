@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { ArrowRight, Check, X, Zap } from "lucide-react";
+import { ArrowRight, Check, X, Zap, Phone, Mail, Sparkles, Crown, Sparkle } from "lucide-react";
 import { Slider } from "@/components/ui/slider";
 import { cn } from "@/lib/utils";
 
