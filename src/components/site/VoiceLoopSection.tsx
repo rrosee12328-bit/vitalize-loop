@@ -17,7 +17,7 @@ const steps = [
   {
     Icon: FileText,
     label: "Form Sent to Caller",
-    sub: "AI texts or emails the caller your intake form, application, or quote request — mid-call or immediately after",
+    sub: "AI asks for the caller's email, confirms it back, and sends your intake form, application, or quote request — mid-call or immediately after",
   },
   {
     Icon: BellRing,
