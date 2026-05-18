@@ -55,12 +55,19 @@ export function VoiceLoopSection() {
         <div className="mb-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map(({ Icon, label, sub }, i) => (
             <div key={label} className="relative">
-              <div className="h-full rounded-xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur">
+              <div
+                className="h-full rounded-xl p-5 backdrop-blur"
+                style={{
+                  background: "rgba(255, 255, 255, 0.04)",
+                  border: "1px solid rgba(255, 255, 255, 0.08)",
+                  boxShadow: "0 1px 3px rgba(0, 0, 0, 0.3)",
+                }}
+              >
                 <div className="flex items-center gap-3">
-                  <div className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#2563EB]/15 text-[#60A5FA]">
+                  <div className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#3B82F6]/15 text-[#60A5FA]">
                     <Icon className="h-5 w-5" />
                   </div>
-                  <div className="font-mono text-[10px] tracking-widest text-white/50">
+                  <div className="font-mono text-[10px] font-semibold tracking-widest text-[#3B82F6]">
                     STEP {i + 1}
                   </div>
                 </div>
@@ -86,93 +93,96 @@ export function VoiceLoopSection() {
         {/* Email + Dashboard */}
         <div className="grid items-start gap-8 md:grid-cols-2 md:gap-10">
           {/* Email mockup */}
-          <div className="rounded-2xl border border-border bg-card text-card-foreground shadow-2xl shadow-black/40 overflow-hidden">
-            <div className="border-b border-border bg-surface-elevated px-5 py-3">
+          <div
+            className="overflow-hidden rounded-2xl bg-white text-[#1E293B]"
+            style={{ boxShadow: "0 4px 24px rgba(0, 0, 0, 0.25)" }}
+          >
+            <div className="px-5 py-3" style={{ background: "#F8FAFC", borderBottom: "1px solid #F1F5F9" }}>
               <div className="flex items-center gap-1.5">
-                <span className="h-2.5 w-2.5 rounded-full bg-[#EF4444]/70" />
-                <span className="h-2.5 w-2.5 rounded-full bg-[#F59E0B]/70" />
-                <span className="h-2.5 w-2.5 rounded-full bg-[#10B981]/70" />
-                <span className="ml-3 text-[11px] text-muted-foreground">
+                <span className="h-2.5 w-2.5 rounded-full bg-[#EF4444]" />
+                <span className="h-2.5 w-2.5 rounded-full bg-[#F59E0B]" />
+                <span className="h-2.5 w-2.5 rounded-full bg-[#10B981]" />
+                <span className="ml-3 text-[11px] text-[#64748B]">
                   Inbox · New message
                 </span>
               </div>
             </div>
             <div className="px-5 py-4 md:px-6">
               <div className="space-y-1.5 text-xs">
-                <div className="flex gap-2">
-                  <span className="w-14 shrink-0 text-muted-foreground">From</span>
-                  <span className="text-foreground">
+                <div className="flex gap-2 pb-1.5" style={{ borderBottom: "1px solid #F1F5F9" }}>
+                  <span className="w-14 shrink-0 text-[#64748B]">From</span>
+                  <span className="text-[#1E293B]">
                     Vektiss Voice{" "}
-                    <span className="text-muted-foreground">
+                    <span className="text-[#64748B]">
                       &lt;alerts@vektiss.com&gt;
                     </span>
                   </span>
                 </div>
-                <div className="flex gap-2">
-                  <span className="w-14 shrink-0 text-muted-foreground">To</span>
-                  <span className="text-foreground">you@yourbusiness.com</span>
+                <div className="flex gap-2 pb-1.5" style={{ borderBottom: "1px solid #F1F5F9" }}>
+                  <span className="w-14 shrink-0 text-[#64748B]">To</span>
+                  <span className="text-[#1E293B]">you@yourbusiness.com</span>
                 </div>
                 <div className="flex gap-2">
-                  <span className="w-14 shrink-0 text-muted-foreground">
-                    Subject
-                  </span>
-                  <span className="font-semibold text-foreground">
+                  <span className="w-14 shrink-0 text-[#64748B]">Subject</span>
+                  <span className="font-semibold text-[#1E293B]">
                     📞 New Lead — Intake Form Sent — (214) 555-0182
                   </span>
                 </div>
               </div>
             </div>
-            <div className="border-t border-border px-5 py-5 md:px-6 md:py-6">
-              <p className="text-sm font-semibold text-foreground">
+            <div className="px-5 py-5 md:px-6 md:py-6" style={{ borderTop: "1px solid #F1F5F9" }}>
+              <p className="text-sm font-semibold text-[#1E293B]">
                 New caller alert from Vektiss Voice
               </p>
               <dl className="mt-4 space-y-2 text-sm">
                 <div className="flex gap-2">
-                  <dt className="w-32 shrink-0 text-muted-foreground">Caller</dt>
-                  <dd className="font-mono tabular-nums text-foreground">
+                  <dt className="w-32 shrink-0 text-[#64748B]">Caller</dt>
+                  <dd className="font-mono tabular-nums text-[#1E293B]">
                     (214) 555-0182
                   </dd>
                 </div>
                 <div className="flex gap-2">
-                  <dt className="w-32 shrink-0 text-muted-foreground">Time</dt>
-                  <dd className="text-foreground">Today at 3:14 PM</dd>
+                  <dt className="w-32 shrink-0 text-[#64748B]">Time</dt>
+                  <dd className="text-[#1E293B]">Today at 3:14 PM</dd>
                 </div>
                 <div className="flex gap-2">
-                  <dt className="w-32 shrink-0 text-muted-foreground">
-                    Call length
-                  </dt>
-                  <dd className="text-foreground">2m 18s</dd>
+                  <dt className="w-32 shrink-0 text-[#64748B]">Call length</dt>
+                  <dd className="text-[#1E293B]">2m 18s</dd>
                 </div>
                 <div className="flex gap-2">
-                  <dt className="w-32 shrink-0 text-muted-foreground">
-                    What they asked
-                  </dt>
-                  <dd className="text-foreground">
+                  <dt className="w-32 shrink-0 text-[#64748B]">What they asked</dt>
+                  <dd className="text-[#1E293B]">
                     Pricing for a 3-bedroom renovation project. Wants a quote ASAP.
                   </dd>
                 </div>
                 <div className="flex gap-2">
-                  <dt className="w-32 shrink-0 text-muted-foreground">
-                    Action taken
-                  </dt>
-                  <dd className="text-foreground">
+                  <dt className="w-32 shrink-0 text-[#64748B]">Action taken</dt>
+                  <dd className="text-[#1E293B]">
                     Intake form sent to caller via email during call.
                   </dd>
                 </div>
                 <div className="flex items-start gap-2">
-                  <dt className="w-32 shrink-0 text-muted-foreground">Status</dt>
+                  <dt className="w-32 shrink-0 text-[#64748B]">Status</dt>
                   <dd>
-                    <span className="inline-flex items-center rounded-full border border-[#EF4444]/30 bg-[#EF4444]/15 px-2 py-0.5 text-[11px] font-medium text-[#B91C1C]">
+                    <span
+                      className="inline-flex items-center text-[11px] font-medium"
+                      style={{
+                        background: "#FEF2F2",
+                        color: "#DC2626",
+                        borderRadius: "4px",
+                        padding: "2px 8px",
+                      }}
+                    >
                       🔴 Hot Lead — Follow-up recommended within 1 hour
                     </span>
                   </dd>
                 </div>
               </dl>
-              <div className="mt-5 flex flex-wrap gap-4 border-t border-border pt-4 text-sm font-medium">
-                <a className="inline-flex items-center gap-1 text-primary hover:underline" href="#">
+              <div className="mt-5 flex flex-wrap gap-4 pt-4 text-sm font-medium" style={{ borderTop: "1px solid #F1F5F9" }}>
+                <a className="inline-flex items-center gap-1 text-[#2563EB] hover:underline" href="#">
                   Listen to Recording <ArrowRight className="h-3.5 w-3.5" />
                 </a>
-                <a className="inline-flex items-center gap-1 text-primary hover:underline" href="#">
+                <a className="inline-flex items-center gap-1 text-[#2563EB] hover:underline" href="#">
                   View in Dashboard <ArrowRight className="h-3.5 w-3.5" />
                 </a>
               </div>
