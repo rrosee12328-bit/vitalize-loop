@@ -354,14 +354,12 @@ export function PricingTiers() {
                 )}
               </div>
 
-              {/* Footer */}
-              {tier.overage && (
-                <div className="border-t border-border/70 bg-muted/20 px-6 py-3">
-                  <p className="font-mono text-[10px] tracking-wider text-muted-foreground">
-                    {tier.overage}
-                  </p>
-                </div>
-              )}
+              {/* Footer — always render so card heights stay aligned */}
+              <div className="rounded-b-2xl border-t border-border/70 bg-muted/20 px-6 py-3">
+                <p className="font-mono text-[10px] tracking-wider text-muted-foreground">
+                  {tier.overage ?? "Volume-based pricing"}
+                </p>
+              </div>
             </div>
           );
         })}
