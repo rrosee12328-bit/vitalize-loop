@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ArrowRight, PhoneOff, Inbox, MoonStar, BarChart3, ListChecks, Flame, MessageSquare, GitBranch, Smartphone } from "lucide-react";
+import { ArrowRight, BarChart3, ListChecks, Flame, MessageSquare, GitBranch, Smartphone, Phone, Check, X } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { LiveCallDemo } from "@/components/site/ai-assistants/LiveCallDemo";
 import { DashboardPreview } from "@/components/site/ai-assistants/DashboardPreview";
@@ -28,22 +28,88 @@ export const Route = createFileRoute("/solutions/ai-assistants")({
   component: AIAssistantsPage,
 });
 
+function MissedCallIllustration() {
+  return (
+    <svg viewBox="0 0 200 120" className="h-28 w-full" aria-hidden="true">
+      <rect width="200" height="120" rx="12" fill="#F5EFE6" />
+      <circle cx="58" cy="60" r="34" fill="#E8DCC8" />
+      <circle cx="58" cy="60" r="22" fill="#F5EFE6" />
+      <path d="M40 60 L76 60" stroke="#1F2937" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M88 60 L108 60" stroke="#1F2937" strokeWidth="2.5" strokeLinecap="round" strokeDasharray="3 5" />
+      <path d="M120 60 L160 60" stroke="#1F2937" strokeWidth="2.5" strokeLinecap="round" />
+      <circle cx="160" cy="60" r="14" fill="#3B82F6" />
+      <path d="M154 56 q3 6 12 0" stroke="#fff" strokeWidth="2" fill="none" strokeLinecap="round" />
+      <circle cx="160" cy="50" r="1.6" fill="#fff" />
+      <circle cx="160" cy="50" r="1.6" fill="#fff" transform="translate(-6 0)" />
+    </svg>
+  );
+}
+
+function SlowReplyIllustration() {
+  return (
+    <svg viewBox="0 0 200 120" className="h-28 w-full" aria-hidden="true">
+      <rect width="200" height="120" rx="12" fill="#F5EFE6" />
+      <rect x="36" y="34" width="92" height="56" rx="10" fill="#E8DCC8" />
+      <rect x="46" y="46" width="52" height="4" rx="2" fill="#1F2937" opacity="0.6" />
+      <rect x="46" y="56" width="68" height="4" rx="2" fill="#1F2937" opacity="0.35" />
+      <rect x="46" y="66" width="40" height="4" rx="2" fill="#1F2937" opacity="0.35" />
+      <rect x="56" y="44" width="92" height="56" rx="10" fill="#F5EFE6" stroke="#1F2937" strokeWidth="1.5" opacity="0.9" />
+      <rect x="66" y="56" width="50" height="4" rx="2" fill="#1F2937" opacity="0.6" />
+      <rect x="66" y="66" width="68" height="4" rx="2" fill="#1F2937" opacity="0.35" />
+      <rect x="66" y="76" width="36" height="4" rx="2" fill="#1F2937" opacity="0.35" />
+      <circle cx="160" cy="44" r="14" fill="#3B82F6" />
+      <text x="160" y="49" textAnchor="middle" fill="#fff" fontFamily="ui-monospace,monospace" fontSize="13" fontWeight="700">!</text>
+    </svg>
+  );
+}
+
+function AfterHoursIllustration() {
+  return (
+    <svg viewBox="0 0 200 120" className="h-28 w-full" aria-hidden="true">
+      <rect width="200" height="120" rx="12" fill="#F5EFE6" />
+      <circle cx="100" cy="60" r="40" fill="#E8DCC8" />
+      <circle cx="100" cy="60" r="40" fill="#1F2937" clipPath="inset(0 0 0 50%)" />
+      <path d="M100 20 A40 40 0 0 1 100 100 Z" fill="#1F2937" />
+      <circle cx="100" cy="60" r="40" fill="none" stroke="#1F2937" strokeWidth="1.5" />
+      <circle cx="100" cy="60" r="3" fill="#3B82F6" />
+      <line x1="100" y1="60" x2="100" y2="32" stroke="#3B82F6" strokeWidth="2.5" strokeLinecap="round" />
+      <line x1="100" y1="60" x2="122" y2="60" stroke="#3B82F6" strokeWidth="2.5" strokeLinecap="round" />
+      <circle cx="158" cy="32" r="2" fill="#1F2937" opacity="0.5" />
+      <circle cx="170" cy="50" r="1.5" fill="#1F2937" opacity="0.5" />
+      <circle cx="42" cy="40" r="1.5" fill="#1F2937" opacity="0.5" />
+    </svg>
+  );
+}
+
 const problems = [
   {
-    Icon: PhoneOff,
+    Illustration: MissedCallIllustration,
     title: "The Missed Call",
     body: "You're on a job. The phone rings. Nobody answers. That caller just called your competitor.",
   },
   {
-    Icon: Inbox,
-    title: "The Inbox Backlog",
+    Illustration: SlowReplyIllustration,
+    title: "The Slow Reply",
     body: "Emails pile up. Leads go cold. You spend your evenings responding to questions your AI could handle in seconds.",
   },
   {
-    Icon: MoonStar,
+    Illustration: AfterHoursIllustration,
     title: "The After-Hours Gap",
     body: "Your business hours end at 5pm. Your customers' emergencies don't.",
   },
+];
+
+const inactionStats = [
+  { stat: "62%", body: "of business calls go unanswered. Every missed call is a missed lead." },
+  { stat: "85%", body: "of callers who reach voicemail never call back. They just call your competitor." },
+  { stat: "$126K", body: "is the average annual revenue lost by small businesses due to missed calls." },
+];
+
+const comparisonRows = [
+  { feature: "24/7 Availability", vektiss: "Yes", human: "No — 9 to 5 only", voicemail: "Yes, but ignores leads", vektissPositive: true, humanPositive: false, voicemailPositive: false },
+  { feature: "Answers on Ring 1", vektiss: "Always", human: "Usually", voicemail: "Never", vektissPositive: true, humanPositive: true, voicemailPositive: false },
+  { feature: "Captures Lead Info", vektiss: "Yes — Intake Forms", human: "Yes", voicemail: "Rarely", vektissPositive: true, humanPositive: true, voicemailPositive: false },
+  { feature: "Cost", vektiss: "Starting at $45.99/mo", human: "~$3,500/mo", voicemail: "Free, but costs you deals", vektissPositive: true, humanPositive: false, voicemailPositive: false },
 ];
 
 const steps = [
@@ -136,6 +202,32 @@ function AIAssistantsPage() {
         </div>
       </section>
 
+      {/* Live Demo Phone Strip */}
+      <section className="border-t border-border bg-[#111827] text-white">
+        <div className="container-editorial py-10 md:py-12">
+          <div className="flex flex-col items-center gap-6 text-center md:flex-row md:justify-between md:text-left">
+            <div className="flex items-center gap-4">
+              <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary/15 text-primary">
+                <Phone className="h-5 w-5" />
+              </span>
+              <div>
+                <p className="font-mono text-[11px] tracking-[0.18em] text-primary">CALL TO TEST IT LIVE</p>
+                <p className="mt-1 text-sm text-white/70 md:text-base">
+                  Call our live AI front office right now to experience Vektiss Voice firsthand.
+                </p>
+              </div>
+            </div>
+            <a
+              href="tel:+13465947686"
+              className="inline-flex items-center gap-3 rounded-md bg-primary px-6 py-4 text-2xl font-bold tracking-tight text-primary-foreground transition-opacity hover:opacity-90 md:text-3xl"
+            >
+              <Phone className="h-6 w-6" />
+              (346) 594-7686
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Pain Points */}
       <section className="border-t border-border bg-surface-elevated">
         <div className="container-editorial py-24 md:py-32">
@@ -147,21 +239,47 @@ function AIAssistantsPage() {
             {problems.map((p, i) => (
               <article
                 key={p.title}
-                className="rounded-xl border border-border bg-card p-6 shadow-card md:p-8"
+                className="overflow-hidden rounded-xl border border-border bg-card shadow-card"
               >
-                <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                  <p.Icon className="h-5 w-5" />
-                </span>
-                <span className="mt-4 block font-mono text-xs tracking-widest text-muted-foreground">
-                  0{i + 1}
-                </span>
-                <h3 className="mt-1 text-lg font-semibold tracking-tight">
-                  {p.title}
-                </h3>
-                <p className="mt-3 text-muted-foreground">{p.body}</p>
+                <p.Illustration />
+                <div className="p-6 md:p-8">
+                  <span className="block font-mono text-xs tracking-widest text-muted-foreground">
+                    0{i + 1}
+                  </span>
+                  <h3 className="mt-1 text-lg font-semibold tracking-tight">
+                    {p.title}
+                  </h3>
+                  <p className="mt-3 text-muted-foreground">{p.body}</p>
+                </div>
               </article>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Cost of Inaction */}
+      <section className="border-t border-border bg-background">
+        <div className="container-editorial py-24 md:py-32">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="eyebrow text-primary">The Cost of Inaction</p>
+            <h2 className="mt-6 display-2">The numbers don't lie.</h2>
+          </div>
+          <div className="mt-16 grid gap-12 md:grid-cols-3 md:gap-8">
+            {inactionStats.map((s) => (
+              <div key={s.stat} className="text-center md:text-left">
+                <div className="text-6xl font-bold tracking-tight text-foreground md:text-7xl lg:text-8xl">
+                  {s.stat}
+                </div>
+                <div className="mx-auto mt-4 h-px w-12 bg-primary md:mx-0" />
+                <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
+                  {s.body}
+                </p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-14 text-center font-mono text-[11px] tracking-widest text-muted-foreground">
+            SOURCES · BIA/KELSEY · 411 LOCALS
+          </p>
         </div>
       </section>
 
@@ -408,6 +526,82 @@ function AIAssistantsPage() {
                 </h3>
                 <p className="mt-3 text-muted-foreground">{c.body}</p>
               </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Comparison Table */}
+      <section className="border-t border-border bg-surface-elevated">
+        <div className="container-editorial py-24 md:py-32">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="eyebrow text-primary">Comparison</p>
+            <h2 className="mt-6 display-2">Why Vektiss Voice wins.</h2>
+          </div>
+
+          {/* Desktop table */}
+          <div className="mt-14 hidden md:block">
+            <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-card">
+              <table className="w-full">
+                <thead>
+                  <tr className="border-b border-border">
+                    <th className="px-6 py-5 text-left text-sm font-semibold text-muted-foreground">Feature</th>
+                    <th className="bg-primary/10 px-6 py-5 text-left text-sm font-bold text-primary border-x-2 border-primary">
+                      Vektiss Voice
+                    </th>
+                    <th className="px-6 py-5 text-left text-sm font-semibold text-muted-foreground">Human Receptionist</th>
+                    <th className="px-6 py-5 text-left text-sm font-semibold text-muted-foreground">Voicemail</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {comparisonRows.map((r, i) => (
+                    <tr key={r.feature} className={i !== comparisonRows.length - 1 ? "border-b border-border" : ""}>
+                      <td className="px-6 py-5 text-sm font-medium text-foreground">{r.feature}</td>
+                      <td className="bg-primary/5 px-6 py-5 text-sm text-foreground border-x-2 border-primary">
+                        <span className="inline-flex items-start gap-2">
+                          <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                          <span className="font-semibold">{r.vektiss}</span>
+                        </span>
+                      </td>
+                      <td className="px-6 py-5 text-sm text-muted-foreground">
+                        <span className="inline-flex items-start gap-2">
+                          {r.humanPositive ? <Check className="mt-0.5 h-4 w-4 shrink-0 text-foreground/50" /> : <X className="mt-0.5 h-4 w-4 shrink-0 text-foreground/40" />}
+                          <span>{r.human}</span>
+                        </span>
+                      </td>
+                      <td className="px-6 py-5 text-sm text-muted-foreground">
+                        <span className="inline-flex items-start gap-2">
+                          {r.voicemailPositive ? <Check className="mt-0.5 h-4 w-4 shrink-0 text-foreground/50" /> : <X className="mt-0.5 h-4 w-4 shrink-0 text-foreground/40" />}
+                          <span>{r.voicemail}</span>
+                        </span>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* Mobile stacked cards */}
+          <div className="mt-10 grid gap-4 md:hidden">
+            {comparisonRows.map((r) => (
+              <div key={r.feature} className="rounded-xl border border-border bg-card p-5 shadow-card">
+                <p className="text-xs font-mono tracking-widest text-muted-foreground uppercase">{r.feature}</p>
+                <div className="mt-3 space-y-2 text-sm">
+                  <div className="flex items-start gap-2 rounded-md bg-primary/10 p-2 border border-primary/30">
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                    <div><span className="font-semibold text-primary">Vektiss Voice:</span> <span className="font-medium">{r.vektiss}</span></div>
+                  </div>
+                  <div className="flex items-start gap-2 p-2">
+                    {r.humanPositive ? <Check className="mt-0.5 h-4 w-4 shrink-0 text-foreground/50" /> : <X className="mt-0.5 h-4 w-4 shrink-0 text-foreground/40" />}
+                    <div className="text-muted-foreground"><span className="font-medium text-foreground">Human:</span> {r.human}</div>
+                  </div>
+                  <div className="flex items-start gap-2 p-2">
+                    {r.voicemailPositive ? <Check className="mt-0.5 h-4 w-4 shrink-0 text-foreground/50" /> : <X className="mt-0.5 h-4 w-4 shrink-0 text-foreground/40" />}
+                    <div className="text-muted-foreground"><span className="font-medium text-foreground">Voicemail:</span> {r.voicemail}</div>
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
         </div>
