@@ -5,6 +5,7 @@ import { Footer } from "./Footer";
 
 export function SiteLayout({ children }: { children: ReactNode }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const hash = useRouterState({ select: (s) => s.location.hash });
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -16,7 +17,17 @@ export function SiteLayout({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    window.scrollTo(0, 0);
+    if (hash) {
+      // Defer to allow target to mount
+      const id = hash.replace(/^#/, "");
+      requestAnimationFrame(() => {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+        else window.scrollTo(0, 0);
+      });
+    } else {
+      window.scrollTo(0, 0);
+    }
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     // Collect targets: direct children of every <section> inside <main>,
