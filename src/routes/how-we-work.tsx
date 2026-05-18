@@ -275,6 +275,15 @@ function HowWeWorkPage() {
                   <div className="mt-8 rounded-xl border border-border bg-surface-elevated p-5">
                     <Visual />
                   </div>
+                  <div className="mt-6">
+                    <Link
+                      to={p.link}
+                      className="inline-flex items-center gap-1 text-sm font-medium text-primary transition-colors hover:text-primary/80"
+                    >
+                      Learn more
+                      <ArrowRight className="h-3.5 w-3.5" />
+                    </Link>
+                  </div>
                 </div>
               </article>
             );
