@@ -1,16 +1,11 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowRight,
-  CreditCard,
-  FileText,
-  CalendarX,
-  PhoneOff,
+  X,
   LayoutDashboard,
   Activity,
   Rocket,
   Handshake,
-  Search,
-  Blocks,
   BarChart3,
   AudioLines,
   Smartphone,
@@ -39,10 +34,10 @@ export const Route = createFileRoute("/how-we-work")({
 });
 
 const usuallyGet = [
-  { icon: CreditCard, label: "A new SaaS subscription" },
-  { icon: FileText, label: "A 90-page playbook nobody opens" },
-  { icon: CalendarX, label: "A 6-month implementation" },
-  { icon: PhoneOff, label: "A bill, then radio silence" },
+  { label: "A new SaaS subscription" },
+  { label: "A 90-page playbook nobody opens" },
+  { label: "A 6-month implementation" },
+  { label: "A bill, then radio silence" },
 ];
 
 const vektissGet = [
@@ -82,24 +77,28 @@ const pillars = [
     desc: "Live visibility into every initiative — status, blockers, owner, throughput. The visibility layer your leadership team has been asking for.",
     Visual: IntelligenceVisual,
     icon: BarChart3,
+    link: "/solutions/project-intelligence",
   },
   {
     name: "Vektiss Voice",
     desc: "Always-on assistants that answer calls, qualify leads, draft replies, and route the moments that need a human — so communication stops being the bottleneck.",
     Visual: VoiceVisual,
     icon: AudioLines,
+    link: "/solutions/ai-assistants",
   },
   {
     name: "Vektiss Sites",
     desc: "Marketing site, branded client portal, and internal apps built as one connected experience. Lead capture, onboarding, and delivery on a single stack.",
     Visual: SitesVisual,
     icon: Smartphone,
+    link: "/solutions/websites-portals-apps",
   },
   {
     name: "Vektiss Media",
     desc: "Founder-led video, short-form cuts, and AI avatar assets — produced inside a system so your expertise stays visible at scale.",
     Visual: MediaVisual,
     icon: PlayCircle,
+    link: "/solutions/business-media",
   },
 ];
 
@@ -124,10 +123,10 @@ function HowWeWorkPage() {
             <div className="absolute inset-0 rounded-2xl bg-[repeating-linear-gradient(45deg,transparent_0_12px,rgba(0,0,0,0.015)_12px_13px)] pointer-events-none" />
             <p className="eyebrow text-muted-foreground">What you usually get</p>
             <ul className="mt-8 space-y-5">
-              {usuallyGet.map(({ icon: Icon, label }) => (
+              {usuallyGet.map(({ label }) => (
                 <li key={label} className="flex items-start gap-4">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-border bg-background/60">
-                    <Icon className="h-4 w-4 text-muted-foreground/70" strokeWidth={1.5} />
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-orange-200 bg-orange-50">
+                    <X className="h-4 w-4 text-orange-500" strokeWidth={2.5} />
                   </div>
                   <span className="pt-2 text-muted-foreground line-through decoration-muted-foreground/30">
                     {label}
@@ -236,6 +235,28 @@ function HowWeWorkPage() {
         </div>
       </section>
 
+      {/* STAT STRIP */}
+      <section className="border-t border-border bg-[#F8FAFC]">
+        <div className="container-editorial py-20 md:py-24">
+          <div className="flex flex-col items-center justify-center gap-10 md:flex-row md:gap-0">
+            <div className="text-center md:flex-1">
+              <div className="text-5xl font-bold tracking-tight text-[#0F172A] md:text-[48px]">4–5 Weeks</div>
+              <div className="mt-2 text-sm text-gray-500">Average build time</div>
+            </div>
+            <div className="hidden h-16 w-px bg-gray-300 md:block" />
+            <div className="text-center md:flex-1">
+              <div className="text-5xl font-bold tracking-tight text-[#0F172A] md:text-[48px]">Week 1</div>
+              <div className="mt-2 text-sm text-gray-500">When clients see first results</div>
+            </div>
+            <div className="hidden h-16 w-px bg-gray-300 md:block" />
+            <div className="text-center md:flex-1">
+              <div className="text-5xl font-bold tracking-tight text-[#0F172A] md:text-[48px]">Zero</div>
+              <div className="mt-2 text-sm text-gray-500">Rip-and-replace required</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* PILLARS — Bento Grid */}
       <section className="container-editorial py-24 md:py-32">
         <div className="max-w-3xl">
@@ -276,6 +297,15 @@ function HowWeWorkPage() {
                   <div className="mt-8 rounded-xl border border-border bg-surface-elevated p-5">
                     <Visual />
                   </div>
+                  <div className="mt-6">
+                    <Link
+                      to={p.link}
+                      className="inline-flex items-center gap-1 text-sm font-medium text-primary transition-colors hover:text-primary/80"
+                    >
+                      Learn more
+                      <ArrowRight className="h-3.5 w-3.5" />
+                    </Link>
+                  </div>
                 </div>
               </article>
             );
@@ -284,47 +314,35 @@ function HowWeWorkPage() {
       </section>
 
       {/* CTA */}
-      <section className="border-t border-border">
+      <section className="border-t border-border bg-[#0F172A]">
         <div className="container-editorial py-24 md:py-32">
-          <div
-            className="relative overflow-hidden rounded-3xl border border-primary/20 bg-card p-10 md:p-16"
-            style={{
-              boxShadow:
-                "0 40px 80px -30px color-mix(in oklab, var(--color-primary) 30%, transparent)",
-            }}
-          >
-            <div
-              className="absolute -right-32 -top-32 h-96 w-96 rounded-full opacity-20"
-              style={{
-                background:
-                  "radial-gradient(circle, var(--color-primary) 0%, transparent 70%)",
-              }}
-              aria-hidden
-            />
-            <div className="relative grid items-end gap-10 md:grid-cols-12">
-              <div className="md:col-span-8">
-                <p className="eyebrow text-primary">Get started</p>
-                <h2 className="mt-4 display-2">Ready to see the system you actually need?</h2>
-                <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-                  Book a 30-minute intro call. We'll map your operations and show you exactly
-                  where the highest-leverage system lives.
-                </p>
-              </div>
-              <div className="md:col-span-4 md:text-right">
-                <a
-                  href="https://calendly.com/vektiss-info/30-minute-vektiss-discovery"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group inline-flex h-14 items-center gap-2 rounded-xl bg-primary px-8 text-base font-medium text-primary-foreground transition-all hover:scale-[1.02] hover:opacity-95"
-                  style={{
-                    boxShadow:
-                      "0 20px 40px -12px color-mix(in oklab, var(--color-primary) 60%, transparent)",
-                  }}
-                >
-                  Book a Demo
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                </a>
-              </div>
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="eyebrow text-primary">Get started</p>
+            <h2 className="mt-4 display-2 text-white">Ready to see the system you actually need?</h2>
+            <p className="mt-6 text-lg text-white/70">
+              Book a 30-minute intro call. We'll map your operations and show you exactly
+              where the highest-leverage system lives.
+            </p>
+            <div className="mt-10 flex flex-col items-center gap-4">
+              <a
+                href="https://calendly.com/vektiss-info/30-minute-vektiss-discovery"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex h-14 items-center gap-2 rounded-xl bg-[#2563EB] px-10 text-base font-medium text-white transition-all hover:scale-[1.02] hover:opacity-95"
+                style={{
+                  boxShadow:
+                    "0 20px 40px -12px rgba(37, 99, 235, 0.5)",
+                }}
+              >
+                Book a Demo
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              </a>
+              <a
+                href="tel:+13465947686"
+                className="text-sm text-white/50 transition-colors hover:text-white/80"
+              >
+                Or call us directly: (346) 594-7686
+              </a>
             </div>
           </div>
         </div>
