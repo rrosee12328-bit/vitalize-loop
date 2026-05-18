@@ -151,14 +151,19 @@ export function DashboardPreview() {
                   <span className="text-[11px] text-muted-foreground truncate">
                     {a.time} · <span className="font-mono tabular-nums">{a.caller}</span>
                   </span>
-                  <span
-                    className={cn(
-                      "inline-flex items-center rounded-full border px-2 py-0.5 text-[10px] font-medium shrink-0",
-                      tagStyles[a.tag.tone],
-                    )}
-                  >
-                    {a.tag.label}
-                  </span>
+                  <div className="flex shrink-0 items-center gap-1.5">
+                    {a.tags.map((t) => (
+                      <span
+                        key={t.label}
+                        className={cn(
+                          "inline-flex items-center rounded-full border px-2 py-0.5 text-[10px] font-medium",
+                          tagStyles[t.tone],
+                        )}
+                      >
+                        {t.label}
+                      </span>
+                    ))}
+                  </div>
                 </div>
                 <p className="mt-1 text-foreground/85 leading-snug">{a.summary}</p>
               </li>
