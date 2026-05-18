@@ -5,7 +5,6 @@ import { VektissLogo } from "./VektissLogo";
 
 const navItems = [
   { to: "/how-we-work", label: "How we work" },
-  { to: "/case-studies", label: "Case studies" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
 ] as const;

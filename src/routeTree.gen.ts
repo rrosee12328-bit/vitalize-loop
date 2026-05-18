@@ -14,7 +14,6 @@ import { Route as SolutionsRouteImport } from './routes/solutions'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as HowWeWorkRouteImport } from './routes/how-we-work'
 import { Route as ContactRouteImport } from './routes/contact'
-import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as BookRouteImport } from './routes/book'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -46,11 +45,6 @@ const HowWeWorkRoute = HowWeWorkRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CaseStudiesRoute = CaseStudiesRouteImport.update({
-  id: '/case-studies',
-  path: '/case-studies',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BookRoute = BookRouteImport.update({
@@ -95,7 +89,6 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/book': typeof BookRoute
-  '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
   '/how-we-work': typeof HowWeWorkRoute
   '/privacy': typeof PrivacyRoute
@@ -110,7 +103,6 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/book': typeof BookRoute
-  '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
   '/how-we-work': typeof HowWeWorkRoute
   '/privacy': typeof PrivacyRoute
@@ -126,7 +118,6 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/book': typeof BookRoute
-  '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
   '/how-we-work': typeof HowWeWorkRoute
   '/privacy': typeof PrivacyRoute
@@ -143,7 +134,6 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/book'
-    | '/case-studies'
     | '/contact'
     | '/how-we-work'
     | '/privacy'
@@ -158,7 +148,6 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/book'
-    | '/case-studies'
     | '/contact'
     | '/how-we-work'
     | '/privacy'
@@ -173,7 +162,6 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/book'
-    | '/case-studies'
     | '/contact'
     | '/how-we-work'
     | '/privacy'
@@ -189,7 +177,6 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   BookRoute: typeof BookRoute
-  CaseStudiesRoute: typeof CaseStudiesRoute
   ContactRoute: typeof ContactRoute
   HowWeWorkRoute: typeof HowWeWorkRoute
   PrivacyRoute: typeof PrivacyRoute
@@ -232,13 +219,6 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/case-studies': {
-      id: '/case-studies'
-      path: '/case-studies'
-      fullPath: '/case-studies'
-      preLoaderRoute: typeof CaseStudiesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/book': {
@@ -315,7 +295,6 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   BookRoute: BookRoute,
-  CaseStudiesRoute: CaseStudiesRoute,
   ContactRoute: ContactRoute,
   HowWeWorkRoute: HowWeWorkRoute,
   PrivacyRoute: PrivacyRoute,

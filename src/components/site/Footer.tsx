@@ -50,7 +50,6 @@ export function Footer() {
             <p className="eyebrow text-white/50">Company</p>
             <ul className="mt-4 space-y-3 text-sm">
               <li><Link to="/how-we-work" className="text-white/70 hover:text-white">How we work</Link></li>
-              <li><Link to="/case-studies" className="text-white/70 hover:text-white">Case studies</Link></li>
               <li><Link to="/about" className="text-white/70 hover:text-white">About</Link></li>
               <li><Link to="/contact" className="text-white/70 hover:text-white">Contact</Link></li>
             </ul>
