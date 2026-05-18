@@ -363,7 +363,7 @@ function AIAssistantsPage() {
       </section>
 
       {/* Business Intelligence */}
-      <section id="pricing" className="border-t border-border">
+      <section className="border-t border-border">
         <div className="container-editorial pt-16 pb-24 md:pt-16 md:pb-32">
           <div className="mx-auto max-w-3xl text-center">
             <p className="eyebrow text-primary">Business Intelligence</p>
@@ -412,7 +412,7 @@ function AIAssistantsPage() {
       </section>
 
       {/* Pricing */}
-      <section className="border-t border-border">
+      <section id="pricing" className="border-t border-border">
 
         <div className="container-editorial py-24 md:py-32">
           <div className="mx-auto max-w-2xl text-center">
