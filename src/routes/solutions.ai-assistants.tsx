@@ -302,10 +302,15 @@ function AIAssistantsPage() {
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </a>
               <a
-                href="#dashboard"
+                href="#pricing-tiers"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById("pricing-tiers")?.scrollIntoView({ behavior: "smooth", block: "start" });
+                  history.replaceState(null, "", "#pricing-tiers");
+                }}
                 className="inline-flex h-12 items-center gap-2 rounded-md border border-foreground/80 bg-transparent px-6 text-sm font-medium text-foreground transition-colors hover:bg-foreground hover:text-background"
               >
-                Hear a Live Demo
+                See Pricing
               </a>
             </div>
             <div className="mt-5 flex flex-wrap items-center gap-2">
