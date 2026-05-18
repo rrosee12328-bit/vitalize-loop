@@ -412,7 +412,7 @@ function AIAssistantsPage() {
       </section>
 
       {/* Pricing */}
-      <section className="border-t border-border">
+      <section id="pricing" className="border-t border-border">
 
         <div className="container-editorial py-24 md:py-32">
           <div className="mx-auto max-w-2xl text-center">
