@@ -56,17 +56,16 @@ export function Footer() {
             </ul>
           </div>
 
-          <div className="md:col-span-2">
-            <p className="eyebrow text-white/50">Legal</p>
-            <ul className="mt-4 space-y-3 text-sm">
-              <li><Link to="/privacy" className="text-white/70 hover:text-white">Privacy</Link></li>
-              <li><Link to="/terms" className="text-white/70 hover:text-white">Terms</Link></li>
-            </ul>
-          </div>
         </div>
 
-        <div className="mt-16 flex flex-col gap-2 border-t border-white/10 pt-8 text-xs text-white/50 md:flex-row md:items-center md:justify-between">
-          <p>© {new Date().getFullYear()} Vektiss. All rights reserved.</p>
+        <div className="mt-16 flex flex-col items-start gap-3 border-t border-white/10 pt-8 text-xs text-white/50 md:flex-row md:items-center md:justify-between">
+          <div className="flex flex-col gap-2 md:flex-row md:items-center md:gap-4">
+            <p>© {new Date().getFullYear()} Vektiss. All rights reserved.</p>
+            <span className="hidden text-white/20 md:inline">|</span>
+            <Link to="/privacy" className="hover:text-white">Privacy Policy</Link>
+            <span className="hidden text-white/20 md:inline">|</span>
+            <Link to="/terms" className="hover:text-white">Terms of Service</Link>
+          </div>
           <p className="font-mono tracking-wider">SYSTEMS · NOT DELIVERABLES</p>
         </div>
       </div>
