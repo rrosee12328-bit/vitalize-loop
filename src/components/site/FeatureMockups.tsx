@@ -288,15 +288,22 @@ export function PortalMockup({ compact = false }: { compact?: boolean } = {}) {
             </div>
           </div>
 
-          <div className="mt-3 grid grid-cols-3 gap-2">
+          <div className={compact ? "mt-3 space-y-1.5" : "mt-3 grid grid-cols-3 gap-2"}>
             {stats.map((s) => (
-              <div key={s.k} className="min-w-0 rounded-md border border-border p-2">
-                <div className="truncate text-[8px] uppercase tracking-wider text-muted-foreground">
+              <div
+                key={s.k}
+                className={
+                  compact
+                    ? "flex min-w-0 items-center justify-between gap-3 rounded-md border border-border px-2.5 py-2"
+                    : "min-w-0 rounded-md border border-border p-2"
+                }
+              >
+                <div className={compact ? "truncate text-[9px] uppercase tracking-wider text-muted-foreground" : "truncate text-[9px] uppercase tracking-wider text-muted-foreground"}>
                   {s.k}
                 </div>
-                <div className="mt-1 flex flex-col">
-                  <span className="truncate text-xs font-semibold leading-tight text-foreground">{s.v}</span>
-                  <span className="mt-0.5 truncate text-[8px] font-medium leading-none text-primary">{s.t}</span>
+                <div className={compact ? "flex shrink-0 items-baseline gap-1.5 whitespace-nowrap" : "mt-1 flex flex-col"}>
+                  <span className={compact ? "text-xs font-semibold leading-tight text-foreground" : "truncate text-sm font-semibold leading-tight text-foreground"}>{s.v}</span>
+                  <span className={compact ? "text-[8px] font-medium leading-none text-primary" : "mt-0.5 truncate text-[9px] font-medium leading-none text-primary"}>{s.t}</span>
                 </div>
               </div>
             ))}
