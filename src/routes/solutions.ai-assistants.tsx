@@ -1121,19 +1121,28 @@ function RoutingFlowchart() {
 function IntakeFormPhoneMockup() {
   return (
     <div
-      className="relative overflow-hidden rounded-2xl border border-border p-8 shadow-card md:p-12"
-      style={{ background: "linear-gradient(160deg, #F5EFE6 0%, #EEF2FF 100%)" }}
+      className="relative overflow-hidden rounded-3xl border border-white/60 p-8 shadow-[0_20px_60px_-20px_rgba(15,23,42,0.25)] md:p-14"
+      style={{
+        background:
+          "radial-gradient(circle at 20% 10%, rgba(37,99,235,0.10), transparent 55%), radial-gradient(circle at 85% 90%, rgba(168,85,247,0.10), transparent 55%), linear-gradient(160deg,#FAFAF7 0%,#F4F1EC 100%)",
+      }}
     >
-      {/* faint form behind phone */}
-      <div className="pointer-events-none absolute right-6 top-8 hidden w-[48%] rounded-xl border border-border bg-white/80 p-4 opacity-70 shadow-sm backdrop-blur sm:block">
-        <p className="font-mono text-[9px] tracking-widest text-[#2563EB]">CLIENT INTAKE</p>
-        <div className="mt-2 space-y-1.5">
-          <div className="h-2 w-3/4 rounded bg-border" />
-          <div className="h-2 w-2/3 rounded bg-border" />
-          <div className="h-2 w-1/2 rounded bg-border" />
-          <div className="mt-3 h-6 w-24 rounded bg-[#2563EB]/30" />
-        </div>
-      </div>
+      {/* subtle grid texture */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.35]"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(15,23,42,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(15,23,42,0.06) 1px, transparent 1px)",
+          backgroundSize: "28px 28px",
+          maskImage: "radial-gradient(ellipse at center, black 40%, transparent 75%)",
+        }}
+      />
+      {/* soft glow behind phone */}
+      <div
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[380px] w-[380px] -translate-x-1/2 -translate-y-1/2 rounded-full"
+        style={{ background: "radial-gradient(circle, rgba(37,99,235,0.18), transparent 70%)" }}
+      />
+
 
       {/* Realistic iPhone */}
       <div className="relative mx-auto" style={{ width: 232, perspective: "1200px" }}>
