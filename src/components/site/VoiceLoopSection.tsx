@@ -91,10 +91,10 @@ export function VoiceLoopSection() {
         </div>
 
         {/* Email + Dashboard */}
-        <div className="grid items-start gap-8 md:grid-cols-2 md:gap-10">
+        <div className="grid items-stretch gap-8 md:grid-cols-2 md:gap-10">
           {/* Email mockup */}
           <div
-            className="overflow-hidden rounded-2xl bg-white text-[#1E293B]"
+            className="flex h-full flex-col overflow-hidden rounded-2xl bg-white text-[#1E293B]"
             style={{ boxShadow: "0 4px 24px rgba(0, 0, 0, 0.25)" }}
           >
             <div className="px-5 py-3" style={{ background: "#F8FAFC", borderBottom: "1px solid #F1F5F9" }}>
