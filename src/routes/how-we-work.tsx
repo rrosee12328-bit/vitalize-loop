@@ -238,22 +238,18 @@ function HowWeWorkPage() {
       {/* STAT STRIP */}
       <section className="border-t border-border bg-[#F8FAFC]">
         <div className="container-editorial py-20 md:py-24">
-          <div className="grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-0">
-            <div className="text-center">
+          <div className="flex flex-col items-center justify-center gap-10 md:flex-row md:gap-0">
+            <div className="text-center md:flex-1">
               <div className="text-5xl font-bold tracking-tight text-[#0F172A] md:text-[48px]">4–5 Weeks</div>
               <div className="mt-2 text-sm text-gray-500">Average build time</div>
             </div>
-            <div className="flex items-center justify-center md:px-10">
-              <div className="h-px w-24 bg-gray-300 md:h-16 md:w-px" />
-            </div>
-            <div className="text-center">
+            <div className="hidden h-16 w-px bg-gray-300 md:block" />
+            <div className="text-center md:flex-1">
               <div className="text-5xl font-bold tracking-tight text-[#0F172A] md:text-[48px]">Week 1</div>
               <div className="mt-2 text-sm text-gray-500">When clients see first results</div>
             </div>
-            <div className="flex items-center justify-center md:px-10">
-              <div className="h-px w-24 bg-gray-300 md:h-16 md:w-px" />
-            </div>
-            <div className="text-center">
+            <div className="hidden h-16 w-px bg-gray-300 md:block" />
+            <div className="text-center md:flex-1">
               <div className="text-5xl font-bold tracking-tight text-[#0F172A] md:text-[48px]">Zero</div>
               <div className="mt-2 text-sm text-gray-500">Rip-and-replace required</div>
             </div>
