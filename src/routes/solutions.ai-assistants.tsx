@@ -204,7 +204,10 @@ function AIAssistantsPage() {
               <ul className="space-y-4">
                 {dashFeatures.map((f) => (
                   <li key={f} className="flex items-start gap-3">
-                    <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-[11px]">
+                    <span
+                      className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[11px] text-[#3B82F6]"
+                      style={{ background: "rgba(59, 130, 246, 0.12)" }}
+                    >
                       ✓
                     </span>
                     <span className="text-base text-white/85">{f}</span>
