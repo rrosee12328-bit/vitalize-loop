@@ -335,27 +335,16 @@ function AIAssistantsPage() {
         </div>
       </section>
 
-      {/* How it works */}
+      {/* How it works — interactive timeline */}
       <section className="container-editorial py-24 md:py-32">
         <div className="mx-auto max-w-3xl text-center">
           <p className="eyebrow">How It Works</p>
           <h2 className="mt-6 display-2">Live in 48 hours. Three steps.</h2>
+          <p className="mt-6 text-lg text-muted-foreground">
+            Click a step to see what happens behind the scenes.
+          </p>
         </div>
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
-          {steps.map((s) => (
-            <article key={s.phase} className="border-t border-border pt-6">
-              <span className="font-mono text-xs tracking-widest text-primary">
-                {s.phase}
-              </span>
-              <h3 className="mt-4 text-xl font-semibold tracking-tight">
-                {s.title}
-              </h3>
-              <p className="mt-3 text-sm leading-6 text-muted-foreground">
-                {s.desc}
-              </p>
-            </article>
-          ))}
-        </div>
+        <HowItWorksTimeline />
       </section>
 
       {/* What It Actually Does */}
