@@ -40,7 +40,7 @@ export const Route = createFileRoute("/solutions/websites-portals-apps")({
           desc: "Where clients log in, see status, share files, and message your team. No more digging through email threads.",
         },
         {
-          name: "Custom internal apps",
+          name: "Apps",
           desc: "Replace the spreadsheets, Notion docs, and ad-hoc forms your team holds together with proper workflows.",
         },
         {

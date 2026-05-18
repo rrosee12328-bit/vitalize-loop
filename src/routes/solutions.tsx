@@ -59,7 +59,7 @@ const solutions = [
     bullets: [
       "Conversion-focused marketing site",
       "Branded client portal",
-      "Custom internal apps",
+      "Apps",
     ],
   },
   {
