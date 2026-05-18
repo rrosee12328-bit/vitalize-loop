@@ -31,17 +31,6 @@ const steps = [
   },
 ];
 
-function FlowArrow() {
-  return (
-    <div className="hidden md:flex flex-1 items-center justify-center px-2">
-      <div className="relative h-px w-full overflow-hidden bg-white/15">
-        <span className="absolute inset-y-0 -left-1/3 w-1/3 bg-gradient-to-r from-transparent via-[#2563EB] to-transparent animate-flow-pulse" />
-      </div>
-      <ArrowRight className="ml-2 h-4 w-4 shrink-0 text-[#2563EB]" />
-    </div>
-  );
-}
-
 export function VoiceLoopSection() {
   return (
     <section className="border-b border-border bg-[#0F172A] text-white">
