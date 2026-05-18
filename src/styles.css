@@ -256,3 +256,11 @@
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
 }
+
+@keyframes flow-pulse {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(400%); }
+}
+.animate-flow-pulse {
+  animation: flow-pulse 2.2s linear infinite;
+}
