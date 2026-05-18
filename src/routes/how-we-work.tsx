@@ -123,10 +123,10 @@ function HowWeWorkPage() {
             <div className="absolute inset-0 rounded-2xl bg-[repeating-linear-gradient(45deg,transparent_0_12px,rgba(0,0,0,0.015)_12px_13px)] pointer-events-none" />
             <p className="eyebrow text-muted-foreground">What you usually get</p>
             <ul className="mt-8 space-y-5">
-              {usuallyGet.map(({ icon: Icon, label }) => (
+              {usuallyGet.map(({ label }) => (
                 <li key={label} className="flex items-start gap-4">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-border bg-background/60">
-                    <Icon className="h-4 w-4 text-muted-foreground/70" strokeWidth={1.5} />
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-orange-200 bg-orange-50">
+                    <X className="h-4 w-4 text-orange-500" strokeWidth={2.5} />
                   </div>
                   <span className="pt-2 text-muted-foreground line-through decoration-muted-foreground/30">
                     {label}
