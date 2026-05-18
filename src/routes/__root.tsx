@@ -48,8 +48,10 @@ export const Route = createRootRoute({
       { name: "description", content: "AI business systems for growth-stage operators. Project management, AI assistants, client portals, and business media — built and deployed by Vektiss." },
       { property: "og:description", content: "AI business systems for growth-stage operators. Project management, AI assistants, client portals, and business media — built and deployed by Vektiss." },
       { name: "twitter:description", content: "AI business systems for growth-stage operators. Project management, AI assistants, client portals, and business media — built and deployed by Vektiss." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/209b6648-e492-410d-9674-1c821421f30f/id-preview-10fd757d--6dfb11c4-d2f1-41a0-88f5-bc55613be36e.lovable.app-1777176784955.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/209b6648-e492-410d-9674-1c821421f30f/id-preview-10fd757d--6dfb11c4-d2f1-41a0-88f5-bc55613be36e.lovable.app-1777176784955.png" },
+      { property: "og:image", content: "https://vektiss.com/og-image.png" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "640" },
+      { name: "twitter:image", content: "https://vektiss.com/og-image.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
