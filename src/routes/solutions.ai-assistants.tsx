@@ -202,6 +202,32 @@ function AIAssistantsPage() {
         </div>
       </section>
 
+      {/* Live Demo Phone Strip */}
+      <section className="border-t border-border bg-[#111827] text-white">
+        <div className="container-editorial py-10 md:py-12">
+          <div className="flex flex-col items-center gap-6 text-center md:flex-row md:justify-between md:text-left">
+            <div className="flex items-center gap-4">
+              <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary/15 text-primary">
+                <Phone className="h-5 w-5" />
+              </span>
+              <div>
+                <p className="font-mono text-[11px] tracking-[0.18em] text-primary">CALL TO TEST IT LIVE</p>
+                <p className="mt-1 text-sm text-white/70 md:text-base">
+                  Call our live AI front office right now to experience Vektiss Voice firsthand.
+                </p>
+              </div>
+            </div>
+            <a
+              href="tel:+13465947686"
+              className="inline-flex items-center gap-3 rounded-md bg-primary px-6 py-4 text-2xl font-bold tracking-tight text-primary-foreground transition-opacity hover:opacity-90 md:text-3xl"
+            >
+              <Phone className="h-6 w-6" />
+              (346) 594-7686
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Pain Points */}
       <section className="border-t border-border bg-surface-elevated">
         <div className="container-editorial py-24 md:py-32">
@@ -213,21 +239,47 @@ function AIAssistantsPage() {
             {problems.map((p, i) => (
               <article
                 key={p.title}
-                className="rounded-xl border border-border bg-card p-6 shadow-card md:p-8"
+                className="overflow-hidden rounded-xl border border-border bg-card shadow-card"
               >
-                <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                  <p.Icon className="h-5 w-5" />
-                </span>
-                <span className="mt-4 block font-mono text-xs tracking-widest text-muted-foreground">
-                  0{i + 1}
-                </span>
-                <h3 className="mt-1 text-lg font-semibold tracking-tight">
-                  {p.title}
-                </h3>
-                <p className="mt-3 text-muted-foreground">{p.body}</p>
+                <p.Illustration />
+                <div className="p-6 md:p-8">
+                  <span className="block font-mono text-xs tracking-widest text-muted-foreground">
+                    0{i + 1}
+                  </span>
+                  <h3 className="mt-1 text-lg font-semibold tracking-tight">
+                    {p.title}
+                  </h3>
+                  <p className="mt-3 text-muted-foreground">{p.body}</p>
+                </div>
               </article>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Cost of Inaction */}
+      <section className="border-t border-border bg-background">
+        <div className="container-editorial py-24 md:py-32">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="eyebrow text-primary">The Cost of Inaction</p>
+            <h2 className="mt-6 display-2">The numbers don't lie.</h2>
+          </div>
+          <div className="mt-16 grid gap-12 md:grid-cols-3 md:gap-8">
+            {inactionStats.map((s) => (
+              <div key={s.stat} className="text-center md:text-left">
+                <div className="text-6xl font-bold tracking-tight text-foreground md:text-7xl lg:text-8xl">
+                  {s.stat}
+                </div>
+                <div className="mx-auto mt-4 h-px w-12 bg-primary md:mx-0" />
+                <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
+                  {s.body}
+                </p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-14 text-center font-mono text-[11px] tracking-widest text-muted-foreground">
+            SOURCES · BIA/KELSEY · 411 LOCALS
+          </p>
         </div>
       </section>
 
