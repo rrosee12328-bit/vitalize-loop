@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import { ArrowRight, PhoneOff, Inbox, MoonStar, BarChart3, ListChecks, Flame, MessageSquare, GitBranch, Smartphone } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { LiveCallDemo } from "@/components/site/ai-assistants/LiveCallDemo";
@@ -300,36 +301,8 @@ function AIAssistantsPage() {
                 </p>
               </div>
               <div className="md:col-span-6">
-                <div className="rounded-2xl border border-[rgba(0,0,0,0.08)] bg-white p-6 shadow-[0_2px_12px_rgba(0,0,0,0.06)] md:p-8">
-                  <p className="font-mono text-[11px] tracking-widest text-muted-foreground">
-                    EMAIL PREVIEW
-                  </p>
-                  <div className="mt-4 space-y-2 border-b border-[rgba(0,0,0,0.08)] pb-3 text-sm">
-                    <div className="flex gap-2">
-                      <span className="text-muted-foreground">From:</span>
-                      <span className="font-medium">Vektiss Voice &lt;assistant@vektiss.com&gt;</span>
-                    </div>
-                    <div className="flex gap-2">
-                      <span className="text-muted-foreground">To:</span>
-                      <span className="font-medium">sarah@example.com</span>
-                    </div>
-                    <div className="flex gap-2">
-                      <span className="text-muted-foreground">Subject:</span>
-                      <span className="font-medium">Your intake form — Apex Restoration</span>
-                    </div>
-                  </div>
-                  <div className="mt-4 text-sm leading-6 text-foreground">
-                    <p>Hi Sarah,</p>
-                    <p className="mt-2">
-                      Thanks for calling Apex Restoration. Here is the link to the intake form we discussed:{" "}
-                      <span className="text-[#3B82F6] underline">vektiss.com/intake/apex-restoration</span>
-                    </p>
-                    <p className="mt-2">
-                      Fill this out and our team will review it shortly. You will hear back within 24 hours.
-                    </p>
-                    <p className="mt-4 text-muted-foreground">— Vektiss Voice</p>
-                  </div>
-                </div>
+                <DynamicEmailPreview />
+
               </div>
             </div>
           </div>
@@ -503,5 +476,98 @@ function AIAssistantsPage() {
         </div>
       </section>
     </SiteLayout>
+  );
+}
+
+const emailScenarios = [
+  {
+    firstName: "Sarah",
+    email: "sarah.miller@gmail.com",
+    company: "Apex Restoration",
+    slug: "apex-restoration",
+    subject: "Your intake form — Apex Restoration",
+  },
+  {
+    firstName: "David",
+    email: "d.chen@northpeakhvac.com",
+    company: "North Peak HVAC",
+    slug: "north-peak-hvac",
+    subject: "Service request form — North Peak HVAC",
+  },
+  {
+    firstName: "Maya",
+    email: "maya.r@lumenlegal.com",
+    company: "Lumen Legal",
+    slug: "lumen-legal-intake",
+    subject: "New client intake — Lumen Legal",
+  },
+  {
+    firstName: "Jordan",
+    email: "jordan@brightsmiledental.com",
+    company: "Brightsmile Dental",
+    slug: "brightsmile-dental",
+    subject: "Patient intake form — Brightsmile Dental",
+  },
+];
+
+function DynamicEmailPreview() {
+  const [index, setIndex] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setVisible(false);
+      const t = setTimeout(() => {
+        setIndex((i) => (i + 1) % emailScenarios.length);
+        setVisible(true);
+      }, 250);
+      return () => clearTimeout(t);
+    }, 3800);
+    return () => clearInterval(interval);
+  }, []);
+
+  const s = emailScenarios[index];
+
+  return (
+    <div className="rounded-2xl border border-[rgba(0,0,0,0.08)] bg-white p-6 shadow-[0_2px_12px_rgba(0,0,0,0.06)] md:p-8">
+      <div className="flex items-center justify-between">
+        <p className="font-mono text-[11px] tracking-widest text-muted-foreground">
+          EMAIL PREVIEW
+        </p>
+        <span className="inline-flex items-center gap-1.5 rounded-full bg-[#3B82F6]/10 px-2 py-0.5 font-mono text-[10px] tracking-wider text-[#3B82F6]">
+          <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#3B82F6]" />
+          LIVE
+        </span>
+      </div>
+      <div
+        className={`transition-all duration-300 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-1"}`}
+      >
+        <div className="mt-4 space-y-2 border-b border-[rgba(0,0,0,0.08)] pb-3 text-sm">
+          <div className="flex gap-2">
+            <span className="text-muted-foreground">From:</span>
+            <span className="font-medium">Vektiss Voice &lt;assistant@vektiss.com&gt;</span>
+          </div>
+          <div className="flex gap-2">
+            <span className="text-muted-foreground">To:</span>
+            <span className="font-medium">{s.email}</span>
+          </div>
+          <div className="flex gap-2">
+            <span className="text-muted-foreground">Subject:</span>
+            <span className="font-medium">{s.subject}</span>
+          </div>
+        </div>
+        <div className="mt-4 text-sm leading-6 text-foreground">
+          <p>Hi {s.firstName},</p>
+          <p className="mt-2">
+            Thanks for calling {s.company}. Here is the link to the intake form we discussed:{" "}
+            <span className="text-[#3B82F6] underline">vektiss.com/intake/{s.slug}</span>
+          </p>
+          <p className="mt-2">
+            Fill this out and our team will review it shortly. You will hear back within 24 hours.
+          </p>
+          <p className="mt-4 text-muted-foreground">— Vektiss Voice</p>
+        </div>
+      </div>
+    </div>
   );
 }
