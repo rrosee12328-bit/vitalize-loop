@@ -34,10 +34,10 @@ export const Route = createFileRoute("/how-we-work")({
 });
 
 const usuallyGet = [
-  { icon: CreditCard, label: "A new SaaS subscription" },
-  { icon: FileText, label: "A 90-page playbook nobody opens" },
-  { icon: CalendarX, label: "A 6-month implementation" },
-  { icon: PhoneOff, label: "A bill, then radio silence" },
+  { label: "A new SaaS subscription" },
+  { label: "A 90-page playbook nobody opens" },
+  { label: "A 6-month implementation" },
+  { label: "A bill, then radio silence" },
 ];
 
 const vektissGet = [
