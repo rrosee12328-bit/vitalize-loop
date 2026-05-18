@@ -245,7 +245,7 @@ export function PricingTiers() {
                     {tier.name}
                   </h3>
                 </div>
-                <p className="mt-2.5 text-xs leading-relaxed text-muted-foreground">
+                <p className="mt-2.5 min-h-[2.5rem] text-xs leading-relaxed text-muted-foreground">
                   {tier.tagline}
                 </p>
 
@@ -290,7 +290,7 @@ export function PricingTiers() {
               <div className="px-6 py-5">
                 <div
                   className={cn(
-                    "rounded-xl px-4 py-3",
+                    "flex min-h-[78px] flex-col justify-center rounded-xl px-4 py-3",
                     tier.highlight
                       ? "bg-primary/[0.08] ring-1 ring-primary/20"
                       : "bg-muted/40 ring-1 ring-border",
@@ -306,7 +306,7 @@ export function PricingTiers() {
                 <p className="mt-4 text-[10px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
                   Best for
                 </p>
-                <p className="mt-1 text-xs leading-relaxed text-foreground/80">
+                <p className="mt-1 min-h-[2.25rem] text-xs leading-relaxed text-foreground/80">
                   {tier.bestFor}
                 </p>
               </div>
