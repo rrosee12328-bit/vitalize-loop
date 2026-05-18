@@ -120,6 +120,8 @@ const voiceFaqs = [
     a: "Yes — Google Calendar, Outlook, HubSpot, GoHighLevel, Jobber, Housecall Pro, and most modern CRMs out of the box. Custom integrations on request.",
   },
 ];
+
+const steps = [
   {
     no: "01",
     name: "Discover",
