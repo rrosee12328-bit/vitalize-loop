@@ -402,30 +402,7 @@ function AIAssistantsPage() {
                 </p>
               </div>
               <div className="md:order-1 md:col-span-6">
-                <div className="rounded-2xl border border-[rgba(0,0,0,0.08)] bg-white p-6 shadow-[0_2px_12px_rgba(0,0,0,0.06)] md:p-8">
-                  <p className="font-mono text-[11px] tracking-widest text-muted-foreground">
-                    ROUTING LOGIC
-                  </p>
-                  <div className="mt-5 space-y-3">
-                    <div className="rounded-lg border border-[rgba(0,0,0,0.08)] bg-[#F8FAFC] px-4 py-3 text-sm font-medium">
-                      Caller Intent Detected
-                    </div>
-                    <div className="ml-4 space-y-2 border-l-2 border-dashed border-[#3B82F6]/40 pl-5">
-                      <div className="flex items-center justify-between rounded-lg border border-[rgba(0,0,0,0.08)] bg-white px-3 py-2 text-sm">
-                        <span className="font-medium">Sales Inquiry</span>
-                        <span className="text-xs text-muted-foreground">→ Transfer to Maya</span>
-                      </div>
-                      <div className="flex items-center justify-between rounded-lg border border-[rgba(0,0,0,0.08)] bg-white px-3 py-2 text-sm">
-                        <span className="font-medium">Billing</span>
-                        <span className="text-xs text-muted-foreground">→ Transfer to Accounting</span>
-                      </div>
-                      <div className="flex items-center justify-between rounded-lg border border-[rgba(0,0,0,0.08)] bg-white px-3 py-2 text-sm">
-                        <span className="font-medium">General</span>
-                        <span className="text-xs text-muted-foreground">→ Handled by AI</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <RoutingFlowchart />
               </div>
             </div>
 
