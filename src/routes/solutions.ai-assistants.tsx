@@ -29,54 +29,105 @@ export const Route = createFileRoute("/solutions/ai-assistants")({
 });
 
 function MissedCallIllustration() {
+  // Scene: ringing phone on left, walking figure on right, broken arc + red X between them.
   return (
-    <svg viewBox="0 0 200 120" className="h-28 w-full" aria-hidden="true">
-      <rect width="200" height="120" rx="12" fill="#F5EFE6" />
-      <circle cx="58" cy="60" r="34" fill="#E8DCC8" />
-      <circle cx="58" cy="60" r="22" fill="#F5EFE6" />
-      <path d="M40 60 L76 60" stroke="#1F2937" strokeWidth="2.5" strokeLinecap="round" />
-      <path d="M88 60 L108 60" stroke="#1F2937" strokeWidth="2.5" strokeLinecap="round" strokeDasharray="3 5" />
-      <path d="M120 60 L160 60" stroke="#1F2937" strokeWidth="2.5" strokeLinecap="round" />
-      <circle cx="160" cy="60" r="14" fill="#3B82F6" />
-      <path d="M154 56 q3 6 12 0" stroke="#fff" strokeWidth="2" fill="none" strokeLinecap="round" />
-      <circle cx="160" cy="50" r="1.6" fill="#fff" />
-      <circle cx="160" cy="50" r="1.6" fill="#fff" transform="translate(-6 0)" />
+    <svg viewBox="0 0 240 140" className="h-32 w-full" aria-hidden="true">
+      <rect width="240" height="140" fill="#F5EFE6" />
+      {/* ring waves */}
+      <path d="M22 50 q-10 20 0 40" stroke="#C9BBA3" strokeWidth="2" fill="none" strokeLinecap="round" />
+      <path d="M14 42 q-14 28 0 56" stroke="#C9BBA3" strokeWidth="2" fill="none" strokeLinecap="round" opacity="0.6" />
+      {/* phone handset */}
+      <g transform="translate(38 50) rotate(-25)">
+        <rect x="0" y="0" width="58" height="22" rx="11" fill="#A89479" />
+        <circle cx="10" cy="11" r="5" fill="#F5EFE6" />
+        <circle cx="48" cy="11" r="5" fill="#F5EFE6" />
+      </g>
+      {/* broken arc */}
+      <path d="M108 70 q12 -22 30 -22" stroke="#2563EB" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeDasharray="4 6" />
+      {/* red X */}
+      <g transform="translate(130 56)">
+        <circle r="11" fill="#C0533A" />
+        <path d="M-5 -5 L5 5 M5 -5 L-5 5" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" />
+      </g>
+      {/* walking figure */}
+      <g transform="translate(178 50)" fill="#8C7B65">
+        <circle cx="14" cy="8" r="7" />
+        <path d="M6 18 L22 18 L26 44 L18 44 L16 30 L14 44 L4 44 Z" />
+        <path d="M16 30 L30 36" stroke="#8C7B65" strokeWidth="3" strokeLinecap="round" />
+      </g>
+      {/* ground line */}
+      <line x1="20" y1="120" x2="220" y2="120" stroke="#C9BBA3" strokeWidth="1.5" strokeLinecap="round" />
     </svg>
   );
 }
 
 function SlowReplyIllustration() {
+  // Scene: big envelope in center, clock on top-right corner near midnight, three unread dots below.
   return (
-    <svg viewBox="0 0 200 120" className="h-28 w-full" aria-hidden="true">
-      <rect width="200" height="120" rx="12" fill="#F5EFE6" />
-      <rect x="36" y="34" width="92" height="56" rx="10" fill="#E8DCC8" />
-      <rect x="46" y="46" width="52" height="4" rx="2" fill="#1F2937" opacity="0.6" />
-      <rect x="46" y="56" width="68" height="4" rx="2" fill="#1F2937" opacity="0.35" />
-      <rect x="46" y="66" width="40" height="4" rx="2" fill="#1F2937" opacity="0.35" />
-      <rect x="56" y="44" width="92" height="56" rx="10" fill="#F5EFE6" stroke="#1F2937" strokeWidth="1.5" opacity="0.9" />
-      <rect x="66" y="56" width="50" height="4" rx="2" fill="#1F2937" opacity="0.6" />
-      <rect x="66" y="66" width="68" height="4" rx="2" fill="#1F2937" opacity="0.35" />
-      <rect x="66" y="76" width="36" height="4" rx="2" fill="#1F2937" opacity="0.35" />
-      <circle cx="160" cy="44" r="14" fill="#3B82F6" />
-      <text x="160" y="49" textAnchor="middle" fill="#fff" fontFamily="ui-monospace,monospace" fontSize="13" fontWeight="700">!</text>
+    <svg viewBox="0 0 240 140" className="h-32 w-full" aria-hidden="true">
+      <rect width="240" height="140" fill="#F5EFE6" />
+      {/* envelope body */}
+      <rect x="56" y="44" width="128" height="76" rx="6" fill="#D9C9AC" />
+      <path d="M56 50 L120 92 L184 50" stroke="#A89479" strokeWidth="2.5" fill="none" />
+      <rect x="56" y="44" width="128" height="76" rx="6" fill="none" stroke="#A89479" strokeWidth="1.5" />
+      {/* clock overlay top-right */}
+      <g transform="translate(168 36)">
+        <circle r="22" fill="#F5EFE6" stroke="#2563EB" strokeWidth="2" />
+        <circle r="22" fill="#2563EB" opacity="0.08" />
+        {/* tick marks */}
+        <line x1="0" y1="-18" x2="0" y2="-15" stroke="#2563EB" strokeWidth="1.5" />
+        <line x1="0" y1="18" x2="0" y2="15" stroke="#2563EB" strokeWidth="1.5" />
+        <line x1="-18" y1="0" x2="-15" y2="0" stroke="#2563EB" strokeWidth="1.5" />
+        <line x1="18" y1="0" x2="15" y2="0" stroke="#2563EB" strokeWidth="1.5" />
+        {/* hands near midnight */}
+        <line x1="0" y1="0" x2="0" y2="-14" stroke="#2563EB" strokeWidth="2.5" strokeLinecap="round" />
+        <line x1="0" y1="0" x2="3" y2="-12" stroke="#2563EB" strokeWidth="2" strokeLinecap="round" />
+        <circle r="1.8" fill="#2563EB" />
+      </g>
+      {/* three unread dots */}
+      <g fill="#2563EB">
+        <circle cx="108" cy="128" r="3.5" />
+        <circle cx="120" cy="128" r="3.5" opacity="0.7" />
+        <circle cx="132" cy="128" r="3.5" opacity="0.45" />
+      </g>
     </svg>
   );
 }
 
 function AfterHoursIllustration() {
+  // Scene: storefront with CLOSED sign, person outside with speech bubble containing tiny phone icon.
   return (
-    <svg viewBox="0 0 200 120" className="h-28 w-full" aria-hidden="true">
-      <rect width="200" height="120" rx="12" fill="#F5EFE6" />
-      <circle cx="100" cy="60" r="40" fill="#E8DCC8" />
-      <circle cx="100" cy="60" r="40" fill="#1F2937" clipPath="inset(0 0 0 50%)" />
-      <path d="M100 20 A40 40 0 0 1 100 100 Z" fill="#1F2937" />
-      <circle cx="100" cy="60" r="40" fill="none" stroke="#1F2937" strokeWidth="1.5" />
-      <circle cx="100" cy="60" r="3" fill="#3B82F6" />
-      <line x1="100" y1="60" x2="100" y2="32" stroke="#3B82F6" strokeWidth="2.5" strokeLinecap="round" />
-      <line x1="100" y1="60" x2="122" y2="60" stroke="#3B82F6" strokeWidth="2.5" strokeLinecap="round" />
-      <circle cx="158" cy="32" r="2" fill="#1F2937" opacity="0.5" />
-      <circle cx="170" cy="50" r="1.5" fill="#1F2937" opacity="0.5" />
-      <circle cx="42" cy="40" r="1.5" fill="#1F2937" opacity="0.5" />
+    <svg viewBox="0 0 240 140" className="h-32 w-full" aria-hidden="true">
+      <rect width="240" height="140" fill="#F5EFE6" />
+      {/* ground */}
+      <line x1="14" y1="124" x2="226" y2="124" stroke="#C9BBA3" strokeWidth="1.5" strokeLinecap="round" />
+      {/* storefront */}
+      <g transform="translate(90 36)">
+        {/* awning */}
+        <path d="M0 8 L96 8 L88 22 L8 22 Z" fill="#A89479" />
+        {/* building */}
+        <rect x="4" y="22" width="88" height="66" fill="#3F3A33" />
+        {/* door */}
+        <rect x="36" y="40" width="24" height="48" rx="2" fill="#2A2520" />
+        <circle cx="55" cy="64" r="1.5" fill="#C9BBA3" />
+        {/* window */}
+        <rect x="12" y="32" width="16" height="14" fill="#F5EFE6" opacity="0.25" />
+        <rect x="68" y="32" width="16" height="14" fill="#F5EFE6" opacity="0.25" />
+        {/* CLOSED sign */}
+        <rect x="38" y="52" width="20" height="8" rx="1.5" fill="#F5EFE6" stroke="#1F2937" strokeWidth="0.8" />
+        <line x1="41" y1="56" x2="55" y2="56" stroke="#1F2937" strokeWidth="1" />
+      </g>
+      {/* person outside */}
+      <g transform="translate(38 70)" fill="#8C7B65">
+        <circle cx="10" cy="6" r="6" />
+        <path d="M4 14 L16 14 L18 38 L12 38 L10 26 L8 38 L2 38 Z" />
+      </g>
+      {/* speech bubble with phone icon */}
+      <g transform="translate(8 36)">
+        <path d="M0 0 L52 0 Q60 0 60 8 L60 24 Q60 32 52 32 L24 32 L18 40 L20 32 L8 32 Q0 32 0 24 Z" fill="#C0533A" />
+        {/* tiny phone */}
+        <path d="M22 12 q-2 6 4 10 q6 4 10 -2 l-3 -2 q-2 2 -4 1 q-3 -2 -3 -5 q1 -2 3 -2 l-2 -3 q-4 0 -5 3 Z" fill="#F5EFE6" />
+      </g>
     </svg>
   );
 }
@@ -100,16 +151,19 @@ const problems = [
 ];
 
 const inactionStats = [
-  { stat: "62%", body: "of business calls go unanswered. Every missed call is a missed lead." },
-  { stat: "85%", body: "of callers who reach voicemail never call back. They just call your competitor." },
-  { stat: "$126K", body: "is the average annual revenue lost by small businesses due to missed calls." },
+  { stat: "62%", body: "of business calls to small businesses go unanswered" },
+  { stat: "85%", body: "of callers who reach voicemail never call back — they call your competitor" },
+  { stat: "$126K", body: "average annual revenue lost by small businesses from missed calls" },
 ];
 
 const comparisonRows = [
-  { feature: "24/7 Availability", vektiss: "Yes", human: "No — 9 to 5 only", voicemail: "Yes, but ignores leads", vektissPositive: true, humanPositive: false, voicemailPositive: false },
-  { feature: "Answers on Ring 1", vektiss: "Always", human: "Usually", voicemail: "Never", vektissPositive: true, humanPositive: true, voicemailPositive: false },
-  { feature: "Captures Lead Info", vektiss: "Yes — Intake Forms", human: "Yes", voicemail: "Rarely", vektissPositive: true, humanPositive: true, voicemailPositive: false },
-  { feature: "Cost", vektiss: "Starting at $45.99/mo", human: "~$3,500/mo", voicemail: "Free, but costs you deals", vektissPositive: true, humanPositive: false, voicemailPositive: false },
+  { feature: "24/7 Availability", vektiss: "Always", human: "No — 9 to 5 only", voicemail: "Yes, but ignores leads", vektissPositive: true, humanPositive: false, voicemailPositive: false },
+  { feature: "Answers on Ring 1", vektiss: "Every time", human: "Usually", voicemail: "Never", vektissPositive: true, humanPositive: true, voicemailPositive: false },
+  { feature: "Understands Caller Intent", vektiss: "Yes", human: "Yes", voicemail: "No", vektissPositive: true, humanPositive: true, voicemailPositive: false },
+  { feature: "Sends Intake Forms", vektiss: "Yes — during the call", human: "Sometimes", voicemail: "Never", vektissPositive: true, humanPositive: true, voicemailPositive: false },
+  { feature: "Live Follow-Up Alerts to You", vektiss: "Yes — every call", human: "No", voicemail: "No", vektissPositive: true, humanPositive: false, voicemailPositive: false },
+  { feature: "Call Analytics Dashboard", vektiss: "Yes", human: "No", voicemail: "No", vektissPositive: true, humanPositive: false, voicemailPositive: false },
+  { feature: "Monthly Cost", vektiss: "From $45.99", human: "~$3,500+", voicemail: "Free (but costs you deals)", vektissPositive: true, humanPositive: false, voicemailPositive: false },
 ];
 
 const steps = [
@@ -203,27 +257,25 @@ function AIAssistantsPage() {
       </section>
 
       {/* Live Demo Phone Strip */}
-      <section className="border-t border-border bg-[#111827] text-white">
-        <div className="container-editorial py-10 md:py-12">
-          <div className="flex flex-col items-center gap-6 text-center md:flex-row md:justify-between md:text-left">
-            <div className="flex items-center gap-4">
-              <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary/15 text-primary">
-                <Phone className="h-5 w-5" />
+      <section className="border-t border-border bg-[#0B1220] text-white">
+        <div className="container-editorial py-10 md:py-14">
+          <div className="flex flex-col items-center gap-4 text-center">
+            <div className="flex items-center gap-3">
+              <span className="relative inline-flex h-3 w-3">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex h-3 w-3 rounded-full bg-emerald-500" />
               </span>
-              <div>
-                <p className="font-mono text-[11px] tracking-[0.18em] text-primary">CALL TO TEST IT LIVE</p>
-                <p className="mt-1 text-sm text-white/70 md:text-base">
-                  Call our live AI front office right now to experience Vektiss Voice firsthand.
-                </p>
-              </div>
+              <span className="font-mono text-[11px] tracking-[0.2em] text-emerald-400">LIVE · CALL OUR AI NOW</span>
             </div>
             <a
               href="tel:+13465947686"
-              className="inline-flex items-center gap-3 rounded-md bg-primary px-6 py-4 text-2xl font-bold tracking-tight text-primary-foreground transition-opacity hover:opacity-90 md:text-3xl"
+              className="text-4xl font-bold tracking-tight text-white transition-opacity hover:opacity-90 md:text-6xl"
             >
-              <Phone className="h-6 w-6" />
-              (346) 594-7686
+              Call (346) 594-7686
             </a>
+            <p className="max-w-2xl text-base text-white/70 md:text-lg">
+              Call our live AI front office right now and experience Vektiss Voice firsthand — no signup required.
+            </p>
           </div>
         </div>
       </section>
@@ -277,8 +329,8 @@ function AIAssistantsPage() {
               </div>
             ))}
           </div>
-          <p className="mt-14 text-center font-mono text-[11px] tracking-widest text-muted-foreground">
-            SOURCES · BIA/KELSEY · 411 LOCALS
+          <p className="mt-14 text-center text-xs text-muted-foreground">
+            Sources: BIA/Kelsey, 411 Locals, GetAira Research
           </p>
         </div>
       </section>
@@ -535,8 +587,11 @@ function AIAssistantsPage() {
       <section className="border-t border-border bg-surface-elevated">
         <div className="container-editorial py-24 md:py-32">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="eyebrow text-primary">Comparison</p>
-            <h2 className="mt-6 display-2">Why Vektiss Voice wins.</h2>
+            <p className="eyebrow text-primary">Why Vektiss Voice</p>
+            <h2 className="mt-6 display-2">The math is simple.</h2>
+            <p className="mt-6 text-lg text-muted-foreground">
+              A human receptionist costs $3,500/month. Voicemail costs you deals. Vektiss Voice does more than both — for less than your phone bill.
+            </p>
           </div>
 
           {/* Desktop table */}
@@ -546,7 +601,7 @@ function AIAssistantsPage() {
                 <thead>
                   <tr className="border-b border-border">
                     <th className="px-6 py-5 text-left text-sm font-semibold text-muted-foreground">Feature</th>
-                    <th className="bg-primary/10 px-6 py-5 text-left text-sm font-bold text-primary border-x-2 border-primary">
+                    <th className="bg-primary/10 px-6 py-5 text-left text-sm font-bold text-primary border-x-2 border-t-4 border-primary">
                       Vektiss Voice
                     </th>
                     <th className="px-6 py-5 text-left text-sm font-semibold text-muted-foreground">Human Receptionist</th>
@@ -559,19 +614,19 @@ function AIAssistantsPage() {
                       <td className="px-6 py-5 text-sm font-medium text-foreground">{r.feature}</td>
                       <td className="bg-primary/5 px-6 py-5 text-sm text-foreground border-x-2 border-primary">
                         <span className="inline-flex items-start gap-2">
-                          <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                          <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
                           <span className="font-semibold">{r.vektiss}</span>
                         </span>
                       </td>
                       <td className="px-6 py-5 text-sm text-muted-foreground">
                         <span className="inline-flex items-start gap-2">
-                          {r.humanPositive ? <Check className="mt-0.5 h-4 w-4 shrink-0 text-foreground/50" /> : <X className="mt-0.5 h-4 w-4 shrink-0 text-foreground/40" />}
+                          {r.humanPositive ? <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" /> : <X className="mt-0.5 h-4 w-4 shrink-0 text-red-500" />}
                           <span>{r.human}</span>
                         </span>
                       </td>
                       <td className="px-6 py-5 text-sm text-muted-foreground">
                         <span className="inline-flex items-start gap-2">
-                          {r.voicemailPositive ? <Check className="mt-0.5 h-4 w-4 shrink-0 text-foreground/50" /> : <X className="mt-0.5 h-4 w-4 shrink-0 text-foreground/40" />}
+                          {r.voicemailPositive ? <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" /> : <X className="mt-0.5 h-4 w-4 shrink-0 text-red-500" />}
                           <span>{r.voicemail}</span>
                         </span>
                       </td>
@@ -588,16 +643,16 @@ function AIAssistantsPage() {
               <div key={r.feature} className="rounded-xl border border-border bg-card p-5 shadow-card">
                 <p className="text-xs font-mono tracking-widest text-muted-foreground uppercase">{r.feature}</p>
                 <div className="mt-3 space-y-2 text-sm">
-                  <div className="flex items-start gap-2 rounded-md bg-primary/10 p-2 border border-primary/30">
-                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                  <div className="flex items-start gap-2 rounded-md bg-primary/10 p-2 border-t-2 border-primary">
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
                     <div><span className="font-semibold text-primary">Vektiss Voice:</span> <span className="font-medium">{r.vektiss}</span></div>
                   </div>
                   <div className="flex items-start gap-2 p-2">
-                    {r.humanPositive ? <Check className="mt-0.5 h-4 w-4 shrink-0 text-foreground/50" /> : <X className="mt-0.5 h-4 w-4 shrink-0 text-foreground/40" />}
+                    {r.humanPositive ? <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" /> : <X className="mt-0.5 h-4 w-4 shrink-0 text-red-500" />}
                     <div className="text-muted-foreground"><span className="font-medium text-foreground">Human:</span> {r.human}</div>
                   </div>
                   <div className="flex items-start gap-2 p-2">
-                    {r.voicemailPositive ? <Check className="mt-0.5 h-4 w-4 shrink-0 text-foreground/50" /> : <X className="mt-0.5 h-4 w-4 shrink-0 text-foreground/40" />}
+                    {r.voicemailPositive ? <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" /> : <X className="mt-0.5 h-4 w-4 shrink-0 text-red-500" />}
                     <div className="text-muted-foreground"><span className="font-medium text-foreground">Voicemail:</span> {r.voicemail}</div>
                   </div>
                 </div>
