@@ -225,8 +225,58 @@ function AIAssistantsPage() {
         </div>
       </section>
 
+      {/* Business Intelligence */}
+      <section className="border-t border-border">
+        <div className="container-editorial py-24 md:py-32">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="eyebrow text-primary">Business Intelligence</p>
+            <h2 className="mt-6 display-2">
+              Your calls are telling you something. Now you can hear it.
+            </h2>
+            <p className="mt-6 text-lg text-muted-foreground">
+              Every call Vektiss Voice handles becomes a data point. Over time,
+              you get a clear picture of what your customers want, when they
+              call, and what is driving your business — without lifting a finger.
+            </p>
+          </div>
+          <div className="mt-14 grid gap-6 md:grid-cols-3">
+            {[
+              {
+                Icon: PhoneForwarded,
+                title: "Smart Routing",
+                body: "New lead? Route to sales. Billing question? Route to the right person. Emergency? Route to on-call. The AI knows the difference and acts instantly.",
+              },
+              {
+                Icon: FileText,
+                title: "Intake Forms on Demand",
+                body: "The AI sends callers a link to your application, intake form, or quote request — mid-call or immediately after. Leads arrive pre-qualified.",
+              },
+              {
+                Icon: BellRing,
+                title: "Live Follow-Up Alerts",
+                body: "Every call that needs action triggers an instant alert to your inbox — caller name, number, what they asked, and whether it is a hot lead. Nothing falls through the cracks.",
+              },
+            ].map((c) => (
+              <article
+                key={c.title}
+                className="rounded-xl border border-border bg-card p-6 shadow-card md:p-8"
+              >
+                <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                  <c.Icon className="h-5 w-5" />
+                </span>
+                <h3 className="mt-4 text-lg font-semibold tracking-tight">
+                  {c.title}
+                </h3>
+                <p className="mt-3 text-muted-foreground">{c.body}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Pricing */}
       <section className="border-t border-border">
+
         <div className="container-editorial py-24 md:py-32">
           <div className="mx-auto max-w-2xl text-center">
             <p className="eyebrow text-primary">Vektiss Voice Plans</p>
