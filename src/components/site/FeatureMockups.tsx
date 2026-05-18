@@ -3,6 +3,9 @@ import mediaFounder from "@/assets/media-founder.jpg";
 import mediaCaseStudy from "@/assets/media-casestudy.jpg";
 import mediaAvatar from "@/assets/media-avatar.jpg";
 import mediaReel from "@/assets/media-reel.jpg";
+import portalThumbDashboard from "@/assets/portal-thumb-dashboard.jpg";
+import portalThumbWorkspace from "@/assets/portal-thumb-workspace.jpg";
+import portalThumbLanding from "@/assets/portal-thumb-landing.jpg";
 
 function Frame({ title, children }: { title: string; children: React.ReactNode }) {
   return (
