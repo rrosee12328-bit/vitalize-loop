@@ -185,21 +185,32 @@ export function VoiceLoopSection() {
                   <span className="font-mono text-[10px] font-semibold uppercase tracking-widest text-[#64748B]">
                     Call Transcript · Excerpt
                   </span>
-                  <span className="font-mono text-[10px] tabular-nums text-[#94A3B8]">00:42</span>
+                  <span className="font-mono text-[10px] tabular-nums text-[#94A3B8]">02:18 total</span>
                 </div>
-                <div className="space-y-1.5 text-[11px] leading-snug">
-                  <p>
-                    <span className="font-semibold text-[#2563EB]">Vektiss AI:</span>{" "}
-                    <span className="text-[#1E293B]">Can you please tell me your email? I'll send our intake form over right now.</span>
-                  </p>
-                  <p>
-                    <span className="font-semibold text-[#475569]">Caller:</span>{" "}
-                    <span className="text-[#1E293B]">Sure — it's sarah.j@email.com.</span>
-                  </p>
-                  <p>
-                    <span className="font-semibold text-[#2563EB]">Vektiss AI:</span>{" "}
-                    <span className="text-[#1E293B]">Got it — sarah.j@email.com. Sending the intake form to your inbox now.</span>
-                  </p>
+                <div className="space-y-2 text-[11px] leading-snug">
+                  {[
+                    { t: "00:02", who: "ai", text: "Thanks for calling Riverside Renovations, this is the Vektiss assistant. How can I help today?" },
+                    { t: "00:07", who: "caller", text: "Hi, yeah — I'm looking to get a quote on renovating a three-bedroom house. Kitchen and two bathrooms mainly." },
+                    { t: "00:18", who: "ai", text: "Got it — a three-bedroom remodel with kitchen and two baths. Are you hoping to start in the next 30 days, or further out?" },
+                    { t: "00:26", who: "caller", text: "As soon as possible, honestly. We'd love something this month if you can swing it." },
+                    { t: "00:33", who: "ai", text: "Perfect, I'll flag this as a priority. To send you our intake form and a written quote, can you please tell me your best email?" },
+                    { t: "00:42", who: "caller", text: "Sure — it's sarah dot j at email dot com. That's s-a-r-a-h dot j." },
+                    { t: "00:51", who: "ai", text: "Let me read that back to make sure I have it right — sarah.j@email.com. Is that correct?" },
+                    { t: "00:58", who: "caller", text: "Yep, that's the one." },
+                    { t: "01:02", who: "ai", text: "Great — I'm sending the intake form to sarah.j@email.com right now. You should see it in your inbox within a minute." },
+                    { t: "01:10", who: "caller", text: "Awesome, thank you." },
+                    { t: "01:13", who: "ai", text: "You're welcome. Once you fill it out, one of our project managers will follow up with a detailed quote within the hour. Anything else I can help with?" },
+                  ].map((l, i) => (
+                    <div key={i} className="flex gap-2">
+                      <span className="w-10 shrink-0 font-mono tabular-nums text-[10px] text-[#94A3B8]">{l.t}</span>
+                      <p className="min-w-0 flex-1">
+                        <span className={l.who === "ai" ? "font-semibold text-[#2563EB]" : "font-semibold text-[#475569]"}>
+                          {l.who === "ai" ? "Vektiss AI:" : "Caller:"}
+                        </span>{" "}
+                        <span className="text-[#1E293B]">{l.text}</span>
+                      </p>
+                    </div>
+                  ))}
                 </div>
               </div>
 
