@@ -151,16 +151,19 @@ const problems = [
 ];
 
 const inactionStats = [
-  { stat: "62%", body: "of business calls go unanswered. Every missed call is a missed lead." },
-  { stat: "85%", body: "of callers who reach voicemail never call back. They just call your competitor." },
-  { stat: "$126K", body: "is the average annual revenue lost by small businesses due to missed calls." },
+  { stat: "62%", body: "of business calls to small businesses go unanswered" },
+  { stat: "85%", body: "of callers who reach voicemail never call back — they call your competitor" },
+  { stat: "$126K", body: "average annual revenue lost by small businesses from missed calls" },
 ];
 
 const comparisonRows = [
-  { feature: "24/7 Availability", vektiss: "Yes", human: "No — 9 to 5 only", voicemail: "Yes, but ignores leads", vektissPositive: true, humanPositive: false, voicemailPositive: false },
-  { feature: "Answers on Ring 1", vektiss: "Always", human: "Usually", voicemail: "Never", vektissPositive: true, humanPositive: true, voicemailPositive: false },
-  { feature: "Captures Lead Info", vektiss: "Yes — Intake Forms", human: "Yes", voicemail: "Rarely", vektissPositive: true, humanPositive: true, voicemailPositive: false },
-  { feature: "Cost", vektiss: "Starting at $45.99/mo", human: "~$3,500/mo", voicemail: "Free, but costs you deals", vektissPositive: true, humanPositive: false, voicemailPositive: false },
+  { feature: "24/7 Availability", vektiss: "Always", human: "No — 9 to 5 only", voicemail: "Yes, but ignores leads", vektissPositive: true, humanPositive: false, voicemailPositive: false },
+  { feature: "Answers on Ring 1", vektiss: "Every time", human: "Usually", voicemail: "Never", vektissPositive: true, humanPositive: true, voicemailPositive: false },
+  { feature: "Understands Caller Intent", vektiss: "Yes", human: "Yes", voicemail: "No", vektissPositive: true, humanPositive: true, voicemailPositive: false },
+  { feature: "Sends Intake Forms", vektiss: "Yes — during the call", human: "Sometimes", voicemail: "Never", vektissPositive: true, humanPositive: true, voicemailPositive: false },
+  { feature: "Live Follow-Up Alerts to You", vektiss: "Yes — every call", human: "No", voicemail: "No", vektissPositive: true, humanPositive: false, voicemailPositive: false },
+  { feature: "Call Analytics Dashboard", vektiss: "Yes", human: "No", voicemail: "No", vektissPositive: true, humanPositive: false, voicemailPositive: false },
+  { feature: "Monthly Cost", vektiss: "From $45.99", human: "~$3,500+", voicemail: "Free (but costs you deals)", vektissPositive: true, humanPositive: false, voicemailPositive: false },
 ];
 
 const steps = [
