@@ -614,19 +614,19 @@ function AIAssistantsPage() {
                       <td className="px-6 py-5 text-sm font-medium text-foreground">{r.feature}</td>
                       <td className="bg-primary/5 px-6 py-5 text-sm text-foreground border-x-2 border-primary">
                         <span className="inline-flex items-start gap-2">
-                          <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                          <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
                           <span className="font-semibold">{r.vektiss}</span>
                         </span>
                       </td>
                       <td className="px-6 py-5 text-sm text-muted-foreground">
                         <span className="inline-flex items-start gap-2">
-                          {r.humanPositive ? <Check className="mt-0.5 h-4 w-4 shrink-0 text-foreground/50" /> : <X className="mt-0.5 h-4 w-4 shrink-0 text-foreground/40" />}
+                          {r.humanPositive ? <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" /> : <X className="mt-0.5 h-4 w-4 shrink-0 text-red-500" />}
                           <span>{r.human}</span>
                         </span>
                       </td>
                       <td className="px-6 py-5 text-sm text-muted-foreground">
                         <span className="inline-flex items-start gap-2">
-                          {r.voicemailPositive ? <Check className="mt-0.5 h-4 w-4 shrink-0 text-foreground/50" /> : <X className="mt-0.5 h-4 w-4 shrink-0 text-foreground/40" />}
+                          {r.voicemailPositive ? <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" /> : <X className="mt-0.5 h-4 w-4 shrink-0 text-red-500" />}
                           <span>{r.voicemail}</span>
                         </span>
                       </td>
