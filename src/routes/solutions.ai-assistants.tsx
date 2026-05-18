@@ -64,10 +64,19 @@ const steps = [
   },
 ];
 
-const dashFeatures = [
-  "Call volume trends — see when your busiest hours are and staff accordingly",
-  "Top call reasons report — know exactly what your customers are calling about every month",
-  "Lead scoring on every call — Hot, Warm, or Cold tagged automatically so you know who to call back first",
+const proofStatements = [
+  {
+    lead: "Your busiest hours, mapped.",
+    rest: "Know exactly when your phone rings the most — so you stop guessing and start planning.",
+  },
+  {
+    lead: "Your customers are telling you what they want.",
+    rest: "Every call is categorized. Every pattern is visible. You finally know what to fix.",
+  },
+  {
+    lead: "Not every lead is worth the same call back.",
+    rest: "Hot, Warm, and Cold — auto-tagged on every call so you spend your time on the ones that matter.",
+  },
 ];
 
 function AIAssistantsPage() {
@@ -315,48 +324,41 @@ function AIAssistantsPage() {
         className="scroll-mt-24 border-t border-border bg-[#111827] text-white"
       >
         <div className="container-editorial py-24 md:py-32">
-          <div className="mx-auto mb-14 max-w-3xl text-center">
-            <p className="font-mono text-[11px] tracking-[0.18em] text-primary">
-              TOTAL VISIBILITY
-            </p>
-            <h2 className="mt-6 display-2 text-white">
-              You always know exactly what's happening.
-            </h2>
-            <p className="mt-6 text-lg text-white/70">
-              Every call logged. Every email tracked. Every lead captured. Your
-              dashboard updates in real time.
-            </p>
-          </div>
           <div className="grid items-center gap-12 md:grid-cols-12 md:gap-16">
-            <div className="order-1 md:order-2 md:col-span-7">
-              <DashboardPreview />
+            <div className="md:col-span-5">
+              <div className="max-w-[480px]">
+                <p className="eyebrow text-primary">TOTAL VISIBILITY</p>
+                <h2 className="mt-6 display-2 text-white">
+                  You always know exactly what's happening.
+                </h2>
+                <p className="mt-6 text-[17px] leading-[1.6] text-white/70">
+                  Most business owners have no idea what their customers are actually calling about. They answer the phone, handle the call, and move on. Vektiss Voice changes that. Every call becomes a data point. Over time, you get a clear picture of what your business needs — what to fix, when to hire, and which leads to chase first.
+                </p>
+                <div className="mt-8 space-y-5">
+                  {proofStatements.map((s) => (
+                    <div key={s.lead} className="border-l-2 border-[#3B82F6]/50 pl-4">
+                      <p className="text-[15px] leading-[1.7] text-white/85">
+                        <span className="font-semibold text-white">{s.lead}</span>{" "}{s.rest}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+                <a
+                  href="#pricing"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth", block: "start" });
+                    history.replaceState(null, "", "#pricing");
+                  }}
+                  className="mt-8 inline-flex h-12 items-center gap-2 rounded-md border border-white/40 bg-transparent px-6 text-sm font-medium text-white transition-colors hover:bg-white hover:text-foreground"
+                >
+                  See Pricing
+                  <ArrowRight className="h-4 w-4" />
+                </a>
+              </div>
             </div>
-            <div className="order-2 md:order-1 md:col-span-5">
-              <ul className="space-y-4">
-                {dashFeatures.map((f) => (
-                  <li key={f} className="flex items-start gap-3">
-                    <span
-                      className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[11px] text-[#3B82F6]"
-                      style={{ background: "rgba(59, 130, 246, 0.12)" }}
-                    >
-                      ✓
-                    </span>
-                    <span className="text-base text-white/85">{f}</span>
-                  </li>
-                ))}
-              </ul>
-              <a
-                href="#pricing"
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth", block: "start" });
-                  history.replaceState(null, "", "#pricing");
-                }}
-                className="mt-8 inline-flex h-12 items-center gap-2 rounded-md border border-white/40 bg-transparent px-6 text-sm font-medium text-white transition-colors hover:bg-white hover:text-foreground"
-              >
-                See Pricing
-                <ArrowRight className="h-4 w-4" />
-              </a>
+            <div className="md:col-span-7">
+              <DashboardPreview />
             </div>
           </div>
         </div>
