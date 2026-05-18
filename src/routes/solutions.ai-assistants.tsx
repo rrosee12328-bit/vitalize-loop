@@ -531,6 +531,82 @@ function AIAssistantsPage() {
         </div>
       </section>
 
+      {/* Comparison Table */}
+      <section className="border-t border-border bg-surface-elevated">
+        <div className="container-editorial py-24 md:py-32">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="eyebrow text-primary">Comparison</p>
+            <h2 className="mt-6 display-2">Why Vektiss Voice wins.</h2>
+          </div>
+
+          {/* Desktop table */}
+          <div className="mt-14 hidden md:block">
+            <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-card">
+              <table className="w-full">
+                <thead>
+                  <tr className="border-b border-border">
+                    <th className="px-6 py-5 text-left text-sm font-semibold text-muted-foreground">Feature</th>
+                    <th className="bg-primary/10 px-6 py-5 text-left text-sm font-bold text-primary border-x-2 border-primary">
+                      Vektiss Voice
+                    </th>
+                    <th className="px-6 py-5 text-left text-sm font-semibold text-muted-foreground">Human Receptionist</th>
+                    <th className="px-6 py-5 text-left text-sm font-semibold text-muted-foreground">Voicemail</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {comparisonRows.map((r, i) => (
+                    <tr key={r.feature} className={i !== comparisonRows.length - 1 ? "border-b border-border" : ""}>
+                      <td className="px-6 py-5 text-sm font-medium text-foreground">{r.feature}</td>
+                      <td className="bg-primary/5 px-6 py-5 text-sm text-foreground border-x-2 border-primary">
+                        <span className="inline-flex items-start gap-2">
+                          <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                          <span className="font-semibold">{r.vektiss}</span>
+                        </span>
+                      </td>
+                      <td className="px-6 py-5 text-sm text-muted-foreground">
+                        <span className="inline-flex items-start gap-2">
+                          {r.humanPositive ? <Check className="mt-0.5 h-4 w-4 shrink-0 text-foreground/50" /> : <X className="mt-0.5 h-4 w-4 shrink-0 text-foreground/40" />}
+                          <span>{r.human}</span>
+                        </span>
+                      </td>
+                      <td className="px-6 py-5 text-sm text-muted-foreground">
+                        <span className="inline-flex items-start gap-2">
+                          {r.voicemailPositive ? <Check className="mt-0.5 h-4 w-4 shrink-0 text-foreground/50" /> : <X className="mt-0.5 h-4 w-4 shrink-0 text-foreground/40" />}
+                          <span>{r.voicemail}</span>
+                        </span>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* Mobile stacked cards */}
+          <div className="mt-10 grid gap-4 md:hidden">
+            {comparisonRows.map((r) => (
+              <div key={r.feature} className="rounded-xl border border-border bg-card p-5 shadow-card">
+                <p className="text-xs font-mono tracking-widest text-muted-foreground uppercase">{r.feature}</p>
+                <div className="mt-3 space-y-2 text-sm">
+                  <div className="flex items-start gap-2 rounded-md bg-primary/10 p-2 border border-primary/30">
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                    <div><span className="font-semibold text-primary">Vektiss Voice:</span> <span className="font-medium">{r.vektiss}</span></div>
+                  </div>
+                  <div className="flex items-start gap-2 p-2">
+                    {r.humanPositive ? <Check className="mt-0.5 h-4 w-4 shrink-0 text-foreground/50" /> : <X className="mt-0.5 h-4 w-4 shrink-0 text-foreground/40" />}
+                    <div className="text-muted-foreground"><span className="font-medium text-foreground">Human:</span> {r.human}</div>
+                  </div>
+                  <div className="flex items-start gap-2 p-2">
+                    {r.voicemailPositive ? <Check className="mt-0.5 h-4 w-4 shrink-0 text-foreground/50" /> : <X className="mt-0.5 h-4 w-4 shrink-0 text-foreground/40" />}
+                    <div className="text-muted-foreground"><span className="font-medium text-foreground">Voicemail:</span> {r.voicemail}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Pricing */}
       <section id="pricing" className="border-t border-border">
 
