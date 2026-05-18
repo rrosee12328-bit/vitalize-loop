@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { ArrowRight, BarChart3, ListChecks, Flame, MessageSquare, GitBranch, Smartphone, Phone, Check, X, Code2, PhoneForwarded, Inbox, User, CreditCard, Bot, Bell } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { LiveCallDemo } from "@/components/site/ai-assistants/LiveCallDemo";
@@ -507,47 +507,58 @@ function AIAssistantsPage() {
             </p>
           </div>
 
-          {/* Desktop table */}
-          <div className="mt-14 hidden md:block">
-            <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-card">
-              <table className="w-full">
-                <thead>
-                  <tr className="border-b border-border">
-                    <th className="px-6 py-5 text-left text-sm font-semibold text-muted-foreground">Feature</th>
-                    <th className="bg-primary/10 px-6 py-5 text-left text-sm font-bold text-primary border-x-2 border-t-4 border-primary">
-                      Vektiss Voice
-                    </th>
-                    <th className="px-6 py-5 text-left text-sm font-semibold text-muted-foreground">Human Receptionist</th>
-                    <th className="px-6 py-5 text-left text-sm font-semibold text-muted-foreground">Voicemail</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {comparisonRows.map((r, i) => (
-                    <tr key={r.feature} className={i !== comparisonRows.length - 1 ? "border-b border-border" : ""}>
-                      <td className="px-6 py-5 text-sm font-medium text-foreground">{r.feature}</td>
-                      <td className="bg-primary/5 px-6 py-5 text-sm text-foreground border-x-2 border-primary">
-                        <span className="inline-flex items-start gap-2">
-                          <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
-                          <span className="font-semibold">{r.vektiss}</span>
-                        </span>
-                      </td>
-                      <td className="px-6 py-5 text-sm text-muted-foreground">
-                        <span className="inline-flex items-start gap-2">
-                          {r.humanPositive ? <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" /> : <X className="mt-0.5 h-4 w-4 shrink-0 text-red-500" />}
-                          <span>{r.human}</span>
-                        </span>
-                      </td>
-                      <td className="px-6 py-5 text-sm text-muted-foreground">
-                        <span className="inline-flex items-start gap-2">
-                          {r.voicemailPositive ? <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" /> : <X className="mt-0.5 h-4 w-4 shrink-0 text-red-500" />}
-                          <span>{r.voicemail}</span>
-                        </span>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+          {/* Desktop comparison */}
+          <div className="relative mt-16 hidden md:block">
+            <div className="grid grid-cols-[1.4fr_1fr_1fr_1fr] overflow-hidden rounded-2xl border border-border bg-card shadow-card">
+              {/* Header row */}
+              <div className="bg-muted/40 px-6 pt-8 pb-6">
+                <p className="eyebrow">Compare</p>
+                <p className="mt-2 text-sm text-muted-foreground">Side-by-side across what matters most.</p>
+              </div>
+              <div className="relative -mt-4 rounded-t-2xl bg-gradient-to-b from-primary to-[#1d4ed8] px-6 pt-7 pb-6 text-primary-foreground shadow-[0_-8px_24px_-12px_rgba(37,99,235,0.45)]">
+                <span className="inline-flex items-center rounded-full bg-white/15 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider">
+                  Recommended
+                </span>
+                <p className="mt-3 text-lg font-semibold leading-tight">Vektiss Voice</p>
+                <p className="mt-1 text-xs text-primary-foreground/80">AI receptionist, fully managed</p>
+              </div>
+              <div className="bg-muted/40 px-6 pt-8 pb-6">
+                <p className="text-lg font-semibold leading-tight text-foreground">Human Receptionist</p>
+                <p className="mt-1 text-xs text-muted-foreground">In-house or outsourced</p>
+              </div>
+              <div className="bg-muted/40 px-6 pt-8 pb-6">
+                <p className="text-lg font-semibold leading-tight text-foreground">Voicemail</p>
+                <p className="mt-1 text-xs text-muted-foreground">Default fallback</p>
+              </div>
+
+              {/* Rows */}
+              {comparisonRows.map((r, i) => {
+                const isLast = i === comparisonRows.length - 1;
+                const zebra = i % 2 === 1 ? "bg-muted/20" : "bg-card";
+                return (
+                  <Fragment key={r.feature}>
+                    <div className={`${zebra} flex items-center border-t border-border px-6 py-5 text-sm font-medium text-foreground`}>
+                      {r.feature}
+                    </div>
+                    <div className={`relative flex items-center gap-3 border-t border-primary/20 bg-primary/[0.06] px-6 py-5 text-sm ${isLast ? "rounded-b-2xl" : ""}`}>
+                      <ComparisonMark positive />
+                      <span className="font-semibold text-foreground">{r.vektiss}</span>
+                    </div>
+                    <div className={`${zebra} flex items-center gap-3 border-t border-border px-6 py-5 text-sm text-muted-foreground`}>
+                      <ComparisonMark positive={r.humanPositive} />
+                      <span>{r.human}</span>
+                    </div>
+                    <div className={`${zebra} flex items-center gap-3 border-t border-border px-6 py-5 text-sm text-muted-foreground`}>
+                      <ComparisonMark positive={r.voicemailPositive} />
+                      <span>{r.voicemail}</span>
+                    </div>
+                  </Fragment>
+                );
+              })}
             </div>
+            <p className="mt-4 text-center text-xs text-muted-foreground">
+              Sources: SBA small-business benchmarks. Vektiss Voice pricing starts at $45.99/mo.
+            </p>
           </div>
 
           {/* Mobile stacked cards */}
@@ -556,22 +567,23 @@ function AIAssistantsPage() {
               <div key={r.feature} className="rounded-xl border border-border bg-card p-5 shadow-card">
                 <p className="text-xs font-mono tracking-widest text-muted-foreground uppercase">{r.feature}</p>
                 <div className="mt-3 space-y-2 text-sm">
-                  <div className="flex items-start gap-2 rounded-md bg-primary/10 p-2 border-t-2 border-primary">
-                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
-                    <div><span className="font-semibold text-primary">Vektiss Voice:</span> <span className="font-medium">{r.vektiss}</span></div>
+                  <div className="flex items-start gap-3 rounded-lg bg-primary/[0.08] p-3 ring-1 ring-primary/20">
+                    <ComparisonMark positive />
+                    <div><span className="font-semibold text-primary">Vektiss Voice</span><div className="mt-0.5 font-medium text-foreground">{r.vektiss}</div></div>
                   </div>
-                  <div className="flex items-start gap-2 p-2">
-                    {r.humanPositive ? <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" /> : <X className="mt-0.5 h-4 w-4 shrink-0 text-red-500" />}
-                    <div className="text-muted-foreground"><span className="font-medium text-foreground">Human:</span> {r.human}</div>
+                  <div className="flex items-start gap-3 p-3">
+                    <ComparisonMark positive={r.humanPositive} />
+                    <div><span className="text-xs text-muted-foreground">Human</span><div className="text-foreground">{r.human}</div></div>
                   </div>
-                  <div className="flex items-start gap-2 p-2">
-                    {r.voicemailPositive ? <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" /> : <X className="mt-0.5 h-4 w-4 shrink-0 text-red-500" />}
-                    <div className="text-muted-foreground"><span className="font-medium text-foreground">Voicemail:</span> {r.voicemail}</div>
+                  <div className="flex items-start gap-3 p-3">
+                    <ComparisonMark positive={r.voicemailPositive} />
+                    <div><span className="text-xs text-muted-foreground">Voicemail</span><div className="text-foreground">{r.voicemail}</div></div>
                   </div>
                 </div>
               </div>
             ))}
           </div>
+
         </div>
       </section>
 
@@ -1448,5 +1460,20 @@ function DonutChart() {
         <span className="text-xl font-bold tabular-nums">147</span>
       </div>
     </div>
+  );
+}
+
+function ComparisonMark({ positive }: { positive: boolean }) {
+  if (positive) {
+    return (
+      <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-700 ring-1 ring-emerald-200">
+        <Check className="h-3.5 w-3.5" strokeWidth={3} />
+      </span>
+    );
+  }
+  return (
+    <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-rose-50 text-rose-500 ring-1 ring-rose-100">
+      <X className="h-3.5 w-3.5" strokeWidth={2.5} />
+    </span>
   );
 }
