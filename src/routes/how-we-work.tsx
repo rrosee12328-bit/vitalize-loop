@@ -602,16 +602,6 @@ function MediaVisual() {
         loading="lazy"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-black/20" />
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div
-          className="flex h-12 w-12 items-center justify-center rounded-full bg-primary"
-          style={{
-            boxShadow: "0 0 30px color-mix(in oklab, var(--color-primary) 70%, transparent)",
-          }}
-        >
-          <PlayCircle className="h-6 w-6 text-primary-foreground" fill="currentColor" strokeWidth={0} />
-        </div>
-      </div>
       <div className="absolute bottom-2 left-2 right-2 flex items-center gap-2">
         <div className="h-1 flex-1 overflow-hidden rounded-full bg-white/10">
           <div className="h-full w-1/3 rounded-full bg-primary" />
