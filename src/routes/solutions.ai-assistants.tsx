@@ -1121,11 +1121,11 @@ function RoutingFlowchart() {
 function IntakeFormPhoneMockup() {
   return (
     <div
-      className="relative overflow-hidden rounded-2xl border border-border p-6 shadow-card md:p-10"
+      className="relative overflow-hidden rounded-2xl border border-border p-8 shadow-card md:p-12"
       style={{ background: "linear-gradient(160deg, #F5EFE6 0%, #EEF2FF 100%)" }}
     >
       {/* faint form behind phone */}
-      <div className="pointer-events-none absolute right-4 top-6 hidden w-[55%] rounded-xl border border-border bg-white/70 p-4 opacity-60 shadow-sm backdrop-blur sm:block">
+      <div className="pointer-events-none absolute right-6 top-8 hidden w-[48%] rounded-xl border border-border bg-white/80 p-4 opacity-70 shadow-sm backdrop-blur sm:block">
         <p className="font-mono text-[9px] tracking-widest text-[#2563EB]">CLIENT INTAKE</p>
         <div className="mt-2 space-y-1.5">
           <div className="h-2 w-3/4 rounded bg-border" />
@@ -1135,30 +1135,122 @@ function IntakeFormPhoneMockup() {
         </div>
       </div>
 
-      {/* Phone */}
-      <div className="relative mx-auto h-[340px] w-[180px] rounded-[34px] border-[3px] border-[#1F2937] bg-[#0B1220] p-1.5 shadow-2xl rotate-[-4deg]">
-        <div className="absolute left-1/2 top-2 z-10 h-4 w-16 -translate-x-1/2 rounded-full bg-[#1F2937]" />
-        <div className="flex h-full w-full flex-col rounded-[28px] bg-gradient-to-b from-[#1F2937] to-[#0B1220] p-3 pt-8">
-          <p className="text-center font-mono text-[10px] tracking-widest text-white/60">9:41</p>
-          {/* Notification */}
-          <div className="mt-6 animate-fade-in rounded-2xl bg-white/95 p-3 shadow-xl backdrop-blur">
-            <div className="flex items-center gap-2">
-              <span className="inline-flex h-6 w-6 items-center justify-center rounded-md bg-[#2563EB] text-[9px] font-bold text-white">V</span>
-              <p className="flex-1 truncate text-[10px] font-semibold text-foreground">Vektiss Voice</p>
-              <span className="text-[9px] text-muted-foreground">now</span>
-            </div>
-            <p className="mt-1.5 text-[11px] leading-snug text-foreground">
-              Here is the link to the intake form we discussed:
-            </p>
-            <p className="mt-1 text-[10px] font-medium text-[#2563EB] underline">
-              vektiss.com/intake/apex
-            </p>
-          </div>
-          {/* Second smaller notification */}
-          <div className="mt-2 rounded-xl bg-white/70 p-2 backdrop-blur">
-            <div className="flex items-center gap-2">
-              <span className="inline-flex h-5 w-5 items-center justify-center rounded bg-emerald-500 text-[9px] font-bold text-white">✓</span>
-              <p className="truncate text-[10px] text-foreground">Form delivered · SMS</p>
+      {/* Realistic iPhone */}
+      <div className="relative mx-auto" style={{ width: 232, perspective: "1200px" }}>
+        <div
+          className="relative rounded-[44px] p-[3px] shadow-[0_30px_60px_-20px_rgba(15,23,42,0.45),0_10px_25px_-10px_rgba(15,23,42,0.35)]"
+          style={{
+            background: "linear-gradient(145deg,#3a3f47 0%,#1c1f24 45%,#0a0c0f 100%)",
+            transform: "rotate(-4deg)",
+          }}
+        >
+          {/* Side buttons */}
+          <div className="absolute -left-[3px] top-20 h-7 w-[3px] rounded-l bg-[#2a2d33]" />
+          <div className="absolute -left-[3px] top-32 h-12 w-[3px] rounded-l bg-[#2a2d33]" />
+          <div className="absolute -left-[3px] top-48 h-12 w-[3px] rounded-l bg-[#2a2d33]" />
+          <div className="absolute -right-[3px] top-28 h-16 w-[3px] rounded-r bg-[#2a2d33]" />
+
+          {/* Inner bezel */}
+          <div className="rounded-[41px] bg-black p-[2px]">
+            {/* Screen */}
+            <div
+              className="relative overflow-hidden rounded-[39px]"
+              style={{
+                height: 460,
+                background:
+                  "linear-gradient(170deg,#1e3a8a 0%,#312e81 40%,#581c87 75%,#1f2937 100%)",
+              }}
+            >
+              {/* Subtle wallpaper glow */}
+              <div
+                className="pointer-events-none absolute inset-0 opacity-60"
+                style={{
+                  background:
+                    "radial-gradient(circle at 30% 20%, rgba(96,165,250,0.35), transparent 45%), radial-gradient(circle at 75% 80%, rgba(168,85,247,0.3), transparent 50%)",
+                }}
+              />
+
+              {/* Status bar */}
+              <div className="relative flex items-center justify-between px-6 pt-3 text-white">
+                <span className="font-sans text-[11px] font-semibold tracking-tight">9:41</span>
+                <div className="flex items-center gap-1">
+                  {/* signal */}
+                  <svg width="14" height="9" viewBox="0 0 14 9" fill="currentColor">
+                    <rect x="0" y="6" width="2.2" height="3" rx="0.4" />
+                    <rect x="3.2" y="4" width="2.2" height="5" rx="0.4" />
+                    <rect x="6.4" y="2" width="2.2" height="7" rx="0.4" />
+                    <rect x="9.6" y="0" width="2.2" height="9" rx="0.4" />
+                  </svg>
+                  {/* wifi */}
+                  <svg width="13" height="9" viewBox="0 0 13 9" fill="currentColor">
+                    <path d="M6.5 1.2C4.2 1.2 2.1 2 .5 3.5l1.1 1.1C2.9 3.3 4.6 2.6 6.5 2.6s3.6.7 4.9 2l1.1-1.1C10.9 2 8.8 1.2 6.5 1.2z" />
+                    <path d="M6.5 4.1C5 4.1 3.6 4.7 2.5 5.7l1.1 1.1c.8-.8 1.8-1.3 2.9-1.3s2.1.5 2.9 1.3l1.1-1.1C9.4 4.7 8 4.1 6.5 4.1z" />
+                    <circle cx="6.5" cy="8" r="1" />
+                  </svg>
+                  {/* battery */}
+                  <div className="ml-0.5 flex items-center">
+                    <div className="relative h-[10px] w-[22px] rounded-[3px] border border-white/80">
+                      <div className="absolute inset-[1.5px] rounded-[1.5px] bg-white" style={{ width: "70%" }} />
+                    </div>
+                    <div className="ml-[1px] h-[4px] w-[1.5px] rounded-r bg-white/80" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Dynamic island */}
+              <div className="absolute left-1/2 top-2.5 h-[26px] w-[88px] -translate-x-1/2 rounded-full bg-black" />
+
+              {/* Lock screen date/time */}
+              <div className="relative mt-7 text-center text-white">
+                <p className="text-[11px] font-medium tracking-wide opacity-90">Monday, May 18</p>
+                <p className="mt-0.5 text-[56px] font-light leading-none tracking-tight" style={{ fontFeatureSettings: "'tnum'" }}>
+                  9:41
+                </p>
+              </div>
+
+              {/* Notifications stack */}
+              <div className="relative mt-7 space-y-2 px-3">
+                {/* Primary notification */}
+                <div
+                  className="animate-fade-in rounded-[18px] p-3 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.4)]"
+                  style={{ background: "rgba(255,255,255,0.78)", backdropFilter: "blur(20px)" }}
+                >
+                  <div className="flex items-center gap-2">
+                    <span
+                      className="inline-flex h-[22px] w-[22px] items-center justify-center rounded-[6px] text-[10px] font-bold text-white"
+                      style={{ background: "linear-gradient(135deg,#3b82f6,#1d4ed8)" }}
+                    >
+                      V
+                    </span>
+                    <p className="flex-1 truncate text-[11px] font-semibold text-[#0f172a]">Vektiss Voice</p>
+                    <span className="text-[9px] font-medium text-[#64748b]">now</span>
+                  </div>
+                  <p className="mt-1.5 text-[11px] font-semibold leading-snug text-[#0f172a]">Intake form</p>
+                  <p className="mt-0.5 text-[11px] leading-snug text-[#334155]">
+                    Here is the link to the intake form we discussed:
+                  </p>
+                  <p className="mt-1 text-[10.5px] font-medium text-[#2563EB] underline underline-offset-2">
+                    vektiss.com/intake/apex
+                  </p>
+                </div>
+
+                {/* Secondary notification */}
+                <div
+                  className="rounded-[16px] p-2.5 shadow-md"
+                  style={{ background: "rgba(255,255,255,0.55)", backdropFilter: "blur(18px)" }}
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="inline-flex h-5 w-5 items-center justify-center rounded-md bg-emerald-500 text-[9px] font-bold text-white">
+                      ✓
+                    </span>
+                    <p className="flex-1 truncate text-[10.5px] font-medium text-[#0f172a]">Form delivered · SMS</p>
+                    <span className="text-[9px] text-[#475569]">now</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Home indicator */}
+              <div className="absolute bottom-2 left-1/2 h-[4px] w-[100px] -translate-x-1/2 rounded-full bg-white/80" />
             </div>
           </div>
         </div>
