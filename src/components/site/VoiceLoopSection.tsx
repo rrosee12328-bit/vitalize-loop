@@ -130,7 +130,7 @@ export function VoiceLoopSection() {
                 </div>
               </div>
             </div>
-            <div className="px-5 py-5 md:px-6 md:py-6" style={{ borderTop: "1px solid #F1F5F9" }}>
+            <div className="flex flex-1 flex-col px-5 py-5 md:px-6 md:py-6" style={{ borderTop: "1px solid #F1F5F9" }}>
               <p className="text-sm font-semibold text-[#1E293B]">
                 New caller alert from Vektiss Voice
               </p>
