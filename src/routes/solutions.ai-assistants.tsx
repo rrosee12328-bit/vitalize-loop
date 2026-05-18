@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import { ArrowRight, PhoneOff, Inbox, MoonStar, BarChart3, ListChecks, Flame, MessageSquare, GitBranch, Smartphone } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { LiveCallDemo } from "@/components/site/ai-assistants/LiveCallDemo";
