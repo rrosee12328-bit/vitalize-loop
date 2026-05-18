@@ -167,7 +167,7 @@ function AIAssistantsPage() {
 
       {/* How it works */}
       <section className="container-editorial py-24 md:py-32">
-        <div className="max-w-3xl">
+        <div className="mx-auto max-w-3xl text-center">
           <p className="eyebrow">How It Works</p>
           <h2 className="mt-6 display-2">Live in 48 hours. Three steps.</h2>
         </div>
