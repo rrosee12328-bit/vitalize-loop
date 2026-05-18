@@ -380,29 +380,7 @@ function AIAssistantsPage() {
                 </p>
               </div>
               <div className="md:col-span-6">
-                <div className="rounded-2xl border border-[rgba(0,0,0,0.08)] bg-white p-6 shadow-[0_2px_12px_rgba(0,0,0,0.06)] md:p-8">
-                  <p className="font-mono text-[11px] tracking-widest text-muted-foreground">
-                    LIVE CALL · AI RESPONSE
-                  </p>
-                  <div className="mt-4 flex items-start gap-3">
-                    <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#3B82F6] text-xs font-semibold text-white">
-                      AI
-                    </span>
-                    <div className="rounded-2xl rounded-tl-sm bg-[#F1F5F9] px-4 py-3 text-sm leading-6 text-foreground">
-                      "Our standard service call is $150. Since you're dealing
-                      with a leak, I'd classify that as an emergency. Let me
-                      grab your address and get a technician out to you."
-                    </div>
-                  </div>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    <span className="rounded-full bg-[#3B82F6]/10 px-2.5 py-1 text-[11px] font-medium text-[#3B82F6]">
-                      Lead Captured
-                    </span>
-                    <span className="rounded-full bg-red-500/10 px-2.5 py-1 text-[11px] font-medium text-red-600">
-                      Hot · Emergency
-                    </span>
-                  </div>
-                </div>
+                <ChatConversationVisual />
               </div>
             </div>
 
