@@ -643,16 +643,16 @@ function AIAssistantsPage() {
               <div key={r.feature} className="rounded-xl border border-border bg-card p-5 shadow-card">
                 <p className="text-xs font-mono tracking-widest text-muted-foreground uppercase">{r.feature}</p>
                 <div className="mt-3 space-y-2 text-sm">
-                  <div className="flex items-start gap-2 rounded-md bg-primary/10 p-2 border border-primary/30">
-                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                  <div className="flex items-start gap-2 rounded-md bg-primary/10 p-2 border-t-2 border-primary">
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
                     <div><span className="font-semibold text-primary">Vektiss Voice:</span> <span className="font-medium">{r.vektiss}</span></div>
                   </div>
                   <div className="flex items-start gap-2 p-2">
-                    {r.humanPositive ? <Check className="mt-0.5 h-4 w-4 shrink-0 text-foreground/50" /> : <X className="mt-0.5 h-4 w-4 shrink-0 text-foreground/40" />}
+                    {r.humanPositive ? <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" /> : <X className="mt-0.5 h-4 w-4 shrink-0 text-red-500" />}
                     <div className="text-muted-foreground"><span className="font-medium text-foreground">Human:</span> {r.human}</div>
                   </div>
                   <div className="flex items-start gap-2 p-2">
-                    {r.voicemailPositive ? <Check className="mt-0.5 h-4 w-4 shrink-0 text-foreground/50" /> : <X className="mt-0.5 h-4 w-4 shrink-0 text-foreground/40" />}
+                    {r.voicemailPositive ? <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" /> : <X className="mt-0.5 h-4 w-4 shrink-0 text-red-500" />}
                     <div className="text-muted-foreground"><span className="font-medium text-foreground">Voicemail:</span> {r.voicemail}</div>
                   </div>
                 </div>
