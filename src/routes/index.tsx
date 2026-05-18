@@ -419,6 +419,26 @@ function HomePage() {
         </div>
       </section>
 
+      {/* VOICE PRICING */}
+      <section id="voice-pricing" className="border-t border-border scroll-mt-24">
+        <div className="container-editorial py-24 md:py-32">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="eyebrow text-primary">Vektiss Voice Plans</p>
+            <p className="eyebrow mt-3">Pricing</p>
+            <h2 className="mt-6 display-2">
+              Flat rate. No surprises. Cancel anytime.
+            </h2>
+            <p className="mt-6 text-lg text-muted-foreground">
+              Every plan includes done-for-you setup, 24/7 coverage, and a 30-day
+              money-back guarantee.
+            </p>
+          </div>
+          <div className="mt-14">
+            <PricingTiers />
+          </div>
+        </div>
+      </section>
+
       {/* FINAL CTA */}
       <section className="container-editorial py-24 md:py-32">
         <div className="grid items-end gap-10 md:grid-cols-12">
