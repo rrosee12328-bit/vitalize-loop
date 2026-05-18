@@ -845,33 +845,70 @@ function HowItWorksTimeline() {
 }
 
 function BuildItVisual() {
+  const tasks = [
+    { label: "Voice & personality", value: "Maya · warm, professional", done: true },
+    { label: "Business hours", value: "24/7 — always on", done: true },
+    { label: "Call routing rules", value: "Sales · Billing · General", done: true },
+    { label: "Intake form flow", value: "Auto-send during call", done: true },
+    { label: "Email + SMS alerts", value: "Routed to owner", done: true },
+    { label: "Go-live", value: "Within 48 hours", done: false },
+  ];
   return (
-    <div className="bg-[#0B1220] p-5 font-mono text-[11px] leading-5 text-white/90">
-      <div className="mb-3 flex items-center gap-1.5">
-        <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]" />
-        <span className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]" />
-        <span className="h-2.5 w-2.5 rounded-full bg-[#28C840]" />
-        <span className="ml-3 text-[10px] tracking-wider text-white/40">vektiss.config.ts</span>
+    <div className="bg-[#0B1220] p-5 md:p-6">
+      {/* Header */}
+      <div className="mb-4 flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <span className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-[#2563EB]/15 text-[#7DD3FC]">
+            <Code2 className="h-3.5 w-3.5" />
+          </span>
+          <div>
+            <p className="text-[11px] font-semibold text-white">Setup Blueprint</p>
+            <p className="font-mono text-[9px] tracking-widest text-white/40">VEKTISS · YOUR BUSINESS</p>
+          </div>
+        </div>
+        <span className="inline-flex items-center gap-1 rounded-full bg-emerald-500/15 px-2 py-0.5 font-mono text-[9px] tracking-widest text-emerald-300">
+          <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+          IN PROGRESS
+        </span>
       </div>
-      <div className="overflow-x-auto">
-        <code className="block whitespace-pre font-mono text-[11px] leading-5 text-white/90">
-          <div><span className="text-white/40">{"{"}</span></div>
-          <div>  <span className="text-[#7DD3FC]">"agent"</span>: {"{"}</div>
-          <div>    <span className="text-[#7DD3FC]">"name"</span>: <span className="text-[#FCD34D]">"Maya"</span>,</div>
-          <div>    <span className="text-[#7DD3FC]">"voice"</span>: <span className="text-[#FCD34D]">"warm-female-01"</span>,</div>
-          <div>    <span className="text-[#7DD3FC]">"hours"</span>: <span className="text-[#FCD34D]">"24/7"</span></div>
-          <div>  {"}"},</div>
-          <div>  <span className="text-[#7DD3FC]">"routing"</span>: [</div>
-          <div>    <span className="text-white/60">{"{"} intent:</span> <span className="text-[#FCD34D]">"sales"</span> <span className="text-[#2563EB]">→</span> owner <span className="text-white/60">{"}"}</span>,</div>
-          <div>    <span className="text-white/60">{"{"} intent:</span> <span className="text-[#FCD34D]">"billing"</span> <span className="text-[#2563EB]">→</span> acct <span className="text-white/60">{"}"}</span>,</div>
-          <div>    <span className="text-white/60">{"{"} intent:</span> <span className="text-[#FCD34D]">"general"</span> <span className="text-[#2563EB]">→</span> AI <span className="text-white/60">{"}"}</span></div>
-          <div>  ],</div>
-          <div>  <span className="text-[#7DD3FC]">"intake"</span>: <span className="text-[#86EFAC]">true</span></div>
-          <div><span className="text-white/40">{"}"}</span></div>
-        </code>
+
+      {/* Progress bar */}
+      <div className="mb-4">
+        <div className="flex items-center justify-between text-[10px] text-white/60">
+          <span>Build progress</span>
+          <span className="font-mono tabular-nums text-white">83%</span>
+        </div>
+        <div className="mt-1.5 h-1.5 w-full overflow-hidden rounded-full bg-white/10">
+          <div className="h-full rounded-full bg-gradient-to-r from-[#2563EB] to-[#7DD3FC]" style={{ width: "83%" }} />
+        </div>
       </div>
-      <p className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-[#2563EB]/15 px-2 py-0.5 text-[10px] text-[#7DD3FC]">
-        <Code2 className="h-3 w-3" /> Configured by Vektiss
+
+      {/* Checklist */}
+      <ul className="space-y-2">
+        {tasks.map((t) => (
+          <li
+            key={t.label}
+            className="flex items-start gap-2.5 rounded-md border border-white/5 bg-white/[0.03] px-3 py-2"
+          >
+            <span
+              className={`mt-0.5 inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full ${
+                t.done ? "bg-emerald-500 text-white" : "border border-dashed border-white/30 bg-transparent"
+              }`}
+            >
+              {t.done ? <Check className="h-2.5 w-2.5" strokeWidth={3} /> : null}
+            </span>
+            <div className="min-w-0 flex-1">
+              <p className={`text-[11px] font-medium ${t.done ? "text-white" : "text-white/60"}`}>
+                {t.label}
+              </p>
+              <p className="text-[10px] text-white/50">{t.value}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+
+      <p className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-[#2563EB]/15 px-2.5 py-1 text-[10px] font-medium text-[#7DD3FC]">
+        <Code2 className="h-3 w-3" /> Built and managed by Vektiss
       </p>
     </div>
   );
