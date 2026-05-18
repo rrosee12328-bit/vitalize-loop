@@ -677,7 +677,7 @@ function AIAssistantsPage() {
             </p>
           </div>
 
-          <div className="mt-14">
+          <div id="pricing-tiers" className="mt-14 scroll-mt-24">
             <PricingTiers />
           </div>
         </div>
