@@ -1462,3 +1462,18 @@ function DonutChart() {
     </div>
   );
 }
+
+function ComparisonMark({ positive }: { positive: boolean }) {
+  if (positive) {
+    return (
+      <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-700 ring-1 ring-emerald-200">
+        <Check className="h-3.5 w-3.5" strokeWidth={3} />
+      </span>
+    );
+  }
+  return (
+    <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-rose-50 text-rose-500 ring-1 ring-rose-100">
+      <X className="h-3.5 w-3.5" strokeWidth={2.5} />
+    </span>
+  );
+}
