@@ -260,30 +260,29 @@ export function PortalMockup() {
                 Get started
               </div>
               <div className="mt-3 grid grid-cols-3 gap-1.5">
-                <div className="relative aspect-square overflow-hidden rounded">
+                <div className="relative aspect-square overflow-hidden rounded border border-border">
                   <img
-                    src={mediaFounder}
-                    alt="Founder thumbnail"
+                    src={portalThumbLanding}
+                    alt="Landing page thumbnail"
                     loading="lazy"
                     className="absolute inset-0 h-full w-full object-cover"
                   />
                 </div>
-                <div className="relative aspect-square overflow-hidden rounded">
+                <div className="relative aspect-square overflow-hidden rounded border border-border">
                   <img
-                    src={mediaCaseStudy}
-                    alt="Case study thumbnail"
+                    src={portalThumbDashboard}
+                    alt="Dashboard thumbnail"
                     loading="lazy"
                     className="absolute inset-0 h-full w-full object-cover"
                   />
                 </div>
-                <div className="relative aspect-square overflow-hidden rounded">
+                <div className="relative aspect-square overflow-hidden rounded border border-border">
                   <img
-                    src={mediaReel}
-                    alt="Reel thumbnail"
+                    src={portalThumbWorkspace}
+                    alt="Workspace thumbnail"
                     loading="lazy"
                     className="absolute inset-0 h-full w-full object-cover"
                   />
-                  <span className="absolute inset-0 bg-primary/30 mix-blend-multiply" />
                 </div>
               </div>
             </div>
