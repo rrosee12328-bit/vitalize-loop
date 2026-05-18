@@ -595,13 +595,13 @@ function SitesVisual() {
 function MediaVisual() {
   return (
     <div className="relative aspect-video w-full overflow-hidden rounded-md bg-[#0A1628]">
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(circle at 30% 40%, color-mix(in oklab, var(--color-primary) 30%, transparent) 0%, transparent 60%)",
-        }}
+      <img
+        src={mediaFounder}
+        alt="Vektiss Media founder shoot"
+        className="absolute inset-0 h-full w-full object-cover"
+        loading="lazy"
       />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-black/20" />
       <div className="absolute inset-0 flex items-center justify-center">
         <div
           className="flex h-12 w-12 items-center justify-center rounded-full bg-primary"
