@@ -28,22 +28,88 @@ export const Route = createFileRoute("/solutions/ai-assistants")({
   component: AIAssistantsPage,
 });
 
+function MissedCallIllustration() {
+  return (
+    <svg viewBox="0 0 200 120" className="h-28 w-full" aria-hidden="true">
+      <rect width="200" height="120" rx="12" fill="#F5EFE6" />
+      <circle cx="58" cy="60" r="34" fill="#E8DCC8" />
+      <circle cx="58" cy="60" r="22" fill="#F5EFE6" />
+      <path d="M40 60 L76 60" stroke="#1F2937" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M88 60 L108 60" stroke="#1F2937" strokeWidth="2.5" strokeLinecap="round" strokeDasharray="3 5" />
+      <path d="M120 60 L160 60" stroke="#1F2937" strokeWidth="2.5" strokeLinecap="round" />
+      <circle cx="160" cy="60" r="14" fill="#3B82F6" />
+      <path d="M154 56 q3 6 12 0" stroke="#fff" strokeWidth="2" fill="none" strokeLinecap="round" />
+      <circle cx="160" cy="50" r="1.6" fill="#fff" />
+      <circle cx="160" cy="50" r="1.6" fill="#fff" transform="translate(-6 0)" />
+    </svg>
+  );
+}
+
+function SlowReplyIllustration() {
+  return (
+    <svg viewBox="0 0 200 120" className="h-28 w-full" aria-hidden="true">
+      <rect width="200" height="120" rx="12" fill="#F5EFE6" />
+      <rect x="36" y="34" width="92" height="56" rx="10" fill="#E8DCC8" />
+      <rect x="46" y="46" width="52" height="4" rx="2" fill="#1F2937" opacity="0.6" />
+      <rect x="46" y="56" width="68" height="4" rx="2" fill="#1F2937" opacity="0.35" />
+      <rect x="46" y="66" width="40" height="4" rx="2" fill="#1F2937" opacity="0.35" />
+      <rect x="56" y="44" width="92" height="56" rx="10" fill="#F5EFE6" stroke="#1F2937" strokeWidth="1.5" opacity="0.9" />
+      <rect x="66" y="56" width="50" height="4" rx="2" fill="#1F2937" opacity="0.6" />
+      <rect x="66" y="66" width="68" height="4" rx="2" fill="#1F2937" opacity="0.35" />
+      <rect x="66" y="76" width="36" height="4" rx="2" fill="#1F2937" opacity="0.35" />
+      <circle cx="160" cy="44" r="14" fill="#3B82F6" />
+      <text x="160" y="49" textAnchor="middle" fill="#fff" fontFamily="ui-monospace,monospace" fontSize="13" fontWeight="700">!</text>
+    </svg>
+  );
+}
+
+function AfterHoursIllustration() {
+  return (
+    <svg viewBox="0 0 200 120" className="h-28 w-full" aria-hidden="true">
+      <rect width="200" height="120" rx="12" fill="#F5EFE6" />
+      <circle cx="100" cy="60" r="40" fill="#E8DCC8" />
+      <circle cx="100" cy="60" r="40" fill="#1F2937" clipPath="inset(0 0 0 50%)" />
+      <path d="M100 20 A40 40 0 0 1 100 100 Z" fill="#1F2937" />
+      <circle cx="100" cy="60" r="40" fill="none" stroke="#1F2937" strokeWidth="1.5" />
+      <circle cx="100" cy="60" r="3" fill="#3B82F6" />
+      <line x1="100" y1="60" x2="100" y2="32" stroke="#3B82F6" strokeWidth="2.5" strokeLinecap="round" />
+      <line x1="100" y1="60" x2="122" y2="60" stroke="#3B82F6" strokeWidth="2.5" strokeLinecap="round" />
+      <circle cx="158" cy="32" r="2" fill="#1F2937" opacity="0.5" />
+      <circle cx="170" cy="50" r="1.5" fill="#1F2937" opacity="0.5" />
+      <circle cx="42" cy="40" r="1.5" fill="#1F2937" opacity="0.5" />
+    </svg>
+  );
+}
+
 const problems = [
   {
-    Icon: PhoneOff,
+    Illustration: MissedCallIllustration,
     title: "The Missed Call",
     body: "You're on a job. The phone rings. Nobody answers. That caller just called your competitor.",
   },
   {
-    Icon: Inbox,
-    title: "The Inbox Backlog",
+    Illustration: SlowReplyIllustration,
+    title: "The Slow Reply",
     body: "Emails pile up. Leads go cold. You spend your evenings responding to questions your AI could handle in seconds.",
   },
   {
-    Icon: MoonStar,
+    Illustration: AfterHoursIllustration,
     title: "The After-Hours Gap",
     body: "Your business hours end at 5pm. Your customers' emergencies don't.",
   },
+];
+
+const inactionStats = [
+  { stat: "62%", body: "of business calls go unanswered. Every missed call is a missed lead." },
+  { stat: "85%", body: "of callers who reach voicemail never call back. They just call your competitor." },
+  { stat: "$126K", body: "is the average annual revenue lost by small businesses due to missed calls." },
+];
+
+const comparisonRows = [
+  { feature: "24/7 Availability", vektiss: "Yes", human: "No — 9 to 5 only", voicemail: "Yes, but ignores leads", vektissPositive: true, humanPositive: false, voicemailPositive: false },
+  { feature: "Answers on Ring 1", vektiss: "Always", human: "Usually", voicemail: "Never", vektissPositive: true, humanPositive: true, voicemailPositive: false },
+  { feature: "Captures Lead Info", vektiss: "Yes — Intake Forms", human: "Yes", voicemail: "Rarely", vektissPositive: true, humanPositive: true, voicemailPositive: false },
+  { feature: "Cost", vektiss: "Starting at $45.99/mo", human: "~$3,500/mo", voicemail: "Free, but costs you deals", vektissPositive: true, humanPositive: false, voicemailPositive: false },
 ];
 
 const steps = [
