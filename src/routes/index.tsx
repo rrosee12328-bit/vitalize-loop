@@ -94,6 +94,33 @@ const deepDives = [
   },
 ];
 
+const voiceFaqs = [
+  {
+    q: "How fast can Vektiss Voice go live?",
+    a: "Most businesses are live within 48 hours. We handle setup, scripting, and integration with your phone system — you just point your number to us.",
+  },
+  {
+    q: "What does it actually do on a call?",
+    a: "Answers 24/7, qualifies the caller, books appointments, captures intake details, and texts/emails follow-ups. It handles FAQs and routes urgent calls to a human when needed.",
+  },
+  {
+    q: "Will it sound like a robot?",
+    a: "No. It uses natural voice models tuned to your brand. Most callers don't realize they're talking to AI — and the ones who do still get what they need.",
+  },
+  {
+    q: "What happens if it can't answer something?",
+    a: "It escalates: warm-transfers to a human, sends a transcript to your team, or schedules a callback — based on rules you set.",
+  },
+  {
+    q: "Is there a contract?",
+    a: "No contracts. Month-to-month, cancel anytime, with a 30-day money-back guarantee.",
+  },
+  {
+    q: "Does it integrate with my CRM and calendar?",
+    a: "Yes — Google Calendar, Outlook, HubSpot, GoHighLevel, Jobber, Housecall Pro, and most modern CRMs out of the box. Custom integrations on request.",
+  },
+];
+
 const steps = [
   {
     no: "01",
@@ -435,6 +462,33 @@ function HomePage() {
           </div>
           <div className="mt-14">
             <PricingTiers />
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="border-t border-border bg-surface-elevated">
+        <div className="container-editorial py-24 md:py-32">
+          <div className="grid gap-16 md:grid-cols-12">
+            <div className="md:col-span-4">
+              <p className="eyebrow">FAQ</p>
+              <h2 className="mt-6 display-2">Vektiss Voice, answered.</h2>
+              <p className="mt-6 text-muted-foreground">
+                Quick answers to what operators ask us most before getting started.
+              </p>
+            </div>
+            <div className="md:col-span-8">
+              <dl className="space-y-px overflow-hidden rounded-xl border border-border bg-border">
+                {voiceFaqs.map((f) => (
+                  <div key={f.q} className="bg-background p-6 md:p-8">
+                    <dt className="text-lg font-semibold tracking-tight text-foreground">
+                      {f.q}
+                    </dt>
+                    <dd className="mt-3 text-muted-foreground">{f.a}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
           </div>
         </div>
       </section>
