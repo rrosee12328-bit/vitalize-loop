@@ -41,6 +41,7 @@ function VoiceIntakePage() {
 
   // Section 1
   const [businessName, setBusinessName] = useState("");
+  const [website, setWebsite] = useState("");
   const [primaryPhone, setPrimaryPhone] = useState("");
   const [businessAddress, setBusinessAddress] = useState("");
   const [hours, setHours] = useState<Record<string, string>>(
