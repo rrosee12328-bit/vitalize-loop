@@ -141,15 +141,20 @@ function VoiceIntakePage() {
         sopFileName: sopFile?.name ?? null,
       };
 
-      const { error } = await supabase.from("voice_intake_submissions").insert({
-        business_name: businessName,
-        contact_email: alertEmail || null,
-        primary_phone: primaryPhone || null,
-        payload,
-        sop_file_path: sopPath,
-      });
+      const { data: inserted, error } = await supabase
+        .from("voice_intake_submissions")
+        .insert({
+          business_name: businessName,
+          contact_email: alertEmail || null,
+          primary_phone: primaryPhone || null,
+          payload,
+          sop_file_path: sopPath,
+        })
+        .select("id")
+        .single();
       if (error) throw error;
 
+      setSubmissionId(inserted?.id ?? null);
       setSubmitted(true);
       toast.success("Submission received");
       window.scrollTo(0, 0);
