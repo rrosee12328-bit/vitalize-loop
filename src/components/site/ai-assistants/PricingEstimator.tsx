@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { ArrowRight, Check, X, Zap, Phone, Mail, Sparkles, Crown, Sparkle } from "lucide-react";
+import { ArrowRight, Check, X, Phone, Mail, Sparkles, Crown, Sparkle } from "lucide-react";
 import { Slider } from "@/components/ui/slider";
 import { cn } from "@/lib/utils";
 
@@ -171,16 +171,10 @@ export function PricingTiers() {
     <div>
       {/* Setup fee banner */}
       <div className="mb-8 rounded-xl border border-primary/20 border-l-4 border-l-primary bg-primary/5 px-5 py-4 md:px-6">
-        <div className="flex flex-col gap-1 md:flex-row md:items-center md:justify-between md:gap-6">
-          <p className="text-sm text-foreground md:text-base">
-            <span className="font-semibold">Done-For-You Setup: $500</span> — We
-            build, configure, and test your custom AI agent.
-          </p>
-          <p className="inline-flex items-center gap-1.5 text-sm font-medium text-primary">
-            <Zap className="h-4 w-4 fill-current" />
-            Fast-Action Bonus: 50% off setup today — only $250.
-          </p>
-        </div>
+        <p className="text-sm text-foreground md:text-base">
+          <span className="font-semibold">Done-For-You Setup: $500</span> — We
+          build, configure, and test your custom AI agent.
+        </p>
       </div>
 
       <div className="mb-10 flex justify-center">
