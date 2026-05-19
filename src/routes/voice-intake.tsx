@@ -37,6 +37,7 @@ type FAQ = { question: string; answer: string };
 function VoiceIntakePage() {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submissionId, setSubmissionId] = useState<string | null>(null);
 
   // Section 1
   const [businessName, setBusinessName] = useState("");
@@ -140,15 +141,20 @@ function VoiceIntakePage() {
         sopFileName: sopFile?.name ?? null,
       };
 
-      const { error } = await supabase.from("voice_intake_submissions").insert({
-        business_name: businessName,
-        contact_email: alertEmail || null,
-        primary_phone: primaryPhone || null,
-        payload,
-        sop_file_path: sopPath,
-      });
+      const { data: inserted, error } = await supabase
+        .from("voice_intake_submissions")
+        .insert({
+          business_name: businessName,
+          contact_email: alertEmail || null,
+          primary_phone: primaryPhone || null,
+          payload,
+          sop_file_path: sopPath,
+        })
+        .select("id")
+        .single();
       if (error) throw error;
 
+      setSubmissionId(inserted?.id ?? null);
       setSubmitted(true);
       toast.success("Submission received");
       window.scrollTo(0, 0);
@@ -161,6 +167,7 @@ function VoiceIntakePage() {
   };
 
   if (submitted) {
+    const shortRef = submissionId ? submissionId.slice(0, 8).toUpperCase() : null;
     return (
       <SiteLayout>
         <section className="container-editorial py-32 text-center">
@@ -168,6 +175,30 @@ function VoiceIntakePage() {
           <h1 className="display-2 mt-6">Thank you</h1>
           <p className="mt-4 text-muted-foreground max-w-md mx-auto">
             We've received your Vektiss Voice intake. Our team will review your information and reach out within one business day to begin setup.
+          </p>
+          {submissionId && (
+            <div className="mt-8 inline-block rounded-lg border border-border bg-card px-6 py-4 text-left">
+              <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
+                Reference number
+              </p>
+              <p className="mt-1 font-mono text-lg">{shortRef}</p>
+              <p className="mt-2 text-xs text-muted-foreground break-all">
+                Full ID: {submissionId}
+              </p>
+              <button
+                type="button"
+                onClick={() => {
+                  navigator.clipboard.writeText(submissionId);
+                  toast.success("Reference copied");
+                }}
+                className="mt-3 text-xs text-primary hover:underline"
+              >
+                Copy full ID
+              </button>
+            </div>
+          )}
+          <p className="mt-6 text-xs text-muted-foreground">
+            Please save this reference for any follow-up questions.
           </p>
         </section>
       </SiteLayout>
