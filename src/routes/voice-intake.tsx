@@ -132,7 +132,7 @@ function VoiceIntakePage() {
       }
 
       const payload = {
-        business: { businessName, primaryPhone, businessAddress, hours, afterHours },
+        business: { businessName, website, primaryPhone, businessAddress, hours, afterHours },
         callRouting: { transferees, hasEmergencyLine, emergencyNumber },
         aiKnowledge: { faqs, services, aiNeverDo, tone },
         intakeForms: { sendForm, formUrl, formTrigger },
