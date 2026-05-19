@@ -37,6 +37,7 @@ type FAQ = { question: string; answer: string };
 function VoiceIntakePage() {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submissionId, setSubmissionId] = useState<string | null>(null);
 
   // Section 1
   const [businessName, setBusinessName] = useState("");
