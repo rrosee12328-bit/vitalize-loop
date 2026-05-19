@@ -222,6 +222,14 @@ function VoiceIntakePage() {
               <Field label="Business name *">
                 <Input value={businessName} onChange={(e) => setBusinessName(e.target.value)} required />
               </Field>
+              <Field label="Website">
+                <Input
+                  type="url"
+                  placeholder="https://yourbusiness.com"
+                  value={website}
+                  onChange={(e) => setWebsite(e.target.value)}
+                />
+              </Field>
               <Field label="Primary phone number (the number callers will dial)">
                 <Input value={primaryPhone} onChange={(e) => setPrimaryPhone(e.target.value)} />
               </Field>
