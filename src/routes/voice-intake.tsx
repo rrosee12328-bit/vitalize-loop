@@ -41,6 +41,7 @@ function VoiceIntakePage() {
 
   // Section 1
   const [businessName, setBusinessName] = useState("");
+  const [website, setWebsite] = useState("");
   const [primaryPhone, setPrimaryPhone] = useState("");
   const [businessAddress, setBusinessAddress] = useState("");
   const [hours, setHours] = useState<Record<string, string>>(
@@ -131,7 +132,7 @@ function VoiceIntakePage() {
       }
 
       const payload = {
-        business: { businessName, primaryPhone, businessAddress, hours, afterHours },
+        business: { businessName, website, primaryPhone, businessAddress, hours, afterHours },
         callRouting: { transferees, hasEmergencyLine, emergencyNumber },
         aiKnowledge: { faqs, services, aiNeverDo, tone },
         intakeForms: { sendForm, formUrl, formTrigger },
@@ -220,6 +221,14 @@ function VoiceIntakePage() {
             <Section title="1 · Business Info">
               <Field label="Business name *">
                 <Input value={businessName} onChange={(e) => setBusinessName(e.target.value)} required />
+              </Field>
+              <Field label="Website">
+                <Input
+                  type="url"
+                  placeholder="https://yourbusiness.com"
+                  value={website}
+                  onChange={(e) => setWebsite(e.target.value)}
+                />
               </Field>
               <Field label="Primary phone number (the number callers will dial)">
                 <Input value={primaryPhone} onChange={(e) => setPrimaryPhone(e.target.value)} />
