@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as VoiceIntakeRouteImport } from './routes/voice-intake'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as SolutionsRouteImport } from './routes/solutions'
 import { Route as PrivacyRouteImport } from './routes/privacy'
@@ -21,7 +22,14 @@ import { Route as SolutionsWebsitesPortalsAppsRouteImport } from './routes/solut
 import { Route as SolutionsProjectIntelligenceRouteImport } from './routes/solutions.project-intelligence'
 import { Route as SolutionsBusinessMediaRouteImport } from './routes/solutions.business-media'
 import { Route as SolutionsAiAssistantsRouteImport } from './routes/solutions.ai-assistants'
+import { Route as AdminLoginRouteImport } from './routes/admin.login'
+import { Route as AdminIntakeRouteImport } from './routes/admin.intake'
 
+const VoiceIntakeRoute = VoiceIntakeRouteImport.update({
+  id: '/voice-intake',
+  path: '/voice-intake',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
@@ -84,6 +92,16 @@ const SolutionsAiAssistantsRoute = SolutionsAiAssistantsRouteImport.update({
   path: '/ai-assistants',
   getParentRoute: () => SolutionsRoute,
 } as any)
+const AdminLoginRoute = AdminLoginRouteImport.update({
+  id: '/admin/login',
+  path: '/admin/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminIntakeRoute = AdminIntakeRouteImport.update({
+  id: '/admin/intake',
+  path: '/admin/intake',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -94,6 +112,9 @@ export interface FileRoutesByFullPath {
   '/privacy': typeof PrivacyRoute
   '/solutions': typeof SolutionsRouteWithChildren
   '/terms': typeof TermsRoute
+  '/voice-intake': typeof VoiceIntakeRoute
+  '/admin/intake': typeof AdminIntakeRoute
+  '/admin/login': typeof AdminLoginRoute
   '/solutions/ai-assistants': typeof SolutionsAiAssistantsRoute
   '/solutions/business-media': typeof SolutionsBusinessMediaRoute
   '/solutions/project-intelligence': typeof SolutionsProjectIntelligenceRoute
@@ -108,6 +129,9 @@ export interface FileRoutesByTo {
   '/privacy': typeof PrivacyRoute
   '/solutions': typeof SolutionsRouteWithChildren
   '/terms': typeof TermsRoute
+  '/voice-intake': typeof VoiceIntakeRoute
+  '/admin/intake': typeof AdminIntakeRoute
+  '/admin/login': typeof AdminLoginRoute
   '/solutions/ai-assistants': typeof SolutionsAiAssistantsRoute
   '/solutions/business-media': typeof SolutionsBusinessMediaRoute
   '/solutions/project-intelligence': typeof SolutionsProjectIntelligenceRoute
@@ -123,6 +147,9 @@ export interface FileRoutesById {
   '/privacy': typeof PrivacyRoute
   '/solutions': typeof SolutionsRouteWithChildren
   '/terms': typeof TermsRoute
+  '/voice-intake': typeof VoiceIntakeRoute
+  '/admin/intake': typeof AdminIntakeRoute
+  '/admin/login': typeof AdminLoginRoute
   '/solutions/ai-assistants': typeof SolutionsAiAssistantsRoute
   '/solutions/business-media': typeof SolutionsBusinessMediaRoute
   '/solutions/project-intelligence': typeof SolutionsProjectIntelligenceRoute
@@ -139,6 +166,9 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/solutions'
     | '/terms'
+    | '/voice-intake'
+    | '/admin/intake'
+    | '/admin/login'
     | '/solutions/ai-assistants'
     | '/solutions/business-media'
     | '/solutions/project-intelligence'
@@ -153,6 +183,9 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/solutions'
     | '/terms'
+    | '/voice-intake'
+    | '/admin/intake'
+    | '/admin/login'
     | '/solutions/ai-assistants'
     | '/solutions/business-media'
     | '/solutions/project-intelligence'
@@ -167,6 +200,9 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/solutions'
     | '/terms'
+    | '/voice-intake'
+    | '/admin/intake'
+    | '/admin/login'
     | '/solutions/ai-assistants'
     | '/solutions/business-media'
     | '/solutions/project-intelligence'
@@ -182,10 +218,20 @@ export interface RootRouteChildren {
   PrivacyRoute: typeof PrivacyRoute
   SolutionsRoute: typeof SolutionsRouteWithChildren
   TermsRoute: typeof TermsRoute
+  VoiceIntakeRoute: typeof VoiceIntakeRoute
+  AdminIntakeRoute: typeof AdminIntakeRoute
+  AdminLoginRoute: typeof AdminLoginRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/voice-intake': {
+      id: '/voice-intake'
+      path: '/voice-intake'
+      fullPath: '/voice-intake'
+      preLoaderRoute: typeof VoiceIntakeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/terms': {
       id: '/terms'
       path: '/terms'
@@ -270,6 +316,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SolutionsAiAssistantsRouteImport
       parentRoute: typeof SolutionsRoute
     }
+    '/admin/login': {
+      id: '/admin/login'
+      path: '/admin/login'
+      fullPath: '/admin/login'
+      preLoaderRoute: typeof AdminLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/intake': {
+      id: '/admin/intake'
+      path: '/admin/intake'
+      fullPath: '/admin/intake'
+      preLoaderRoute: typeof AdminIntakeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -300,6 +360,9 @@ const rootRouteChildren: RootRouteChildren = {
   PrivacyRoute: PrivacyRoute,
   SolutionsRoute: SolutionsRouteWithChildren,
   TermsRoute: TermsRoute,
+  VoiceIntakeRoute: VoiceIntakeRoute,
+  AdminIntakeRoute: AdminIntakeRoute,
+  AdminLoginRoute: AdminLoginRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
