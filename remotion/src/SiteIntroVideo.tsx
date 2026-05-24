@@ -8,7 +8,6 @@ import {
   useVideoConfig,
   spring,
   interpolate,
-  random,
 } from "remotion";
 import { COLORS } from "./theme";
 import { FONT_MONO, FONT_SANS } from "./fonts";
