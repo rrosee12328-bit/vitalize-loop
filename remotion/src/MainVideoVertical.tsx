@@ -1,5 +1,5 @@
 import React from "react";
-import { AbsoluteFill, Sequence, useCurrentFrame, useVideoConfig, spring, interpolate } from "remotion";
+import { AbsoluteFill, Img, Sequence, staticFile, useCurrentFrame, useVideoConfig, spring, interpolate } from "remotion";
 import { PersistentBackground } from "./components/PersistentBackground";
 import { COLORS } from "./theme";
 import { FONT_MONO, FONT_SANS } from "./fonts";
@@ -65,7 +65,7 @@ const VerticalHUD: React.FC = () => {
           fontFamily: FONT_SANS,
         }}
       >
-        <div style={{ width: 14, height: 14, borderRadius: 999, background: COLORS.accent, boxShadow: `0 0 0 6px rgba(0,85,255,0.12)` }} />
+        <Img src={staticFile("images/vektiss-logo.png")} style={{ width: 44, height: 44, objectFit: "contain" }} />
         <span style={{ color: COLORS.ink, fontWeight: 600, fontSize: 32, letterSpacing: "-0.01em" }}>VEKTISS</span>
       </div>
       <div
@@ -352,16 +352,16 @@ const VClose: React.FC = () => {
   return (
     <AbsoluteFill style={{ opacity: fadeOut, alignItems: "center", justifyContent: "center", flexDirection: "column" }}>
       <div style={{ display: "flex", alignItems: "center", gap: 28, marginBottom: 60 }}>
-        <div
+        <Img
+          src={staticFile("images/vektiss-logo.png")}
           style={{
             transform: `scale(${dotIn})`,
-            width: 46,
-            height: 46,
-            borderRadius: 999,
-            background: COLORS.accent,
-            boxShadow: `0 0 0 14px rgba(0,85,255,0.12)`,
+            width: 220,
+            height: 220,
+            objectFit: "contain",
           }}
         />
+
       </div>
       <div
         style={{

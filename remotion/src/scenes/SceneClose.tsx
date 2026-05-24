@@ -1,5 +1,5 @@
 import React from "react";
-import { AbsoluteFill, useCurrentFrame, useVideoConfig, spring, interpolate } from "remotion";
+import { AbsoluteFill, Img, staticFile, useCurrentFrame, useVideoConfig, spring, interpolate } from "remotion";
 import { COLORS } from "../theme";
 import { FONT_MONO, FONT_SANS } from "../fonts";
 
@@ -27,16 +27,16 @@ export const SceneClose: React.FC = () => {
       {/* Centered wordmark */}
       <AbsoluteFill style={{ alignItems: "center", justifyContent: "center", flexDirection: "column" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 28 }}>
-          <div
+          <Img
+            src={staticFile("images/vektiss-logo.png")}
             style={{
               transform: `scale(${dotIn})`,
-              width: 38,
-              height: 38,
-              borderRadius: 999,
-              background: COLORS.accent,
-              boxShadow: `0 0 0 12px rgba(0,85,255,0.12)`,
+              width: 156,
+              height: 156,
+              objectFit: "contain",
             }}
           />
+
           <div
             style={{
               opacity: wordIn,
