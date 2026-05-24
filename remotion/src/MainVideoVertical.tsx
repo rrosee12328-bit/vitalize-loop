@@ -65,7 +65,7 @@ const VerticalHUD: React.FC = () => {
           fontFamily: FONT_SANS,
         }}
       >
-        <div style={{ width: 14, height: 14, borderRadius: 999, background: COLORS.accent, boxShadow: `0 0 0 6px rgba(0,85,255,0.12)` }} />
+        <Img src={staticFile("images/vektiss-logo.png")} style={{ width: 44, height: 44, objectFit: "contain" }} />
         <span style={{ color: COLORS.ink, fontWeight: 600, fontSize: 32, letterSpacing: "-0.01em" }}>VEKTISS</span>
       </div>
       <div
