@@ -1,6 +1,7 @@
 import { Composition } from "remotion";
 import { MainVideo } from "./MainVideo";
 import { MainVideoVertical } from "./MainVideoVertical";
+import { SiteIntroVideo } from "./SiteIntroVideo";
 
 // 20s @ 30fps = 600 frames
 export const RemotionRoot: React.FC = () => {
@@ -22,6 +23,15 @@ export const RemotionRoot: React.FC = () => {
         width={1080}
         height={1920}
       />
+      <Composition
+        id="site-intro"
+        component={SiteIntroVideo}
+        durationInFrames={1290}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
     </>
   );
 };
+
