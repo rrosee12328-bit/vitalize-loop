@@ -352,16 +352,16 @@ const VClose: React.FC = () => {
   return (
     <AbsoluteFill style={{ opacity: fadeOut, alignItems: "center", justifyContent: "center", flexDirection: "column" }}>
       <div style={{ display: "flex", alignItems: "center", gap: 28, marginBottom: 60 }}>
-        <div
+        <Img
+          src={staticFile("images/vektiss-logo.png")}
           style={{
             transform: `scale(${dotIn})`,
-            width: 46,
-            height: 46,
-            borderRadius: 999,
-            background: COLORS.accent,
-            boxShadow: `0 0 0 14px rgba(0,85,255,0.12)`,
+            width: 220,
+            height: 220,
+            objectFit: "contain",
           }}
         />
+
       </div>
       <div
         style={{
