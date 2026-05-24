@@ -1285,20 +1285,32 @@ const Scene07_Dashboard: React.FC<{ durationInFrames: number }> = ({ durationInF
           <MiniKPI label="AI DECISIONS / WK" value="318" delay={22} />
         </div>
 
-        {/* Chart panel */}
-        <Card x={0} y={0} w={1} h={1} delay={26} label="OPERATIONS · LAST 7 DAYS">
-          {/* note: Card uses absolute pos; we re-render contents in a wrapper instead */}
-        </Card>
+        {/* Operations panel */}
         <div
           style={{
             background: COLORS.surface,
             borderRadius: 18,
             padding: 18,
-            position: "relative",
-            overflow: "hidden",
-            opacity: 0,
+            display: "flex",
+            flexDirection: "column",
           }}
-        />
+        >
+          <div
+            style={{
+              fontFamily: FONT_MONO,
+              fontSize: 11,
+              letterSpacing: "0.22em",
+              color: COLORS.muted,
+            }}
+          >
+            OPERATIONS · LAST 7 DAYS
+          </div>
+          <MiniBar delay={12} />
+          <div style={{ marginTop: 10, fontFamily: FONT_SANS, fontSize: 14, color: COLORS.muted }}>
+            Tasks closed across the team
+          </div>
+        </div>
+
         <div
           style={{
             background: COLORS.surface,
