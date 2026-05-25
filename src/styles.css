@@ -76,7 +76,7 @@
   --popover-foreground: oklch(0.21 0.005 280);
 
   /* Primary = Vektiss Blue, used for solid CTAs */
-  --primary: oklch(0.524 0.281 264.05);              /* #0088FF */
+  --primary: oklch(0.632 0.202 254.09);              /* #0088FF */
   --primary-foreground: oklch(1 0 0);
 
   /* Accent = Vektiss Blue — for highlights, eyebrows, link underlines */
