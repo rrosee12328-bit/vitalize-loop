@@ -72,8 +72,8 @@ export function HeroMockup() {
               <svg viewBox="0 0 400 110" className="mt-3 h-24 w-full">
                 <defs>
                   <linearGradient id="g" x1="0" x2="0" y1="0" y2="1">
-                    <stop offset="0%" stopColor="oklch(0.524 0.281 264.05)" stopOpacity="0.25" />
-                    <stop offset="100%" stopColor="oklch(0.524 0.281 264.05)" stopOpacity="0" />
+                    <stop offset="0%" stopColor="oklch(0.632 0.202 254.09)" stopOpacity="0.25" />
+                    <stop offset="100%" stopColor="oklch(0.632 0.202 254.09)" stopOpacity="0" />
                   </linearGradient>
                 </defs>
                 {[20, 40, 60, 80].map((y) => (
@@ -86,7 +86,7 @@ export function HeroMockup() {
                 <path
                   d="M0,80 C40,70 60,75 100,55 C140,40 170,60 210,45 C260,28 300,40 340,22 C370,12 390,18 400,15"
                   fill="none"
-                  stroke="oklch(0.524 0.281 264.05)"
+                  stroke="oklch(0.632 0.202 254.09)"
                   strokeWidth="2"
                 />
               </svg>
