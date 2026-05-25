@@ -111,7 +111,7 @@ const SpeakerLayer: React.FC<{ segments: Segment[] }> = ({ segments }) => {
           ...target,
         }}
       >
-        <Video src={staticFile("video/speaker.mp4")} muted style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+        <OffthreadVideo src={staticFile("video/speaker.mp4")} muted style={{ width: "100%", height: "100%", objectFit: "cover" }} />
       </div>
       <Audio src={staticFile("video/speaker.m4a")} />
     </AbsoluteFill>
