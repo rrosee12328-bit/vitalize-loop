@@ -64,10 +64,10 @@ export function VoiceLoopSection() {
                 }}
               >
                 <div className="flex items-center gap-3">
-                  <div className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#0055FF]/15 text-[#0055FF]">
+                  <div className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#0088FF]/15 text-[#0088FF]">
                     <Icon className="h-5 w-5" />
                   </div>
-                  <div className="font-mono text-[10px] font-semibold tracking-widest text-[#0055FF]">
+                  <div className="font-mono text-[10px] font-semibold tracking-widest text-[#0088FF]">
                     STEP {i + 1}
                   </div>
                 </div>
@@ -83,7 +83,7 @@ export function VoiceLoopSection() {
                   aria-hidden
                   className="pointer-events-none absolute right-0 top-1/2 hidden h-px w-4 -translate-y-1/2 translate-x-full overflow-hidden bg-white/15 lg:block"
                 >
-                  <span className="absolute inset-y-0 -left-1/2 w-1/2 bg-gradient-to-r from-transparent via-[#0055FF] to-transparent animate-flow-pulse" />
+                  <span className="absolute inset-y-0 -left-1/2 w-1/2 bg-gradient-to-r from-transparent via-[#0088FF] to-transparent animate-flow-pulse" />
                 </div>
               )}
             </div>
@@ -204,7 +204,7 @@ export function VoiceLoopSection() {
                     <div key={i} className="flex gap-2">
                       <span className="w-10 shrink-0 font-mono tabular-nums text-[10px] text-[#94A3B8]">{l.t}</span>
                       <p className="min-w-0 flex-1">
-                        <span className={l.who === "ai" ? "font-semibold text-[#0055FF]" : "font-semibold text-[#475569]"}>
+                        <span className={l.who === "ai" ? "font-semibold text-[#0088FF]" : "font-semibold text-[#475569]"}>
                           {l.who === "ai" ? "Vektiss AI:" : "Caller:"}
                         </span>{" "}
                         <span className="text-[#1E293B]">{l.text}</span>
@@ -215,10 +215,10 @@ export function VoiceLoopSection() {
               </div>
 
               <div className="mt-auto flex flex-wrap gap-4 pt-5 text-sm font-medium" style={{ borderTop: "1px solid #F1F5F9", marginTop: "auto" }}>
-                <a className="inline-flex items-center gap-1 text-[#0055FF] hover:underline" href="#">
+                <a className="inline-flex items-center gap-1 text-[#0088FF] hover:underline" href="#">
                   Listen to Recording <ArrowRight className="h-3.5 w-3.5" />
                 </a>
-                <a className="inline-flex items-center gap-1 text-[#0055FF] hover:underline" href="#">
+                <a className="inline-flex items-center gap-1 text-[#0088FF] hover:underline" href="#">
                   View in Dashboard <ArrowRight className="h-3.5 w-3.5" />
                 </a>
               </div>

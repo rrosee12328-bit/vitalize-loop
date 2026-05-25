@@ -123,7 +123,7 @@ export function DashboardPreview() {
                       className="h-full rounded-full"
                       style={{
                         width: `${(r.pct / 34) * 100}%`,
-                        backgroundColor: `rgba(0, 85, 255, ${op})`,
+                        backgroundColor: `rgba(0, 136, 255, ${op})`,
                       }}
                     />
                   </div>

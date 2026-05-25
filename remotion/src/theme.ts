@@ -5,7 +5,7 @@ export const COLORS = {
   ink: "#171717",
   muted: "#71717A",
   border: "#E4E4E7",
-  accent: "#0055FF", // Vektiss Blue
+  accent: "#0088FF", // Vektiss Blue
   footer: "#0A1628",
   white: "#FFFFFF",
 };
