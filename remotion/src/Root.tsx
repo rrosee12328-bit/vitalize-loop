@@ -2,6 +2,8 @@ import { Composition } from "remotion";
 import { MainVideo } from "./MainVideo";
 import { MainVideoVertical } from "./MainVideoVertical";
 import { SiteIntroVideo } from "./SiteIntroVideo";
+import { SpeakerVerticalVideo } from "./SpeakerVerticalVideo";
+
 
 // 20s @ 30fps = 600 frames
 export const RemotionRoot: React.FC = () => {
