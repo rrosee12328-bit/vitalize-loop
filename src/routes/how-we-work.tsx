@@ -330,10 +330,10 @@ function HowWeWorkPage() {
                 href="https://calendly.com/vektiss-info/30-minute-vektiss-discovery"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex h-14 items-center gap-2 rounded-xl bg-[#2563EB] px-10 text-base font-medium text-white transition-all hover:scale-[1.02] hover:opacity-95"
+                className="group inline-flex h-14 items-center gap-2 rounded-xl bg-[#0055FF] px-10 text-base font-medium text-white transition-all hover:scale-[1.02] hover:opacity-95"
                 style={{
                   boxShadow:
-                    "0 20px 40px -12px rgba(37, 99, 235, 0.5)",
+                    "0 20px 40px -12px rgba(0, 85, 255, 0.5)",
                 }}
               >
                 Book a Demo
@@ -419,27 +419,27 @@ function DevelopVisual() {
 
         {/* Architecture blocks */}
         <g>
-          <rect x="40" y="30" width="80" height="40" rx="4" fill="none" stroke="#3B82F6" strokeWidth="1.5" />
+          <rect x="40" y="30" width="80" height="40" rx="4" fill="none" stroke="#0055FF" strokeWidth="1.5" />
           <text x="80" y="55" textAnchor="middle" fill="#93C5FD" fontSize="9" fontFamily="monospace">DASHBOARD</text>
 
-          <rect x="200" y="30" width="80" height="40" rx="4" fill="none" stroke="#3B82F6" strokeWidth="1.5" />
+          <rect x="200" y="30" width="80" height="40" rx="4" fill="none" stroke="#0055FF" strokeWidth="1.5" />
           <text x="240" y="55" textAnchor="middle" fill="#93C5FD" fontSize="9" fontFamily="monospace">AI VOICE</text>
 
-          <rect x="40" y="110" width="80" height="40" rx="4" fill="none" stroke="#3B82F6" strokeWidth="1.5" />
+          <rect x="40" y="110" width="80" height="40" rx="4" fill="none" stroke="#0055FF" strokeWidth="1.5" />
           <text x="80" y="135" textAnchor="middle" fill="#93C5FD" fontSize="9" fontFamily="monospace">PIPELINES</text>
 
-          <rect x="200" y="110" width="80" height="40" rx="4" fill="none" stroke="#3B82F6" strokeWidth="1.5" />
+          <rect x="200" y="110" width="80" height="40" rx="4" fill="none" stroke="#0055FF" strokeWidth="1.5" />
           <text x="240" y="135" textAnchor="middle" fill="#93C5FD" fontSize="9" fontFamily="monospace">AUTOMATIONS</text>
 
           {/* Center hub */}
           <circle cx="160" cy="90" r="14" fill="#0055FF" />
-          <circle cx="160" cy="90" r="20" fill="none" stroke="#3B82F6" strokeWidth="1" opacity="0.6" />
+          <circle cx="160" cy="90" r="20" fill="none" stroke="#0055FF" strokeWidth="1" opacity="0.6" />
 
           {/* Connections */}
-          <line x1="120" y1="50" x2="148" y2="82" stroke="#3B82F6" strokeWidth="1" strokeDasharray="3 3" />
-          <line x1="200" y1="50" x2="172" y2="82" stroke="#3B82F6" strokeWidth="1" strokeDasharray="3 3" />
-          <line x1="120" y1="130" x2="148" y2="98" stroke="#3B82F6" strokeWidth="1" strokeDasharray="3 3" />
-          <line x1="200" y1="130" x2="172" y2="98" stroke="#3B82F6" strokeWidth="1" strokeDasharray="3 3" />
+          <line x1="120" y1="50" x2="148" y2="82" stroke="#0055FF" strokeWidth="1" strokeDasharray="3 3" />
+          <line x1="200" y1="50" x2="172" y2="82" stroke="#0055FF" strokeWidth="1" strokeDasharray="3 3" />
+          <line x1="120" y1="130" x2="148" y2="98" stroke="#0055FF" strokeWidth="1" strokeDasharray="3 3" />
+          <line x1="200" y1="130" x2="172" y2="98" stroke="#0055FF" strokeWidth="1" strokeDasharray="3 3" />
         </g>
       </svg>
     </div>
