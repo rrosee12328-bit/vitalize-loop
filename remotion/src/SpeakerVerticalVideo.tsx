@@ -3,7 +3,7 @@ import {
   AbsoluteFill,
   Audio,
   Img,
-  OffthreadVideo,
+  Video,
   Sequence,
   staticFile,
   useCurrentFrame,
