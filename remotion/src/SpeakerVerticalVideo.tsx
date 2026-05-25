@@ -19,9 +19,8 @@ import { FONT_MONO, FONT_SANS } from "./fonts";
 
 const F = (s: number) => Math.round(s * 30);
 
-// If the source video has a brief glitch at the very start, trim it by
-// starting the <Video> a few frames in. Increase this if a glitch persists.
-const SPEAKER_TRIM_FRAMES = 6;
+// Re-encoded version avoids full-video decode glitches in Remotion renders.
+const SPEAKER_TRIM_FRAMES = 0;
 
 export const SpeakerVerticalVideo: React.FC = () => {
   const scenes: { start: number; end: number; node: React.ReactNode }[] = [
@@ -73,7 +72,7 @@ const SpeakerPiP: React.FC = () => {
       }}
     >
       <Video
-        src={staticFile("video/speaker.mp4")}
+        src={staticFile("video/speaker_stable.mp4")}
         startFrom={SPEAKER_TRIM_FRAMES}
         muted
         style={{ width: "100%", height: "100%", objectFit: "cover" }}
