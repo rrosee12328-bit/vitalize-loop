@@ -34,7 +34,7 @@ function IllustrationFrame({ children }: { children: React.ReactNode }) {
       className="relative h-40 w-full overflow-hidden"
       style={{
         background:
-          "radial-gradient(circle at 20% 15%, rgba(37,99,235,0.08), transparent 55%), radial-gradient(circle at 85% 85%, rgba(15,23,42,0.05), transparent 55%), linear-gradient(160deg,#FAFAF7 0%,#F2EEE6 100%)",
+          "radial-gradient(circle at 20% 15%, rgba(0, 85, 255,0.08), transparent 55%), radial-gradient(circle at 85% 85%, rgba(15,23,42,0.05), transparent 55%), linear-gradient(160deg,#FAFAF7 0%,#F2EEE6 100%)",
       }}
     >
       {/* faint grid */}
@@ -110,7 +110,7 @@ function SlowReplyIllustration() {
       >
         <div className="flex items-center justify-between border-b border-black/5 px-3 py-2">
           <p className="text-[10px] font-semibold text-[#0F172A]">Inbox</p>
-          <span className="rounded-full bg-[#2563EB] px-1.5 py-0.5 text-[9px] font-bold text-white">
+          <span className="rounded-full bg-[#0055FF] px-1.5 py-0.5 text-[9px] font-bold text-white">
             12
           </span>
         </div>
@@ -120,7 +120,7 @@ function SlowReplyIllustration() {
             className={`flex items-center gap-2 px-3 py-2 ${i !== rows.length - 1 ? "border-b border-black/5" : ""}`}
           >
             <span
-              className={`h-1.5 w-1.5 shrink-0 rounded-full ${r.stale ? "bg-rose-500" : "bg-[#2563EB]"}`}
+              className={`h-1.5 w-1.5 shrink-0 rounded-full ${r.stale ? "bg-rose-500" : "bg-[#0055FF]"}`}
             />
             <div className="min-w-0 flex-1">
               <p className="truncate text-[10px] font-semibold text-[#0F172A]">{r.name}</p>
@@ -169,7 +169,7 @@ function AfterHoursIllustration() {
           <circle
             r={R}
             fill="none"
-            stroke="#2563EB"
+            stroke="#0055FF"
             strokeWidth="10"
             strokeDasharray={`${afterLen} ${C}`}
             strokeDashoffset={-businessLen}
@@ -197,7 +197,7 @@ function AfterHoursIllustration() {
             <span className="font-mono text-[9px] text-[#64748B]">9–5 OPEN</span>
           </div>
           <div className="flex items-center gap-2 rounded-md bg-white/90 px-2 py-1 shadow-sm ring-1 ring-black/5">
-            <span className="h-2 w-2 rounded-sm bg-[#2563EB]" />
+            <span className="h-2 w-2 rounded-sm bg-[#0055FF]" />
             <span className="font-mono text-[9px] text-[#0F172A]">AFTER HOURS</span>
           </div>
         </div>
@@ -443,7 +443,7 @@ function AIAssistantsPage() {
             {/* Feature 1 */}
             <div className="grid items-center gap-10 md:grid-cols-12 md:gap-16">
               <div className="md:col-span-6">
-                <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[#3B82F6]/10 text-[#3B82F6]">
+                <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[#0055FF]/10 text-[#0055FF]">
                   <MessageSquare className="h-5 w-5" />
                 </span>
                 <h3 className="mt-4 text-2xl font-semibold tracking-tight md:text-3xl">
@@ -466,7 +466,7 @@ function AIAssistantsPage() {
             {/* Feature 2 */}
             <div className="grid items-center gap-10 md:grid-cols-12 md:gap-16">
               <div className="md:order-2 md:col-span-6">
-                <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[#3B82F6]/10 text-[#3B82F6]">
+                <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[#0055FF]/10 text-[#0055FF]">
                   <GitBranch className="h-5 w-5" />
                 </span>
                 <h3 className="mt-4 text-2xl font-semibold tracking-tight md:text-3xl">
@@ -488,7 +488,7 @@ function AIAssistantsPage() {
             {/* Feature 3 */}
             <div className="grid items-center gap-10 md:grid-cols-12 md:gap-16">
               <div className="md:col-span-6">
-                <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[#3B82F6]/10 text-[#3B82F6]">
+                <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[#0055FF]/10 text-[#0055FF]">
                   <Smartphone className="h-5 w-5" />
                 </span>
                 <h3 className="mt-4 text-2xl font-semibold tracking-tight md:text-3xl">
@@ -529,7 +529,7 @@ function AIAssistantsPage() {
                 </p>
                 <div className="mt-8 space-y-5">
                   {proofStatements.map((s) => (
-                    <div key={s.lead} className="border-l-2 border-[#3B82F6]/50 pl-4">
+                    <div key={s.lead} className="border-l-2 border-[#0055FF]/50 pl-4">
                       <p className="text-[15px] leading-[1.7] text-white/85">
                         <span className="font-semibold text-white">{s.lead}</span>{" "}{s.rest}
                       </p>
@@ -594,7 +594,7 @@ function AIAssistantsPage() {
                 <p className="eyebrow">Compare</p>
                 <p className="mt-2 text-sm text-muted-foreground">Side-by-side across what matters most.</p>
               </div>
-              <div className="relative -mt-4 rounded-t-2xl bg-gradient-to-b from-primary to-[#1d4ed8] px-6 pt-7 pb-6 text-primary-foreground shadow-[0_-8px_24px_-12px_rgba(37,99,235,0.45)]">
+              <div className="relative -mt-4 rounded-t-2xl bg-gradient-to-b from-primary to-[#0055FF] px-6 pt-7 pb-6 text-primary-foreground shadow-[0_-8px_24px_-12px_rgba(0, 85, 255,0.45)]">
                 <span className="inline-flex items-center rounded-full bg-white/15 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider">
                   Recommended
                 </span>
@@ -799,8 +799,8 @@ function DynamicEmailPreview() {
         <p className="font-mono text-[11px] tracking-widest text-muted-foreground">
           EMAIL PREVIEW
         </p>
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-[#3B82F6]/10 px-2 py-0.5 font-mono text-[10px] tracking-wider text-[#3B82F6]">
-          <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#3B82F6]" />
+        <span className="inline-flex items-center gap-1.5 rounded-full bg-[#0055FF]/10 px-2 py-0.5 font-mono text-[10px] tracking-wider text-[#0055FF]">
+          <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#0055FF]" />
           LIVE
         </span>
       </div>
@@ -825,7 +825,7 @@ function DynamicEmailPreview() {
           <p>Hi {s.firstName},</p>
           <p className="mt-2">
             Thanks for calling {s.company}. Here is the link to the intake form we discussed:{" "}
-            <span className="text-[#3B82F6] underline">vektiss.com/intake/{s.slug}</span>
+            <span className="text-[#0055FF] underline">vektiss.com/intake/{s.slug}</span>
           </p>
           <p className="mt-2">
             Fill this out and our team will review it shortly. You will hear back within 24 hours.
@@ -873,7 +873,7 @@ function HowItWorksTimeline() {
       <div className="relative mx-auto max-w-3xl px-4">
         <div className="absolute left-4 right-4 top-1/2 h-[2px] -translate-y-1/2 bg-border" />
         <div
-          className="absolute left-4 top-1/2 h-[2px] -translate-y-1/2 bg-[#2563EB] transition-all duration-500"
+          className="absolute left-4 top-1/2 h-[2px] -translate-y-1/2 bg-[#0055FF] transition-all duration-500"
           style={{ width: `calc((100% - 32px) * ${active / (timelineSteps.length - 1)})` }}
         />
         <div className="relative flex items-center justify-between">
@@ -890,10 +890,10 @@ function HowItWorksTimeline() {
                 <span
                   className={`relative flex h-12 w-12 items-center justify-center rounded-full border-2 font-mono text-sm font-bold transition-all ${
                     isActive
-                      ? "scale-110 border-[#2563EB] bg-[#2563EB] text-white shadow-[0_0_0_6px_rgba(37,99,235,0.15)]"
+                      ? "scale-110 border-[#0055FF] bg-[#0055FF] text-white shadow-[0_0_0_6px_rgba(0, 85, 255,0.15)]"
                       : isDone
-                        ? "border-[#2563EB] bg-white text-[#2563EB]"
-                        : "border-border bg-white text-muted-foreground group-hover:border-[#2563EB]/50"
+                        ? "border-[#0055FF] bg-white text-[#0055FF]"
+                        : "border-border bg-white text-muted-foreground group-hover:border-[#0055FF]/50"
                   }`}
                 >
                   {s.label}
@@ -917,7 +917,7 @@ function HowItWorksTimeline() {
         className="animate-fade-in mx-auto mt-12 grid max-w-5xl items-center gap-10 rounded-2xl border border-border bg-card p-6 shadow-card md:grid-cols-2 md:gap-12 md:p-10"
       >
         <div>
-          <p className="font-mono text-xs tracking-widest text-[#2563EB]">
+          <p className="font-mono text-xs tracking-widest text-[#0055FF]">
             STEP {timelineSteps[active].label}
           </p>
           <h3 className="mt-3 text-2xl font-semibold tracking-tight md:text-3xl">
@@ -949,7 +949,7 @@ function BuildItVisual() {
       {/* Header */}
       <div className="mb-4 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <span className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-[#2563EB]/15 text-[#7DD3FC]">
+          <span className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-[#0055FF]/15 text-[#7DD3FC]">
             <Code2 className="h-3.5 w-3.5" />
           </span>
           <div>
@@ -970,7 +970,7 @@ function BuildItVisual() {
           <span className="font-mono tabular-nums text-white">83%</span>
         </div>
         <div className="mt-1.5 h-1.5 w-full overflow-hidden rounded-full bg-white/10">
-          <div className="h-full rounded-full bg-gradient-to-r from-[#2563EB] to-[#7DD3FC]" style={{ width: "83%" }} />
+          <div className="h-full rounded-full bg-gradient-to-r from-[#0055FF] to-[#7DD3FC]" style={{ width: "83%" }} />
         </div>
       </div>
 
@@ -998,7 +998,7 @@ function BuildItVisual() {
         ))}
       </ul>
 
-      <p className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-[#2563EB]/15 px-2.5 py-1 text-[10px] font-medium text-[#7DD3FC]">
+      <p className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-[#0055FF]/15 px-2.5 py-1 text-[10px] font-medium text-[#7DD3FC]">
         <Code2 className="h-3 w-3" /> Built and managed by Vektiss
       </p>
     </div>
@@ -1021,13 +1021,13 @@ function ForwardNumberVisual() {
       </div>
       {/* Arrow */}
       <div className="flex flex-col items-center gap-1">
-        <PhoneForwarded className="h-6 w-6 text-[#2563EB]" />
-        <div className="h-[2px] w-12 bg-gradient-to-r from-[#2563EB] to-[#2563EB]/30" />
+        <PhoneForwarded className="h-6 w-6 text-[#0055FF]" />
+        <div className="h-[2px] w-12 bg-gradient-to-r from-[#0055FF] to-[#0055FF]/30" />
         <span className="font-mono text-[9px] tracking-widest text-muted-foreground">FORWARD</span>
       </div>
       {/* Vektiss badge */}
-      <div className="flex h-20 w-20 shrink-0 flex-col items-center justify-center rounded-2xl border-2 border-[#2563EB] bg-white shadow-md">
-        <span className="font-mono text-[10px] tracking-widest text-[#2563EB]">VEKTISS</span>
+      <div className="flex h-20 w-20 shrink-0 flex-col items-center justify-center rounded-2xl border-2 border-[#0055FF] bg-white shadow-md">
+        <span className="font-mono text-[10px] tracking-widest text-[#0055FF]">VEKTISS</span>
         <span className="mt-1 text-[10px] font-semibold text-foreground">Voice AI</span>
         <span className="mt-1 inline-flex h-1.5 w-1.5 animate-pulse rounded-full bg-[#22C55E]" />
       </div>
@@ -1045,10 +1045,10 @@ function GetLeadsVisual() {
     <div className="bg-white p-5">
       <div className="mb-3 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <Inbox className="h-4 w-4 text-[#2563EB]" />
+          <Inbox className="h-4 w-4 text-[#0055FF]" />
           <span className="text-xs font-semibold">Inbox</span>
         </div>
-        <span className="font-mono text-[10px] tracking-widest text-[#2563EB]">3 NEW</span>
+        <span className="font-mono text-[10px] tracking-widest text-[#0055FF]">3 NEW</span>
       </div>
       <ul className="space-y-2">
         {leads.map((l, i) => (
@@ -1068,7 +1068,7 @@ function GetLeadsVisual() {
         ))}
       </ul>
       <div className="mt-3 flex items-center gap-1.5 text-[10px] text-muted-foreground">
-        <Bell className="h-3 w-3 text-[#2563EB]" />
+        <Bell className="h-3 w-3 text-[#0055FF]" />
         Live alerts sent to your phone
       </div>
     </div>
@@ -1085,19 +1085,19 @@ function ChatConversationVisual() {
     >
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-[#2563EB] text-[10px] font-bold text-white">AI</span>
+          <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-[#0055FF] text-[10px] font-bold text-white">AI</span>
           <div>
             <p className="text-xs font-semibold leading-none">Vektiss Voice</p>
             <p className="mt-0.5 text-[10px] text-muted-foreground">Live call · 00:42</p>
           </div>
         </div>
-        <span className="font-mono text-[10px] tracking-widest text-[#2563EB]">TRANSCRIPT</span>
+        <span className="font-mono text-[10px] tracking-widest text-[#0055FF]">TRANSCRIPT</span>
       </div>
 
       <div className="mt-6 space-y-3">
         {/* Caller bubble */}
         <div className="flex justify-end">
-          <div className="max-w-[78%] rounded-2xl rounded-br-sm bg-[#2563EB] px-4 py-2.5 text-sm leading-snug text-white shadow-sm">
+          <div className="max-w-[78%] rounded-2xl rounded-br-sm bg-[#0055FF] px-4 py-2.5 text-sm leading-snug text-white shadow-sm">
             Hi — my kitchen sink is leaking pretty bad. What do you charge?
           </div>
         </div>
@@ -1109,14 +1109,14 @@ function ChatConversationVisual() {
         </div>
         {/* Caller bubble */}
         <div className="flex justify-end">
-          <div className="max-w-[60%] rounded-2xl rounded-br-sm bg-[#2563EB] px-4 py-2.5 text-sm leading-snug text-white shadow-sm">
+          <div className="max-w-[60%] rounded-2xl rounded-br-sm bg-[#0055FF] px-4 py-2.5 text-sm leading-snug text-white shadow-sm">
             Perfect. 4218 Oak Lane.
           </div>
         </div>
       </div>
 
       <div className="mt-6 flex flex-wrap items-center gap-2">
-        <span className="inline-flex items-center gap-1 rounded-full bg-[#2563EB]/10 px-2.5 py-1 text-[11px] font-medium text-[#2563EB]">
+        <span className="inline-flex items-center gap-1 rounded-full bg-[#0055FF]/10 px-2.5 py-1 text-[11px] font-medium text-[#0055FF]">
           <Check className="h-3 w-3" /> Lead Captured
         </span>
         <span
@@ -1136,7 +1136,7 @@ function ChatConversationVisual() {
 // =====================================================================
 function RoutingFlowchart() {
   const paths = [
-    { Icon: User, label: "Sales Inquiry", target: "Maya", color: "#2563EB" },
+    { Icon: User, label: "Sales Inquiry", target: "Maya", color: "#0055FF" },
     { Icon: CreditCard, label: "Billing", target: "Accounting", color: "#7C3AED" },
     { Icon: Bot, label: "General", target: "Handled by AI", color: "#0EA5E9" },
   ];
@@ -1144,15 +1144,15 @@ function RoutingFlowchart() {
     <div className="rounded-2xl border border-border bg-white p-6 shadow-card md:p-8">
       <div className="flex items-center justify-between">
         <p className="font-mono text-[11px] tracking-widest text-muted-foreground">ROUTING LOGIC</p>
-        <span className="font-mono text-[10px] tracking-widest text-[#2563EB]">LIVE</span>
+        <span className="font-mono text-[10px] tracking-widest text-[#0055FF]">LIVE</span>
       </div>
 
       <div className="mt-6 grid grid-cols-[auto_1fr] items-center gap-x-4">
         {/* Source */}
         <div className="col-span-2 flex items-center gap-3 rounded-xl border border-border bg-[#F8FAFC] px-4 py-3">
-          <span className="relative inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#2563EB] text-white">
+          <span className="relative inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#0055FF] text-white">
             <Phone className="h-4 w-4" />
-            <span className="absolute inset-0 animate-ping rounded-full bg-[#2563EB] opacity-30" />
+            <span className="absolute inset-0 animate-ping rounded-full bg-[#0055FF] opacity-30" />
           </span>
           <div>
             <p className="text-sm font-semibold">Incoming Call</p>
@@ -1162,18 +1162,18 @@ function RoutingFlowchart() {
 
         {/* SVG branching */}
         <svg viewBox="0 0 80 180" className="col-start-1 ml-1 h-[180px] w-[80px] shrink-0" aria-hidden="true">
-          <path d="M40 0 C 40 28, 70 28, 70 56" stroke="#2563EB" strokeWidth="2" fill="none" strokeLinecap="round" />
+          <path d="M40 0 C 40 28, 70 28, 70 56" stroke="#0055FF" strokeWidth="2" fill="none" strokeLinecap="round" />
           <path d="M40 0 L40 90" stroke="#7C3AED" strokeWidth="2" fill="none" strokeLinecap="round" />
           <path d="M40 0 C 40 28, 70 28, 70 56 M40 0 C 40 100, 70 100, 70 124 M40 0 C 40 144, 70 144, 70 168"
                 stroke="transparent" fill="none" />
-          <path d="M40 12 C 40 36, 72 36, 72 56" stroke="#2563EB" strokeWidth="2" fill="none" />
+          <path d="M40 12 C 40 36, 72 36, 72 56" stroke="#0055FF" strokeWidth="2" fill="none" />
           <path d="M40 12 L40 90" stroke="#7C3AED" strokeWidth="2" fill="none" />
           <path d="M40 12 C 40 104, 72 104, 72 124" stroke="#0EA5E9" strokeWidth="2" fill="none" />
           {/* animated dot along middle path */}
           <circle r="3" fill="#7C3AED">
             <animateMotion dur="2.2s" repeatCount="indefinite" path="M40 12 L40 90" />
           </circle>
-          <circle r="3" fill="#2563EB">
+          <circle r="3" fill="#0055FF">
             <animateMotion dur="2.6s" repeatCount="indefinite" path="M40 12 C 40 36, 72 36, 72 56" />
           </circle>
           <circle r="3" fill="#0EA5E9">
@@ -1215,7 +1215,7 @@ function IntakeFormPhoneMockup() {
       className="relative overflow-hidden rounded-3xl border border-white/60 p-8 shadow-[0_20px_60px_-20px_rgba(15,23,42,0.25)] md:p-14"
       style={{
         background:
-          "radial-gradient(circle at 20% 10%, rgba(37,99,235,0.10), transparent 55%), radial-gradient(circle at 85% 90%, rgba(168,85,247,0.10), transparent 55%), linear-gradient(160deg,#FAFAF7 0%,#F4F1EC 100%)",
+          "radial-gradient(circle at 20% 10%, rgba(0, 85, 255,0.10), transparent 55%), radial-gradient(circle at 85% 90%, rgba(168,85,247,0.10), transparent 55%), linear-gradient(160deg,#FAFAF7 0%,#F4F1EC 100%)",
       }}
     >
       {/* subtle grid texture */}
@@ -1231,7 +1231,7 @@ function IntakeFormPhoneMockup() {
       {/* soft glow behind phone */}
       <div
         className="pointer-events-none absolute left-1/2 top-1/2 h-[380px] w-[380px] -translate-x-1/2 -translate-y-1/2 rounded-full"
-        style={{ background: "radial-gradient(circle, rgba(37,99,235,0.18), transparent 70%)" }}
+        style={{ background: "radial-gradient(circle, rgba(0, 85, 255,0.18), transparent 70%)" }}
       />
 
 
@@ -1258,7 +1258,7 @@ function IntakeFormPhoneMockup() {
               style={{
                 height: 460,
                 background:
-                  "linear-gradient(170deg,#1e3a8a 0%,#312e81 40%,#581c87 75%,#1f2937 100%)",
+                  "linear-gradient(170deg,#0055FF 0%,#312e81 40%,#581c87 75%,#1f2937 100%)",
               }}
             >
               {/* Subtle wallpaper glow */}
@@ -1318,7 +1318,7 @@ function IntakeFormPhoneMockup() {
                   <div className="flex items-center gap-2">
                     <span
                       className="inline-flex h-[22px] w-[22px] items-center justify-center rounded-[6px] text-[10px] font-bold text-white"
-                      style={{ background: "linear-gradient(135deg,#3b82f6,#1d4ed8)" }}
+                      style={{ background: "linear-gradient(135deg,#0055FF,#0055FF)" }}
                     >
                       V
                     </span>
@@ -1329,7 +1329,7 @@ function IntakeFormPhoneMockup() {
                   <p className="mt-0.5 text-[11px] leading-snug text-[#334155]">
                     Here is the link to the intake form we discussed:
                   </p>
-                  <p className="mt-1 text-[10.5px] font-medium text-[#2563EB] underline underline-offset-2">
+                  <p className="mt-1 text-[10.5px] font-medium text-[#0055FF] underline underline-offset-2">
                     vektiss.com/intake/apex
                   </p>
                 </div>
@@ -1368,7 +1368,7 @@ function BentoIntelligenceCards() {
       {/* Large card top — Call volume trends */}
       <article className="group md:col-span-4 md:row-span-1 rounded-2xl border border-border bg-white p-6 shadow-card transition-all hover:-translate-y-1 hover:shadow-lg md:p-8">
         <div className="flex items-center justify-between">
-          <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[#2563EB]/10 text-[#2563EB]">
+          <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[#0055FF]/10 text-[#0055FF]">
             <BarChart3 className="h-5 w-5" />
           </span>
           <span className="font-mono text-[10px] tracking-widest text-muted-foreground">LAST 7 DAYS</span>
@@ -1384,7 +1384,7 @@ function BentoIntelligenceCards() {
 
       {/* Lead scoring */}
       <article className="group md:col-span-2 md:row-span-2 rounded-2xl border border-border bg-white p-6 shadow-card transition-all hover:-translate-y-1 hover:shadow-lg md:p-8">
-        <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[#2563EB]/10 text-[#2563EB]">
+        <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[#0055FF]/10 text-[#0055FF]">
           <Flame className="h-5 w-5" />
         </span>
         <div className="mt-6 space-y-3">
@@ -1421,7 +1421,7 @@ function BentoIntelligenceCards() {
       {/* Top call reasons */}
       <article className="group md:col-span-4 md:row-span-1 rounded-2xl border border-border bg-white p-6 shadow-card transition-all hover:-translate-y-1 hover:shadow-lg md:p-8">
         <div className="flex items-center justify-between">
-          <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[#2563EB]/10 text-[#2563EB]">
+          <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[#0055FF]/10 text-[#0055FF]">
             <ListChecks className="h-5 w-5" />
           </span>
           <span className="font-mono text-[10px] tracking-widest text-muted-foreground">THIS MONTH</span>
@@ -1430,7 +1430,7 @@ function BentoIntelligenceCards() {
           <DonutChart />
           <ul className="space-y-2.5 text-xs">
             {[
-              { label: "Pricing / Quotes", pct: 34, color: "#2563EB" },
+              { label: "Pricing / Quotes", pct: 34, color: "#0055FF" },
               { label: "Appointments", pct: 28, color: "#7C3AED" },
               { label: "Emergencies", pct: 16, color: "#EF4444" },
               { label: "General", pct: 14, color: "#0EA5E9" },
@@ -1477,20 +1477,20 @@ function VolumeAreaChart() {
       <svg viewBox={`0 0 ${w} ${h}`} className="h-24 w-full" preserveAspectRatio="none">
         <defs>
           <linearGradient id="volGrad" x1="0" x2="0" y1="0" y2="1">
-            <stop offset="0%" stopColor="#2563EB" stopOpacity="0.45" />
-            <stop offset="100%" stopColor="#2563EB" stopOpacity="0" />
+            <stop offset="0%" stopColor="#0055FF" stopOpacity="0.45" />
+            <stop offset="100%" stopColor="#0055FF" stopOpacity="0" />
           </linearGradient>
         </defs>
         <path d={areaPath} fill="url(#volGrad)" />
-        <path d={linePath} fill="none" stroke="#2563EB" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <path d={linePath} fill="none" stroke="#0055FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
         {/* peak dot */}
         {(() => {
           const peakIdx = data.indexOf(max);
           const [px, py] = points[peakIdx].split(",").map(Number);
           return (
             <g>
-              <circle cx={px} cy={py} r="4" fill="#2563EB" />
-              <circle cx={px} cy={py} r="8" fill="#2563EB" opacity="0.2" />
+              <circle cx={px} cy={py} r="4" fill="#0055FF" />
+              <circle cx={px} cy={py} r="8" fill="#0055FF" opacity="0.2" />
             </g>
           );
         })()}
@@ -1504,7 +1504,7 @@ function VolumeAreaChart() {
 
 function DonutChart() {
   const segments = [
-    { pct: 34, color: "#2563EB" },
+    { pct: 34, color: "#0055FF" },
     { pct: 28, color: "#7C3AED" },
     { pct: 16, color: "#EF4444" },
     { pct: 14, color: "#0EA5E9" },
