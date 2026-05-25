@@ -114,7 +114,6 @@ const SpeakerLayer: React.FC<{ segments: Segment[] }> = ({ segments }) => {
         <Video src={staticFile("video/speaker.mp4")} muted style={{ width: "100%", height: "100%", objectFit: "cover" }} />
       </div>
       <Audio src={staticFile("video/speaker.m4a")} />
-      </div>
     </AbsoluteFill>
   );
 };
