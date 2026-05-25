@@ -22,83 +22,75 @@ function PrivacyPage() {
           <p className="eyebrow">Legal</p>
           <h1 className="mt-6 display-2">Privacy Policy</h1>
           <p className="mt-3 text-sm text-muted-foreground">
-            Last Updated: May 18, 2026
+            Last Updated: May 25, 2026
           </p>
 
           <div className="mt-12 space-y-10 text-base leading-relaxed text-foreground">
-            <Section title="1. Introduction">
+            <Section title="1. Information We Collect">
               <p className="text-muted-foreground">
-                Vektiss ("we," "our," or "us") respects your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website (vektiss.com) or use our services, including Vektiss Voice and our other AI infrastructure products.
+                We collect information you provide when contacting us by phone, web form, or email. This may include your name, phone number, email address, and the nature of your inquiry.
               </p>
             </Section>
 
-            <Section title="2. Information We Collect">
+            <Section title="2. How We Use Your Information">
               <p className="text-muted-foreground">
-                We collect information that you provide directly to us, including:
-              </p>
-              <ul className="mt-3 list-disc space-y-2 pl-5 text-muted-foreground">
-                <li>
-                  <span className="font-medium text-foreground">Account Information:</span> Name, email address, phone number, and billing details when you sign up for our services.
-                </li>
-                <li>
-                  <span className="font-medium text-foreground">Service Data:</span> Information processed through our AI assistants on your behalf, including call recordings, call transcripts, caller phone numbers, and lead information captured during interactions.
-                </li>
-                <li>
-                  <span className="font-medium text-foreground">Usage Data:</span> Analytics and dashboard data related to your use of our platform.
-                </li>
-              </ul>
-            </Section>
-
-            <Section title="3. How We Use Your Information">
-              <p className="text-muted-foreground">
-                We use the information we collect to:
-              </p>
-              <ul className="mt-3 list-disc space-y-2 pl-5 text-muted-foreground">
-                <li>Provide, operate, and maintain our services.</li>
-                <li>Process and route phone calls, generate summaries, and send automated follow-ups.</li>
-                <li>Improve our AI models and routing algorithms to provide better service.</li>
-                <li>Send you technical notices, updates, security alerts, and support messages.</li>
-                <li>Process payments and prevent fraudulent transactions.</li>
-              </ul>
-            </Section>
-
-            <Section title="4. Sharing Your Information">
-              <p className="text-muted-foreground">
-                We do not sell your personal information. We may share your information with third-party vendors and service providers that perform services for us or on our behalf, which may include:
-              </p>
-              <ul className="mt-3 list-disc space-y-2 pl-5 text-muted-foreground">
-                <li>
-                  Telecommunications providers (e.g., Twilio) for call routing and SMS/email delivery.
-                </li>
-                <li>
-                  AI and language model providers (e.g., OpenAI, Retell) for processing voice and text data.
-                </li>
-                <li>
-                  Payment processors (e.g., Stripe) for handling billing.
-                </li>
-              </ul>
-              <p className="mt-3 text-muted-foreground">
-                These third parties are bound by confidentiality obligations and are restricted from using your data for any other purpose.
+                We use your information to respond to your inquiry, deliver services, and send follow-up communications including appointment confirmations, intake forms, and reminders. We do not use your information for marketing purposes without your consent.
               </p>
             </Section>
 
-            <Section title="5. Data Retention and Security">
+            <Section title="3. SMS / Text Messaging">
+              <div className="space-y-4 text-muted-foreground">
+                <p>
+                  By providing your phone number and consenting during a call or form submission, you agree to receive text messages from Vektiss AI related to your inquiry or appointment. These may include confirmations, reminders, and intake form links.
+                </p>
+
+                <div className="rounded-lg border border-border bg-muted/50 p-5">
+                  <ul className="space-y-3 text-sm text-foreground">
+                    <li className="flex items-start gap-3">
+                      <span className="mt-0.5 h-2 w-2 shrink-1 rounded-full bg-primary" />
+                      <span>Message frequency varies. <span className="font-semibold">Message and data rates may apply.</span></span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="mt-0.5 h-2 w-2 shrink-1 rounded-full bg-primary" />
+                      <span>To opt out at any time, <span className="font-semibold">reply STOP</span> to any message. To get help, reply HELP.</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="mt-0.5 h-2 w-2 shrink-1 rounded-full bg-primary" />
+                      <span className="font-semibold">We do not share, sell, or rent your mobile phone number to any third party for marketing purposes.</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </Section>
+
+            <Section title="4. Data Sharing">
               <p className="text-muted-foreground">
-                We use administrative, technical, and physical security measures to help protect your personal information. Call recordings, transcripts, and lead data are retained as necessary to provide the service and fulfill our legal obligations. You may request the deletion of your account data at any time.
+                We do not sell or share your personal information with third parties except as required to deliver our services (e.g., our telephony and messaging providers) or as required by law.
+              </p>
+            </Section>
+
+            <Section title="5. Data Security">
+              <p className="text-muted-foreground">
+                We take reasonable steps to protect your information from unauthorized access or disclosure.
               </p>
             </Section>
 
             <Section title="6. Contact Us">
               <p className="text-muted-foreground">
-                If you have questions or comments about this Privacy Policy, please contact us at:{" "}
-                <a
-                  className="font-medium text-foreground underline-offset-4 hover:underline"
-                  href="mailto:support@vektiss.com"
-                >
-                  support@vektiss.com
-                </a>
-                .
+                If you have questions about this policy, contact us at:
               </p>
+              <ul className="mt-3 list-none space-y-1 text-muted-foreground">
+                <li><span className="font-medium text-foreground">Vektiss AI</span></li>
+                <li><span className="font-medium text-foreground">vektiss.com</span></li>
+                <li>
+                  <a
+                    className="font-medium text-foreground underline-offset-4 hover:underline"
+                    href="mailto:info@vektiss.com"
+                  >
+                    info@vektiss.com
+                  </a>
+                </li>
+              </ul>
             </Section>
           </div>
 
