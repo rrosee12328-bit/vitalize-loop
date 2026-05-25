@@ -56,7 +56,7 @@ function PrivacyPage() {
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="mt-0.5 h-2 w-2 shrink-1 rounded-full bg-primary" />
-                      <span className="font-semibold">We do not share, sell, or rent your mobile phone number to any third party for marketing purposes.</span></span>
+                      <span className="font-semibold">We do not share, sell, or rent your mobile phone number to any third party for marketing purposes.</span>
                     </li>
                   </ul>
                 </div>
