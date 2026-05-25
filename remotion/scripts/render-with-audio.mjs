@@ -27,7 +27,7 @@ await renderMedia({
   audioCodec: "aac",
   outputLocation,
   puppeteerInstance: browser,
-  concurrency: 1,
+  concurrency: 4,
 });
 
 await browser.close({ silent: false });
