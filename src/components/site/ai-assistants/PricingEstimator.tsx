@@ -201,7 +201,7 @@ export function PricingTiers() {
               className={cn(
                 "group/card relative flex h-full flex-col rounded-2xl border transition-all duration-300 hover:-translate-y-1.5",
                 tier.highlight
-                  ? "border-primary/40 bg-gradient-to-b from-white to-primary/[0.04] shadow-[0_30px_60px_-25px_rgba(0, 85, 255,0.4)] hover:shadow-[0_40px_70px_-25px_rgba(0, 85, 255,0.5)] lg:-translate-y-3"
+                  ? "border-primary/40 bg-gradient-to-b from-white to-primary/[0.04] shadow-[0_30px_60px_-25px_rgba(0, 136, 255,0.4)] hover:shadow-[0_40px_70px_-25px_rgba(0, 136, 255,0.5)] lg:-translate-y-3"
                   : "border-border bg-card shadow-card hover:shadow-xl",
               )}
             >
@@ -212,7 +212,7 @@ export function PricingTiers() {
                     className="pointer-events-none absolute inset-x-0 top-0 h-px"
                     style={{
                       background:
-                        "linear-gradient(90deg, transparent, rgba(0, 85, 255,0.6), transparent)",
+                        "linear-gradient(90deg, transparent, rgba(0, 136, 255,0.6), transparent)",
                     }}
                   />
                   <span className="absolute -top-3 left-1/2 inline-flex -translate-x-1/2 items-center gap-1 rounded-full bg-primary px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-primary-foreground shadow-lg shadow-primary/30">
