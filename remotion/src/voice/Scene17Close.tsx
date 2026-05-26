@@ -3,6 +3,7 @@ import { AbsoluteFill, useCurrentFrame, useVideoConfig, interpolate, spring } fr
 import { COLORS } from "../theme";
 import { FONT_MONO, FONT_SANS } from "../fonts";
 import { VoiceBackground } from "./VoiceChrome";
+import { VektissMark } from "./VektissMark";
 
 // 6s — Quiet close. Wordmark + tagline + URL, lots of negative space.
 export const Scene17Close: React.FC = () => {
@@ -29,15 +30,12 @@ export const Scene17Close: React.FC = () => {
           fontFamily: FONT_SANS,
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
-          <div
+        <div style={{ display: "flex", alignItems: "center", gap: 22 }}>
+          <VektissMark
+            size={96}
             style={{
-              width: 28,
-              height: 28,
-              borderRadius: 999,
-              background: COLORS.accent,
               transform: `scale(${dot})`,
-              boxShadow: "0 0 0 8px rgba(0,136,255,0.12)",
+              filter: "drop-shadow(0 6px 24px rgba(0,136,255,0.35))",
             }}
           />
           <div

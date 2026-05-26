@@ -3,6 +3,7 @@ import { AbsoluteFill, useCurrentFrame, useVideoConfig, interpolate, spring } fr
 import { COLORS } from "../theme";
 import { FONT_MONO, FONT_SANS } from "../fonts";
 import { VoiceBackground } from "./VoiceChrome";
+import { VektissMark } from "./VektissMark";
 
 // 6s — Vektiss logo reveal at the 0:31 mark. From here, the brand bug
 // stays pinned top-right for the rest of the video (via VoiceHUDPinned in later scenes).
@@ -46,26 +47,24 @@ export const Scene8Reveal: React.FC = () => {
         </div>
 
         <div style={{ display: "flex", alignItems: "center", gap: 22 }}>
-          {/* Pulsing dot */}
-          <div style={{ position: "relative", width: 60, height: 60 }}>
-            <div
-              style={{
-                position: "absolute",
-                inset: 0,
-                borderRadius: 999,
-                background: COLORS.accent,
-                transform: `scale(${0.4 + dot * 0.6})`,
-                opacity: dot,
-              }}
-            />
+          {/* Logo mark */}
+          <div style={{ position: "relative", width: 130, height: 130, display: "flex", alignItems: "center", justifyContent: "center" }}>
             <div
               style={{
                 position: "absolute",
                 inset: 0,
                 borderRadius: 999,
                 border: `2px solid ${COLORS.accent}`,
-                transform: `scale(${1 + ringScale * 0.8})`,
+                transform: `scale(${1 + ringScale * 1.1})`,
                 opacity: Math.max(0, 1 - ringScale),
+              }}
+            />
+            <VektissMark
+              size={130}
+              style={{
+                transform: `scale(${0.4 + dot * 0.6})`,
+                opacity: dot,
+                filter: "drop-shadow(0 8px 30px rgba(0,136,255,0.35))",
               }}
             />
           </div>

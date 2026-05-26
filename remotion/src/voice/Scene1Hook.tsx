@@ -3,6 +3,7 @@ import { AbsoluteFill, useCurrentFrame, interpolate, spring, useVideoConfig } fr
 import { COLORS } from "../theme";
 import { FONT_MONO, FONT_SANS } from "../fonts";
 import { VoiceBackground, VoiceHUD, useFadeUp } from "./VoiceChrome";
+import { VektissMark } from "./VektissMark";
 
 // 0:00 - 0:02.8 (84f) — Editorial cold open.
 // Eyebrow "FOR BUSINESS OWNERS", massive headline letter-by-letter, blue dot pulse to the left.
@@ -36,14 +37,11 @@ export const Scene1Hook: React.FC = () => {
             marginBottom: 36,
           }}
         >
-          <div
+          <VektissMark
+            size={22}
             style={{
-              width: 12,
-              height: 12,
-              borderRadius: 999,
-              background: COLORS.accent,
               transform: `scale(${pulse})`,
-              boxShadow: `0 0 ${14 * pulse}px rgba(0,136,255,0.5)`,
+              filter: `drop-shadow(0 0 ${10 * pulse}px rgba(0,136,255,0.35))`,
             }}
           />
           <div
