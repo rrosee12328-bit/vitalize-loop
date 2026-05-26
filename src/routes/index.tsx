@@ -74,6 +74,12 @@ function HomePage() {
     <SiteLayout>
       {/* HERO — Live demo player leads */}
       <section className="container-editorial pt-12 pb-16 md:pt-20 md:pb-20">
+        <div className="mx-auto mb-8 max-w-5xl text-center">
+          <p className="eyebrow text-primary animate-fade-in-up">Watch the 60-second demo</p>
+          <h1 className="mt-4 display-1 animate-fade-in-up [animation-delay:120ms]">
+            See how Vektiss answers every call — so you don't have to.
+          </h1>
+        </div>
         {/* VIDEO PLACEHOLDER — replace inner div with <video> or <iframe> */}
         <div className="mx-auto mb-12 max-w-5xl overflow-hidden rounded-2xl border border-border bg-black shadow-card animate-scale-in">
           <div className="relative w-full" style={{ aspectRatio: "16 / 9" }}>
