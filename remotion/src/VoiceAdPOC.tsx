@@ -27,15 +27,17 @@ import { Scene17Close } from "./voice/Scene17Close";
 // spans the entire canvas so the seam is invisible.
 
 // Scene durations (30fps). Sum = 4596 frames = 153.2s — matches narration MP3.
+// Aligned to actual narration sentence boundaries (scaled Gemini transcript,
+// verified vs ffmpeg silencedetect). Total = 4596f = 153.2s = audio length.
 const D = {
-  s1: 96, s2: 174, s3: 78, s4: 78, s5: 105,
-  s6: 42, s7: 192, s8: 75,
-  s9: 183, s10: 93, s11: 330, s12: 564,
-  s13: 360,
-  s14: 258,   // Scale / CRM / Bilingual
-  s15: 306,   // Custom Build + Guarantee stamp
-  s16: 144,   // Money back. No questions asked.
-  s17: 1518,  // Pricing + Close (navy)
+  s1: 117, s2: 172, s3: 106, s4: 98, s5: 145,   // 85% holds through full stat sentence
+  s6: 95,  s7: 244, s8: 67,                      // Google held 2× longer
+  s9: 201, s10: 174, s11: 394, s12: 781,         // routing gets full breathing room
+  s13: 533,                                      // dashboard expands
+  s14: 492,   // Scale / CRM / Multilingual
+  s15: 444,   // Custom Build + Guarantee stamp
+  s16: 199,   // Money back. No questions asked.
+  s17: 334,   // Pricing + Close (navy)
 };
 
 export const TOTAL_FRAMES = Object.values(D).reduce((a, b) => a + b, 0);
