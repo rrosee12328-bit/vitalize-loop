@@ -75,9 +75,9 @@ function HomePage() {
       {/* HERO — Live demo player leads */}
       <section className="container-editorial pt-12 pb-16 md:pt-20 md:pb-20">
         <div className="mx-auto mb-8 max-w-5xl text-center">
-          <p className="eyebrow text-primary animate-fade-in-up">Watch the 60-second demo</p>
+          <p className="eyebrow text-primary animate-fade-in-up">Watch how Vektiss Voice works</p>
           <h1 className="mt-4 display-1 animate-fade-in-up [animation-delay:120ms]">
-            See how Vektiss answers every call — so you don't have to.
+            See how Vektiss answers every call, so your business never misses one.
           </h1>
         </div>
         {/* VIDEO PLACEHOLDER — replace inner div with <video> or <iframe> */}
