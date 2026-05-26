@@ -2,6 +2,7 @@ import React from "react";
 import { AbsoluteFill, useCurrentFrame, useVideoConfig, interpolate, spring } from "remotion";
 import { COLORS } from "../theme";
 import { FONT_MONO, FONT_SANS } from "../fonts";
+import { VektissMark } from "./VektissMark";
 
 // Persistent editorial background — matches site / MainVideo aesthetic.
 // Warm off-white, hairline grid, soft Vektiss-blue radial wash, gentle vignette.
@@ -35,30 +36,22 @@ export const VoiceBackground: React.FC = () => {
   );
 };
 
-// Editorial HUD bug — sits top-right like the site logo and top-left wordmark.
+// Editorial HUD bug — Vektiss logo mark + wordmark top-left, scene eyebrow top-right.
 export const VoiceHUD: React.FC<{ eyebrow?: string }> = ({ eyebrow = "VEKTISS VOICE · 60s" }) => {
   return (
     <AbsoluteFill style={{ pointerEvents: "none" }}>
       <div
         style={{
           position: "absolute",
-          top: 28,
+          top: 26,
           left: 36,
           display: "flex",
           alignItems: "center",
-          gap: 8,
+          gap: 10,
           fontFamily: FONT_SANS,
         }}
       >
-        <div
-          style={{
-            width: 8,
-            height: 8,
-            borderRadius: 999,
-            background: COLORS.accent,
-            boxShadow: "0 0 0 3px rgba(0,136,255,0.12)",
-          }}
-        />
+        <VektissMark size={22} />
         <span style={{ color: COLORS.ink, fontWeight: 600, fontSize: 15, letterSpacing: "-0.01em" }}>
           VEKTISS
         </span>

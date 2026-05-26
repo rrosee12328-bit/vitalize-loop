@@ -71,8 +71,8 @@ export const Scene7Calendar: React.FC = () => {
           <div style={{ fontFamily: FONT_MONO, fontSize: 11, letterSpacing: "0.2em", color: COLORS.muted }}>
             MISSED CALLS · DEC
           </div>
-          <div style={{ fontFamily: FONT_MONO, fontSize: 11, color: COLORS.accent }}>
-            TOTAL 96
+          <div style={{ fontFamily: FONT_MONO, fontSize: 11, color: "#E11D48" }}>
+            TOTAL 96 MISSED
           </div>
         </div>
 
@@ -95,7 +95,7 @@ export const Scene7Calendar: React.FC = () => {
                 const intensity = count / 9;
                 const bg = count === 0
                   ? COLORS.surface
-                  : `rgba(0,136,255,${0.15 + intensity * 0.75})`;
+                  : `rgba(225,29,72,${0.18 + intensity * 0.78})`;
                 return (
                   <div
                     key={di}
