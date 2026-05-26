@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, BarChart3, Bot, Globe, Video } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 
 export const Route = createFileRoute("/about")({
