@@ -17,9 +17,9 @@ export const Scene14Scale: React.FC = () => {
   const title = useFadeUp(8);
 
   // Beat windows
-  const beatA = interpolate(frame, [0, 210], [0, 1], { extrapolateRight: "clamp" });          // routing
-  const beatB = interpolate(frame, [210, 390], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }); // CRM
-  const beatC = interpolate(frame, [390, 540], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }); // bilingual
+  const beatA = interpolate(frame, [0, 180], [0, 1], { extrapolateRight: "clamp" });          // routing
+  const beatB = interpolate(frame, [180, 330], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }); // CRM
+  const beatC = interpolate(frame, [330, 470], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }); // multilingual
 
   const cx = 470;
   const cy = 430;
