@@ -1,5 +1,5 @@
 import React from "react";
-import { AbsoluteFill, Series } from "remotion";
+import { AbsoluteFill, Audio, Series, staticFile } from "remotion";
 import { COLORS } from "./theme";
 import { VoiceBackground } from "./voice/VoiceChrome";
 import { Scene1Hook } from "./voice/Scene1Hook";
@@ -26,16 +26,16 @@ import { Scene17Close } from "./voice/Scene17Close";
 // it directly on top in post. Background is a single continuous wash that
 // spans the entire canvas so the seam is invisible.
 
-// Scene durations (30fps). Sum = 4593 frames = 2:33.1 — the full master.
+// Scene durations (30fps). Sum = 4596 frames = 153.2s — matches narration MP3.
 const D = {
-  s1: 84, s2: 171, s3: 138, s4: 96, s5: 147,
-  s6: 180, s7: 210, s8: 180,
-  s9: 240, s10: 270, s11: 300, s12: 330,
+  s1: 96, s2: 174, s3: 78, s4: 78, s5: 105,
+  s6: 42, s7: 192, s8: 75,
+  s9: 183, s10: 93, s11: 330, s12: 564,
   s13: 360,
-  s14: 600,   // Scale / CRM / Bilingual
-  s15: 420,   // Custom Build + Guarantee stamp
-  s16: 240,   // No Questions Asked
-  s17: 627,   // Pricing + Close (navy)
+  s14: 258,   // Scale / CRM / Bilingual
+  s15: 306,   // Custom Build + Guarantee stamp
+  s16: 144,   // Money back. No questions asked.
+  s17: 1518,  // Pricing + Close (navy)
 };
 
 export const TOTAL_FRAMES = Object.values(D).reduce((a, b) => a + b, 0);
@@ -49,6 +49,9 @@ const TOP_OFFSET = (720 - SCALED_H) / 2; // 113.9
 export const VoiceAdPOC: React.FC = () => {
   return (
     <AbsoluteFill style={{ background: COLORS.bg }}>
+      {/* Narration baked into the master. */}
+      <Audio src={staticFile("audio/narration.mp3")} />
+
       {/* Single continuous background spanning the full 1280×720 canvas. */}
       <VoiceBackground />
 
