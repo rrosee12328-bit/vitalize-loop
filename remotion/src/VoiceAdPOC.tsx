@@ -1,7 +1,7 @@
 import React from "react";
 import { AbsoluteFill, Series } from "remotion";
-import { COLORS } from "../theme";
-import { FONT_MONO, FONT_SANS } from "../fonts";
+import { COLORS } from "./theme";
+import { FONT_MONO, FONT_SANS } from "./fonts";
 import { VektissMark } from "./voice/VektissMark";
 import { Scene1Hook } from "./voice/Scene1Hook";
 import { Scene2Owner } from "./voice/Scene2Owner";
