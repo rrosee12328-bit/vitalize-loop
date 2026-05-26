@@ -77,11 +77,14 @@ function HomePage() {
         {/* VIDEO PLACEHOLDER — replace inner div with <video> or <iframe> */}
         <div className="mx-auto mb-12 max-w-5xl overflow-hidden rounded-2xl border border-border bg-black shadow-card animate-scale-in">
           <div className="relative w-full" style={{ aspectRatio: "16 / 9" }}>
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-white/70">
-              <Play className="h-16 w-16 fill-current" />
-              <p className="text-lg font-medium">60-Second Demo Video</p>
-              <p className="text-sm text-white/40">(video URL to be added)</p>
-            </div>
+            <iframe
+              src="https://iframe.mediadelivery.net/embed/600055/13b49759-f4e9-437c-bf30-7b9454bd1424?autoplay=false&preload=true"
+              loading="lazy"
+              className="absolute inset-0 h-full w-full"
+              allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+              allowFullScreen
+              title="Vektiss Voice demo"
+            />
           </div>
         </div>
         <div className="grid items-center gap-12 md:grid-cols-12 md:gap-12 lg:gap-16">
