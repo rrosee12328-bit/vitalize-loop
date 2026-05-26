@@ -347,6 +347,16 @@ export function PricingTiers() {
           );
         })}
       </div>
+      <p className="mt-8 text-center text-xs text-muted-foreground">
+        Interested in annual pricing?{" "}
+        <a href="/contact" className="font-medium text-primary hover:underline">
+          Contact us for savings.
+        </a>
+      </p>
+      <p className="mt-2 text-center text-xs text-muted-foreground">
+        * A one-time $500 setup fee applies to all plans. We build, configure,
+        and test your custom AI agent — you don't touch any technology.
+      </p>
       <p className="mt-6 text-center text-xs text-muted-foreground">
         Dialzara charges <span className="font-semibold text-foreground">$0.48/min</span> for overages — ours start at{" "}
         <span className="font-semibold text-foreground">$0.15</span>. They make
