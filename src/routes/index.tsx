@@ -6,6 +6,11 @@ import { LiveCallDemo } from "@/components/site/ai-assistants/LiveCallDemo";
 import { VoiceLoopSection } from "@/components/site/VoiceLoopSection";
 import { PricingTiers } from "@/components/site/ai-assistants/PricingEstimator";
 import { DashboardPreview } from "@/components/site/ai-assistants/DashboardPreview";
+import {
+  MissedCallIllustration,
+  SlowReplyIllustration,
+  AfterHoursIllustration,
+} from "@/components/site/ai-assistants/ProblemIllustrations";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -206,78 +211,42 @@ function HomePage() {
             </p>
           </div>
 
-          <div className="mt-16 grid gap-6 md:grid-cols-3">
+          <div className="mt-14 grid gap-6 md:grid-cols-3">
             {[
               {
-                code: "01",
-                icon: PhoneMissed,
+                Illustration: MissedCallIllustration,
                 title: "The Missed Call",
-                stat: "62%",
-                statLabel: "of missed calls never call back",
                 body: "You're busy. The phone rings. Nobody answers. That caller doesn't leave a voicemail — they call your competitor.",
               },
               {
-                code: "02",
-                icon: Inbox,
+                Illustration: SlowReplyIllustration,
                 title: "The Slow Reply",
-                stat: "5 min",
-                statLabel: "after which lead-to-close drops 80%",
                 body: "Leads email you. You see it three hours later. By then they've already moved on. Speed wins — every time.",
               },
               {
-                code: "03",
-                icon: Moon,
+                Illustration: AfterHoursIllustration,
                 title: "The After-Hours Gap",
-                stat: "67%",
-                statLabel: "of buyer research happens after 5pm",
                 body: "Your business closes at 5pm. Your customers' problems don't. Every night and weekend is a window your competitors are open and you're not.",
               },
-            ].map(({ code, icon: Icon, title, stat, statLabel, body }) => (
-              <div
-                key={code}
-                className="group relative overflow-hidden rounded-2xl border border-border bg-white p-8 shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl"
+            ].map((p, i) => (
+              <article
+                key={p.title}
+                className="overflow-hidden rounded-xl border border-border bg-card shadow-card"
               >
-                {/* Hover glow */}
-                <div
-                  aria-hidden
-                  className="pointer-events-none absolute -top-24 -right-24 h-48 w-48 rounded-full opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100"
-                  style={{ background: "color-mix(in oklch, var(--primary) 30%, transparent)" }}
-                />
-                {/* Top accent line */}
-                <div
-                  aria-hidden
-                  className="absolute inset-x-0 top-0 h-px"
-                  style={{
-                    background:
-                      "linear-gradient(90deg, transparent, color-mix(in oklch, var(--primary) 60%, transparent), transparent)",
-                  }}
-                />
-
-                <div className="relative flex items-start justify-between">
-                  <div className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-110">
-                    <Icon className="h-5 w-5" />
-                  </div>
-                  <span className="font-mono text-xs tracking-widest text-muted-foreground/70">
-                    {code} / 03
+                <p.Illustration />
+                <div className="p-6 md:p-8">
+                  <span className="block font-mono text-xs tracking-widest text-muted-foreground">
+                    0{i + 1}
                   </span>
+                  <h3 className="mt-1 text-lg font-semibold tracking-tight">
+                    {p.title}
+                  </h3>
+                  <p className="mt-3 text-muted-foreground">{p.body}</p>
                 </div>
-
-                <h3 className="relative mt-6 text-xl font-semibold tracking-tight">
-                  {title}
-                </h3>
-                <p className="relative mt-3 text-muted-foreground">{body}</p>
-
-                <div className="relative mt-6 flex items-baseline gap-3 border-t border-border/70 pt-5">
-                  <span className="text-3xl font-semibold tracking-tight text-foreground tabular-nums">
-                    {stat}
-                  </span>
-                  <span className="text-xs uppercase tracking-wider text-muted-foreground">
-                    {statLabel}
-                  </span>
-                </div>
-              </div>
+              </article>
             ))}
           </div>
+
 
 
           <div className="mt-16 text-center">
