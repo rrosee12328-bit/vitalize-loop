@@ -133,11 +133,6 @@ function HomePage() {
               your custom demo in 24 hours.
             </p>
           </div>
-            <p className="mt-4 text-center text-xs text-muted-foreground animate-fade-in [animation-delay:900ms]">
-              Want to hear your own business? Book a setup call and we'll build
-              your custom demo in 24 hours.
-            </p>
-          </div>
         </div>
       </section>
 
