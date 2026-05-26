@@ -1,5 +1,5 @@
 import React from "react";
-import { AbsoluteFill, useCurrentFrame, interpolate, spring, useVideoConfig } from "remotion";
+import { AbsoluteFill, useCurrentFrame, useVideoConfig, interpolate, spring, random } from "remotion";
 import { BRAND } from "./brand";
 import { FONT_SANS } from "../fonts";
 
@@ -13,8 +13,8 @@ export const Scene4Truth: React.FC = () => {
   const zoom = interpolate(frame, [0, 96], [1.0, 1.08]);
 
   // glitch shake first 8 frames
-  const glitchX = frame < 10 ? (Math.random() < 0.5 ? -4 : 4) * (1 - frame / 10) : 0;
-  const glitchY = frame < 10 ? (Math.random() < 0.5 ? -2 : 2) * (1 - frame / 10) : 0;
+  const glitchX = frame < 10 ? (random(`gx${frame}`) - 0.5) * 8 * (1 - frame / 10) : 0;
+  const glitchY = frame < 10 ? (random(`gy${frame}`) - 0.5) * 4 * (1 - frame / 10) : 0;
 
   const truthRed = frame === 40 || frame === 41;
 
