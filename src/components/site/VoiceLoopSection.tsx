@@ -189,7 +189,7 @@ export function VoiceLoopSection() {
                 </div>
                 <div className="space-y-2 text-[11px] leading-snug">
                   {[
-                    { t: "00:02", who: "ai", text: "Thanks for calling Riverside Renovations, this is the Vektiss assistant. How can I help today?" },
+                    { t: "00:02", who: "ai", text: "Thanks for calling Riverside Renovations, this is Ashley. How can I help today?" },
                     { t: "00:07", who: "caller", text: "Hi, yeah — I'm looking to get a quote on renovating a three-bedroom house. Kitchen and two bathrooms mainly." },
                     { t: "00:18", who: "ai", text: "Got it — a three-bedroom remodel with kitchen and two baths. Are you hoping to start in the next 30 days, or further out?" },
                     { t: "00:26", who: "caller", text: "As soon as possible, honestly. We'd love something this month if you can swing it." },
