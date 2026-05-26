@@ -3,6 +3,7 @@ import { MainVideo } from "./MainVideo";
 import { MainVideoVertical } from "./MainVideoVertical";
 import { SiteIntroVideo } from "./SiteIntroVideo";
 import { SpeakerVerticalVideo } from "./SpeakerVerticalVideo";
+import { VoiceAdPOC } from "./VoiceAdPOC";
 
 
 // 20s @ 30fps = 600 frames
@@ -40,6 +41,14 @@ export const RemotionRoot: React.FC = () => {
         fps={30}
         width={1080}
         height={1920}
+      />
+      <Composition
+        id="voice-ad-poc"
+        component={VoiceAdPOC}
+        durationInFrames={636}
+        fps={30}
+        width={1280}
+        height={720}
       />
     </>
   );
