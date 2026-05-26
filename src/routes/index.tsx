@@ -158,23 +158,6 @@ function HomePage() {
 
       <VoiceLoopSection />
 
-      <section className="border-b border-border">
-        <div className="container-editorial py-20 md:py-28">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="eyebrow">The Bigger Picture</p>
-            <h2 className="mt-6 display-2">
-              Start with Vektiss Voice.{" "}
-              <span className="accent-underline">Scale to the whole business.</span>
-            </h2>
-            <p className="mt-6 text-lg text-muted-foreground">
-              Vektiss Voice is your entry point. When you're ready, we build the
-              connected infrastructure that ties your entire operation into a
-              single system.
-            </p>
-          </div>
-        </div>
-      </section>
-
 
       {/* PROBLEM RECOGNITION */}
       <section className="border-t border-border bg-surface-elevated">
