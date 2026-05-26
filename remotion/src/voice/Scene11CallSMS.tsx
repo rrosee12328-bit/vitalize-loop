@@ -32,7 +32,7 @@ export const Scene11CallSMS: React.FC = () => {
   ];
 
   // Closing line "handles it the right way every time" at ~9s → f 270
-  const closeIn = spring({ frame: frame - 270, fps, config: { damping: 200 }, durationInFrames: 22 });
+  const closeIn = spring({ frame: frame - 270, fps, config: { damping: 200 }, durationInFrames: 34 });
 
   return (
     <AbsoluteFill>
@@ -76,8 +76,8 @@ export const Scene11CallSMS: React.FC = () => {
       >
         {chips.map((c, i) => {
           const localF = frame - c.at;
-          const s = spring({ frame: localF, fps, config: { damping: 22, stiffness: 140 } });
-          const o = spring({ frame: localF, fps, config: { damping: 200 }, durationInFrames: 16 });
+          const s = spring({ frame: localF, fps, config: { damping: 22, stiffness: 75 } });
+          const o = spring({ frame: localF, fps, config: { damping: 200 }, durationInFrames: 26 });
           const y = interpolate(s, [0, 1], [22, 0]);
           return (
             <div
@@ -138,7 +138,7 @@ export const Scene11CallSMS: React.FC = () => {
       >
         {icons.map((it, i) => {
           const localF = frame - (rowStart + i * 18);
-          const s = spring({ frame: localF, fps, config: { damping: 18, stiffness: 160 } });
+          const s = spring({ frame: localF, fps, config: { damping: 18, stiffness: 85 } });
           const o = spring({ frame: localF, fps, config: { damping: 200 }, durationInFrames: 14 });
           const sc = interpolate(s, [0, 1], [0.85, 1]);
           return (

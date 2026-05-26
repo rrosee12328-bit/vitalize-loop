@@ -90,8 +90,8 @@ export const Scene7Calendar: React.FC = () => {
               {data[wi].map((count, di) => {
                 const idx = wi * 7 + di;
                 const delay = totalDelay + idx * 1.4;
-                const s = spring({ frame: frame - delay, fps, config: { damping: 22, stiffness: 200 } });
-                const o = spring({ frame: frame - delay, fps, config: { damping: 200 }, durationInFrames: 12 });
+                const s = spring({ frame: frame - delay, fps, config: { damping: 22, stiffness: 60 } });
+                const o = spring({ frame: frame - delay, fps, config: { damping: 200 }, durationInFrames: 32 });
                 const intensity = count / 9;
                 const bg = count === 0
                   ? COLORS.surface

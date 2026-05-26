@@ -9,11 +9,11 @@ export const Scene16CTA: React.FC = () => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
-  const badge = spring({ frame: frame - 0, fps, config: { damping: 22, stiffness: 130 } });
-  const line = spring({ frame: frame - 26, fps, config: { damping: 22, stiffness: 140 } });
-  const lineO = spring({ frame: frame - 26, fps, config: { damping: 200 }, durationInFrames: 22 });
-  const sub = spring({ frame: frame - 60, fps, config: { damping: 200 }, durationInFrames: 22 });
-  const check = spring({ frame: frame - 80, fps, config: { damping: 14, stiffness: 160 } });
+  const badge = spring({ frame: frame - 0, fps, config: { damping: 22, stiffness: 70 } });
+  const line = spring({ frame: frame - 26, fps, config: { damping: 22, stiffness: 75 } });
+  const lineO = spring({ frame: frame - 26, fps, config: { damping: 200 }, durationInFrames: 34 });
+  const sub = spring({ frame: frame - 60, fps, config: { damping: 200 }, durationInFrames: 34 });
+  const check = spring({ frame: frame - 80, fps, config: { damping: 14, stiffness: 85 } });
   const checkPulse = 1 + Math.sin((frame - 80) * 0.12) * 0.06;
 
   return (

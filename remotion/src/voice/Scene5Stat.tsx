@@ -12,8 +12,8 @@ export const Scene5Stat: React.FC = () => {
 
   const eyeO = spring({ frame: frame - 2, fps, config: { damping: 200 } });
   const counter = Math.round(interpolate(frame, [6, 40], [0, 85], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }));
-  const subO = spring({ frame: frame - 46, fps, config: { damping: 200 }, durationInFrames: 24 });
-  const cardIn = spring({ frame: frame - 16, fps, config: { damping: 22, stiffness: 130 } });
+  const subO = spring({ frame: frame - 46, fps, config: { damping: 200 }, durationInFrames: 36 });
+  const cardIn = spring({ frame: frame - 16, fps, config: { damping: 22, stiffness: 70 } });
   const cardO = spring({ frame: frame - 16, fps, config: { damping: 200 } });
   const cardX = interpolate(cardIn, [0, 1], [40, 0]);
 

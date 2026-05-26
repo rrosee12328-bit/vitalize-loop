@@ -75,7 +75,7 @@ export const Scene14Scale: React.FC = () => {
       <svg width={940} height={560} viewBox="0 0 940 560" style={{ position: "absolute", left: 0, top: 240 }}>
         {/* Branches to pins */}
         {pins.map((p, i) => {
-          const t = spring({ frame: frame - p.delay, fps, config: { damping: 22, stiffness: 110 } });
+          const t = spring({ frame: frame - p.delay, fps, config: { damping: 22, stiffness: 60 } });
           const dx = (p.x - cx) * t;
           const dy = (p.y - cy) * t;
           return (
@@ -94,7 +94,7 @@ export const Scene14Scale: React.FC = () => {
 
         {/* CRM connector lines */}
         {crms.map((c, i) => {
-          const t = spring({ frame: frame - (c.delay - 12), fps, config: { damping: 22, stiffness: 100 } });
+          const t = spring({ frame: frame - (c.delay - 12), fps, config: { damping: 22, stiffness: 55 } });
           const dx = (c.x - cx) * t;
           const dy = (c.y - cy) * t;
           return (
@@ -114,7 +114,7 @@ export const Scene14Scale: React.FC = () => {
 
         {/* Pins */}
         {pins.map((p, i) => {
-          const t = spring({ frame: frame - p.delay - 6, fps, config: { damping: 18, stiffness: 140 } });
+          const t = spring({ frame: frame - p.delay - 6, fps, config: { damping: 18, stiffness: 75 } });
           const pulse = 1 + Math.sin((frame - p.delay) * 0.18) * 0.08;
           return (
             <g key={`pin-${i}`} opacity={t}>
@@ -149,7 +149,7 @@ export const Scene14Scale: React.FC = () => {
 
       {/* Pin labels */}
       {pins.map((p, i) => {
-        const t = spring({ frame: frame - p.delay - 14, fps, config: { damping: 200 }, durationInFrames: 18 });
+        const t = spring({ frame: frame - p.delay - 14, fps, config: { damping: 200 }, durationInFrames: 28 });
         return (
           <div
             key={`label-${i}`}
@@ -173,8 +173,8 @@ export const Scene14Scale: React.FC = () => {
 
       {/* CRM chips */}
       {crms.map((c, i) => {
-        const t = spring({ frame: frame - c.delay, fps, config: { damping: 22, stiffness: 130 } });
-        const o = spring({ frame: frame - c.delay, fps, config: { damping: 200 }, durationInFrames: 22 });
+        const t = spring({ frame: frame - c.delay, fps, config: { damping: 22, stiffness: 70 } });
+        const o = spring({ frame: frame - c.delay, fps, config: { damping: 200 }, durationInFrames: 34 });
         const y = interpolate(t, [0, 1], [12, 0]);
         return (
           <div
