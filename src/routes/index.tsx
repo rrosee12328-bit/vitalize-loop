@@ -207,36 +207,78 @@ function HomePage() {
           </div>
 
           <div className="mt-16 grid gap-6 md:grid-cols-3">
-            <div className="rounded-xl border border-border bg-white p-8 shadow-card">
-              <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                <PhoneMissed className="h-5 w-5" />
-              </div>
-              <h3 className="mt-5 text-xl font-semibold tracking-tight">The Missed Call</h3>
-              <p className="mt-3 text-muted-foreground">
-                You're busy. The phone rings. Nobody answers. That caller doesn't leave a voicemail — they call your competitor.
-              </p>
-            </div>
+            {[
+              {
+                code: "01",
+                icon: PhoneMissed,
+                title: "The Missed Call",
+                stat: "62%",
+                statLabel: "of missed calls never call back",
+                body: "You're busy. The phone rings. Nobody answers. That caller doesn't leave a voicemail — they call your competitor.",
+              },
+              {
+                code: "02",
+                icon: Inbox,
+                title: "The Slow Reply",
+                stat: "5 min",
+                statLabel: "after which lead-to-close drops 80%",
+                body: "Leads email you. You see it three hours later. By then they've already moved on. Speed wins — every time.",
+              },
+              {
+                code: "03",
+                icon: Moon,
+                title: "The After-Hours Gap",
+                stat: "67%",
+                statLabel: "of buyer research happens after 5pm",
+                body: "Your business closes at 5pm. Your customers' problems don't. Every night and weekend is a window your competitors are open and you're not.",
+              },
+            ].map(({ code, icon: Icon, title, stat, statLabel, body }) => (
+              <div
+                key={code}
+                className="group relative overflow-hidden rounded-2xl border border-border bg-white p-8 shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl"
+              >
+                {/* Hover glow */}
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute -top-24 -right-24 h-48 w-48 rounded-full opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100"
+                  style={{ background: "color-mix(in oklch, var(--primary) 30%, transparent)" }}
+                />
+                {/* Top accent line */}
+                <div
+                  aria-hidden
+                  className="absolute inset-x-0 top-0 h-px"
+                  style={{
+                    background:
+                      "linear-gradient(90deg, transparent, color-mix(in oklch, var(--primary) 60%, transparent), transparent)",
+                  }}
+                />
 
-            <div className="rounded-xl border border-border bg-white p-8 shadow-card">
-              <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                <Inbox className="h-5 w-5" />
-              </div>
-              <h3 className="mt-5 text-xl font-semibold tracking-tight">The Slow Reply</h3>
-              <p className="mt-3 text-muted-foreground">
-                Leads email you. You see it three hours later. By then they've already moved on. Speed wins — every time.
-              </p>
-            </div>
+                <div className="relative flex items-start justify-between">
+                  <div className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-110">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <span className="font-mono text-xs tracking-widest text-muted-foreground/70">
+                    {code} / 03
+                  </span>
+                </div>
 
-            <div className="rounded-xl border border-border bg-white p-8 shadow-card">
-              <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                <Moon className="h-5 w-5" />
+                <h3 className="relative mt-6 text-xl font-semibold tracking-tight">
+                  {title}
+                </h3>
+                <p className="relative mt-3 text-muted-foreground">{body}</p>
+
+                <div className="relative mt-6 flex items-baseline gap-3 border-t border-border/70 pt-5">
+                  <span className="text-3xl font-semibold tracking-tight text-foreground tabular-nums">
+                    {stat}
+                  </span>
+                  <span className="text-xs uppercase tracking-wider text-muted-foreground">
+                    {statLabel}
+                  </span>
+                </div>
               </div>
-              <h3 className="mt-5 text-xl font-semibold tracking-tight">The After-Hours Gap</h3>
-              <p className="mt-3 text-muted-foreground">
-                Your business closes at 5pm. Your customers' problems don't. Every night and weekend is a window your competitors are open and you're not.
-              </p>
-            </div>
+            ))}
           </div>
+
 
           <div className="mt-16 text-center">
             <p className="text-lg font-bold text-[#111827]">
