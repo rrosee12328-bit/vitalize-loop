@@ -49,6 +49,9 @@ const TOP_OFFSET = (720 - SCALED_H) / 2; // 113.9
 export const VoiceAdPOC: React.FC = () => {
   return (
     <AbsoluteFill style={{ background: COLORS.bg }}>
+      {/* Narration baked into the master. */}
+      <Audio src={staticFile("audio/narration.mp3")} />
+
       {/* Single continuous background spanning the full 1280×720 canvas. */}
       <VoiceBackground />
 
