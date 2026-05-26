@@ -5,6 +5,11 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { LiveCallDemo } from "@/components/site/ai-assistants/LiveCallDemo";
 import { DashboardPreview } from "@/components/site/ai-assistants/DashboardPreview";
 import { PricingEstimator, PricingTiers } from "@/components/site/ai-assistants/PricingEstimator";
+import {
+  MissedCallIllustration,
+  SlowReplyIllustration,
+  AfterHoursIllustration,
+} from "@/components/site/ai-assistants/ProblemIllustrations";
 
 const CALENDLY = "https://calendly.com/vektiss-info/30-minute-vektiss-discovery";
 
@@ -28,11 +33,8 @@ export const Route = createFileRoute("/solutions/ai-assistants")({
   component: AIAssistantsPage,
 });
 
-import {
-  MissedCallIllustration,
-  SlowReplyIllustration,
-  AfterHoursIllustration,
-} from "@/components/site/ai-assistants/ProblemIllustrations";
+
+
 
 const problems = [
   {
