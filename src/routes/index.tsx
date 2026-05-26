@@ -84,7 +84,8 @@ function HomePage() {
         <div className="relative mx-auto mb-8 max-w-5xl text-center">
           <p className="eyebrow text-primary animate-fade-in-up">Watch how Vektiss Voice works</p>
           <h1 className="mt-4 display-1 animate-fade-in-up [animation-delay:120ms]">
-            See how Vektiss answers every call, so your business never misses one.
+            See how Vektiss answers every call, so your business{" "}
+            <span className="accent-underline">never misses one.</span>
           </h1>
         </div>
         {/* VIDEO PLACEHOLDER — replace inner div with <video> or <iframe> */}
