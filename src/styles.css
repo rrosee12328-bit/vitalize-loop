@@ -265,10 +265,10 @@
   animation: flow-pulse 2.2s linear infinite;
 }
 
-@keyframes tech-line-sweep {
-  0%   { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
+@keyframes matrix-fall {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(120vh); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .tech-line { animation: none !important; opacity: 0.15 !important; }
+  .matrix-line { animation: none !important; opacity: 0.15 !important; }
 }
