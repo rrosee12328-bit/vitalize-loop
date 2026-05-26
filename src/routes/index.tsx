@@ -5,6 +5,7 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { LiveCallDemo } from "@/components/site/ai-assistants/LiveCallDemo";
 import { VoiceLoopSection } from "@/components/site/VoiceLoopSection";
 import { PricingTiers } from "@/components/site/ai-assistants/PricingEstimator";
+import { DashboardPreview } from "@/components/site/ai-assistants/DashboardPreview";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -170,6 +171,26 @@ function HomePage() {
       </section>
 
       <VoiceLoopSection />
+
+      {/* INTERACTIVE DASHBOARD PREVIEW */}
+      <section className="relative border-t border-border">
+        <div className="container-editorial py-20 md:py-28">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="eyebrow text-primary">Inside the system</p>
+            <h2 className="mt-5 display-2">
+              Every call, message, and lead — captured in one live dashboard.
+            </h2>
+            <p className="mx-auto mt-5 max-w-2xl text-base text-muted-foreground md:text-lg">
+              See exactly what your AI handled overnight, who it followed up with, and what needs your attention today.
+            </p>
+          </div>
+          <div className="mt-12">
+            <DashboardPreview />
+          </div>
+        </div>
+      </section>
+
+
 
 
       {/* PROBLEM RECOGNITION */}
