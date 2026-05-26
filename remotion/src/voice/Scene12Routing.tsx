@@ -13,13 +13,13 @@ export const Scene12Routing: React.FC = () => {
     <AbsoluteFill>
       <VoiceHUD eyebrow="10 · ON THE CALL" />
 
-      <Sequence from={0} durationInFrames={144}>
+      <Sequence from={0} durationInFrames={340}>
         <SubA />
       </Sequence>
-      <Sequence from={144} durationInFrames={330}>
+      <Sequence from={340} durationInFrames={295}>
         <SubB />
       </Sequence>
-      <Sequence from={474} durationInFrames={90}>
+      <Sequence from={635} durationInFrames={146}>
         <SubC />
       </Sequence>
     </AbsoluteFill>
