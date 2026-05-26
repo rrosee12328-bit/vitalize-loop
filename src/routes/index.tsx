@@ -82,10 +82,10 @@ function HomePage() {
       {/* HERO — Live demo player leads */}
       <section className="relative container-editorial pt-12 pb-16 md:pt-20 md:pb-20">
         <div className="relative mx-auto mb-8 max-w-5xl text-center">
-          <p className="eyebrow text-primary animate-fade-in-up">Watch how Vektiss Voice works</p>
+          <p className="eyebrow text-primary animate-fade-in-up">Watch how it works in 2 minutes. ↓</p>
           <h1 className="mt-4 display-1 animate-fade-in-up [animation-delay:120ms]">
-            See how Vektiss answers every call, so your business{" "}
-            <span className="accent-underline">never misses one.</span>
+            Your Business Answers Every Call.{" "}
+            <span className="accent-underline">Even When You Can't.</span>
           </h1>
         </div>
         {/* VIDEO PLACEHOLDER — replace inner div with <video> or <iframe> */}
