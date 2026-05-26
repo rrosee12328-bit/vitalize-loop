@@ -102,13 +102,6 @@ function HomePage() {
                 See Pricing
               </a>
               {/* VIDEO URL TO BE ADDED */}
-              <a
-                href="#"
-                className="inline-flex h-12 items-center gap-2 rounded-md border border-border bg-transparent px-6 text-sm font-medium text-foreground transition-colors hover:bg-muted"
-              >
-                <Play className="h-4 w-4 fill-current" />
-                Watch a 60-Second Demo
-              </a>
             </div>
             <div className="mt-5 flex flex-wrap items-center gap-2">
               {["Done For You", "No Contract", "$45.99/mo"].map((b, i) => (
