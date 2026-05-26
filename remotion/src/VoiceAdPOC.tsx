@@ -1,5 +1,5 @@
 import React from "react";
-import { AbsoluteFill, Series } from "remotion";
+import { AbsoluteFill, Audio, Series, staticFile } from "remotion";
 import { COLORS } from "./theme";
 import { VoiceBackground } from "./voice/VoiceChrome";
 import { Scene1Hook } from "./voice/Scene1Hook";
