@@ -74,6 +74,12 @@ function HomePage() {
     <SiteLayout>
       {/* HERO — Live demo player leads */}
       <section className="container-editorial pt-12 pb-16 md:pt-20 md:pb-20">
+        <div className="mx-auto mb-8 max-w-5xl text-center">
+          <p className="eyebrow text-primary animate-fade-in-up">Watch the 60-second demo</p>
+          <h1 className="mt-4 display-1 animate-fade-in-up [animation-delay:120ms]">
+            See how Vektiss answers every call — so you don't have to.
+          </h1>
+        </div>
         {/* VIDEO PLACEHOLDER — replace inner div with <video> or <iframe> */}
         <div className="mx-auto mb-12 max-w-5xl overflow-hidden rounded-2xl border border-border bg-black shadow-card animate-scale-in">
           <div className="relative w-full" style={{ aspectRatio: "16 / 9" }}>
@@ -90,9 +96,9 @@ function HomePage() {
         <div className="grid items-center gap-12 md:grid-cols-12 md:gap-12 lg:gap-16">
           <div className="md:col-span-6">
             <p className="eyebrow text-primary animate-fade-in-up">Vektiss Voice</p>
-            <h1 className="mt-6 display-1 animate-fade-in-up [animation-delay:120ms]">
+            <h2 className="mt-6 display-1 animate-fade-in-up [animation-delay:120ms]">
               Your business should never miss a call again.
-            </h1>
+            </h2>
             <p className="mt-8 text-lg text-muted-foreground md:text-xl animate-fade-in-up [animation-delay:260ms]">
               Pick an industry and hear exactly what your customers would hear — 24/7, handled by AI, managed by us.
             </p>
