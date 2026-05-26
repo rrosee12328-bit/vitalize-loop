@@ -1,54 +1,85 @@
 import React from "react";
-import { AbsoluteFill, useCurrentFrame, useVideoConfig, interpolate, spring, random } from "remotion";
-import { BRAND } from "./brand";
-import { FONT_SANS } from "../fonts";
+import { AbsoluteFill, useCurrentFrame, interpolate, spring, useVideoConfig } from "remotion";
+import { COLORS } from "../theme";
+import { FONT_MONO, FONT_SANS } from "../fonts";
+import { VoiceBackground, VoiceHUD } from "./VoiceChrome";
 
-// 0:13.3 - 0:16.5  (96 frames)
-// Glitch. "Here's the truth" white, "truth" flashes red 1 frame. Slow zoom.
+// 0:13.3 - 0:16.5 (96f) — Editorial "Here's the truth" with blue underline sweep on "truth".
 export const Scene4Truth: React.FC = () => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
-  const o = spring({ frame: frame - 4, fps, config: { damping: 200 } });
-  const zoom = interpolate(frame, [0, 96], [1.0, 1.08]);
+  const eyeO = spring({ frame: frame - 2, fps, config: { damping: 200 } });
+  const line1S = spring({ frame: frame - 10, fps, config: { damping: 22, stiffness: 140 } });
+  const line1O = spring({ frame: frame - 10, fps, config: { damping: 200 } });
+  const subO = spring({ frame: frame - 40, fps, config: { damping: 200 }, durationInFrames: 24 });
 
-  // glitch shake first 8 frames
-  const glitchX = frame < 10 ? (random(`gx${frame}`) - 0.5) * 8 * (1 - frame / 10) : 0;
-  const glitchY = frame < 10 ? (random(`gy${frame}`) - 0.5) * 4 * (1 - frame / 10) : 0;
-
-  const truthRed = frame === 40 || frame === 41;
+  const sweep = interpolate(frame, [34, 64], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const zoom = interpolate(frame, [0, 96], [1.0, 1.025]);
+  const y = interpolate(line1S, [0, 1], [22, 0]);
 
   return (
-    <AbsoluteFill style={{ background: BRAND.navy }}>
-      {/* faint scanline glitch */}
-      {frame < 12 && (
-        <AbsoluteFill
-          style={{
-            background: "repeating-linear-gradient(0deg, rgba(255,255,255,0.04) 0 2px, transparent 2px 6px)",
-            opacity: 1 - frame / 12,
-          }}
-        />
-      )}
+    <AbsoluteFill>
+      <VoiceBackground />
+      <VoiceHUD eyebrow="03 · THE TRUTH" />
 
-      <AbsoluteFill style={{ alignItems: "center", justifyContent: "center", transform: `scale(${zoom}) translate(${glitchX}px, ${glitchY}px)` }}>
-        <div
-          style={{
-            opacity: o,
-            fontFamily: FONT_SANS,
-            fontWeight: 700,
-            fontSize: 86,
-            letterSpacing: "-0.025em",
-            color: BRAND.white,
-            textAlign: "center",
-            lineHeight: 1.05,
-          }}
-        >
-          Here's the{" "}
-          <span style={{ color: truthRed ? BRAND.red : BRAND.white }}>truth</span>
-          <br />
-          <span style={{ fontSize: 42, fontWeight: 500, color: "rgba(255,255,255,0.6)" }}>
-            most business owners don't want to hear.
-          </span>
+      <AbsoluteFill style={{ transform: `scale(${zoom})`, transformOrigin: "50% 50%" }}>
+        <div style={{ position: "absolute", left: 110, top: 230, right: 110 }}>
+          <div
+            style={{
+              opacity: eyeO,
+              fontFamily: FONT_MONO,
+              fontSize: 12,
+              letterSpacing: "0.24em",
+              color: COLORS.accent,
+              marginBottom: 28,
+            }}
+          >
+            HERE IS WHAT NO ONE TELLS YOU
+          </div>
+          <div
+            style={{
+              opacity: line1O,
+              transform: `translateY(${y}px)`,
+              fontFamily: FONT_SANS,
+              fontWeight: 600,
+              fontSize: 92,
+              lineHeight: 1.0,
+              letterSpacing: "-0.035em",
+              color: COLORS.ink,
+            }}
+          >
+            Here's the{" "}
+            <span style={{ position: "relative", display: "inline-block" }}>
+              <span
+                style={{
+                  position: "absolute",
+                  left: 0,
+                  bottom: 8,
+                  height: 26,
+                  width: `${sweep * 100}%`,
+                  background: "rgba(0,136,255,0.22)",
+                  zIndex: -1,
+                }}
+              />
+              truth
+            </span>
+            <br />
+            most owners don't want to hear.
+          </div>
+          <div
+            style={{
+              opacity: subO,
+              marginTop: 28,
+              fontFamily: FONT_SANS,
+              fontSize: 22,
+              color: COLORS.muted,
+              maxWidth: 720,
+              lineHeight: 1.4,
+            }}
+          >
+            The data on missed calls is brutal — and most businesses are losing money to it every single day.
+          </div>
         </div>
       </AbsoluteFill>
     </AbsoluteFill>

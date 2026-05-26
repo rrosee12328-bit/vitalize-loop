@@ -1,49 +1,118 @@
 import React from "react";
 import { AbsoluteFill, useCurrentFrame, useVideoConfig, interpolate, spring } from "remotion";
-import { BRAND } from "./brand";
-import { FONT_SANS, FONT_MONO } from "../fonts";
+import { COLORS } from "../theme";
+import { FONT_MONO, FONT_SANS } from "../fonts";
+import { VoiceBackground, VoiceHUD } from "./VoiceChrome";
 
-// 0:02.9 - 0:08.6  (171 frames)
-// Deep navy. Three line-art icons draw in: wrench, team, handshake. Stacked left-aligned.
+// 0:02.9 - 0:08.6 (171f) — Three responsibility cards stagger in like dashboard tiles.
 export const Scene2Owner: React.FC = () => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
   const items = [
-    { label: "Work the jobs", start: 10, icon: "wrench" as const },
-    { label: "Manage the team", start: 50, icon: "team" as const },
-    { label: "Handle the clients", start: 95, icon: "handshake" as const },
+    { label: "Work the jobs", icon: "wrench" as const, start: 8 },
+    { label: "Manage the team", icon: "team" as const, start: 44 },
+    { label: "Handle the clients", icon: "handshake" as const, start: 84 },
   ];
 
-  // navy intro
-  const bgO = interpolate(frame, [0, 10], [0, 1], { extrapolateRight: "clamp" });
+  const eyebrowO = spring({ frame: frame - 2, fps, config: { damping: 200 } });
 
   return (
-    <AbsoluteFill style={{ background: "#000" }}>
-      <AbsoluteFill style={{ background: BRAND.navy, opacity: bgO }} />
+    <AbsoluteFill>
+      <VoiceBackground />
+      <VoiceHUD eyebrow="01 · THE OWNER" />
 
-      <div style={{ position: "absolute", left: 110, top: 110, fontFamily: FONT_MONO, fontSize: 12, letterSpacing: "0.22em", color: "rgba(255,255,255,0.5)" }}>
-        OWNER · OPERATOR · EVERYTHING
+      <div style={{ position: "absolute", left: 110, top: 130 }}>
+        <div
+          style={{
+            opacity: eyebrowO,
+            fontFamily: FONT_MONO,
+            fontSize: 12,
+            letterSpacing: "0.24em",
+            color: COLORS.accent,
+            marginBottom: 18,
+          }}
+        >
+          YOU BUILT IT FROM THE GROUND UP
+        </div>
+        <div
+          style={{
+            opacity: eyebrowO,
+            fontFamily: FONT_SANS,
+            fontWeight: 600,
+            fontSize: 56,
+            letterSpacing: "-0.025em",
+            color: COLORS.ink,
+            maxWidth: 900,
+            lineHeight: 1.05,
+          }}
+        >
+          You work the jobs, manage the team, handle the clients.
+        </div>
       </div>
 
-      <div style={{ position: "absolute", left: 110, top: 180, display: "flex", flexDirection: "column", gap: 36 }}>
+      <div
+        style={{
+          position: "absolute",
+          left: 110,
+          right: 110,
+          top: 380,
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr 1fr",
+          gap: 22,
+        }}
+      >
         {items.map((it, i) => {
           const localF = frame - it.start;
-          const draw = interpolate(localF, [0, 24], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
-          const textO = spring({ frame: localF - 8, fps, config: { damping: 200 }, durationInFrames: 20 });
-          const textX = interpolate(spring({ frame: localF - 8, fps, config: { damping: 22, stiffness: 140 } }), [0, 1], [-16, 0]);
+          const s = spring({ frame: localF, fps, config: { damping: 22, stiffness: 140 } });
+          const o = spring({ frame: localF, fps, config: { damping: 200 } });
+          const y = interpolate(s, [0, 1], [24, 0]);
           return (
-            <div key={i} style={{ display: "flex", alignItems: "center", gap: 28 }}>
-              <IconBox draw={draw} kind={it.icon} />
+            <div
+              key={i}
+              style={{
+                opacity: o,
+                transform: `translateY(${y}px)`,
+                background: COLORS.white,
+                border: `1px solid ${COLORS.border}`,
+                borderRadius: 16,
+                padding: 26,
+                boxShadow: "0 20px 40px -24px rgba(10,22,40,0.18), 0 4px 12px -6px rgba(10,22,40,0.06)",
+              }}
+            >
               <div
                 style={{
+                  width: 44,
+                  height: 44,
+                  borderRadius: 10,
+                  background: "rgba(0,136,255,0.10)",
+                  color: COLORS.accent,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <Icon kind={it.icon} />
+              </div>
+              <div
+                style={{
+                  marginTop: 18,
+                  fontFamily: FONT_MONO,
+                  fontSize: 10,
+                  letterSpacing: "0.22em",
+                  color: COLORS.muted,
+                }}
+              >
+                ROLE {String(i + 1).padStart(2, "0")}
+              </div>
+              <div
+                style={{
+                  marginTop: 8,
                   fontFamily: FONT_SANS,
                   fontWeight: 600,
-                  fontSize: 54,
+                  fontSize: 28,
                   letterSpacing: "-0.02em",
-                  color: BRAND.white,
-                  opacity: textO,
-                  transform: `translateX(${textX}px)`,
+                  color: COLORS.ink,
                 }}
               >
                 {it.label}
@@ -56,46 +125,19 @@ export const Scene2Owner: React.FC = () => {
   );
 };
 
-const IconBox: React.FC<{ draw: number; kind: "wrench" | "team" | "handshake" }> = ({ draw, kind }) => {
-  const stroke = BRAND.white;
-  const sw = 4;
-  const common = {
-    stroke,
-    strokeWidth: sw,
-    fill: "none",
-    strokeLinecap: "round" as const,
-    strokeLinejoin: "round" as const,
-  };
-  // Use stroke-dash trick: pathLength normalized to 1
-  const dashProps = (len = 1) => ({
-    strokeDasharray: len,
-    strokeDashoffset: (1 - draw) * len,
-    pathLength: len,
-  });
+const Icon: React.FC<{ kind: "wrench" | "team" | "handshake" }> = ({ kind }) => {
+  const c = { stroke: "currentColor", strokeWidth: 2, fill: "none", strokeLinecap: "round" as const, strokeLinejoin: "round" as const };
   return (
-    <svg width={92} height={92} viewBox="0 0 100 100">
-      {kind === "wrench" && (
-        <path
-          {...common}
-          {...dashProps()}
-          d="M70 18a16 16 0 0 0-21 21l-30 30a6 6 0 0 0 8 8l30-30a16 16 0 0 0 21-21l-9 9-8-2-2-8z"
-        />
-      )}
+    <svg width={22} height={22} viewBox="0 0 24 24">
+      {kind === "wrench" && <path {...c} d="M14.7 6.3a4 4 0 0 0-5.4 5.4l-6 6a2 2 0 0 0 2.8 2.8l6-6a4 4 0 0 0 5.4-5.4l-2.1 2.1-2.1-.6-.6-2.1z" />}
       {kind === "team" && (
         <>
-          <circle cx={30} cy={36} r={10} {...common} {...dashProps()} />
-          <circle cx={70} cy={36} r={10} {...common} {...dashProps()} />
-          <circle cx={50} cy={28} r={11} {...common} {...dashProps()} />
-          <path {...common} {...dashProps()} d="M12 82c2-12 12-20 18-22m40 0c6 2 16 10 18 22M30 82c2-14 12-22 20-22s18 8 20 22" />
+          <circle cx={9} cy={8} r={3} {...c} />
+          <circle cx={15} cy={8} r={3} {...c} />
+          <path {...c} d="M3 20c1-3 3-5 6-5s5 2 6 5M15 20c1-3 3-5 5-5" />
         </>
       )}
-      {kind === "handshake" && (
-        <path
-          {...common}
-          {...dashProps()}
-          d="M8 52l16-16 12 6 14-12 14 12 12-6 16 16-14 14-10-6-12 10-12-10-10 6z"
-        />
-      )}
+      {kind === "handshake" && <path {...c} d="M2 12l4-4 3 1 3-3 3 3 3-1 4 4-4 4-2-1-3 2-3-2-2 1z" />}
     </svg>
   );
 };
