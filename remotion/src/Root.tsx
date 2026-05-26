@@ -45,7 +45,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="voice-ad-poc"
         component={VoiceAdPOC}
-        durationInFrames={4593}
+        durationInFrames={4596}
         fps={30}
         width={1280}
         height={720}
