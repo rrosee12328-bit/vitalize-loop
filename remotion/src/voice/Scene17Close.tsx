@@ -32,14 +32,14 @@ export const Scene17Close: React.FC = () => {
   const callIn = spring({ frame: frame - 140, fps, config: { damping: 200 }, durationInFrames: 34 });
   const arrowShift = Math.sin((frame - 140) * 0.18) * 4;
 
-  // URL — fades in late (~24s in)
-  const urlIn = spring({ frame: frame - 720, fps, config: { damping: 200 }, durationInFrames: 30 });
+  // URL — fades in late (~6.5s in)
+  const urlIn = spring({ frame: frame - 195, fps, config: { damping: 200 }, durationInFrames: 30 });
 
-  // Subtle scale-down emphasis at ~40s
-  const emphasize = interpolate(frame, [1200, 1380], [1, 0.94], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  // Subtle scale-down emphasis near end
+  const emphasize = interpolate(frame, [260, 320], [1, 0.97], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
 
-  // Fade to black at very end (last ~2.5s — f 1443 → 1518)
-  const fadeBlack = interpolate(frame, [1443, 1518], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  // Fade to black at very end (last ~1.5s — f 290 → 334)
+  const fadeBlack = interpolate(frame, [290, 334], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   void emphasize;
 
   return (
