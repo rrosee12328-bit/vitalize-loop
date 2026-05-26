@@ -57,6 +57,58 @@ export const VoiceAdPOC: React.FC = () => {
       {/* Single continuous background spanning the full 1280×720 canvas. */}
       <VoiceBackground />
 
+      {/* Persistent top header */}
+      <div
+        style={{
+          position: "absolute",
+          top: 18,
+          left: 0,
+          width: CONTENT_W,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: 8,
+          zIndex: 50,
+          pointerEvents: "none",
+        }}
+      >
+        <span
+          style={{
+            fontFamily: "'Inter', system-ui, sans-serif",
+            fontWeight: 700,
+            fontSize: 15,
+            letterSpacing: "0.18em",
+            textTransform: "uppercase",
+            color: COLORS.ink,
+            opacity: 0.55,
+          }}
+        >
+          Vektiss
+        </span>
+        <span
+          style={{
+            width: 4,
+            height: 4,
+            borderRadius: "50%",
+            background: COLORS.accent,
+            opacity: 0.7,
+          }}
+        />
+        <span
+          style={{
+            fontFamily: "'Inter', system-ui, sans-serif",
+            fontWeight: 500,
+            fontSize: 12,
+            letterSpacing: "0.12em",
+            textTransform: "uppercase",
+            color: COLORS.muted,
+            opacity: 0.6,
+          }}
+        >
+          Smart Phone System
+        </span>
+      </div>
+
       {/* Scaled scene content — left content zone */}
       <div
         style={{
