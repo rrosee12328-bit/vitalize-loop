@@ -26,8 +26,8 @@ export const Scene15Guarantee: React.FC = () => {
   ];
 
   // Stamp — drop in at frame 240 (~8s)
-  const stamp = spring({ frame: frame - 240, fps, config: { damping: 8, stiffness: 220 } });
-  const stampOpacity = spring({ frame: frame - 240, fps, config: { damping: 200 }, durationInFrames: 16 });
+  const stamp = spring({ frame: frame - 240, fps, config: { damping: 8, stiffness: 120 } });
+  const stampOpacity = spring({ frame: frame - 240, fps, config: { damping: 200 }, durationInFrames: 26 });
   const stampY = interpolate(stamp, [0, 1], [-160, 0]);
   const stampScale = interpolate(stamp, [0, 0.6, 1], [1.6, 1.08, 1]);
   const stampRot = interpolate(stamp, [0, 1], [-18, -6]);
@@ -179,8 +179,8 @@ export const Scene15Guarantee: React.FC = () => {
       >
         {overlays.map((label, i) => {
           const delay = 70 + i * 30;
-          const s = spring({ frame: frame - delay, fps, config: { damping: 22, stiffness: 130 } });
-          const o = spring({ frame: frame - delay, fps, config: { damping: 200 }, durationInFrames: 18 });
+          const s = spring({ frame: frame - delay, fps, config: { damping: 22, stiffness: 70 } });
+          const o = spring({ frame: frame - delay, fps, config: { damping: 200 }, durationInFrames: 28 });
           const x = interpolate(s, [0, 1], [16, 0]);
           // Items fade out a bit as the badge takes over
           const fadeForStamp = interpolate(frame, [230, 270], [1, 0.35], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });

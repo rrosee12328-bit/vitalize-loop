@@ -11,12 +11,12 @@ export const Scene8Reveal: React.FC = () => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
-  const eyebrow = spring({ frame: frame - 4, fps, config: { damping: 200 }, durationInFrames: 20 });
-  const dot = spring({ frame: frame - 14, fps, config: { damping: 12, stiffness: 180 } });
-  const word = spring({ frame: frame - 26, fps, config: { damping: 22, stiffness: 130 } });
+  const eyebrow = spring({ frame: frame - 4, fps, config: { damping: 200 }, durationInFrames: 32 });
+  const dot = spring({ frame: frame - 14, fps, config: { damping: 12, stiffness: 95 } });
+  const word = spring({ frame: frame - 26, fps, config: { damping: 22, stiffness: 70 } });
   const wordX = interpolate(word, [0, 1], [-24, 0]);
-  const sub = spring({ frame: frame - 60, fps, config: { damping: 200 }, durationInFrames: 24 });
-  const ringScale = spring({ frame: frame - 14, fps, config: { damping: 14, stiffness: 80 } });
+  const sub = spring({ frame: frame - 60, fps, config: { damping: 200 }, durationInFrames: 36 });
+  const ringScale = spring({ frame: frame - 14, fps, config: { damping: 14, stiffness: 45 } });
 
   return (
     <AbsoluteFill>

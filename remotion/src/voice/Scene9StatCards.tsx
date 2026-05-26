@@ -60,8 +60,8 @@ export const Scene9StatCards: React.FC = () => {
       >
         {cards.map((c, i) => {
           const delay = 22 + i * 10;
-          const s = spring({ frame: frame - delay, fps, config: { damping: 22, stiffness: 130 } });
-          const o = spring({ frame: frame - delay, fps, config: { damping: 200 }, durationInFrames: 20 });
+          const s = spring({ frame: frame - delay, fps, config: { damping: 22, stiffness: 70 } });
+          const o = spring({ frame: frame - delay, fps, config: { damping: 200 }, durationInFrames: 32 });
           const y = interpolate(s, [0, 1], [24, 0]);
           return (
             <div

@@ -10,9 +10,9 @@ export const Scene4Truth: React.FC = () => {
   const { fps } = useVideoConfig();
 
   const eyeO = spring({ frame: frame - 2, fps, config: { damping: 200 } });
-  const line1S = spring({ frame: frame - 10, fps, config: { damping: 22, stiffness: 140 } });
+  const line1S = spring({ frame: frame - 10, fps, config: { damping: 22, stiffness: 75 } });
   const line1O = spring({ frame: frame - 10, fps, config: { damping: 200 } });
-  const subO = spring({ frame: frame - 40, fps, config: { damping: 200 }, durationInFrames: 24 });
+  const subO = spring({ frame: frame - 40, fps, config: { damping: 200 }, durationInFrames: 36 });
 
   const sweep = interpolate(frame, [34, 64], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   const zoom = interpolate(frame, [0, 96], [1.0, 1.025]);

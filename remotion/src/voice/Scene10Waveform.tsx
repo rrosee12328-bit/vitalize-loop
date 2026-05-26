@@ -73,7 +73,7 @@ export const Scene10Waveform: React.FC = () => {
 
         <div style={{ position: "relative", display: "flex", alignItems: "center", justifyContent: "space-between", height: 110 }}>
           {Array.from({ length: bars }).map((_, i) => {
-            const reveal = spring({ frame: frame - 14 - i * 0.7, fps, config: { damping: 200 }, durationInFrames: 8 });
+            const reveal = spring({ frame: frame - 14 - i * 0.7, fps, config: { damping: 200 }, durationInFrames: 14 });
             const wobble = Math.sin((frame / 6) + i * 0.4) * 0.15;
             const seed = random(`bar-${i}`) * 0.8 + 0.2;
             const h = (seed + wobble) * 90 * reveal;
@@ -110,7 +110,7 @@ export const Scene10Waveform: React.FC = () => {
       <div style={{ position: "absolute", left: 134, right: 134, top: 560, display: "flex", justifyContent: "space-between" }}>
         {checkpoints.map((c, i) => {
           const delay = 40 + i * 18;
-          const o = spring({ frame: frame - delay, fps, config: { damping: 200 }, durationInFrames: 18 });
+          const o = spring({ frame: frame - delay, fps, config: { damping: 200 }, durationInFrames: 28 });
           const y = interpolate(o, [0, 1], [12, 0]);
           return (
             <div key={i} style={{ opacity: o, transform: `translateY(${y}px)`, maxWidth: 220, fontFamily: FONT_SANS }}>

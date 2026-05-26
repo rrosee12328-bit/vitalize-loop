@@ -12,13 +12,13 @@ export const Scene6Search: React.FC = () => {
 
   const queryO = spring({ frame, fps, config: { damping: 200 }, durationInFrames: 6 });
   const rowS = (i: number) =>
-    spring({ frame: frame - 4 - i * 3, fps, config: { damping: 22, stiffness: 220 } });
+    spring({ frame: frame - 4 - i * 3, fps, config: { damping: 22, stiffness: 120 } });
   const rowO = (i: number) =>
     spring({ frame: frame - 4 - i * 3, fps, config: { damping: 200 }, durationInFrames: 6 });
-  const ringIn = spring({ frame: frame - 18, fps, config: { damping: 14, stiffness: 220 } });
+  const ringIn = spring({ frame: frame - 18, fps, config: { damping: 14, stiffness: 120 } });
   // Tap ripple
   const tapT = Math.max(0, Math.min(1, (frame - 24) / 12));
-  const callBadge = spring({ frame: frame - 22, fps, config: { damping: 14, stiffness: 220 } });
+  const callBadge = spring({ frame: frame - 22, fps, config: { damping: 14, stiffness: 120 } });
 
   const results = [
     { name: "AAA Plumbing Co.", url: "aaaplumbing.com" },

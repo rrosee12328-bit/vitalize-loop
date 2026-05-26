@@ -35,8 +35,8 @@ const SubA: React.FC = () => {
   const ringPulse = 0.5 + Math.abs(Math.sin(frame * 0.45)) * 0.5;
   // Single bell ring then connect at f ~30
   const connected = frame >= 30;
-  const bubbleIn = spring({ frame: frame - 36, fps, config: { damping: 18, stiffness: 160 } });
-  const bubbleO = spring({ frame: frame - 36, fps, config: { damping: 200 }, durationInFrames: 18 });
+  const bubbleIn = spring({ frame: frame - 36, fps, config: { damping: 18, stiffness: 85 } });
+  const bubbleO = spring({ frame: frame - 36, fps, config: { damping: 200 }, durationInFrames: 28 });
 
   // Typewriter for greeting
   const greeting = "Hi, thanks for calling Vektiss — how can I help today?";
@@ -174,10 +174,10 @@ const SubB: React.FC = () => {
   ];
 
   // Form card slides in
-  const formIn = spring({ frame: frame - 175, fps, config: { damping: 22, stiffness: 130 } });
-  const formO = spring({ frame: frame - 175, fps, config: { damping: 200 }, durationInFrames: 22 });
-  const sentStamp = spring({ frame: frame - 235, fps, config: { damping: 8, stiffness: 220 } });
-  const sentO = spring({ frame: frame - 235, fps, config: { damping: 200 }, durationInFrames: 12 });
+  const formIn = spring({ frame: frame - 175, fps, config: { damping: 22, stiffness: 70 } });
+  const formO = spring({ frame: frame - 175, fps, config: { damping: 200 }, durationInFrames: 34 });
+  const sentStamp = spring({ frame: frame - 235, fps, config: { damping: 8, stiffness: 120 } });
+  const sentO = spring({ frame: frame - 235, fps, config: { damping: 200 }, durationInFrames: 32 });
 
   return (
     <AbsoluteFill>
@@ -338,9 +338,9 @@ const SubC: React.FC = () => {
 
   const titleO = spring({ frame: frame - 2, fps, config: { damping: 200 }, durationInFrames: 14 });
   const lineP = interpolate(frame, [16, 50], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
-  const pill = spring({ frame: frame - 28, fps, config: { damping: 14, stiffness: 200 } });
+  const pill = spring({ frame: frame - 28, fps, config: { damping: 14, stiffness: 60 } });
   const pillO = spring({ frame: frame - 28, fps, config: { damping: 200 }, durationInFrames: 14 });
-  const owner = spring({ frame: frame - 10, fps, config: { damping: 200 }, durationInFrames: 16 });
+  const owner = spring({ frame: frame - 10, fps, config: { damping: 200 }, durationInFrames: 26 });
 
   const aiX = 220, aiY = 380;
   const ownerX = 1020, ownerY = 380;

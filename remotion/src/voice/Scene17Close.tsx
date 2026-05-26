@@ -14,22 +14,22 @@ export const Scene17Close: React.FC = () => {
   const navy = interpolate(frame, [0, 8], [0, 1], { extrapolateRight: "clamp" });
 
   // Logo
-  const logoIn = spring({ frame: frame - 6, fps, config: { damping: 18, stiffness: 130 } });
-  const logoO = spring({ frame: frame - 6, fps, config: { damping: 200 }, durationInFrames: 18 });
+  const logoIn = spring({ frame: frame - 6, fps, config: { damping: 18, stiffness: 70 } });
+  const logoO = spring({ frame: frame - 6, fps, config: { damping: 200 }, durationInFrames: 28 });
 
   // Pricing
-  const priceLabelIn = spring({ frame: frame - 26, fps, config: { damping: 22, stiffness: 140 } });
-  const priceLabelO = spring({ frame: frame - 26, fps, config: { damping: 200 }, durationInFrames: 20 });
-  const priceIn = spring({ frame: frame - 40, fps, config: { damping: 18, stiffness: 110 } });
-  const priceO = spring({ frame: frame - 40, fps, config: { damping: 200 }, durationInFrames: 22 });
+  const priceLabelIn = spring({ frame: frame - 26, fps, config: { damping: 22, stiffness: 75 } });
+  const priceLabelO = spring({ frame: frame - 26, fps, config: { damping: 200 }, durationInFrames: 32 });
+  const priceIn = spring({ frame: frame - 40, fps, config: { damping: 18, stiffness: 60 } });
+  const priceO = spring({ frame: frame - 40, fps, config: { damping: 200 }, durationInFrames: 34 });
 
   // Phone
-  const phoneIn = spring({ frame: frame - 90, fps, config: { damping: 22, stiffness: 130 } });
-  const phoneO = spring({ frame: frame - 90, fps, config: { damping: 200 }, durationInFrames: 22 });
+  const phoneIn = spring({ frame: frame - 90, fps, config: { damping: 22, stiffness: 70 } });
+  const phoneO = spring({ frame: frame - 90, fps, config: { damping: 200 }, durationInFrames: 34 });
   const phoneGlow = 0.4 + (Math.sin((frame - 90) * 0.16) + 1) / 2 * 0.6;
 
   // Call Now label
-  const callIn = spring({ frame: frame - 140, fps, config: { damping: 200 }, durationInFrames: 22 });
+  const callIn = spring({ frame: frame - 140, fps, config: { damping: 200 }, durationInFrames: 34 });
   const arrowShift = Math.sin((frame - 140) * 0.18) * 4;
 
   // URL — fades in late (~24s in)

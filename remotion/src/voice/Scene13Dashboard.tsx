@@ -14,8 +14,8 @@ export const Scene13Dashboard: React.FC = () => {
   const title = useFadeUp(6);
 
   // Alert card slides in at f 8
-  const alertIn = spring({ frame: frame - 8, fps, config: { damping: 22, stiffness: 140 } });
-  const alertO = spring({ frame: frame - 8, fps, config: { damping: 200 }, durationInFrames: 18 });
+  const alertIn = spring({ frame: frame - 8, fps, config: { damping: 22, stiffness: 75 } });
+  const alertO = spring({ frame: frame - 8, fps, config: { damping: 200 }, durationInFrames: 28 });
 
   // Alert rows type in
   const rows = [
@@ -48,8 +48,8 @@ export const Scene13Dashboard: React.FC = () => {
   ];
 
   // Final tagline "STOP GUESSING — START KNOWING" at f 270
-  const taglineIn = spring({ frame: frame - 270, fps, config: { damping: 22, stiffness: 140 } });
-  const taglineO = spring({ frame: frame - 270, fps, config: { damping: 200 }, durationInFrames: 18 });
+  const taglineIn = spring({ frame: frame - 270, fps, config: { damping: 22, stiffness: 75 } });
+  const taglineO = spring({ frame: frame - 270, fps, config: { damping: 200 }, durationInFrames: 28 });
 
   return (
     <AbsoluteFill>
@@ -127,7 +127,7 @@ export const Scene13Dashboard: React.FC = () => {
         </div>
 
         {rows.map((r, i) => {
-          const o = spring({ frame: frame - r.at, fps, config: { damping: 200 }, durationInFrames: 12 });
+          const o = spring({ frame: frame - r.at, fps, config: { damping: 200 }, durationInFrames: 32 });
           const y = interpolate(o, [0, 1], [8, 0]);
           return (
             <div

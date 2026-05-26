@@ -64,7 +64,7 @@ export const Scene2Owner: React.FC = () => {
       >
         {items.map((it, i) => {
           const localF = frame - it.start;
-          const s = spring({ frame: localF, fps, config: { damping: 22, stiffness: 140 } });
+          const s = spring({ frame: localF, fps, config: { damping: 22, stiffness: 75 } });
           const o = spring({ frame: localF, fps, config: { damping: 200 } });
           const y = interpolate(s, [0, 1], [24, 0]);
           return (

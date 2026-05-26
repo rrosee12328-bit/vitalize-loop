@@ -9,7 +9,7 @@ export const Scene3Phone: React.FC = () => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
-  const cardIn = spring({ frame: frame - 4, fps, config: { damping: 22, stiffness: 130 } });
+  const cardIn = spring({ frame: frame - 4, fps, config: { damping: 22, stiffness: 70 } });
   const cardY = interpolate(cardIn, [0, 1], [30, 0]);
   const cardO = spring({ frame: frame - 4, fps, config: { damping: 200 } });
 
