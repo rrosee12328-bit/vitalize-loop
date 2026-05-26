@@ -1,87 +1,83 @@
-## Goal
+# Re-time + fully visualize every spoken line
 
-Two changes to `vektiss-voice-poc.mp4`:
+Total length already matches the MP3 (~153s); we re-time scenes to the transcript AND add missing visuals so every phrase has a corresponding on-screen element.
 
-1. **Extend the video from 2:06 → 2:33** with the four missing beats from the script (scale/CRM/bilingual, custom build, no-questions guarantee, final pricing close).
-2. **Make the right-side placeholder invisible** so the whole canvas reads as one continuous background and the user can drop their 9:16 narrator video on top in post.
+## Master timing (30fps, total 4596 frames / 153.2s)
 
-Canvas stays **1280×720** (unchanged). The left ~875 px column keeps the motion-graphics scenes; the right ~405 px column is a reserved safe-zone (9:16) — visible only as continuous background, no dashed border, tint, mark, or label.
+| # | Scene | Start | Dur (f) | Dur (s) | Visualizes |
+|---|---|---:|---:|---:|---|
+| 1 | Hook | 0.0s | 96 | 3.2 | "If you own a business, this is for you." |
+| 2 | Owner | 3.2s | 174 | 5.8 | "You built it… worked the jobs, managed the team, handled the clients…" |
+| 3 | Phone | 9.0s | 78 | 2.6 | "phone rings… you can't get to it. Goes to voicemail." |
+| 4 | Truth | 11.6s | 78 | 2.6 | "Here's the truth most owners don't want to hear." |
+| 5 | Stat 85% | 14.2s | 105 | 3.5 | "85% of callers never leave a message." |
+| 6 | Search | 17.7s | 42 | 1.4 | "They just call the next person on Google." |
+| 7 | Calendar | 19.1s | 192 | 6.4 | "Not a missed call — a missed client. Every single day." |
+| 8 | Reveal | 25.5s | 75 | 2.5 | "That's why we built Vektiss Voice." |
+| 9 | StatCards | 28.0s | 183 | 6.1 | "Done-for-you AI receptionist · under 2 seconds · 24/7." |
+| 10 | Waveform | 34.1s | 93 | 3.1 | "Doesn't say 'press one' — it has a conversation." |
+| 11 | CallSMS | 37.2s | 330 | 11.0 | "Knows your business, services, hours, team · job / meeting / asleep." |
+| 12 | Routing | 48.2s | 564 | 18.8 | "First ring · listens · new lead → intake/quote · urgent → transfer." |
+| 13 | Dashboard | 67.0s | 360 | 12.0 | "Instant alert: name, number, ask, form, hot/warm/cold · logged · stop guessing." |
+| 14 | Scale | 79.0s | 258 | 8.6 | "Grows with you · multi-location · returning clients · CRM · bilingual." |
+| 15 | Guarantee | 87.6s | 306 | 10.2 | "Fully custom · we set it up · keep your number · 30-day guarantee." |
+| 16 | CTA | 97.8s | 144 | 4.8 | "Money back. No questions asked." |
+| 17 | Close | 102.6s | 1518 | 50.6 | "$45.99/mo · Call the number on your screen." |
 
-## Scene 13 stays put
+## Visuals added/changed so every spoken element is on screen
 
-Scenes 1–13 are unchanged. Scene 13 still ends at frame 2706 (1:30.2). The four scenes below pick up from there and run to frame 4593 (2:33.1).
+**S2 Owner** — currently a single mark; add four stagger chips landing on the words "jobs / team / clients / phone rings": JOBS · TEAM · CLIENTS · 📞, then a faint cross-fade into S3.
 
-## New / rewritten scenes (1280×720 inside the left content zone)
+**S3 Phone** — add the explicit voicemail beat: handset shake → call-strike-through → "VOICEMAIL" label slams in at the word "voicemail."
 
-### Scene 14 — Scale, CRM & Bilingual (600 frames · 20s · ends 2:03)
+**S4 Truth** — add the typographic "the truth" reveal: small mono eyebrow "THE TRUTH" + big "Most owners don't want to hear." with a redacted-line wipe under "don't want to hear."
 
-Replaces the current node-map-only Scene 14. Choreographed in three beats so it lines up with the VO:
+**S5 Stat** — add the 85% counter (0 → 85 tick) finishing exactly on "never leave a message," plus a 100-dot grid where 85 dim out.
 
-1. **Routing (0–7s)** — central Vektiss node, branches grow outward to 4 location pins; each pin lights up in sequence as a small label appears: "Houston · Austin · Dallas · Remote".
-2. **CRM lock-in (7–13s)** — three CRM chips animate in around the central node with glowing connector lines: **HubSpot**, **Salesforce**, **GoHighLevel** (text chips, no third-party logos to avoid trademark issues; styled as branded pill cards on the editorial light bg).
-3. **Bilingual (13–20s)** — a compact EN ↔ ES toggle pill animates in, the active language flips on a cadence; subtle "Personalizes every caller" caption below.
+**S6 Search (rebuilt)** — snap-cut Google SERP row: "plumber near me" query, 3 result rows, the SECOND result row (a competitor) gets a blue ring + "CALL" tap ripple, all in 1.4s.
 
-Headline pinned top-left across the whole scene: **"Built to scale. With you."**
+**S7 Calendar** — keep red-square heatmap; add a counter overlay "× MISSED CLIENTS" ticking up as the squares fill, holding under "happening every single day."
 
-### Scene 15 — Custom Build + Guarantee Stamp (420 frames · 14s · ends 2:17)
+**S9 StatCards** — add the three explicit beats: "✓ ANSWERS EVERY CALL" → "⏱ UNDER 2 SECONDS" (with 0.0–2.0s timer animating) → "24 / 7" (clock face spinning once).
 
-Blueprint reveal followed by the guarantee badge:
+**S10 Waveform** — split the screen: LEFT a greyed-out IVR menu "Press 1 for sales… Press 2…" with a red strike at "press one," RIGHT a live blue waveform pulsing with the word "conversation."
 
-- Blueprint hairlines draw a custom office floor-plan in the center (animated `strokeDashoffset` paths), then color washes in.
-- Three text overlays stagger in to the right of the blueprint:
-  - **"Fully Custom Build"**
-  - **"Done-For-You Setup"**
-  - **"Keep Your Number"**
-- At ~9s, a circular badge **"30-Day Money-Back Guarantee"** drops in from above with a rotational settle + a quick scale-overshoot to feel like a stamp impact. Electric-blue glow ring on settle. The badge holds for the remainder of the scene.
+**S11 CallSMS (re-staggered)** — 4 chips appear on beat with the words: BUSINESS NAME → SERVICES → HOURS → TEAM. Then a small icon row underneath lands on "job / meeting / asleep" (hardhat · calendar · moon).
 
-### Scene 16 — No Questions Asked (240 frames · 8s · ends 2:25)
+**S12 Routing (split into 3 sub-beats)**
+  - 0–4.8s "first ring with your name, greeting, voice": phone rings ONCE, callout bubble says "Hi, thanks for calling Vektiss — how can I help?"
+  - 4.8–15.8s "new lead → warms up → intake/quote sent": an SMS bubble types out, then a form card slides in stamped "SENT" while caller's still on the line.
+  - 15.8–18.8s "urgent → transfer to you / on-call": route line snaps from AI node → owner avatar with a "TRANSFERRING…" pill.
 
-The guarantee badge stays anchored upper-center. Beneath it:
+**S13 Dashboard** — make the alert literal: phone notification card slides in with rows that type in on beat — Name · Number · "What they asked" · Form sent ✓ · Lead score chip (HOT / WARM / COLD cycling, settles on HOT). Then the dashboard table fills row by row under "everything is logged," and a small headline "STOP GUESSING — START KNOWING" lands at 1:17.
 
-- **"No Questions Asked."** (bold display type, fade-up).
-- A pulsing green checkmark (`#10B981`) under the line — slow 2s pulse, calm energy.
-- Soft supporting line: "If it doesn't perform, you don't pay."
+**S14 Scale** — keep node map; add explicit labels that pop on the words: a second & third location pin land on "multiple locations," a returning-client avatar with "👋 Welcome back, Maria" lands on "returning clients," CRM pills (HubSpot · Salesforce · GHL) land on "CRM," and the EN ⇄ ES toggle flips on "bilingual."
 
-### Scene 17 — Pricing & Close (627 frames · ~20.9s · ends 2:33.1)
+**S15 Guarantee** — keep blueprint draw + stamp; add two text chips that land on the words: "WE SET IT UP" and "KEEP YOUR NUMBER" so they're not just implied.
 
-Per spec this scene breaks the editorial light theme on purpose:
+**S16 CTA** — copy becomes "Money back. **No questions asked.**" with the green check landing on "back" and a soft confetti-free pulse on "asked."
 
-- Background transitions to **deep navy `#0A1628`** (smooth 8-frame crossfade from the off-white bg).
-- Vektiss logo mark + "VEKTISS" wordmark pinned **top-center**.
-- Massive line: **"Starts at"** then **"$45.99 / mo"** — the dollar amount in electric blue `#0088FF`, the rest in white.
-- Beneath: phone number **(346) 594-7686** at large size with a slow electric-blue glow pulse (`box-shadow` interpolated frame-by-frame) and a small arrow + **"Call Now"** label to the left.
-- **vektiss.com** fades in at the bottom in mono caps at ~16s.
-- Last ~60 frames: hold, then a 30-frame fade to black to finish at 2:33.1.
+**S17 Close (re-phased)**
+  - 0–3.5s   Navy in · Vektiss mark · "$45.99 / mo" lands
+  - 3.5–7s   Phone-card slides in, glow begins
+  - 7–12s    "↓ CALL NOW ↓" pulse arrows under the number
+  - 12–24s   Hold with breathing glow on the number
+  - 24–40s   vektiss.com fades in at the bottom
+  - 40–48s   Subtle scale-down, URL emphasized
+  - 48–50.6s Fade to black
 
-The right-zone safe area still applies — pricing/phone are centered inside the left 875 px column, so a narrator video on the right doesn't overlap them.
+## Files touched
 
-## Placeholder / background change
+- `remotion/src/Root.tsx` — duration → 4596.
+- `remotion/src/VoiceAdPOC.tsx` — update `D` to the new frame counts.
+- New visuals / re-builds:
+  `Scene2Owner.tsx`, `Scene3Phone.tsx`, `Scene4Truth.tsx`, `Scene5Stat.tsx`,
+  `Scene6Search.tsx`, `Scene7Calendar.tsx`, `Scene9StatCards.tsx`,
+  `Scene10Waveform.tsx`, `Scene11CallSMS.tsx`, `Scene12Routing.tsx`,
+  `Scene13Dashboard.tsx`, `Scene14Scale.tsx`, `Scene15Guarantee.tsx`,
+  `Scene16CTA.tsx`, `Scene17Close.tsx`.
+- Duration-only updates: `Scene1Hook.tsx`, `Scene8Reveal.tsx` (no visual rework needed).
 
-In `src/VoiceAdPOC.tsx`:
+## Audio
 
-- Remove the right-zone visual chrome (blue tint fill, dashed border, Vektiss mark, "NARRATOR · 9:16" label, dimension caption).
-- Extend a single full-width `VoiceBackground` across the entire 1280×720 canvas so the off-white wash, hairline grid, and radial Vektiss-blue glow read as one continuous backdrop.
-- For Scene 17's navy frame, swap the bg layer to navy for that scene only (same full-width treatment, no visible split).
-- Keep the layout invariant: the scaled scene container still occupies the left 875×720 region, leaving the right 405×720 untouched and clean — invisible to the eye, but the user knows it's there for compositing the 9:16 video.
-
-## Composition duration
-
-Update `src/Root.tsx`:
-
-- `voice-ad-poc` `durationInFrames`: **3786 → 4593** (2:06.2 → 2:33.1).
-
-## Technical details
-
-- All four scenes live under `remotion/src/voice/` as `Scene14Scale.tsx`, `Scene15Build.tsx` (renamed from `Scene15Guarantee.tsx`), `Scene16NoQuestions.tsx` (renamed from `Scene16CTA.tsx`), `Scene17Close.tsx` (rewritten).
-- All motion via `useCurrentFrame()` + `interpolate()` / `spring()` — no CSS transitions.
-- Blueprint strokes use animated `strokeDashoffset`. Badge stamp uses an overshoot spring (`damping: 8, stiffness: 220`). Phone-number glow pulses via `Math.sin(frame * 0.18)` on `box-shadow` blur radius.
-- Imports update in `VoiceAdPOC.tsx` to reflect the renamed scene files and new durations dictionary `D.s14=600, s15=420, s16=240, s17=627`.
-- After implementation: render `voice-ad-poc` to `/mnt/documents/vektiss-voice-poc.mp4` and QA frames at 1:50, 2:08, 2:20, 2:30 to confirm the four new beats land and the right zone is clean.
-
-## What stays the same
-
-- Canvas: 1280×720, 30fps.
-- Scenes 1–13: untouched.
-- Vektiss logo mark in HUD bug + reveal + close (already wired).
-- Red squares in Scene 7 (already wired).
-- Right ~405 px column reserved for the user's 9:16 narrator video — now invisible.
+After the visuals lock, copy `Sequence 01_1.mp3` → `remotion/public/audio/narration.mp3`, mount `<Audio src={staticFile('audio/narration.mp3')} />` at frame 0 of `VoiceAdPOC`, and render via `render-with-audio.mjs` so the master MP4 ships with the narration baked in. Switch to build mode and I'll execute.
