@@ -1,8 +1,7 @@
 import React from "react";
 import { AbsoluteFill, Series } from "remotion";
 import { COLORS } from "./theme";
-import { FONT_MONO, FONT_SANS } from "./fonts";
-import { VektissMark } from "./voice/VektissMark";
+import { VoiceBackground } from "./voice/VoiceChrome";
 import { Scene1Hook } from "./voice/Scene1Hook";
 import { Scene2Owner } from "./voice/Scene2Owner";
 import { Scene3Phone } from "./voice/Scene3Phone";
@@ -21,16 +20,22 @@ import { Scene15Guarantee } from "./voice/Scene15Guarantee";
 import { Scene16CTA } from "./voice/Scene16CTA";
 import { Scene17Close } from "./voice/Scene17Close";
 
-// Canvas: 1280×720. Content lives in the left ~875×720 zone (scenes are
-// authored at 1280×720 and scaled down to fit). Right 405×720 is reserved
-// for the host's 9:16 narrator video to be composited in post.
+// Canvas: 1280×720. Motion-graphics scenes live in the left ~875×720 zone
+// (scaled from a 1280×720 author canvas). Right 405×720 is reserved safe-zone
+// for the host's 9:16 narrator video — left empty so the editor can composite
+// it directly on top in post. Background is a single continuous wash that
+// spans the entire canvas so the seam is invisible.
 
-// Scene durations (30fps). Sum = 3786 frames = 2:06.2 — the full master.
+// Scene durations (30fps). Sum = 4593 frames = 2:33.1 — the full master.
 const D = {
   s1: 84, s2: 171, s3: 138, s4: 96, s5: 147,
   s6: 180, s7: 210, s8: 180,
   s9: 240, s10: 270, s11: 300, s12: 330,
-  s13: 360, s14: 300, s15: 240, s16: 360, s17: 180,
+  s13: 360,
+  s14: 600,   // Scale / CRM / Bilingual
+  s15: 420,   // Custom Build + Guarantee stamp
+  s16: 240,   // No Questions Asked
+  s17: 627,   // Pricing + Close (navy)
 };
 
 export const TOTAL_FRAMES = Object.values(D).reduce((a, b) => a + b, 0);
@@ -44,7 +49,10 @@ const TOP_OFFSET = (720 - SCALED_H) / 2; // 113.9
 export const VoiceAdPOC: React.FC = () => {
   return (
     <AbsoluteFill style={{ background: COLORS.bg }}>
-      {/* Scaled scene content — left zone */}
+      {/* Single continuous background spanning the full 1280×720 canvas. */}
+      <VoiceBackground />
+
+      {/* Scaled scene content — left content zone */}
       <div
         style={{
           position: "absolute",
@@ -75,71 +83,6 @@ export const VoiceAdPOC: React.FC = () => {
           <Series.Sequence durationInFrames={D.s16}><Scene16CTA /></Series.Sequence>
           <Series.Sequence durationInFrames={D.s17}><Scene17Close /></Series.Sequence>
         </Series>
-      </div>
-
-      {/* 9:16 reserved zone — placeholder for narrator video */}
-      <div
-        style={{
-          position: "absolute",
-          right: 0,
-          top: 0,
-          width: RESERVE_W,
-          height: 720,
-          background: "rgba(0,136,255,0.04)",
-          borderLeft: `1px solid ${COLORS.border}`,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          fontFamily: FONT_SANS,
-        }}
-      >
-        <div
-          style={{
-            position: "absolute",
-            inset: 18,
-            border: `1.5px dashed rgba(0,136,255,0.35)`,
-            borderRadius: 18,
-          }}
-        />
-        <VektissMark size={64} style={{ opacity: 0.55, marginBottom: 18 }} />
-        <div
-          style={{
-            fontFamily: FONT_MONO,
-            fontSize: 11,
-            letterSpacing: "0.28em",
-            color: COLORS.accent,
-            marginBottom: 10,
-          }}
-        >
-          NARRATOR · 9:16
-        </div>
-        <div
-          style={{
-            fontFamily: FONT_SANS,
-            fontSize: 18,
-            color: COLORS.muted,
-            textAlign: "center",
-            maxWidth: 280,
-            lineHeight: 1.4,
-            padding: "0 24px",
-          }}
-        >
-          Place your vertical voiceover video here
-        </div>
-        <div
-          style={{
-            position: "absolute",
-            bottom: 30,
-            fontFamily: FONT_MONO,
-            fontSize: 10,
-            letterSpacing: "0.24em",
-            color: COLORS.muted,
-            opacity: 0.6,
-          }}
-        >
-          {RESERVE_W} × 720 · 9:16
-        </div>
       </div>
     </AbsoluteFill>
   );

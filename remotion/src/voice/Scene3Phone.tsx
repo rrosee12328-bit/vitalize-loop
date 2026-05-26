@@ -22,7 +22,7 @@ export const Scene3Phone: React.FC = () => {
 
   return (
     <AbsoluteFill>
-      <VoiceBackground />
+
       <VoiceHUD eyebrow="02 · THE PHONE RINGS" />
 
       <AbsoluteFill style={{ alignItems: "center", justifyContent: "center" }}>

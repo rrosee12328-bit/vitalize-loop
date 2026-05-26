@@ -20,7 +20,7 @@ export const Scene8Reveal: React.FC = () => {
 
   return (
     <AbsoluteFill>
-      <VoiceBackground />
+
 
       <div
         style={{

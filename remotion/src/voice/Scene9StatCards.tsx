@@ -19,7 +19,7 @@ export const Scene9StatCards: React.FC = () => {
 
   return (
     <AbsoluteFill>
-      <VoiceBackground />
+
       <VoiceHUD eyebrow="07 · WHAT YOU GET" />
 
       <div style={{ position: "absolute", left: 110, top: 140, opacity: eye.opacity, transform: `translateY(${eye.y}px)` }}>
