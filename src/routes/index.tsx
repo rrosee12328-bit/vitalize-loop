@@ -1,16 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ArrowUpRight, BarChart3, Bot, Globe, Inbox, Moon, PhoneMissed, Video } from "lucide-react";
+import { ArrowRight, Inbox, Moon, PhoneMissed, Play } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { LiveCallDemo } from "@/components/site/ai-assistants/LiveCallDemo";
-import { DashboardPreview } from "@/components/site/ai-assistants/DashboardPreview";
 import { VoiceLoopSection } from "@/components/site/VoiceLoopSection";
 import { PricingTiers } from "@/components/site/ai-assistants/PricingEstimator";
-import {
-  ProjectMockup,
-  AssistantMockup,
-  PortalMockup,
-  MediaMockup,
-} from "@/components/site/FeatureMockups";
 
 export const Route = createFileRoute("/")({
   head: () => ({
