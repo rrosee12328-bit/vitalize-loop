@@ -23,7 +23,7 @@ export const Scene5Stat: React.FC = () => {
 
   return (
     <AbsoluteFill>
-      <VoiceBackground />
+
       <VoiceHUD eyebrow="04 · THE NUMBER" />
 
       {/* LEFT: editorial stat */}

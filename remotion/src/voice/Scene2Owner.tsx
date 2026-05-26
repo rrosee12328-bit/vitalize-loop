@@ -19,7 +19,7 @@ export const Scene2Owner: React.FC = () => {
 
   return (
     <AbsoluteFill>
-      <VoiceBackground />
+
       <VoiceHUD eyebrow="01 · THE OWNER" />
 
       <div style={{ position: "absolute", left: 110, top: 130 }}>

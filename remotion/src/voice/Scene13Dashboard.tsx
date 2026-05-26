@@ -22,7 +22,7 @@ export const Scene13Dashboard: React.FC = () => {
 
   return (
     <AbsoluteFill>
-      <VoiceBackground />
+
       <VoiceHUD eyebrow="11 · YOUR DASHBOARD" />
 
       <div style={{ position: "absolute", left: 110, top: 120, opacity: eye.opacity, transform: `translateY(${eye.y}px)` }}>

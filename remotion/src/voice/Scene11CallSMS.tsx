@@ -30,7 +30,7 @@ export const Scene11CallSMS: React.FC = () => {
 
   return (
     <AbsoluteFill>
-      <VoiceBackground />
+
       <VoiceHUD eyebrow="09 · ANATOMY OF A LEAD" />
 
       <div style={{ position: "absolute", left: 110, top: 130, opacity: eye.opacity, transform: `translateY(${eye.y}px)` }}>

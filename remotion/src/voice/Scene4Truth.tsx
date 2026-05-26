@@ -20,7 +20,7 @@ export const Scene4Truth: React.FC = () => {
 
   return (
     <AbsoluteFill>
-      <VoiceBackground />
+
       <VoiceHUD eyebrow="03 · THE TRUTH" />
 
       <AbsoluteFill style={{ transform: `scale(${zoom})`, transformOrigin: "50% 50%" }}>

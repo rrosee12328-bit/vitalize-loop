@@ -23,7 +23,7 @@ export const Scene6Search: React.FC = () => {
 
   return (
     <AbsoluteFill>
-      <VoiceBackground />
+
       <VoiceHUD eyebrow="05 · NEXT ON GOOGLE" />
 
       <div style={{ position: "absolute", left: 110, top: 150, opacity: eye.opacity, transform: `translateY(${eye.y}px)` }}>

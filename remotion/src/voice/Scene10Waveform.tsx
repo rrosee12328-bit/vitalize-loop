@@ -21,7 +21,7 @@ export const Scene10Waveform: React.FC = () => {
 
   return (
     <AbsoluteFill>
-      <VoiceBackground />
+
       <VoiceHUD eyebrow="08 · INSIDE THE CALL" />
 
       <div style={{ position: "absolute", left: 110, top: 140, opacity: eye.opacity, transform: `translateY(${eye.y}px)` }}>

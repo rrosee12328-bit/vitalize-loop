@@ -23,7 +23,7 @@ export const Scene1Hook: React.FC = () => {
 
   return (
     <AbsoluteFill>
-      <VoiceBackground />
+
       <VoiceHUD eyebrow="00 · COLD OPEN" />
 
       <div style={{ position: "absolute", left: 110, top: 220, right: 110 }}>
