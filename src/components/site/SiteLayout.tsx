@@ -2,6 +2,7 @@ import { useEffect, type ReactNode } from "react";
 import { useRouterState } from "@tanstack/react-router";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
+import { TechLinesBackground } from "@/components/TechLinesBackground";
 
 export function SiteLayout({ children }: { children: ReactNode }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
@@ -102,7 +103,10 @@ export function SiteLayout({ children }: { children: ReactNode }) {
   }, [pathname, hash]);
 
   return (
-    <div className="flex min-h-screen flex-col bg-background text-foreground">
+    <div className="relative flex min-h-screen flex-col bg-background text-foreground">
+      <div className="fixed inset-0 -z-10 pointer-events-none">
+        <TechLinesBackground />
+      </div>
       <Header />
       <main className="flex-1">{children}</main>
       <Footer />
