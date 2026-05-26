@@ -264,3 +264,19 @@
 .animate-flow-pulse {
   animation: flow-pulse 2.2s linear infinite;
 }
+
+@keyframes tech-line-sweep {
+  0%   { transform: translateX(0); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translateX(1800px); opacity: 0; }
+}
+.tech-line { will-change: transform, opacity; }
+.tech-line-1 { animation: tech-line-sweep 14s linear infinite; animation-delay: 0s; }
+.tech-line-2 { animation: tech-line-sweep 18s linear infinite; animation-delay: -4s; }
+.tech-line-3 { animation: tech-line-sweep 16s linear infinite; animation-delay: -9s; }
+.tech-line-4 { animation: tech-line-sweep 22s linear infinite; animation-delay: -2s; }
+.tech-line-5 { animation: tech-line-sweep 20s linear infinite; animation-delay: -12s; }
+@media (prefers-reduced-motion: reduce) {
+  .tech-line { animation: none; opacity: 0.2; }
+}
