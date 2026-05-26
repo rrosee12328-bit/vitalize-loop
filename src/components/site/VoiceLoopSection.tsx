@@ -205,7 +205,7 @@ export function VoiceLoopSection() {
                       <span className="w-10 shrink-0 font-mono tabular-nums text-[10px] text-[#94A3B8]">{l.t}</span>
                       <p className="min-w-0 flex-1">
                         <span className={l.who === "ai" ? "font-semibold text-[#0088FF]" : "font-semibold text-[#475569]"}>
-                          {l.who === "ai" ? "Vektiss AI:" : "Caller:"}
+                          {l.who === "ai" ? "Vektiss Voice:" : "Caller:"}
                         </span>{" "}
                         <span className="text-[#1E293B]">{l.text}</span>
                       </p>
