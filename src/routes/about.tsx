@@ -77,6 +77,76 @@ function AboutPage() {
         </div>
       </section>
 
+      {/* THE FOUR PILLARS */}
+      <section className="border-t border-border">
+        <div className="container-editorial py-24 md:py-32">
+          <div className="max-w-3xl">
+            <p className="eyebrow">The four pillars</p>
+            <h2 className="mt-6 display-2">
+              One integrated system. Not four siloed tools.
+            </h2>
+          </div>
+
+          <div className="mt-16 grid gap-6 md:grid-cols-2">
+            {[
+              {
+                no: "01",
+                to: "/solutions/ai-assistants" as const,
+                name: "Vektiss Voice",
+                kicker: "AI Phone System",
+                desc: "Answers every call, qualifies leads, sends intake forms, and emails you a full summary — 24/7, done for you.",
+                Icon: Bot,
+              },
+              {
+                no: "02",
+                to: "/solutions/project-intelligence" as const,
+                name: "Vektiss Intelligence",
+                kicker: "Business Intelligence & Project Management",
+                desc: "Real-time visibility into every initiative, deadline, and decision across your operation.",
+                Icon: BarChart3,
+              },
+              {
+                no: "03",
+                to: "/solutions/websites-portals-apps" as const,
+                name: "Vektiss Sites",
+                kicker: "Websites, Portals & Apps",
+                desc: "A digital front door built to capture leads, serve clients, and support operations — all connected.",
+                Icon: Globe,
+              },
+              {
+                no: "04",
+                to: "/solutions/business-media" as const,
+                name: "Vektiss Media",
+                kicker: "Content, Video & Marketing",
+                desc: "Turn your expertise into assets — short-form video, AI avatars, and content systems that build trust at scale.",
+                Icon: Video,
+              },
+            ].map(({ no, to, name, kicker, desc, Icon }) => (
+              <Link
+                key={no}
+                to={to}
+                className="group rounded-xl border border-border bg-white p-8 shadow-card transition-shadow hover:shadow-md md:p-10"
+              >
+                <div className="flex items-start justify-between">
+                  <span className="font-mono text-xs tracking-widest text-primary">{no}</span>
+                  <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                </div>
+                <div className="mt-6 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                  <Icon className="h-5 w-5" />
+                </div>
+                <h3 className="mt-5 text-2xl font-semibold tracking-tight">{name}</h3>
+                <p className="mt-1 text-sm font-medium text-muted-foreground">{kicker}</p>
+                <p className="mt-3 text-muted-foreground">{desc}</p>
+                <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-colors group-hover:text-primary/80">
+                  Open solution page
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="container-editorial py-24 md:py-32">
         <div className="max-w-3xl">
           <p className="eyebrow">What we believe</p>
