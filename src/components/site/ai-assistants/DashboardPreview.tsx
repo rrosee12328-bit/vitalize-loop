@@ -58,7 +58,7 @@ export function DashboardPreview() {
       {/* Header */}
       <div className="flex items-center justify-between border-b border-border bg-surface-elevated px-5 py-4 md:px-6">
         <div>
-          <div className="text-sm font-semibold tracking-tight">Vektiss AI Dashboard</div>
+          <div className="text-sm font-semibold tracking-tight">Vektiss Voice Dashboard</div>
           <div className="mt-0.5 text-xs text-muted-foreground">Live Activity — May 2026</div>
         </div>
         <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-1">
