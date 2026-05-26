@@ -40,6 +40,7 @@ export const Scene17Close: React.FC = () => {
 
   // Fade to black at very end (last ~2.5s — f 1443 → 1518)
   const fadeBlack = interpolate(frame, [1443, 1518], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  void emphasize;
 
   return (
     <AbsoluteFill>
