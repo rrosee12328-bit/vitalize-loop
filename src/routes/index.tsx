@@ -117,6 +117,17 @@ function HomePage() {
             </div>
           </div>
           <div className="md:col-span-6 animate-scale-in [animation-delay:300ms]">
+            {/* VIDEO PLACEHOLDER — replace src with your video URL */}
+            <div className="mb-6 overflow-hidden rounded-xl border border-border bg-black shadow-card">
+              <div className="relative w-full" style={{ aspectRatio: "16 / 9" }}>
+                {/* Replace this <div> with a <video> or <iframe> tag pointing to your 60-second demo */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-white/70">
+                  <Play className="h-10 w-10 fill-current" />
+                  <p className="text-sm">60-Second Demo Video</p>
+                  <p className="text-xs text-white/40">(video URL to be added)</p>
+                </div>
+              </div>
+            </div>
             <LiveCallDemo />
             <p className="mt-4 text-center text-xs text-muted-foreground animate-fade-in [animation-delay:900ms]">
               Want to hear your own business? Book a setup call and we'll build
