@@ -265,10 +265,35 @@
   animation: flow-pulse 2.2s linear infinite;
 }
 
-@keyframes matrix-fall {
-  0%   { transform: translateY(-100%); }
-  100% { transform: translateY(120vh); }
+@keyframes tech-grid-drift {
+  0%   { background-position: 0 0, 0 0; }
+  100% { background-position: 56px 56px, 56px 56px; }
+}
+.tech-grid {
+  animation: tech-grid-drift 18s linear infinite;
+}
+@keyframes tech-scan-h {
+  0%   { transform: translateY(0); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+@keyframes tech-scan-v {
+  0%   { transform: translateX(-10%); opacity: 0; }
+  10%  { opacity: 0.7; }
+  90%  { opacity: 0.7; }
+  100% { transform: translateX(110vw); opacity: 0; }
+}
+.tech-scan-h {
+  top: 0;
+  animation: tech-scan-h 7s linear infinite;
+}
+.tech-scan-v {
+  left: 0;
+  animation: tech-scan-v 11s linear infinite;
+  animation-delay: -3s;
 }
 @media (prefers-reduced-motion: reduce) {
-  .matrix-line { animation: none !important; opacity: 0.15 !important; }
+  .tech-grid, .tech-scan-h, .tech-scan-v { animation: none !important; }
+  .tech-scan-h, .tech-scan-v { opacity: 0 !important; }
 }
