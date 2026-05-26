@@ -189,7 +189,7 @@ export function VoiceLoopSection() {
                 </div>
                 <div className="space-y-2 text-[11px] leading-snug">
                   {[
-                    { t: "00:02", who: "ai", text: "Thanks for calling Riverside Renovations, this is the Vektiss assistant. How can I help today?" },
+                    { t: "00:02", who: "ai", text: "Thanks for calling Riverside Renovations, this is Ashley. How can I help today?" },
                     { t: "00:07", who: "caller", text: "Hi, yeah — I'm looking to get a quote on renovating a three-bedroom house. Kitchen and two bathrooms mainly." },
                     { t: "00:18", who: "ai", text: "Got it — a three-bedroom remodel with kitchen and two baths. Are you hoping to start in the next 30 days, or further out?" },
                     { t: "00:26", who: "caller", text: "As soon as possible, honestly. We'd love something this month if you can swing it." },
@@ -205,7 +205,7 @@ export function VoiceLoopSection() {
                       <span className="w-10 shrink-0 font-mono tabular-nums text-[10px] text-[#94A3B8]">{l.t}</span>
                       <p className="min-w-0 flex-1">
                         <span className={l.who === "ai" ? "font-semibold text-[#0088FF]" : "font-semibold text-[#475569]"}>
-                          {l.who === "ai" ? "Vektiss AI:" : "Caller:"}
+                          {l.who === "ai" ? "Vektiss Voice:" : "Caller:"}
                         </span>{" "}
                         <span className="text-[#1E293B]">{l.text}</span>
                       </p>
