@@ -1,40 +1,54 @@
-// Matrix-style falling blue line rain
-const COLUMNS = Array.from({ length: 28 }).map((_, i) => {
-  // pseudo-random but stable per index
-  const r = (n: number) => ((Math.sin(i * 9.13 + n) + 1) / 2);
-  return {
-    left: `${(i / 28) * 100 + r(1) * 2}%`,
-    height: 18 + r(2) * 32, // vh
-    duration: 4 + r(3) * 6, // s
-    delay: -r(4) * 10, // s
-    opacity: 0.25 + r(5) * 0.55,
-    width: r(6) > 0.85 ? 2 : 1, // px
-  };
-});
-
+// Futuristic animated grid — subtle blue grid with scanning beam
 export function TechLinesBackground() {
   return (
     <div
       aria-hidden="true"
       className="pointer-events-none absolute inset-0 overflow-hidden"
     >
-      {COLUMNS.map((c, i) => (
-        <div
-          key={i}
-          className="matrix-line absolute top-0"
-          style={{
-            left: c.left,
-            width: `${c.width}px`,
-            height: `${c.height}vh`,
-            background:
-              "linear-gradient(180deg, transparent 0%, var(--primary) 60%, #ffffff 100%)",
-            opacity: c.opacity,
-            filter: "blur(0.3px)",
-            animation: `matrix-fall ${c.duration}s linear infinite`,
-            animationDelay: `${c.delay}s`,
-          }}
-        />
-      ))}
+      {/* Static grid */}
+      <div
+        className="absolute inset-0 tech-grid"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, color-mix(in oklch, var(--primary) 22%, transparent) 1px, transparent 1px),
+            linear-gradient(to bottom, color-mix(in oklch, var(--primary) 22%, transparent) 1px, transparent 1px)
+          `,
+          backgroundSize: "56px 56px",
+          maskImage:
+            "radial-gradient(ellipse 70% 60% at 50% 45%, black 35%, transparent 85%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse 70% 60% at 50% 45%, black 35%, transparent 85%)",
+        }}
+      />
+
+      {/* Horizontal scan beam */}
+      <div
+        className="absolute inset-x-0 h-px tech-scan-h"
+        style={{
+          background:
+            "linear-gradient(90deg, transparent 0%, var(--primary) 50%, transparent 100%)",
+          boxShadow: "0 0 12px color-mix(in oklch, var(--primary) 60%, transparent)",
+        }}
+      />
+
+      {/* Vertical scan beam */}
+      <div
+        className="absolute inset-y-0 w-px tech-scan-v"
+        style={{
+          background:
+            "linear-gradient(180deg, transparent 0%, var(--primary) 50%, transparent 100%)",
+          boxShadow: "0 0 12px color-mix(in oklch, var(--primary) 60%, transparent)",
+        }}
+      />
+
+      {/* Soft center glow */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse 45% 35% at 50% 45%, color-mix(in oklch, var(--primary) 8%, transparent) 0%, transparent 70%)",
+        }}
+      />
     </div>
   );
 }
