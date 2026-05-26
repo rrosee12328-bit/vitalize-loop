@@ -165,23 +165,12 @@ function BillingToggle({
 }
 
 export function PricingTiers() {
-  const [billing, setBilling] = useState<"monthly" | "annual">("monthly");
+  const billing: "monthly" | "annual" = "monthly";
 
   return (
     <div>
-      {/* Setup fee banner */}
-      <div className="mb-8 rounded-xl border border-primary/20 border-l-4 border-l-primary bg-primary/5 px-5 py-4 md:px-6">
-        <p className="text-sm text-foreground md:text-base">
-          <span className="font-semibold">Done-For-You Setup: $500</span> — We
-          build, configure, and test your custom AI agent.
-        </p>
-      </div>
-
-      <div className="mb-10 flex justify-center">
-        <BillingToggle value={billing} onChange={setBilling} />
-      </div>
-
       <div className="grid items-stretch gap-6 md:grid-cols-2 lg:grid-cols-4">
+
         {TIERS.map((tier, idx) => {
           const { price, suffix, sub } = priceDisplay(tier, billing);
           const tierIcons = [Phone, Mail, Sparkles, Crown];
