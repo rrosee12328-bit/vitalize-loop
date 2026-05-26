@@ -103,7 +103,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
   }, [pathname, hash]);
 
   return (
-    <div className="relative flex min-h-screen flex-col bg-background text-foreground">
+    <div className="relative flex min-h-screen flex-col text-foreground">
       <div className="fixed inset-0 -z-10 pointer-events-none">
         <TechLinesBackground />
       </div>
