@@ -4,6 +4,8 @@ import { MainVideoVertical } from "./MainVideoVertical";
 import { SiteIntroVideo } from "./SiteIntroVideo";
 import { SpeakerVerticalVideo } from "./SpeakerVerticalVideo";
 import { VoiceAdPOC } from "./VoiceAdPOC";
+import { VektissBrandVideo } from "./VektissBrandVideo";
+
 
 
 // 20s @ 30fps = 600 frames
@@ -50,6 +52,15 @@ export const RemotionRoot: React.FC = () => {
         width={1280}
         height={720}
       />
+      <Composition
+        id="vektiss-brand"
+        component={VektissBrandVideo}
+        durationInFrames={2970}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+
     </>
   );
 };
