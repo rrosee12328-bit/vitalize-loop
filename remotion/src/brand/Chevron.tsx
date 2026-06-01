@@ -1,13 +1,14 @@
 import React from "react";
 import { BRAND } from "./tokens";
 
-// Stylized angular chevron-arrow mark matching the brand intro.
+// Vektiss chevron mark — bold solid angular arrow pointing down-right
+// with a triangular notch cut from the left interior.
+// Matches the uploaded source logo.
 export const Chevron: React.FC<{
   size?: number;
   color?: string;
   glow?: boolean;
-  strokeWidth?: number;
-}> = ({ size = 120, color = BRAND.blue, glow = true, strokeWidth = 14 }) => {
+}> = ({ size = 120, color = BRAND.blue, glow = true }) => {
   return (
     <svg
       width={size}
@@ -15,22 +16,22 @@ export const Chevron: React.FC<{
       viewBox="0 0 100 100"
       style={{ filter: glow ? `drop-shadow(0 0 24px ${color})` : undefined }}
     >
-      <polyline
-        points="22,20 62,50 22,80"
-        fill="none"
-        stroke={color}
-        strokeWidth={strokeWidth}
-        strokeLinecap="square"
-        strokeLinejoin="miter"
-      />
-      <polyline
-        points="50,20 90,50 50,80"
-        fill="none"
-        stroke={color}
-        strokeWidth={strokeWidth}
-        strokeLinecap="square"
-        strokeLinejoin="miter"
-        opacity={0.45}
+      <path
+        d="
+          M 18 28
+          L 82 18
+          Q 86 17.5 85 22
+          L 79 40
+          L 60 55
+          L 65 88
+          Q 65.5 92 62 92
+          L 54 92
+          L 35 60
+          L 24 50
+          L 18 32
+          Z
+        "
+        fill={color}
       />
     </svg>
   );
