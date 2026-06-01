@@ -11,6 +11,8 @@ import {
   SlowReplyIllustration,
   AfterHoursIllustration,
 } from "@/components/site/ai-assistants/ProblemIllustrations";
+import { WhoWeAreHero } from "@/components/site/WhoWeAreHero";
+import { TestimonialsTicker } from "@/components/site/TestimonialsTicker";
 
 export const Route = createFileRoute("/")({
   head: () => ({
