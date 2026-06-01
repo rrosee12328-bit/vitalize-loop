@@ -2,8 +2,7 @@ import React from "react";
 import { BRAND } from "./tokens";
 
 // Vektiss chevron mark — bold solid angular arrow pointing down-right
-// with a triangular notch cut from the left interior.
-// Matches the uploaded source logo.
+// with notch cut from left interior. Approximates the uploaded logo.
 export const Chevron: React.FC<{
   size?: number;
   color?: string;
@@ -17,21 +16,11 @@ export const Chevron: React.FC<{
       style={{ filter: glow ? `drop-shadow(0 0 24px ${color})` : undefined }}
     >
       <path
-        d="
-          M 18 28
-          L 82 18
-          Q 86 17.5 85 22
-          L 79 40
-          L 60 55
-          L 65 88
-          Q 65.5 92 62 92
-          L 54 92
-          L 35 60
-          L 24 50
-          L 18 32
-          Z
-        "
+        d="M 20 28 L 78 16 L 86 30 L 52 54 L 66 90 L 52 94 L 30 58 Z"
         fill={color}
+        strokeLinejoin="round"
+        stroke={color}
+        strokeWidth="3"
       />
     </svg>
   );
