@@ -15,7 +15,7 @@ export function WhoWeAreHero() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-background">
+    <section className="relative overflow-hidden">
       <div className="container-editorial relative py-20 md:py-28 lg:py-32">
         <div className="mx-auto max-w-4xl text-center">
           <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.22em] text-primary">
