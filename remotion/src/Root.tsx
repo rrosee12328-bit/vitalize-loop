@@ -6,6 +6,7 @@ import { SpeakerVerticalVideo } from "./SpeakerVerticalVideo";
 import { VoiceAdPOC } from "./VoiceAdPOC";
 import { VektissBrandVideo } from "./VektissBrandVideo";
 import { VektissHeroVideo } from "./VektissHeroVideo";
+import { VektissHero90 } from "./VektissHero90";
 
 
 
