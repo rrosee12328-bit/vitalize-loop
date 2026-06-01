@@ -297,3 +297,16 @@
   .tech-grid, .tech-scan-h, .tech-scan-v { animation: none !important; }
   .tech-scan-h, .tech-scan-v { opacity: 0 !important; }
 }
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  width: max-content;
+  animation: marquee-scroll 45s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none !important; }
+}
+
