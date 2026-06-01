@@ -63,23 +63,32 @@ export const Scene2WhoWeAre: React.FC = () => {
         </AbsoluteFill>
       )}
 
-      {/* logo: animates from center -> top-left watermark */}
+      {/* Real lockup PNGs — crossfade dark-text (on light bg) to light-text (on dark bg) */}
       <div style={{
         position: "absolute",
         left: logoX, top: logoY,
         transform: `translate(-50%, -50%) scale(${logoScale})`,
-        display: "flex", alignItems: "center", gap: 24,
+        width: 900, height: 260,
       }}>
-        <Chevron size={140} glow={frame > 40} />
-        <div style={{
-          fontFamily: "Inter, Helvetica Neue, sans-serif",
-          fontWeight: 800, fontSize: 110, letterSpacing: 6,
-          color: frame < 40 ? "#0A0F1E" : "#FFFFFF",
-          transition: "none",
-        }}>
-          VEKTISS
-        </div>
+        <Img
+          src={staticFile("brand/vektiss-lockup-dark.png")}
+          style={{
+            position: "absolute", inset: 0, width: "100%", height: "100%",
+            objectFit: "contain",
+            opacity: interpolate(frame, [0, 30, 50], [1, 1, 0], { extrapolateRight: "clamp" }),
+          }}
+        />
+        <Img
+          src={staticFile("brand/vektiss-lockup-light.png")}
+          style={{
+            position: "absolute", inset: 0, width: "100%", height: "100%",
+            objectFit: "contain",
+            opacity: interpolate(frame, [30, 50], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }),
+            filter: frame > 40 ? `drop-shadow(0 0 24px rgba(37,99,235,0.4))` : undefined,
+          }}
+        />
       </div>
+
 
       {/* Headline lines */}
       <AbsoluteFill style={{ alignItems: "center", justifyContent: "center", flexDirection: "column", gap: 12 }}>
