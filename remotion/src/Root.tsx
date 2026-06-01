@@ -55,7 +55,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="vektiss-brand"
         component={VektissBrandVideo}
-        durationInFrames={2970}
+        durationInFrames={1710}
         fps={30}
         width={1920}
         height={1080}
