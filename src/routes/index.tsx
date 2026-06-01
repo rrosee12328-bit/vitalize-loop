@@ -81,8 +81,11 @@ const faqs = [
 function HomePage() {
   return (
     <SiteLayout>
+      <WhoWeAreHero />
+      <TestimonialsTicker />
+
       {/* HERO — Live demo player leads */}
-      <section className="relative container-editorial pt-12 pb-16 md:pt-20 md:pb-20">
+      <section id="solutions" className="relative container-editorial pt-12 pb-16 md:pt-20 md:pb-20">
         <div className="relative mx-auto mb-8 max-w-5xl text-center">
           <p className="eyebrow text-primary animate-fade-in-up">Watch how it works in 2 minutes. ↓</p>
           <h1 className="mt-4 display-1 animate-fade-in-up [animation-delay:120ms]">
