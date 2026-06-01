@@ -1,6 +1,15 @@
 import { useEffect, useState } from "react";
 import { Star } from "lucide-react";
-import { vektissSupabase, type Testimonial } from "@/integrations/vektiss-supabase/client";
+import { supabase } from "@/integrations/supabase/client";
+
+type Testimonial = {
+  id: string;
+  quote: string;
+  author_name: string;
+  company_name: string | null;
+  location: string | null;
+  star_rating: number;
+};
 
 const FALLBACK: Testimonial[] = [
   {
@@ -11,8 +20,6 @@ const FALLBACK: Testimonial[] = [
     company_name: "Sheats Endodontics",
     location: "Houston TX",
     star_rating: 5,
-    is_active: true,
-    created_at: "",
   },
   {
     id: "fb-2",
@@ -22,8 +29,6 @@ const FALLBACK: Testimonial[] = [
     company_name: "Kairos Security",
     location: "Houston TX",
     star_rating: 5,
-    is_active: true,
-    created_at: "",
   },
 ];
 
@@ -53,9 +58,9 @@ export function TestimonialsTicker() {
 
   useEffect(() => {
     let cancelled = false;
-    vektissSupabase
+    supabase
       .from("testimonials")
-      .select("*")
+      .select("id, quote, author_name, company_name, location, star_rating")
       .eq("is_active", true)
       .order("created_at", { ascending: false })
       .then(({ data, error }) => {
@@ -69,8 +74,10 @@ export function TestimonialsTicker() {
     };
   }, []);
 
-  // Duplicate so the marquee loops seamlessly even with few items
-  const loop = items.length < 4 ? [...items, ...items, ...items, ...items] : [...items, ...items];
+  const loop =
+    items.length < 4
+      ? [...items, ...items, ...items, ...items]
+      : [...items, ...items];
 
   return (
     <section
@@ -83,21 +90,18 @@ export function TestimonialsTicker() {
         ))}
       </div>
 
-      {/* Edge fades */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-y-0 left-0 w-24"
         style={{
-          background:
-            "linear-gradient(to right, #0A0F1E, rgba(10,15,30,0))",
+          background: "linear-gradient(to right, #0A0F1E, rgba(10,15,30,0))",
         }}
       />
       <div
         aria-hidden
         className="pointer-events-none absolute inset-y-0 right-0 w-24"
         style={{
-          background:
-            "linear-gradient(to left, #0A0F1E, rgba(10,15,30,0))",
+          background: "linear-gradient(to left, #0A0F1E, rgba(10,15,30,0))",
         }}
       />
     </section>
