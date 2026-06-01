@@ -14,9 +14,7 @@ import { Scene5Sites } from "./brand/Scene5Sites";
 import { Scene6Media } from "./brand/Scene6Media";
 import { Scene7Close } from "./brand/Scene7Close";
 
-// Total raw: 150 + 300 + 540 + 600 + 540 + 480 + 540 = 3150
-// 6 transitions × 30f overlap = 180f overlap
-// Composition duration = 3150 - 180 = 2970 frames
+// Scene1 150 + Scene2 240 + Scene3-7 each 300 = 1890; minus 6×30 overlaps = 1710
 export const VektissBrandVideo: React.FC = () => {
   const blackFade = (
     <TransitionSeries.Transition
@@ -31,27 +29,27 @@ export const VektissBrandVideo: React.FC = () => {
           <Scene1Intro />
         </TransitionSeries.Sequence>
         {blackFade}
-        <TransitionSeries.Sequence durationInFrames={300}>
+        <TransitionSeries.Sequence durationInFrames={240}>
           <Scene2WhoWeAre />
         </TransitionSeries.Sequence>
         {blackFade}
-        <TransitionSeries.Sequence durationInFrames={540}>
+        <TransitionSeries.Sequence durationInFrames={300}>
           <Scene3Intelligence />
         </TransitionSeries.Sequence>
         {blackFade}
-        <TransitionSeries.Sequence durationInFrames={600}>
+        <TransitionSeries.Sequence durationInFrames={300}>
           <Scene4Voice />
         </TransitionSeries.Sequence>
         {blackFade}
-        <TransitionSeries.Sequence durationInFrames={540}>
+        <TransitionSeries.Sequence durationInFrames={300}>
           <Scene5Sites />
         </TransitionSeries.Sequence>
         {blackFade}
-        <TransitionSeries.Sequence durationInFrames={480}>
+        <TransitionSeries.Sequence durationInFrames={300}>
           <Scene6Media />
         </TransitionSeries.Sequence>
         {blackFade}
-        <TransitionSeries.Sequence durationInFrames={540}>
+        <TransitionSeries.Sequence durationInFrames={300}>
           <Scene7Close />
         </TransitionSeries.Sequence>
       </TransitionSeries>
