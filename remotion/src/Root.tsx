@@ -5,6 +5,7 @@ import { SiteIntroVideo } from "./SiteIntroVideo";
 import { SpeakerVerticalVideo } from "./SpeakerVerticalVideo";
 import { VoiceAdPOC } from "./VoiceAdPOC";
 import { VektissBrandVideo } from "./VektissBrandVideo";
+import { VektissHeroVideo } from "./VektissHeroVideo";
 
 
 
@@ -60,8 +61,16 @@ export const RemotionRoot: React.FC = () => {
         width={1920}
         height={1080}
       />
-
+      <Composition
+        id="vektiss-hero"
+        component={VektissHeroVideo}
+        durationInFrames={480}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
     </>
+
   );
 };
 
