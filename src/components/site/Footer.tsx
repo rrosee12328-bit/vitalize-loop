@@ -60,7 +60,7 @@ export function Footer() {
 
         <div className="mt-16 flex flex-col items-start gap-3 border-t border-white/10 pt-8 text-xs text-white/50 md:flex-row md:items-center md:justify-between">
           <div className="flex flex-col gap-2 md:flex-row md:items-center md:gap-4">
-            <p>© {new Date().getFullYear()} Vektiss. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} Vektiss LLC. All rights reserved.</p>
             <span className="hidden text-white/20 md:inline">|</span>
             <Link to="/privacy" className="hover:text-white">Privacy Policy</Link>
             <span className="hidden text-white/20 md:inline">|</span>
