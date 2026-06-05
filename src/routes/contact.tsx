@@ -1,6 +1,24 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Calendar, Mail, MapPin } from "lucide-react";
+import { ArrowRight, Calendar, CheckCircle2, Mail, MapPin, Send } from "lucide-react";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 import { SiteLayout } from "@/components/site/SiteLayout";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Checkbox } from "@/components/ui/checkbox";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -63,7 +81,67 @@ const faqs = [
   },
 ];
 
+const consentText1 =
+  'I agree to receive non-marketing SMS messages from Vektiss LLC, regarding appointment confirmations, project updates, service notifications, support messages, invoices, account information, and customer support communications. Message frequency may vary. Reply "HELP" for assistance or "STOP" to unsubscribe. Standard message and data rates may apply.';
+
+const consentText2 =
+  'I agree to receive marketing SMS messages from Vektiss LLC, regarding promotional offers, discounts, and related marketing communications. Message frequency may vary. Reply "HELP" for assistance or "STOP" to unsubscribe. Standard message and data rates may apply.';
+
+const contactSchema = z.object({
+  name: z.string().trim().min(1, "Name is required").max(200, "Name must be under 200 characters"),
+  email: z.string().trim().email("Please enter a valid email").max(320, "Email must be under 320 characters"),
+  phone: z.string().trim().max(40, "Phone must be under 40 characters").optional().or(z.literal("")),
+  message: z.string().trim().min(1, "Message is required").max(5000, "Message must be under 5000 characters"),
+  consentNonMarketingSms: z.boolean().default(false),
+  consentMarketingSms: z.boolean().default(false),
+  consentTerms: z.boolean().default(false),
+});
+
+type ContactFormValues = z.infer<typeof contactSchema>;
+
 function ContactPage() {
+  const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+
+  const form = useForm<ContactFormValues>({
+    resolver: zodResolver(contactSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      phone: "",
+      message: "",
+      consentNonMarketingSms: false,
+      consentMarketingSms: false,
+      consentTerms: false,
+    },
+  });
+
+  const onSubmit = async (values: ContactFormValues) => {
+    setSubmitting(true);
+    try {
+      const { error } = await supabase.from("contact_submissions").insert({
+        name: values.name,
+        email: values.email,
+        phone: values.phone || null,
+        message: values.message,
+        consent_non_marketing_sms: values.consentNonMarketingSms,
+        consent_marketing_sms: values.consentMarketingSms,
+        consent_terms: values.consentTerms,
+      } as any);
+
+      if (error) throw error;
+
+      toast.success("Message sent. We'll be in touch within one business day.");
+      setSubmitted(true);
+      form.reset();
+    } catch (err) {
+      console.error(err);
+      toast.error(err instanceof Error ? err.message : "Failed to send message. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
   return (
     <SiteLayout>
       <section className="container-editorial pt-20 pb-12 md:pt-32 md:pb-20">
@@ -77,7 +155,7 @@ function ContactPage() {
         </p>
       </section>
 
-      <section className="container-editorial pb-24 md:pb-32">
+      <section className="container-editorial pb-12">
         <div className="grid gap-6 md:grid-cols-3">
           {channels.map(({ Icon, label, body, cta, to, href }) => (
             <article
@@ -109,6 +187,188 @@ function ContactPage() {
               )}
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className="container-editorial pb-24 md:pb-32">
+        <div className="mx-auto max-w-2xl">
+          <div className="rounded-xl border border-border bg-white p-8 shadow-card md:p-10">
+            {submitted ? (
+              <div className="flex flex-col items-center py-8 text-center">
+                <CheckCircle2 className="h-12 w-12 text-primary" />
+                <h2 className="mt-4 text-2xl font-semibold tracking-tight">Message sent</h2>
+                <p className="mt-2 text-muted-foreground">
+                  We've received your note and will respond within one business day.
+                </p>
+                <Button
+                  variant="outline"
+                  className="mt-6"
+                  onClick={() => setSubmitted(false)}
+                >
+                  Send another message
+                </Button>
+              </div>
+            ) : (
+              <>
+                <h2 className="text-xl font-semibold tracking-tight">Send us a message</h2>
+                <Form {...form}>
+                  <form onSubmit={form.handleSubmit(onSubmit)} className="mt-6 space-y-5">
+                    <FormField
+                      control={form.control}
+                      name="name"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Name</FormLabel>
+                          <FormControl>
+                            <Input placeholder="Your name" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="email"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Email</FormLabel>
+                          <FormControl>
+                            <Input type="email" placeholder="you@company.com" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="phone"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Phone</FormLabel>
+                          <FormControl>
+                            <Input type="tel" placeholder="(555) 000-0000" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="message"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Message</FormLabel>
+                          <FormControl>
+                            <Textarea
+                              placeholder="Tell us about your operations..."
+                              rows={5}
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <div className="space-y-4 pt-2">
+                      <FormField
+                        control={form.control}
+                        name="consentNonMarketingSms"
+                        render={({ field }) => (
+                          <FormItem className="flex flex-row items-start gap-3 space-y-0">
+                            <FormControl>
+                              <Checkbox
+                                checked={field.value}
+                                onCheckedChange={field.onChange}
+                              />
+                            </FormControl>
+                            <div className="space-y-1 leading-none">
+                              <FormLabel className="font-normal text-sm text-muted-foreground">
+                                {consentText1}
+                              </FormLabel>
+                            </div>
+                          </FormItem>
+                        )}
+                      />
+
+                      <FormField
+                        control={form.control}
+                        name="consentMarketingSms"
+                        render={({ field }) => (
+                          <FormItem className="flex flex-row items-start gap-3 space-y-0">
+                            <FormControl>
+                              <Checkbox
+                                checked={field.value}
+                                onCheckedChange={field.onChange}
+                              />
+                            </FormControl>
+                            <div className="space-y-1 leading-none">
+                              <FormLabel className="font-normal text-sm text-muted-foreground">
+                                {consentText2}
+                              </FormLabel>
+                            </div>
+                          </FormItem>
+                        )}
+                      />
+
+                      <FormField
+                        control={form.control}
+                        name="consentTerms"
+                        render={({ field }) => (
+                          <FormItem className="flex flex-row items-start gap-3 space-y-0">
+                            <FormControl>
+                              <Checkbox
+                                checked={field.value}
+                                onCheckedChange={field.onChange}
+                              />
+                            </FormControl>
+                            <div className="space-y-1 leading-none">
+                              <FormLabel className="font-normal text-sm text-muted-foreground">
+                                By checking this box, I accept the{" "}
+                                <Link
+                                  to="/privacy"
+                                  className="text-primary underline-offset-2 hover:underline"
+                                >
+                                  Privacy Policy
+                                </Link>{" "}
+                                and{" "}
+                                <Link
+                                  to="/terms"
+                                  className="text-primary underline-offset-2 hover:underline"
+                                >
+                                  Terms of Service
+                                </Link>
+                                .
+                              </FormLabel>
+                            </div>
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+
+                    <div className="pt-2">
+                      <Button
+                        type="submit"
+                        disabled={submitting}
+                        className="w-full md:w-auto"
+                      >
+                        {submitting ? (
+                          <span className="inline-flex items-center gap-2">
+                            Sending...
+                          </span>
+                        ) : (
+                          <span className="inline-flex items-center gap-2">
+                            <Send className="h-4 w-4" />
+                            Send message
+                          </span>
+                        )}
+                      </Button>
+                    </div>
+                  </form>
+                </Form>
+              </>
+            )}
+          </div>
         </div>
       </section>
 
