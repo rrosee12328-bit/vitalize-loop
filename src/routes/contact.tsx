@@ -90,11 +90,11 @@ const consentText2 =
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(200, "Name must be under 200 characters"),
   email: z.string().trim().email("Please enter a valid email").max(320, "Email must be under 320 characters"),
-  phone: z.string().trim().max(40, "Phone must be under 40 characters").optional().or(z.literal("")),
+  phone: z.string().trim().max(40, "Phone must be under 40 characters"),
   message: z.string().trim().min(1, "Message is required").max(5000, "Message must be under 5000 characters"),
-  consentNonMarketingSms: z.boolean().default(false),
-  consentMarketingSms: z.boolean().default(false),
-  consentTerms: z.boolean().default(false),
+  consentNonMarketingSms: z.boolean(),
+  consentMarketingSms: z.boolean(),
+  consentTerms: z.boolean(),
 });
 
 type ContactFormValues = z.infer<typeof contactSchema>;
