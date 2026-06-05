@@ -14,6 +14,45 @@ export type Database = {
   }
   public: {
     Tables: {
+      contact_submissions: {
+        Row: {
+          consent_marketing_sms: boolean
+          consent_non_marketing_sms: boolean
+          consent_terms: boolean
+          created_at: string
+          email: string
+          id: string
+          message: string
+          name: string
+          phone: string | null
+          updated_at: string
+        }
+        Insert: {
+          consent_marketing_sms?: boolean
+          consent_non_marketing_sms?: boolean
+          consent_terms?: boolean
+          created_at?: string
+          email: string
+          id?: string
+          message: string
+          name: string
+          phone?: string | null
+          updated_at?: string
+        }
+        Update: {
+          consent_marketing_sms?: boolean
+          consent_non_marketing_sms?: boolean
+          consent_terms?: boolean
+          created_at?: string
+          email?: string
+          id?: string
+          message?: string
+          name?: string
+          phone?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       testimonials: {
         Row: {
           author_name: string
