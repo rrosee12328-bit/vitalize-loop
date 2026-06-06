@@ -38,6 +38,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
     sections.forEach((section) => {
       Array.from(section.children).forEach((child) => {
         if (!(child instanceof HTMLElement)) return;
+        if (child.dataset.noReveal !== undefined || child.classList.contains("marquee-track")) return;
         targets.add(child);
         // One level of nested grid/flex children (cards, steps)
         child.querySelectorAll<HTMLElement>(
