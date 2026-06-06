@@ -1,12 +1,6 @@
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export function WhoWeAreHero() {
-  const scrollToVideo = () => {
-    document
-      .getElementById("vektiss-overview-video")
-      ?.scrollIntoView({ behavior: "smooth", block: "center" });
-  };
-
   const scrollToSolutions = (e: React.MouseEvent) => {
     e.preventDefault();
     document
@@ -45,37 +39,6 @@ export function WhoWeAreHero() {
               See What We Build
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </a>
-            <button
-              onClick={scrollToVideo}
-              className="inline-flex h-12 items-center gap-2 rounded-md border border-foreground/15 bg-foreground/5 px-6 text-sm font-medium text-foreground backdrop-blur-sm transition-colors hover:bg-foreground/10"
-            >
-              <Play className="h-4 w-4" />
-              Watch the Overview
-            </button>
-          </div>
-        </div>
-
-        {/* Video card */}
-        <div
-          id="vektiss-overview-video"
-          className="mx-auto mt-14 max-w-5xl"
-        >
-          <div
-            className="group relative overflow-hidden rounded-2xl border border-border shadow-card bg-surface-elevated"
-            style={{ aspectRatio: "16 / 9" }}
-          >
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
-              <button
-                aria-label="Play Vektiss overview video"
-                className="group/play relative flex h-20 w-20 items-center justify-center rounded-full bg-primary transition-transform hover:scale-110 md:h-24 md:w-24"
-              >
-                <span className="absolute inset-0 animate-ping rounded-full bg-primary opacity-30" />
-                <Play className="relative h-8 w-8 fill-primary-foreground text-primary-foreground md:h-10 md:w-10" />
-              </button>
-              <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                Vektiss Overview — 90 seconds
-              </p>
-            </div>
           </div>
         </div>
       </div>
