@@ -13,15 +13,6 @@ type Testimonial = {
 
 const FALLBACK: Testimonial[] = [
   {
-    id: "fb-1",
-    quote:
-      "The AI answered a call at 11pm that turned into a $4,200 job. We would have missed it completely.",
-    author_name: "Sheats Endodontics",
-    company_name: "Sheats Endodontics",
-    location: "Houston TX",
-    star_rating: 5,
-  },
-  {
     id: "fb-2",
     quote:
       "Our front desk used to miss 30% of calls during peak hours. Now nothing falls through.",
