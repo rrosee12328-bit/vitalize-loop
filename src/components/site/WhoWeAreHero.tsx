@@ -19,18 +19,8 @@ export function WhoWeAreHero() {
             We built the operating system{" "}
             <span className="text-primary">your business actually needs.</span>
           </h1>
-          <p className="mx-auto mt-7 max-w-3xl text-lg text-muted-foreground md:text-xl">
-            Operators are drowning in tools. We build the connected infrastructure
-            that runs your business — Voice, Sites, Media, and Intelligence — all
-            in one system, built in-house, built for you.
-          </p>
-          <p className="mx-auto mt-5 max-w-2xl text-sm text-muted-foreground/70 md:text-base">
-            We didn't hire anyone to build our platform. We built our own AI, our
-            own infrastructure, our own dashboard, and our own tools. Then we made
-            it available to the businesses that need it most.
-          </p>
 
-          <div className="mx-auto mt-12 max-w-5xl overflow-hidden rounded-2xl border border-border bg-black shadow-card">
+          <div className="mx-auto mt-7 max-w-5xl overflow-hidden rounded-2xl border border-border bg-black shadow-card">
             <div className="relative w-full" style={{ aspectRatio: "16 / 9" }}>
               <iframe
                 src="https://iframe.mediadelivery.net/embed/600055/8f7d646f-fe98-4481-983e-067c5493f5f5?autoplay=true&preload=true"
@@ -42,6 +32,17 @@ export function WhoWeAreHero() {
               />
             </div>
           </div>
+
+          <p className="mx-auto mt-7 max-w-3xl text-lg text-muted-foreground md:text-xl">
+            Operators are drowning in tools. We build the connected infrastructure
+            that runs your business — Voice, Sites, Media, and Intelligence — all
+            in one system, built in-house, built for you.
+          </p>
+          <p className="mx-auto mt-5 max-w-2xl text-sm text-muted-foreground/70 md:text-base">
+            We didn't hire anyone to build our platform. We built our own AI, our
+            own infrastructure, our own dashboard, and our own tools. Then we made
+            it available to the businesses that need it most.
+          </p>
 
           <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
             <a
