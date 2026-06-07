@@ -33,7 +33,7 @@ export function WhoWeAreHero() {
           <div className="mx-auto mt-12 max-w-5xl overflow-hidden rounded-2xl border border-border bg-black shadow-card">
             <div className="relative w-full" style={{ aspectRatio: "16 / 9" }}>
               <iframe
-                src="https://iframe.mediadelivery.net/embed/600055/b68cd811-d9ca-4d47-a83a-8ee87b98131b?autoplay=true&preload=true"
+                src="https://iframe.mediadelivery.net/embed/600055/8f7d646f-fe98-4481-983e-067c5493f5f5?autoplay=true&preload=true"
                 loading="lazy"
                 className="absolute inset-0 h-full w-full"
                 allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
