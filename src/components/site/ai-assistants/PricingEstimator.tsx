@@ -169,7 +169,7 @@ export function PricingTiers() {
 
   return (
     <div>
-      <div className="grid items-stretch gap-6 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid items-stretch gap-6 sm:grid-cols-2 xl:grid-cols-4">
 
         {TIERS.map((tier, idx) => {
           const { price, suffix, sub } = priceDisplay(tier, billing);
