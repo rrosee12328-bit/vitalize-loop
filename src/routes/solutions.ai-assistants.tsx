@@ -192,6 +192,17 @@ function AIAssistantsPage() {
             </p>
           </div>
         </div>
+        <div
+          id="voice-plans-panel-hero"
+          className={`grid transition-all duration-500 ease-in-out ${
+            showPlansHero ? "mt-12 grid-rows-[1fr] opacity-100" : "mt-0 grid-rows-[0fr] opacity-0"
+          }`}
+          aria-hidden={!showPlansHero}
+        >
+          <div className="overflow-hidden">
+            <PricingTiers />
+          </div>
+        </div>
       </section>
 
       {/* Live Demo Phone Strip */}
