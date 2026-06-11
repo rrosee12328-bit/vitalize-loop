@@ -58,25 +58,38 @@ function AboutPage() {
               <p className="eyebrow">Who we are</p>
             </div>
             <div className="md:col-span-7 space-y-6 text-lg text-muted-foreground">
-              <p>
-                Vektiss is a systems company. Not an agency. Not a SaaS. We build the connected
-                operating infrastructure that growth-stage businesses run on.
+              <p className="text-foreground font-medium">
+                Vektiss is a systems company.
               </p>
               <p>
-                Our team has spent careers inside the operator-owner seat — running ops, scaling
-                revenue functions, and shipping the systems that make scale possible. We saw the
-                same pattern over and over: businesses outgrowing their tools, teams duct-taping
-                processes together, and CEOs flying blind.
+                We build the connected operating infrastructure that growth-stage businesses use to run, respond, create, manage, and scale with more clarity.
               </p>
               <p>
-                So we built Vektiss to do one thing: build the operating system you actually need,
-                in weeks, integrated into the tools you already have.
+                We are not an agency that only delivers services.
               </p>
               <p>
-                <span className="font-semibold text-foreground">Why "Vektiss."</span> The name comes
-                from the Latin <em>vectis</em> — meaning "lever." That's exactly what we're built
-                to be: the lever that gives operators leverage to multiply their time, their
-                thinking, and their capabilities through AI and technology.
+                We are not another SaaS tool that adds more complexity.
+              </p>
+              <p>
+                We are builders, operators, and system thinkers who design the infrastructure behind how a business actually works.
+              </p>
+              <p>
+                The idea for Vektiss comes from a simple belief: growing businesses do not just need more tools. They need leverage.
+              </p>
+              <p>
+                That belief is built into our name.
+              </p>
+              <p>
+                Vektiss comes from the Latin word <em>vectis</em>, meaning “lever.” A lever helps you move more with less wasted force. That is what we believe technology should do for operators. It should multiply time, thinking, execution, and capacity.
+              </p>
+              <p>
+                We built Vektiss to be that lever.
+              </p>
+              <p>
+                Through AI, automation, websites, client portals, project intelligence, and media systems, we help businesses connect the parts of their operation that usually stay scattered.
+              </p>
+              <p>
+                Because when your systems are connected, your team moves faster, your customers get served better, and you can lead the business with more visibility instead of more chaos.
               </p>
             </div>
           </div>
