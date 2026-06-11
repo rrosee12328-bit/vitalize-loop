@@ -76,6 +76,71 @@ const faqs = [
 function HomePage() {
   const [showPlans, setShowPlans] = useState(false);
   const [showPlansBottom, setShowPlansBottom] = useState(false);
+
+  // Ensure only one Bunny Stream iframe plays at a time.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const getFrames = () =>
+      Array.from(
+        document.querySelectorAll<HTMLIFrameElement>(
+          'iframe[src*="iframe.mediadelivery.net"]',
+        ),
+      );
+
+    // Subscribe each iframe to player.js 'play' events.
+    const subscribe = () => {
+      getFrames().forEach((f) => {
+        f.contentWindow?.postMessage(
+          JSON.stringify({
+            context: "player.js",
+            version: "0.0.12",
+            method: "addEventListener",
+            value: "play",
+            listener: "vektiss-play",
+          }),
+          "*",
+        );
+      });
+    };
+
+    // Re-subscribe after each iframe loads.
+    const frames = getFrames();
+    frames.forEach((f) => f.addEventListener("load", subscribe));
+    // Initial attempt in case frames are already loaded.
+    const t = window.setTimeout(subscribe, 500);
+
+    const onMessage = (e: MessageEvent) => {
+      let data: any = e.data;
+      if (typeof data === "string") {
+        try {
+          data = JSON.parse(data);
+        } catch {
+          return;
+        }
+      }
+      if (!data || data.context !== "player.js" || data.event !== "play") return;
+      getFrames().forEach((f) => {
+        if (f.contentWindow !== e.source) {
+          f.contentWindow?.postMessage(
+            JSON.stringify({
+              context: "player.js",
+              version: "0.0.12",
+              method: "pause",
+            }),
+            "*",
+          );
+        }
+      });
+    };
+    window.addEventListener("message", onMessage);
+
+    return () => {
+      window.clearTimeout(t);
+      window.removeEventListener("message", onMessage);
+      frames.forEach((f) => f.removeEventListener("load", subscribe));
+    };
+  }, []);
+
   return (
     <SiteLayout>
       <WhoWeAreHero />
