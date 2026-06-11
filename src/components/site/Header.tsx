@@ -112,11 +112,26 @@ export function Header() {
           <Link
             to="/"
             hash="voice-pricing"
-            className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1.5 text-xs font-medium text-foreground transition-colors hover:border-primary/60 hover:bg-primary/10"
+            className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full border border-primary/20 bg-gradient-to-r from-primary/[0.08] via-primary/[0.04] to-transparent px-3.5 py-1.5 text-xs font-medium text-foreground shadow-[inset_0_1px_0_rgba(255,255,255,0.4)] transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/50 hover:shadow-[0_8px_24px_-8px_rgba(0,136,255,0.45)]"
           >
-            <span className="text-muted-foreground">Pricing</span>
-            <span className="font-semibold text-primary">from $45.99/mo</span>
+            <span
+              aria-hidden
+              className="absolute inset-y-0 -left-12 w-12 -skew-x-12 bg-gradient-to-r from-transparent via-white/40 to-transparent opacity-0 transition-all duration-700 group-hover:left-[110%] group-hover:opacity-100"
+            />
+            <span className="relative inline-flex h-1.5 w-1.5 items-center justify-center">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/60" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary" />
+            </span>
+            <span className="relative font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
+              Pricing
+            </span>
+            <span aria-hidden className="relative h-3 w-px bg-border" />
+            <span className="relative font-semibold tabular-nums text-foreground">
+              from <span className="text-primary">$45.99</span>
+              <span className="text-muted-foreground">/mo</span>
+            </span>
           </Link>
+
         </nav>
 
 
