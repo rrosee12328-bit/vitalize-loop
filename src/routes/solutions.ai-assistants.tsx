@@ -219,6 +219,10 @@ function AIAssistantsPage() {
         </div>
       </section>
 
+      <VoiceLoopSection />
+
+
+
       {/* Cost of Inaction */}
       <section className="border-t border-border bg-background">
         <div className="container-editorial py-24 md:py-32">
