@@ -211,17 +211,25 @@ function HomePage() {
             <p className="text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
               Vektiss Voice — plans starting at $45.99/mo.
             </p>
-            <Link
-              to="/solutions/ai-assistants"
-              hash="pricing-tiers"
+            <button
+              type="button"
+              onClick={() => {
+                setShowPlans(true);
+                setTimeout(() => {
+                  document
+                    .getElementById("voice-plans-panel")
+                    ?.scrollIntoView({ behavior: "smooth", block: "start" });
+                }, 50);
+              }}
               className="group mt-2 inline-flex h-14 items-center gap-2 rounded-md bg-primary px-8 text-base font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:-translate-y-0.5 hover:opacity-95 hover:shadow-xl"
             >
               See Vektiss Voice Plans
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-            </Link>
+            </button>
           </div>
         </div>
       </section>
+
 
       {/* FAQ */}
       <section className="border-t border-border bg-surface-elevated">
