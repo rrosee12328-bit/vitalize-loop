@@ -236,7 +236,7 @@ export function VoiceLoopSection() {
               visible to you.
             </p>
             <a
-              href="#pricing-tiers"
+              href="#pricing"
               className="group inline-flex h-12 shrink-0 items-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
             >
               See Vektiss Voice Plans
