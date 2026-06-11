@@ -112,25 +112,38 @@ export function Header() {
           <Link
             to="/"
             hash="voice-pricing"
-            className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full border border-primary/20 bg-gradient-to-r from-primary/[0.08] via-primary/[0.04] to-transparent px-3.5 py-1.5 text-xs font-medium text-foreground shadow-[inset_0_1px_0_rgba(255,255,255,0.4)] transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/50 hover:shadow-[0_8px_24px_-8px_rgba(0,136,255,0.45)]"
+            onClick={() => {
+              if (typeof window !== "undefined") {
+                window.dispatchEvent(new CustomEvent("vektiss:open-pricing"));
+              }
+            }}
+            className="group relative inline-flex items-center gap-2.5 overflow-hidden rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 text-xs font-medium text-foreground/90 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:bg-white/[0.06] hover:text-foreground hover:shadow-[0_10px_30px_-12px_rgba(0,136,255,0.55)]"
           >
             <span
               aria-hidden
-              className="absolute inset-y-0 -left-12 w-12 -skew-x-12 bg-gradient-to-r from-transparent via-white/40 to-transparent opacity-0 transition-all duration-700 group-hover:left-[110%] group-hover:opacity-100"
+              className="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-b from-white/[0.06] to-transparent opacity-70"
+            />
+            <span
+              aria-hidden
+              className="pointer-events-none absolute inset-y-0 -left-16 w-16 -skew-x-12 bg-gradient-to-r from-transparent via-white/25 to-transparent opacity-0 transition-all duration-700 group-hover:left-[120%] group-hover:opacity-100"
             />
             <span className="relative inline-flex h-1.5 w-1.5 items-center justify-center">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/60" />
-              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary" />
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/70" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_8px_rgba(0,136,255,0.8)]" />
             </span>
-            <span className="relative font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
+            <span className="relative font-mono text-[10px] uppercase tracking-[0.18em] text-foreground/55 transition-colors group-hover:text-foreground/80">
               Pricing
             </span>
-            <span aria-hidden className="relative h-3 w-px bg-border" />
-            <span className="relative font-semibold tabular-nums text-foreground">
-              from <span className="text-primary">$45.99</span>
-              <span className="text-muted-foreground">/mo</span>
+            <span aria-hidden className="relative h-3 w-px bg-foreground/15" />
+            <span className="relative font-semibold tabular-nums">
+              <span className="text-foreground/50">from</span>{" "}
+              <span className="bg-gradient-to-r from-primary to-[#5cb8ff] bg-clip-text text-transparent">
+                $45.99
+              </span>
+              <span className="text-foreground/40">/mo</span>
             </span>
           </Link>
+
 
         </nav>
 
