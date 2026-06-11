@@ -126,7 +126,7 @@ function HomePage() {
                   setShowPlans(true);
                   setTimeout(() => {
                     document
-                      .getElementById("voice-plans-panel")
+                      .getElementById("voice-pricing")
                       ?.scrollIntoView({ behavior: "smooth", block: "start" });
                   }, 50);
                 }}
