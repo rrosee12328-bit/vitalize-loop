@@ -3,7 +3,7 @@ import { ArrowRight, Check, X, Phone, Mail, Sparkles, Crown, Sparkle } from "luc
 import { Slider } from "@/components/ui/slider";
 import { cn } from "@/lib/utils";
 
-const CALENDLY = "https://calendly.com/vektiss-info/30-minute-vektiss-discovery";
+const GET_STARTED = "https://voice.vektiss.com/get-started";
 
 type Tier = {
   name: string;
