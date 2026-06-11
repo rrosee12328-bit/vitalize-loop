@@ -72,6 +72,12 @@ function AboutPage() {
                 So we built Vektiss to do one thing: build the operating system you actually need,
                 in weeks, integrated into the tools you already have.
               </p>
+              <p>
+                <span className="font-semibold text-foreground">Why "Vektiss."</span> The name comes
+                from the Latin <em>vectis</em> — meaning "lever." That's exactly what we're built
+                to be: the lever that gives operators leverage to multiply their time, their
+                thinking, and their capabilities through AI and technology.
+              </p>
             </div>
           </div>
         </div>
