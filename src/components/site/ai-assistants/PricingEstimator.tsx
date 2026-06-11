@@ -55,6 +55,11 @@ const TIERS: TierExt[] = [
     included: "500 minutes + 500 emails / mo",
     features: [
       { label: "Everything in Phone Starter", included: true },
+      { label: "Intake form delivery", included: true, emphasize: true },
+      { label: "Email AI assistant", included: true, emphasize: true },
+      { label: "Analytics dashboard", included: true, emphasize: true },
+      { label: "Full call transcripts", included: true },
+      { label: "Monthly performance report", included: true },
       { label: "Lead scoring (Hot / Warm / Cold)", included: true, emphasize: true },
       { label: "Calendar sync (Google + Outlook)", included: true, emphasize: true },
       { label: "Bilingual support (EN / ES)", included: true, emphasize: true },
