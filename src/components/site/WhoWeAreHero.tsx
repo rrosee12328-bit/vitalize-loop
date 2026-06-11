@@ -1,13 +1,7 @@
 import { ArrowRight } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 
 export function WhoWeAreHero() {
-  const scrollToSolutions = (e: React.MouseEvent) => {
-    e.preventDefault();
-    document
-      .getElementById("solutions")
-      ?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
-
   return (
     <section className="relative overflow-hidden">
       <div className="container-editorial relative py-20 md:py-28 lg:py-32">
@@ -45,14 +39,13 @@ export function WhoWeAreHero() {
           </p>
 
           <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
-            <a
-              href="#solutions"
-              onClick={scrollToSolutions}
+            <Link
+              to="/solutions"
               className="group inline-flex h-12 items-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-all hover:-translate-y-0.5 hover:shadow-[0_10px_30px_-10px_rgba(37,99,235,0.4)]"
             >
-              See What We Build
+              See our solutions
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-            </a>
+            </Link>
           </div>
         </div>
       </div>
