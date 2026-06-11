@@ -462,7 +462,7 @@ export function PricingEstimator() {
       </p>
 
       <a
-        href={CALENDLY}
+        href={GET_STARTED}
         target="_blank"
         rel="noopener noreferrer"
         className="group mt-6 inline-flex h-12 items-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
