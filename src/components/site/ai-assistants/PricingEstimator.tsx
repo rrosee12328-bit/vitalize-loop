@@ -3,7 +3,7 @@ import { ArrowRight, Check, X, Phone, Mail, Sparkles, Crown, Sparkle } from "luc
 import { Slider } from "@/components/ui/slider";
 import { cn } from "@/lib/utils";
 
-const CALENDLY = "https://calendly.com/vektiss-info/30-minute-vektiss-discovery";
+const GET_STARTED = "https://voice.vektiss.com/get-started";
 
 type Tier = {
   name: string;
@@ -252,7 +252,7 @@ export function PricingTiers() {
                 </p>
 
                 <a
-                  href={CALENDLY}
+                  href={GET_STARTED}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={cn(
@@ -462,7 +462,7 @@ export function PricingEstimator() {
       </p>
 
       <a
-        href={CALENDLY}
+        href={GET_STARTED}
         target="_blank"
         rel="noopener noreferrer"
         className="group mt-6 inline-flex h-12 items-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
