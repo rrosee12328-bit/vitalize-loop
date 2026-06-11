@@ -72,7 +72,7 @@ export function Header() {
             className="group flex items-center gap-2 pl-1"
           >
             <span className="relative inline-flex">
-              <VektissLogo variant="dark" className="h-10 w-auto md:h-12" />
+              <VektissLogo variant="dark" className="h-14 w-auto md:h-16" />
               <span className="pointer-events-none absolute inset-0 rounded-full bg-[#0088FF]/20 opacity-0 blur-lg transition-opacity duration-300 group-hover:opacity-100" />
             </span>
           </Link>
