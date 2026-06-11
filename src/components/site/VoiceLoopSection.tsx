@@ -1,14 +1,11 @@
-import { useState } from "react";
 import {
   ArrowRight,
   BarChart3,
   BellRing,
-  ChevronDown,
   FileText,
   PhoneCall,
 } from "lucide-react";
 import { DashboardPreview } from "@/components/site/ai-assistants/DashboardPreview";
-import { PricingTiers } from "@/components/site/ai-assistants/PricingEstimator";
 
 const steps = [
   {
@@ -34,7 +31,6 @@ const steps = [
 ];
 
 export function VoiceLoopSection() {
-  const [showPlans, setShowPlans] = useState(false);
   return (
     <section className="border-b border-border bg-[#0F172A] text-white">
       <div className="container-editorial py-24 md:py-32">
@@ -239,43 +235,13 @@ export function VoiceLoopSection() {
               Every call. Every form. Every follow-up. All handled — and all
               visible to you.
             </p>
-            <button
-              type="button"
-              onClick={() => {
-                setShowPlans((prev) => {
-                  const next = !prev;
-                  if (next) {
-                    setTimeout(() => {
-                      document
-                        .getElementById("voice-plans-panel-loop")
-                        ?.scrollIntoView({ behavior: "smooth", block: "start" });
-                    }, 250);
-                  }
-                  return next;
-                });
-              }}
-              aria-expanded={showPlans}
-              aria-controls="voice-plans-panel-loop"
+            <a
+              href="#pricing-tiers"
               className="group inline-flex h-12 shrink-0 items-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
             >
-              {showPlans ? "Hide Plans" : "See Vektiss Voice Plans"}
-              <ChevronDown
-                className={`h-4 w-4 transition-transform duration-300 ${showPlans ? "rotate-180" : ""}`}
-              />
-            </button>
-          </div>
-        </div>
-
-        {/* Inline pricing panel */}
-        <div
-          id="voice-plans-panel-loop"
-          className={`grid transition-all duration-500 ease-in-out ${
-            showPlans ? "mt-12 grid-rows-[1fr] opacity-100" : "mt-0 grid-rows-[0fr] opacity-0"
-          }`}
-          aria-hidden={!showPlans}
-        >
-          <div className="overflow-hidden">
-            <PricingTiers />
+              See Vektiss Voice Plans
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </a>
           </div>
         </div>
       </div>
