@@ -105,6 +105,17 @@ const proofStatements = [
 ];
 
 function AIAssistantsPage() {
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const hash = window.location.hash.replace("#", "");
+    if (!hash) return;
+    // Wait a tick for layout, then scroll
+    const t = setTimeout(() => {
+      document.getElementById(hash)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 50);
+    return () => clearTimeout(t);
+  }, []);
+
   return (
     <SiteLayout>
       {/* Hero */}
