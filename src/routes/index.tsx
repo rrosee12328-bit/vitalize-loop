@@ -116,7 +116,7 @@ function HomePage() {
                 to="/solutions/ai-assistants"
                 className="group inline-flex h-12 items-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-all hover:opacity-90 hover:-translate-y-0.5 hover:shadow-lg"
               >
-                Get Vektiss Voice
+                Learn More
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
               <button
