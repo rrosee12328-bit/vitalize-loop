@@ -108,7 +108,17 @@ export function Header() {
               {item.label}
             </Link>
           ))}
+
+          <Link
+            to="/"
+            hash="voice-pricing"
+            className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1.5 text-xs font-medium text-foreground transition-colors hover:border-primary/60 hover:bg-primary/10"
+          >
+            <span className="text-muted-foreground">Pricing</span>
+            <span className="font-semibold text-primary">from $45.99/mo</span>
+          </Link>
         </nav>
+
 
         <div className="hidden lg:block">
           <a href="https://voice.vektiss.com/get-started" target="_blank" rel="noopener noreferrer" className="inline-flex h-9 items-center whitespace-nowrap rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
