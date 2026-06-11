@@ -377,45 +377,17 @@ function AIAssistantsPage() {
                     </div>
                   ))}
                 </div>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setShowPlansProof((v) => {
-                      const next = !v;
-                      if (next) {
-                        setTimeout(() => {
-                          document
-                            .getElementById("voice-plans-panel-proof")
-                            ?.scrollIntoView({ behavior: "smooth", block: "start" });
-                        }, 50);
-                      }
-                      return next;
-                    });
-                  }}
-                  aria-expanded={showPlansProof}
-                  aria-controls="voice-plans-panel-proof"
+                <a
+                  href="#pricing-tiers"
                   className="mt-8 inline-flex h-12 items-center gap-2 rounded-md border border-white/40 bg-transparent px-6 text-sm font-medium text-white transition-colors hover:bg-white hover:text-foreground"
                 >
-                  {showPlansProof ? "Hide Plans" : "See Vektiss Voice Plans"}
-                  <ChevronDown
-                    className={`h-4 w-4 transition-transform ${showPlansProof ? "rotate-180" : ""}`}
-                  />
-                </button>
+                  See Vektiss Voice Plans
+                  <ArrowRight className="h-4 w-4" />
+                </a>
               </div>
             </div>
             <div className="md:col-span-7">
               <DashboardPreview />
-            </div>
-          </div>
-          <div
-            id="voice-plans-panel-proof"
-            className={`grid transition-all duration-500 ease-in-out ${
-              showPlansProof ? "mt-12 grid-rows-[1fr] opacity-100" : "mt-0 grid-rows-[0fr] opacity-0"
-            }`}
-            aria-hidden={!showPlansProof}
-          >
-            <div className="overflow-hidden">
-              <PricingTiers />
             </div>
           </div>
         </div>
