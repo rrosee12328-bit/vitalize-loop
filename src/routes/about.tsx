@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, BarChart3, Bot, Globe, Video } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
-import { WhoWeAreHero } from "@/components/site/WhoWeAreHero";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -44,7 +43,45 @@ const beliefs = [
 function AboutPage() {
   return (
     <SiteLayout>
-      <WhoWeAreHero />
+      <section className="container-editorial pt-20 pb-16 md:pt-32 md:pb-24">
+        <p className="eyebrow">About</p>
+        <h1 className="mt-6 display-1 max-w-5xl">
+          We exist because operators are <br className="hidden md:block" />
+          <span className="accent-underline">drowning in tools</span> and starving for systems.
+        </h1>
+      </section>
+
+      <section className="border-t border-border bg-surface-elevated">
+        <div className="container-editorial py-20 md:py-28">
+          <div className="grid gap-16 md:grid-cols-12">
+            <div className="md:col-span-5">
+              <p className="eyebrow">Who we are</p>
+            </div>
+            <div className="md:col-span-7 space-y-6 text-lg text-muted-foreground">
+              <p>
+                Vektiss is a systems company. Not an agency. Not a SaaS. We build the connected
+                operating infrastructure that growth-stage businesses run on.
+              </p>
+              <p>
+                Our team has spent careers inside the operator-owner seat — running ops, scaling
+                revenue functions, and shipping the systems that make scale possible. We saw the
+                same pattern over and over: businesses outgrowing their tools, teams duct-taping
+                processes together, and CEOs flying blind.
+              </p>
+              <p>
+                So we built Vektiss to do one thing: build the operating system you actually need,
+                in weeks, integrated into the tools you already have.
+              </p>
+              <p>
+                <span className="font-semibold text-foreground">Why "Vektiss."</span> The name comes
+                from the Latin <em>vectis</em> — meaning "lever." That's exactly what we're built
+                to be: the lever that gives operators leverage to multiply their time, their
+                thinking, and their capabilities through AI and technology.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* THE FOUR PILLARS */}
       <section className="border-t border-border">
