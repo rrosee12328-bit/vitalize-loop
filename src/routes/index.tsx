@@ -76,6 +76,21 @@ const faqs = [
 function HomePage() {
   const [showPlans, setShowPlans] = useState(false);
   const [showPlansBottom, setShowPlansBottom] = useState(false);
+  const hash = useRouterState({ select: (s) => s.location.hash });
+
+  // Auto-expand the pricing panel when navigated to via #voice-pricing
+  useEffect(() => {
+    if (hash === "voice-pricing") {
+      setShowPlans(true);
+      requestAnimationFrame(() => {
+        document
+          .getElementById("voice-pricing")
+          ?.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    }
+  }, [hash]);
+
+
 
   // Ensure only one Bunny Stream iframe plays at a time.
   useEffect(() => {
