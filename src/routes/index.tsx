@@ -159,7 +159,7 @@ function HomePage() {
       </section>
 
       {/* PHONE ASSISTANT CTA STRIP */}
-      <section className="border-y border-border bg-[#EFF6FF]">
+      <section id="voice-pricing" className="scroll-mt-20 border-y border-border bg-[#EFF6FF]">
         <div className="container-editorial py-12 md:py-16">
           <div className="mx-auto flex max-w-3xl flex-col items-center gap-5 text-center">
             <p className="eyebrow text-primary">Vektiss Voice Pricing</p>
