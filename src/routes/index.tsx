@@ -149,19 +149,19 @@ function HomePage() {
 
       {/* PHONE ASSISTANT CTA STRIP */}
       <section className="border-y border-border bg-[#EFF6FF]">
-        <div className="container-editorial py-8 md:py-10">
-          <div className="flex flex-col items-start gap-5 border-l-4 border-primary pl-5 md:flex-row md:items-center md:justify-between md:gap-8">
-            <div>
-              <p className="text-lg font-semibold text-foreground md:text-xl">
-                Vektiss Voice. Starting at $45.99/mo.
-              </p>
-              <p className="mt-1 text-sm text-muted-foreground">
-                Done-for-you setup. 30-day money-back guarantee. No contracts.
-              </p>
-            </div>
+        <div className="container-editorial py-12 md:py-16">
+          <div className="mx-auto flex max-w-3xl flex-col items-center gap-5 text-center">
+            <p className="eyebrow text-primary">Vektiss Voice Pricing</p>
+            <p className="text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
+              Vektiss Voice. Starting at $45.99/mo.
+            </p>
+            <p className="max-w-xl text-sm text-muted-foreground md:text-base">
+              Done-for-you setup. 30-day money-back guarantee. No contracts.
+            </p>
             <Link
               to="/solutions/ai-assistants"
-              className="group inline-flex h-12 shrink-0 items-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+              hash="pricing-tiers"
+              className="group mt-2 inline-flex h-14 items-center gap-2 rounded-md bg-primary px-8 text-base font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:-translate-y-0.5 hover:opacity-95 hover:shadow-xl"
             >
               See Vektiss Voice Plans
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -169,6 +169,7 @@ function HomePage() {
           </div>
         </div>
       </section>
+
 
       {/* INTERACTIVE DASHBOARD PREVIEW */}
       <section className="relative border-t border-border">
