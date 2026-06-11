@@ -169,7 +169,7 @@ export function PricingTiers() {
 
   return (
     <div>
-      <div className="grid items-stretch gap-6 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid items-stretch gap-6 sm:grid-cols-2 xl:grid-cols-4">
 
         {TIERS.map((tier, idx) => {
           const { price, suffix, sub } = priceDisplay(tier, billing);
@@ -190,7 +190,7 @@ export function PricingTiers() {
               className={cn(
                 "group/card relative flex h-full flex-col rounded-2xl border transition-all duration-300 hover:-translate-y-1.5",
                 tier.highlight
-                  ? "border-primary/40 bg-gradient-to-b from-white to-primary/[0.04] shadow-[0_30px_60px_-25px_rgba(0, 136, 255,0.4)] hover:shadow-[0_40px_70px_-25px_rgba(0, 136, 255,0.5)] lg:-translate-y-3"
+                  ? "border-primary/40 bg-gradient-to-b from-white to-primary/[0.04] shadow-[0_30px_60px_-25px_rgba(0,136,255,0.4)] hover:shadow-[0_40px_70px_-25px_rgba(0,136,255,0.5)] xl:-translate-y-3"
                   : "border-border bg-card shadow-card hover:shadow-xl",
               )}
             >
