@@ -1,16 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Inbox, Moon, PhoneMissed, Play } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 // TechLinesBackground is provided site-wide via SiteLayout
 import { LiveCallDemo } from "@/components/site/ai-assistants/LiveCallDemo";
-import { VoiceLoopSection } from "@/components/site/VoiceLoopSection";
-import { PricingTiers } from "@/components/site/ai-assistants/PricingEstimator";
 import { DashboardPreview } from "@/components/site/ai-assistants/DashboardPreview";
-import {
-  MissedCallIllustration,
-  SlowReplyIllustration,
-  AfterHoursIllustration,
-} from "@/components/site/ai-assistants/ProblemIllustrations";
 import { WhoWeAreHero } from "@/components/site/WhoWeAreHero";
 import { TestimonialsTicker } from "@/components/site/TestimonialsTicker";
 
@@ -123,17 +116,13 @@ function HomePage() {
                 Get Vektiss Voice
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
-              <a
-                href="#voice-pricing"
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById("voice-pricing")?.scrollIntoView({ behavior: "smooth", block: "start" });
-                }}
+              <Link
+                to="/solutions/ai-assistants"
+                hash="pricing-tiers"
                 className="inline-flex h-12 items-center gap-2 rounded-md border border-foreground/80 bg-transparent px-6 text-sm font-medium text-foreground transition-colors hover:bg-foreground hover:text-background"
               >
-                See Pricing
-              </a>
-              {/* VIDEO URL TO BE ADDED */}
+                See Plans
+              </Link>
             </div>
             <div className="mt-5 flex flex-wrap items-center gap-2">
               {["Done For You", "No Contract", "$45.99/mo"].map((b, i) => (
@@ -181,8 +170,6 @@ function HomePage() {
         </div>
       </section>
 
-      <VoiceLoopSection />
-
       {/* INTERACTIVE DASHBOARD PREVIEW */}
       <section className="relative border-t border-border">
         <div className="container-editorial py-20 md:py-28">
@@ -201,95 +188,6 @@ function HomePage() {
         </div>
       </section>
 
-
-
-
-      {/* PROBLEM RECOGNITION */}
-      <section className="border-t border-border bg-surface-elevated">
-        <div className="container-editorial py-24 md:py-32">
-          <div className="text-center">
-            <p className="eyebrow">THE PROBLEM</p>
-            <h2 className="mt-6 display-2">
-              Your phone is costing you money.
-            </h2>
-            <p className="mx-auto mt-6 max-w-3xl text-lg text-muted-foreground">
-              Every missed call is a missed client. Every slow reply is a lost deal. Most businesses don't have a system — they have a gap.
-            </p>
-          </div>
-
-          <div className="mt-14 grid gap-6 md:grid-cols-3">
-            {[
-              {
-                Illustration: MissedCallIllustration,
-                title: "The Missed Call",
-                body: "You're busy. The phone rings. Nobody answers. That caller doesn't leave a voicemail — they call your competitor.",
-              },
-              {
-                Illustration: SlowReplyIllustration,
-                title: "The Slow Reply",
-                body: "Leads email you. You see it three hours later. By then they've already moved on. Speed wins — every time.",
-              },
-              {
-                Illustration: AfterHoursIllustration,
-                title: "The After-Hours Gap",
-                body: "Your business closes at 5pm. Your customers' problems don't. Every night and weekend is a window your competitors are open and you're not.",
-              },
-            ].map((p, i) => (
-              <article
-                key={p.title}
-                className="overflow-hidden rounded-xl border border-border bg-card shadow-card"
-              >
-                <p.Illustration />
-                <div className="p-6 md:p-8">
-                  <span className="block font-mono text-xs tracking-widest text-muted-foreground">
-                    0{i + 1}
-                  </span>
-                  <h3 className="mt-1 text-lg font-semibold tracking-tight">
-                    {p.title}
-                  </h3>
-                  <p className="mt-3 text-muted-foreground">{p.body}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-
-
-
-          <div className="mt-16 text-center">
-            <p className="text-lg font-bold text-[#111827]">
-              Vektiss Voice closes all three gaps — automatically, 24/7, starting at $45.99/mo.
-            </p>
-            <Link
-              to="/solutions/ai-assistants"
-              className="group mt-6 inline-flex h-12 items-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
-            >
-              See How It Works
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-
-      {/* VOICE PRICING */}
-      <section id="voice-pricing" className="border-t border-border scroll-mt-24">
-        <div className="container-editorial py-24 md:py-32">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="eyebrow text-primary">Vektiss Voice Plans</p>
-            <p className="eyebrow mt-3">Pricing</p>
-            <h2 className="mt-6 display-2">
-              Flat rate. No surprises. Cancel anytime.
-            </h2>
-            <p className="mt-6 text-lg text-muted-foreground">
-              Every plan includes done-for-you setup, 24/7 coverage, and a 30-day
-              money-back guarantee.
-            </p>
-          </div>
-          <div className="mt-14">
-            <PricingTiers />
-          </div>
-        </div>
-      </section>
 
       {/* FAQ */}
       <section className="border-t border-border bg-surface-elevated">
