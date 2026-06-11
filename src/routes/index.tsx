@@ -6,7 +6,7 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { LiveCallDemo } from "@/components/site/ai-assistants/LiveCallDemo";
 import { DashboardPreview } from "@/components/site/ai-assistants/DashboardPreview";
 import { PricingTiers } from "@/components/site/ai-assistants/PricingEstimator";
-import { WhoWeAreHero } from "@/components/site/WhoWeAreHero";
+
 import { TestimonialsTicker } from "@/components/site/TestimonialsTicker";
 
 export const Route = createFileRoute("/")({
@@ -78,7 +78,6 @@ function HomePage() {
   const [showPlansBottom, setShowPlansBottom] = useState(false);
   return (
     <SiteLayout>
-      <WhoWeAreHero />
       <TestimonialsTicker />
 
       {/* HERO — Live demo player leads */}
