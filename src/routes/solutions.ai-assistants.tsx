@@ -148,7 +148,6 @@ function AIAssistantsPage() {
                 onClick={(e) => {
                   e.preventDefault();
                   document.getElementById("pricing-tiers")?.scrollIntoView({ behavior: "smooth", block: "start" });
-                  history.replaceState(null, "", "#pricing-tiers");
                 }}
                 className="inline-flex h-12 items-center gap-2 rounded-md border border-foreground/80 bg-transparent px-6 text-sm font-medium text-foreground transition-colors hover:bg-foreground hover:text-background"
               >
@@ -387,7 +386,6 @@ function AIAssistantsPage() {
                   onClick={(e) => {
                     e.preventDefault();
                     document.getElementById("pricing-tiers")?.scrollIntoView({ behavior: "smooth", block: "start" });
-                    history.replaceState(null, "", "#pricing-tiers");
                   }}
                   className="mt-8 inline-flex h-12 items-center gap-2 rounded-md border border-white/40 bg-transparent px-6 text-sm font-medium text-white transition-colors hover:bg-white hover:text-foreground"
                 >
@@ -573,7 +571,6 @@ function AIAssistantsPage() {
                 onClick={(e) => {
                   e.preventDefault();
                   document.getElementById("pricing-tiers")?.scrollIntoView({ behavior: "smooth", block: "start" });
-                  history.replaceState(null, "", "#pricing-tiers");
                 }}
                 className="inline-flex h-12 items-center gap-2 rounded-md border border-white/50 bg-transparent px-6 text-sm font-medium text-white transition-colors hover:bg-white hover:text-foreground"
               >
