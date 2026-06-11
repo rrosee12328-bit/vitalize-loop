@@ -1,9 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
+import { useState } from "react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 // TechLinesBackground is provided site-wide via SiteLayout
 import { LiveCallDemo } from "@/components/site/ai-assistants/LiveCallDemo";
 import { DashboardPreview } from "@/components/site/ai-assistants/DashboardPreview";
+import { PricingTiers } from "@/components/site/ai-assistants/PricingEstimator";
 import { WhoWeAreHero } from "@/components/site/WhoWeAreHero";
 import { TestimonialsTicker } from "@/components/site/TestimonialsTicker";
 
@@ -72,6 +74,7 @@ const faqs = [
 
 
 function HomePage() {
+  const [showPlans, setShowPlans] = useState(false);
   return (
     <SiteLayout>
       <WhoWeAreHero />
@@ -158,17 +161,28 @@ function HomePage() {
             <p className="max-w-xl text-sm text-muted-foreground md:text-base">
               Done-for-you setup. 30-day money-back guarantee. No contracts.
             </p>
-            <Link
-              to="/solutions/ai-assistants"
-              hash="pricing-tiers"
+            <button
+              type="button"
+              onClick={() => setShowPlans((v) => !v)}
+              aria-expanded={showPlans}
+              aria-controls="voice-plans-panel"
               className="group mt-2 inline-flex h-14 items-center gap-2 rounded-md bg-primary px-8 text-base font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:-translate-y-0.5 hover:opacity-95 hover:shadow-xl"
             >
-              See Vektiss Voice Plans
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-            </Link>
+              {showPlans ? "Hide Plans" : "See Vektiss Voice Plans"}
+              <ChevronDown
+                className={`h-4 w-4 transition-transform ${showPlans ? "rotate-180" : ""}`}
+              />
+            </button>
           </div>
+
+          {showPlans && (
+            <div id="voice-plans-panel" className="mt-12 animate-fade-in-up">
+              <PricingTiers />
+            </div>
+          )}
         </div>
       </section>
+
 
 
       {/* INTERACTIVE DASHBOARD PREVIEW */}
