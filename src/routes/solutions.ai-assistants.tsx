@@ -12,7 +12,7 @@ import {
   AfterHoursIllustration,
 } from "@/components/site/ai-assistants/ProblemIllustrations";
 
-const CALENDLY = "https://calendly.com/vektiss-info/30-minute-vektiss-discovery";
+const CALENDLY = "https://voice.vektiss.com/get-started";
 
 export const Route = createFileRoute("/solutions/ai-assistants")({
   head: () => ({
