@@ -410,17 +410,30 @@ function AIAssistantsPage() {
                     </div>
                   ))}
                 </div>
-                <a
-                  href="#pricing-tiers"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    document.getElementById("pricing-tiers")?.scrollIntoView({ behavior: "smooth", block: "start" });
+                <button
+                  type="button"
+                  onClick={() => {
+                    setShowPlansProof((v) => {
+                      const next = !v;
+                      if (next) {
+                        setTimeout(() => {
+                          document
+                            .getElementById("voice-plans-panel-proof")
+                            ?.scrollIntoView({ behavior: "smooth", block: "start" });
+                        }, 50);
+                      }
+                      return next;
+                    });
                   }}
+                  aria-expanded={showPlansProof}
+                  aria-controls="voice-plans-panel-proof"
                   className="mt-8 inline-flex h-12 items-center gap-2 rounded-md border border-white/40 bg-transparent px-6 text-sm font-medium text-white transition-colors hover:bg-white hover:text-foreground"
                 >
-                  See Pricing
-                  <ArrowRight className="h-4 w-4" />
-                </a>
+                  {showPlansProof ? "Hide Plans" : "See Vektiss Voice Plans"}
+                  <ChevronDown
+                    className={`h-4 w-4 transition-transform ${showPlansProof ? "rotate-180" : ""}`}
+                  />
+                </button>
               </div>
             </div>
             <div className="md:col-span-7">
