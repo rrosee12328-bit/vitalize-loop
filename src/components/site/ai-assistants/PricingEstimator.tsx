@@ -47,33 +47,14 @@ const TIERS: TierExt[] = [
     cta: "Get Started",
   },
   {
-    name: "Phone + Email",
-    tagline: "Phone & inbox, fully covered.",
-    bestFor: "Growing teams (100+ calls/mo)",
-    monthly: 89.99,
-    annual: 863,
-    included: "200 minutes + 200 emails / mo",
-    features: [
-      { label: "Everything in Phone Starter", included: true },
-      { label: "Intake form delivery", included: true, emphasize: true },
-      { label: "Email AI assistant", included: true, emphasize: true },
-      { label: "Analytics dashboard", included: true, emphasize: true },
-      { label: "Full call transcripts", included: true },
-      { label: "Monthly performance report", included: true },
-    ],
-    overage: "$0.20 / min · $0.05 / email",
-    cta: "Get Started",
-    highlight: true,
-  },
-  {
     name: "AI Front Office",
     tagline: "Your full virtual receptionist.",
-    bestFor: "Established businesses scaling",
+    bestFor: "Growing teams (100+ calls/mo)",
     monthly: 199,
     annual: 1910,
     included: "500 minutes + 500 emails / mo",
     features: [
-      { label: "Everything in Phone + Email", included: true },
+      { label: "Everything in Phone Starter", included: true },
       { label: "Lead scoring (Hot / Warm / Cold)", included: true, emphasize: true },
       { label: "Calendar sync (Google + Outlook)", included: true, emphasize: true },
       { label: "Bilingual support (EN / ES)", included: true, emphasize: true },
@@ -83,6 +64,7 @@ const TIERS: TierExt[] = [
     ],
     overage: "$0.15 / min · $0.03 / email",
     cta: "Get Started",
+    highlight: true,
   },
   {
     name: "Custom",
@@ -169,7 +151,7 @@ export function PricingTiers() {
 
   return (
     <div>
-      <div className="grid items-stretch gap-6 pt-6 sm:grid-cols-2 xl:grid-cols-4">
+      <div className="grid items-stretch gap-6 pt-6 sm:grid-cols-2 xl:grid-cols-3">
 
         {TIERS.map((tier, idx) => {
           const { price, suffix, sub } = priceDisplay(tier, billing);
@@ -369,9 +351,8 @@ export function PricingTiers() {
 
 function recommendedIdx(min: number): number {
   if (min <= 60) return 0;
-  if (min <= 200) return 1;
-  if (min <= 500) return 2;
-  return 3;
+  if (min <= 500) return 1;
+  return 2;
 }
 
 export function PricingEstimator() {
