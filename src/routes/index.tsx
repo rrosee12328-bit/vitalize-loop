@@ -203,6 +203,25 @@ function HomePage() {
         </div>
       </section>
 
+      {/* PRE-FAQ PRICING CTA */}
+      <section className="border-t border-border bg-[#EFF6FF]">
+        <div className="container-editorial py-12 md:py-16">
+          <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 text-center">
+            <p className="eyebrow text-primary">Ready when you are</p>
+            <p className="text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
+              Vektiss Voice — plans starting at $45.99/mo.
+            </p>
+            <Link
+              to="/solutions/ai-assistants"
+              hash="pricing-tiers"
+              className="group mt-2 inline-flex h-14 items-center gap-2 rounded-md bg-primary px-8 text-base font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:-translate-y-0.5 hover:opacity-95 hover:shadow-xl"
+            >
+              See Vektiss Voice Plans
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {/* FAQ */}
       <section className="border-t border-border bg-surface-elevated">
