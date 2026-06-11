@@ -182,11 +182,17 @@ function HomePage() {
             </button>
           </div>
 
-          {showPlans && (
-            <div id="voice-plans-panel" className="mt-12 animate-fade-in-up">
+          <div
+            id="voice-plans-panel"
+            className={`grid transition-all duration-500 ease-in-out ${
+              showPlans ? "mt-12 grid-rows-[1fr] opacity-100" : "mt-0 grid-rows-[0fr] opacity-0"
+            }`}
+            aria-hidden={!showPlans}
+          >
+            <div className="overflow-hidden">
               <PricingTiers />
             </div>
-          )}
+          </div>
         </div>
       </section>
 
