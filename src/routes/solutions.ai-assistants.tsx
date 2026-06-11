@@ -558,45 +558,17 @@ function AIAssistantsPage() {
                 Book Your Setup Call
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </a>
-              <button
-                type="button"
-                onClick={() => {
-                  setShowPlansFinal((v) => {
-                    const next = !v;
-                    if (next) {
-                      setTimeout(() => {
-                        document
-                          .getElementById("voice-plans-panel-final")
-                          ?.scrollIntoView({ behavior: "smooth", block: "start" });
-                      }, 50);
-                    }
-                    return next;
-                  });
-                }}
-                aria-expanded={showPlansFinal}
-                aria-controls="voice-plans-panel-final"
+              <a
+                href="#pricing-tiers"
                 className="inline-flex h-12 items-center gap-2 rounded-md border border-white/50 bg-transparent px-6 text-sm font-medium text-white transition-colors hover:bg-white hover:text-foreground"
               >
-                {showPlansFinal ? "Hide Plans" : "See Vektiss Voice Plans"}
-                <ChevronDown
-                  className={`h-4 w-4 transition-transform ${showPlansFinal ? "rotate-180" : ""}`}
-                />
-              </button>
+                See Vektiss Voice Plans
+                <ArrowRight className="h-4 w-4" />
+              </a>
             </div>
             <p className="mt-5 text-[13px] text-white/60">
               30-Day Money-Back Guarantee · No Contract · Cancel Anytime
             </p>
-          </div>
-          <div
-            id="voice-plans-panel-final"
-            className={`grid transition-all duration-500 ease-in-out ${
-              showPlansFinal ? "mt-12 grid-rows-[1fr] opacity-100" : "mt-0 grid-rows-[0fr] opacity-0"
-            }`}
-            aria-hidden={!showPlansFinal}
-          >
-            <div className="overflow-hidden">
-              <PricingTiers />
-            </div>
           </div>
         </div>
       </section>
