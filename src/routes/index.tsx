@@ -75,6 +75,7 @@ const faqs = [
 
 function HomePage() {
   const [showPlans, setShowPlans] = useState(false);
+  const [showPlansBottom, setShowPlansBottom] = useState(false);
   return (
     <SiteLayout>
       <WhoWeAreHero />
