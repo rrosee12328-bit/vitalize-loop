@@ -252,7 +252,7 @@ export function PricingTiers() {
                 </p>
 
                 <a
-                  href={CALENDLY}
+                  href={GET_STARTED}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={cn(
