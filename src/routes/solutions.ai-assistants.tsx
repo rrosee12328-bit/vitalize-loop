@@ -143,7 +143,7 @@ function AIAssistantsPage() {
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </a>
               <a
-                href="#pricing-tiers"
+                href="#pricing"
                 className="inline-flex h-12 items-center gap-2 rounded-md border border-foreground/80 bg-transparent px-6 text-sm font-medium text-foreground transition-colors hover:bg-foreground hover:text-background"
               >
                 See Vektiss Voice Plans
@@ -378,7 +378,7 @@ function AIAssistantsPage() {
                   ))}
                 </div>
                 <a
-                  href="#pricing-tiers"
+                  href="#pricing"
                   className="mt-8 inline-flex h-12 items-center gap-2 rounded-md border border-white/40 bg-transparent px-6 text-sm font-medium text-white transition-colors hover:bg-white hover:text-foreground"
                 >
                   See Vektiss Voice Plans
@@ -503,7 +503,7 @@ function AIAssistantsPage() {
       </section>
 
       {/* Pricing */}
-      <section id="pricing" className="border-t border-border">
+      <section id="pricing" className="border-t border-border scroll-mt-24">
 
         <div className="container-editorial py-24 md:py-32">
           <div className="mx-auto max-w-2xl text-center">
@@ -559,7 +559,7 @@ function AIAssistantsPage() {
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </a>
               <a
-                href="#pricing-tiers"
+                href="#pricing"
                 className="inline-flex h-12 items-center gap-2 rounded-md border border-white/50 bg-transparent px-6 text-sm font-medium text-white transition-colors hover:bg-white hover:text-foreground"
               >
                 See Vektiss Voice Plans
