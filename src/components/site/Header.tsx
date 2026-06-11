@@ -168,11 +168,21 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
-            <a href="https://voice.vektiss.com/get-started" target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex h-10 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground"
+            <Link
+              to="/"
+              hash="voice-pricing"
+              onClick={() => setOpen(false)}
+              className="mt-3 inline-flex items-center justify-between gap-2 rounded-md border border-primary/30 bg-primary/5 px-3 py-2 text-sm font-medium text-foreground"
+            >
+              <span className="text-muted-foreground">Pricing</span>
+              <span className="font-semibold text-primary">from $45.99/mo</span>
+            </Link>
+            <a href="https://voice.vektiss.com/get-started" target="_blank" rel="noopener noreferrer" className="mt-2 inline-flex h-10 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground"
               onClick={() => setOpen(false)}
             >
               Get Started
             </a>
+
           </div>
         </div>
       )}
