@@ -147,16 +147,30 @@ function AIAssistantsPage() {
                 Book Your Setup Call
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </a>
-              <a
-                href="#pricing-tiers"
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById("pricing-tiers")?.scrollIntoView({ behavior: "smooth", block: "start" });
+              <button
+                type="button"
+                onClick={() => {
+                  setShowPlansHero((v) => {
+                    const next = !v;
+                    if (next) {
+                      setTimeout(() => {
+                        document
+                          .getElementById("voice-plans-panel-hero")
+                          ?.scrollIntoView({ behavior: "smooth", block: "start" });
+                      }, 50);
+                    }
+                    return next;
+                  });
                 }}
+                aria-expanded={showPlansHero}
+                aria-controls="voice-plans-panel-hero"
                 className="inline-flex h-12 items-center gap-2 rounded-md border border-foreground/80 bg-transparent px-6 text-sm font-medium text-foreground transition-colors hover:bg-foreground hover:text-background"
               >
-                See Pricing
-              </a>
+                {showPlansHero ? "Hide Plans" : "See Vektiss Voice Plans"}
+                <ChevronDown
+                  className={`h-4 w-4 transition-transform ${showPlansHero ? "rotate-180" : ""}`}
+                />
+              </button>
             </div>
             <div className="mt-5 flex flex-wrap items-center gap-2">
               {["Done For You", "No Contract", "30-Day Guarantee"].map((b) => (
