@@ -134,6 +134,38 @@ function SolutionsPage() {
         </div>
       </section>
 
+      {/* AI TRAINING PROGRAMS */}
+      <section className="border-t border-border">
+        <div className="container-editorial py-20 md:py-24">
+          <div className="rounded-2xl border border-border bg-surface-elevated p-8 md:p-12">
+            <div className="grid items-center gap-8 md:grid-cols-12">
+              <div className="md:col-span-8">
+                <p className="eyebrow text-primary">New · AI Training Programs</p>
+                <h2 className="mt-4 text-2xl font-semibold tracking-tight md:text-3xl">
+                  Talk to us about our custom training programs for your AI needs.
+                </h2>
+                <p className="mt-4 text-muted-foreground">
+                  Hands-on training built around your team, your tools, and your workflows —
+                  so your people actually use AI to move work forward.
+                </p>
+              </div>
+              <div className="md:col-span-4 md:text-right">
+                <a
+                  href="https://calendly.com/vektiss-info/30-minute-vektiss-discovery"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex h-12 items-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+                >
+                  Book a Call
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
       <section className="border-t border-border bg-surface-elevated">
         <div className="container-editorial py-24 md:py-28">
           <div className="grid items-end gap-10 md:grid-cols-12">
