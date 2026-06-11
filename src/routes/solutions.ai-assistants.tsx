@@ -440,6 +440,17 @@ function AIAssistantsPage() {
               <DashboardPreview />
             </div>
           </div>
+          <div
+            id="voice-plans-panel-proof"
+            className={`grid transition-all duration-500 ease-in-out ${
+              showPlansProof ? "mt-12 grid-rows-[1fr] opacity-100" : "mt-0 grid-rows-[0fr] opacity-0"
+            }`}
+            aria-hidden={!showPlansProof}
+          >
+            <div className="overflow-hidden">
+              <PricingTiers />
+            </div>
+          </div>
         </div>
       </section>
 
