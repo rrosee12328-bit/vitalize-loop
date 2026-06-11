@@ -64,6 +64,7 @@ const TIERS: TierExt[] = [
     ],
     overage: "$0.15 / min · $0.03 / email",
     cta: "Get Started",
+    highlight: true,
   },
   {
     name: "Custom",
@@ -150,7 +151,7 @@ export function PricingTiers() {
 
   return (
     <div>
-      <div className="grid items-stretch gap-6 pt-6 sm:grid-cols-2 xl:grid-cols-4">
+      <div className="grid items-stretch gap-6 pt-6 sm:grid-cols-2 xl:grid-cols-3">
 
         {TIERS.map((tier, idx) => {
           const { price, suffix, sub } = priceDisplay(tier, billing);
@@ -350,9 +351,8 @@ export function PricingTiers() {
 
 function recommendedIdx(min: number): number {
   if (min <= 60) return 0;
-  if (min <= 200) return 1;
-  if (min <= 500) return 2;
-  return 3;
+  if (min <= 500) return 1;
+  return 2;
 }
 
 export function PricingEstimator() {
