@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
