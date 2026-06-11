@@ -75,6 +75,7 @@ const faqs = [
 
 function HomePage() {
   const [showPlans, setShowPlans] = useState(false);
+  const [showPlansBottom, setShowPlansBottom] = useState(false);
   return (
     <SiteLayout>
       <WhoWeAreHero />
@@ -227,18 +228,39 @@ function HomePage() {
             <button
               type="button"
               onClick={() => {
-                setShowPlans(true);
-                setTimeout(() => {
-                  document
-                    .getElementById("voice-plans-panel")
-                    ?.scrollIntoView({ behavior: "smooth", block: "start" });
-                }, 50);
+                setShowPlansBottom((v) => {
+                  const next = !v;
+                  if (next) {
+                    setTimeout(() => {
+                      document
+                        .getElementById("voice-plans-panel-bottom")
+                        ?.scrollIntoView({ behavior: "smooth", block: "start" });
+                    }, 50);
+                  }
+                  return next;
+                });
               }}
+              aria-expanded={showPlansBottom}
+              aria-controls="voice-plans-panel-bottom"
               className="group mt-2 inline-flex h-14 items-center gap-2 rounded-md bg-primary px-8 text-base font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:-translate-y-0.5 hover:opacity-95 hover:shadow-xl"
             >
-              See Vektiss Voice Plans
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              {showPlansBottom ? "Hide Plans" : "See Vektiss Voice Plans"}
+              <ChevronDown
+                className={`h-4 w-4 transition-transform ${showPlansBottom ? "rotate-180" : ""}`}
+              />
             </button>
+          </div>
+
+          <div
+            id="voice-plans-panel-bottom"
+            className={`grid transition-all duration-500 ease-in-out ${
+              showPlansBottom ? "mt-12 grid-rows-[1fr] opacity-100" : "mt-0 grid-rows-[0fr] opacity-0"
+            }`}
+            aria-hidden={!showPlansBottom}
+          >
+            <div className="overflow-hidden">
+              <PricingTiers />
+            </div>
           </div>
         </div>
       </section>
