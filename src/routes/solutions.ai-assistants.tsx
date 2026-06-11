@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Fragment, useEffect, useState } from "react";
-import { ArrowRight, BarChart3, ListChecks, Flame, MessageSquare, GitBranch, Smartphone, Phone, Check, X, Code2, PhoneForwarded, Inbox, User, CreditCard, Bot, Bell, ChevronDown } from "lucide-react";
+import { ArrowRight, BarChart3, ListChecks, Flame, MessageSquare, GitBranch, Smartphone, Phone, Check, X, Code2, PhoneForwarded, Inbox, User, CreditCard, Bot, Bell } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { LiveCallDemo } from "@/components/site/ai-assistants/LiveCallDemo";
 import { DashboardPreview } from "@/components/site/ai-assistants/DashboardPreview";
@@ -105,15 +105,10 @@ const proofStatements = [
 ];
 
 function AIAssistantsPage() {
-  const [showPlansHero, setShowPlansHero] = useState(false);
-  const [showPlansProof, setShowPlansProof] = useState(false);
-  const [showPlansFinal, setShowPlansFinal] = useState(false);
-
   useEffect(() => {
     if (typeof window === "undefined") return;
     const hash = window.location.hash.replace("#", "");
     if (!hash) return;
-    // Wait a tick for layout, then scroll
     const t = setTimeout(() => {
       document.getElementById(hash)?.scrollIntoView({ behavior: "smooth", block: "start" });
     }, 50);
@@ -147,30 +142,13 @@ function AIAssistantsPage() {
                 Book Your Setup Call
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </a>
-              <button
-                type="button"
-                onClick={() => {
-                  setShowPlansHero((v) => {
-                    const next = !v;
-                    if (next) {
-                      setTimeout(() => {
-                        document
-                          .getElementById("voice-plans-panel-hero")
-                          ?.scrollIntoView({ behavior: "smooth", block: "start" });
-                      }, 50);
-                    }
-                    return next;
-                  });
-                }}
-                aria-expanded={showPlansHero}
-                aria-controls="voice-plans-panel-hero"
+              <a
+                href="#pricing-tiers"
                 className="inline-flex h-12 items-center gap-2 rounded-md border border-foreground/80 bg-transparent px-6 text-sm font-medium text-foreground transition-colors hover:bg-foreground hover:text-background"
               >
-                {showPlansHero ? "Hide Plans" : "See Vektiss Voice Plans"}
-                <ChevronDown
-                  className={`h-4 w-4 transition-transform ${showPlansHero ? "rotate-180" : ""}`}
-                />
-              </button>
+                See Vektiss Voice Plans
+                <ArrowRight className="h-4 w-4" />
+              </a>
             </div>
             <div className="mt-5 flex flex-wrap items-center gap-2">
               {["Done For You", "No Contract", "30-Day Guarantee"].map((b) => (
@@ -190,17 +168,6 @@ function AIAssistantsPage() {
               Want to hear your own business? Book a setup call and we'll build
               your custom demo in 24 hours.
             </p>
-          </div>
-        </div>
-        <div
-          id="voice-plans-panel-hero"
-          className={`grid transition-all duration-500 ease-in-out ${
-            showPlansHero ? "mt-12 grid-rows-[1fr] opacity-100" : "mt-0 grid-rows-[0fr] opacity-0"
-          }`}
-          aria-hidden={!showPlansHero}
-        >
-          <div className="overflow-hidden">
-            <PricingTiers />
           </div>
         </div>
       </section>
@@ -410,45 +377,17 @@ function AIAssistantsPage() {
                     </div>
                   ))}
                 </div>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setShowPlansProof((v) => {
-                      const next = !v;
-                      if (next) {
-                        setTimeout(() => {
-                          document
-                            .getElementById("voice-plans-panel-proof")
-                            ?.scrollIntoView({ behavior: "smooth", block: "start" });
-                        }, 50);
-                      }
-                      return next;
-                    });
-                  }}
-                  aria-expanded={showPlansProof}
-                  aria-controls="voice-plans-panel-proof"
+                <a
+                  href="#pricing-tiers"
                   className="mt-8 inline-flex h-12 items-center gap-2 rounded-md border border-white/40 bg-transparent px-6 text-sm font-medium text-white transition-colors hover:bg-white hover:text-foreground"
                 >
-                  {showPlansProof ? "Hide Plans" : "See Vektiss Voice Plans"}
-                  <ChevronDown
-                    className={`h-4 w-4 transition-transform ${showPlansProof ? "rotate-180" : ""}`}
-                  />
-                </button>
+                  See Vektiss Voice Plans
+                  <ArrowRight className="h-4 w-4" />
+                </a>
               </div>
             </div>
             <div className="md:col-span-7">
               <DashboardPreview />
-            </div>
-          </div>
-          <div
-            id="voice-plans-panel-proof"
-            className={`grid transition-all duration-500 ease-in-out ${
-              showPlansProof ? "mt-12 grid-rows-[1fr] opacity-100" : "mt-0 grid-rows-[0fr] opacity-0"
-            }`}
-            aria-hidden={!showPlansProof}
-          >
-            <div className="overflow-hidden">
-              <PricingTiers />
             </div>
           </div>
         </div>
@@ -619,45 +558,17 @@ function AIAssistantsPage() {
                 Book Your Setup Call
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </a>
-              <button
-                type="button"
-                onClick={() => {
-                  setShowPlansFinal((v) => {
-                    const next = !v;
-                    if (next) {
-                      setTimeout(() => {
-                        document
-                          .getElementById("voice-plans-panel-final")
-                          ?.scrollIntoView({ behavior: "smooth", block: "start" });
-                      }, 50);
-                    }
-                    return next;
-                  });
-                }}
-                aria-expanded={showPlansFinal}
-                aria-controls="voice-plans-panel-final"
+              <a
+                href="#pricing-tiers"
                 className="inline-flex h-12 items-center gap-2 rounded-md border border-white/50 bg-transparent px-6 text-sm font-medium text-white transition-colors hover:bg-white hover:text-foreground"
               >
-                {showPlansFinal ? "Hide Plans" : "See Vektiss Voice Plans"}
-                <ChevronDown
-                  className={`h-4 w-4 transition-transform ${showPlansFinal ? "rotate-180" : ""}`}
-                />
-              </button>
+                See Vektiss Voice Plans
+                <ArrowRight className="h-4 w-4" />
+              </a>
             </div>
             <p className="mt-5 text-[13px] text-white/60">
               30-Day Money-Back Guarantee · No Contract · Cancel Anytime
             </p>
-          </div>
-          <div
-            id="voice-plans-panel-final"
-            className={`grid transition-all duration-500 ease-in-out ${
-              showPlansFinal ? "mt-12 grid-rows-[1fr] opacity-100" : "mt-0 grid-rows-[0fr] opacity-0"
-            }`}
-            aria-hidden={!showPlansFinal}
-          >
-            <div className="overflow-hidden">
-              <PricingTiers />
-            </div>
           </div>
         </div>
       </section>
