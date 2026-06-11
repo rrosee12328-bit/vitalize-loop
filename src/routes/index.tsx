@@ -90,6 +90,21 @@ function HomePage() {
     }
   }, [hash]);
 
+  // Also respond when the nav pricing link is clicked while already on this page
+  useEffect(() => {
+    const handler = () => {
+      setShowPlans(true);
+      requestAnimationFrame(() => {
+        document
+          .getElementById("voice-pricing")
+          ?.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    };
+    window.addEventListener("vektiss:open-pricing", handler);
+    return () => window.removeEventListener("vektiss:open-pricing", handler);
+  }, []);
+
+
 
 
   // Ensure only one Bunny Stream iframe plays at a time.
