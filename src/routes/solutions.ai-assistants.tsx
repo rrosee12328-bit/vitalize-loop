@@ -105,15 +105,10 @@ const proofStatements = [
 ];
 
 function AIAssistantsPage() {
-  const [showPlansHero, setShowPlansHero] = useState(false);
-  const [showPlansProof, setShowPlansProof] = useState(false);
-  const [showPlansFinal, setShowPlansFinal] = useState(false);
-
   useEffect(() => {
     if (typeof window === "undefined") return;
     const hash = window.location.hash.replace("#", "");
     if (!hash) return;
-    // Wait a tick for layout, then scroll
     const t = setTimeout(() => {
       document.getElementById(hash)?.scrollIntoView({ behavior: "smooth", block: "start" });
     }, 50);
