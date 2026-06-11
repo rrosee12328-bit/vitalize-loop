@@ -139,9 +139,11 @@ function HomePage() {
 
     return () => {
       window.clearTimeout(t);
+      window.clearInterval(interval);
       window.removeEventListener("message", onMessage);
       frames.forEach((f) => f.removeEventListener("load", subscribe));
     };
+
   }, []);
 
   return (
