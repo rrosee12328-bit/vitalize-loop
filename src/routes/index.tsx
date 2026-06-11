@@ -108,6 +108,9 @@ function HomePage() {
     frames.forEach((f) => f.addEventListener("load", subscribe));
     // Initial attempt in case frames are already loaded.
     const t = window.setTimeout(subscribe, 500);
+    // Re-subscribe periodically in case the player drops listeners after pause.
+    const interval = window.setInterval(subscribe, 2000);
+
 
     const onMessage = (e: MessageEvent) => {
       let data: any = e.data;
