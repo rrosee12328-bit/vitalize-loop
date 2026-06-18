@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as VoiceIntakeRouteImport } from './routes/voice-intake'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as SolutionsRouteImport } from './routes/solutions'
+import { Route as SmsConsentRouteImport } from './routes/sms-consent'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as HowWeWorkRouteImport } from './routes/how-we-work'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -38,6 +39,11 @@ const TermsRoute = TermsRouteImport.update({
 const SolutionsRoute = SolutionsRouteImport.update({
   id: '/solutions',
   path: '/solutions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SmsConsentRoute = SmsConsentRouteImport.update({
+  id: '/sms-consent',
+  path: '/sms-consent',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyRoute = PrivacyRouteImport.update({
@@ -110,6 +116,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/how-we-work': typeof HowWeWorkRoute
   '/privacy': typeof PrivacyRoute
+  '/sms-consent': typeof SmsConsentRoute
   '/solutions': typeof SolutionsRouteWithChildren
   '/terms': typeof TermsRoute
   '/voice-intake': typeof VoiceIntakeRoute
@@ -127,6 +134,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/how-we-work': typeof HowWeWorkRoute
   '/privacy': typeof PrivacyRoute
+  '/sms-consent': typeof SmsConsentRoute
   '/solutions': typeof SolutionsRouteWithChildren
   '/terms': typeof TermsRoute
   '/voice-intake': typeof VoiceIntakeRoute
@@ -145,6 +153,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/how-we-work': typeof HowWeWorkRoute
   '/privacy': typeof PrivacyRoute
+  '/sms-consent': typeof SmsConsentRoute
   '/solutions': typeof SolutionsRouteWithChildren
   '/terms': typeof TermsRoute
   '/voice-intake': typeof VoiceIntakeRoute
@@ -164,6 +173,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/how-we-work'
     | '/privacy'
+    | '/sms-consent'
     | '/solutions'
     | '/terms'
     | '/voice-intake'
@@ -181,6 +191,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/how-we-work'
     | '/privacy'
+    | '/sms-consent'
     | '/solutions'
     | '/terms'
     | '/voice-intake'
@@ -198,6 +209,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/how-we-work'
     | '/privacy'
+    | '/sms-consent'
     | '/solutions'
     | '/terms'
     | '/voice-intake'
@@ -216,6 +228,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   HowWeWorkRoute: typeof HowWeWorkRoute
   PrivacyRoute: typeof PrivacyRoute
+  SmsConsentRoute: typeof SmsConsentRoute
   SolutionsRoute: typeof SolutionsRouteWithChildren
   TermsRoute: typeof TermsRoute
   VoiceIntakeRoute: typeof VoiceIntakeRoute
@@ -244,6 +257,13 @@ declare module '@tanstack/react-router' {
       path: '/solutions'
       fullPath: '/solutions'
       preLoaderRoute: typeof SolutionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sms-consent': {
+      id: '/sms-consent'
+      path: '/sms-consent'
+      fullPath: '/sms-consent'
+      preLoaderRoute: typeof SmsConsentRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy': {
@@ -358,6 +378,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   HowWeWorkRoute: HowWeWorkRoute,
   PrivacyRoute: PrivacyRoute,
+  SmsConsentRoute: SmsConsentRoute,
   SolutionsRoute: SolutionsRouteWithChildren,
   TermsRoute: TermsRoute,
   VoiceIntakeRoute: VoiceIntakeRoute,
@@ -367,12 +388,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { createStart } from '@tanstack/react-start'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-  }
-}
