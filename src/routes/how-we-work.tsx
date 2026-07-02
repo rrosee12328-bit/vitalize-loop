@@ -327,9 +327,7 @@ function HowWeWorkPage() {
             </p>
             <div className="mt-10 flex flex-col items-center gap-4">
               <a
-                href="https://voice.vektiss.com/get-started"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/apply"
                 className="group inline-flex h-14 items-center gap-2 rounded-xl bg-[#0088FF] px-10 text-base font-medium text-white transition-all hover:scale-[1.02] hover:opacity-95"
                 style={{
                   boxShadow:

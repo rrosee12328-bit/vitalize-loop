@@ -3,7 +3,7 @@ import { ArrowRight, Check, X, Phone, Mail, Sparkles, Crown, Sparkle } from "luc
 import { Slider } from "@/components/ui/slider";
 import { cn } from "@/lib/utils";
 
-const GET_STARTED = "https://voice.vektiss.com/get-started";
+const GET_STARTED = "/apply";
 
 type Tier = {
   name: string;
