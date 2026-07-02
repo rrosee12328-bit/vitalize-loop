@@ -30,6 +30,22 @@ export const Route = createFileRoute("/")({
 
 const faqs = [
   {
+    q: "How much does Vektiss Voice cost?",
+    a: "Vektiss Voice is a custom implementation, not a one-size-fits-all subscription. Implementation starts at $5,000, and monthly management starts at $1,250. Final pricing depends on call volume, departments, integrations, SMS/email workflows, reporting needs, and support level.",
+  },
+  {
+    q: "Why don't you offer cheap monthly plans?",
+    a: "A premium AI front-office system requires discovery, workflow design, knowledge base setup, testing, monitoring, and ongoing optimization. We are not trying to be the cheapest AI phone option. We work with businesses that want a managed system built around how they actually operate.",
+  },
+  {
+    q: "Is Vektiss only an AI phone company?",
+    a: "No. Vektiss builds AI-powered business systems across Voice, Apps, Portals, and Intelligence. Voice is often the entry point, but we can also help businesses build custom workflows, dashboards, client portals, internal tools, and AI-powered decision systems.",
+  },
+  {
+    q: "Who is Vektiss best for?",
+    a: "Vektiss is best for businesses where missed calls, slow response, poor intake, scattered tools, or manual follow-up are costing time or revenue. We are a fit for companies that want AI implemented into their business operations, not businesses looking for the cheapest tool available.",
+  },
+  {
     q: "What does Vektiss actually do?",
     a: "Vektiss builds AI-powered business systems that help companies save time, capture leads, and operate with more clarity. That can include Vektiss Voice, email assistants, websites, client portals, internal dashboards, automations, apps, and business media systems.",
   },
