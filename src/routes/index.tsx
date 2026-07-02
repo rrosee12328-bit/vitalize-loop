@@ -203,23 +203,17 @@ function HomePage() {
                 Learn More
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
-              <button
-                type="button"
-                onClick={() => {
-                  setShowPlans(true);
-                  setTimeout(() => {
-                    document
-                      .getElementById("voice-pricing")
-                      ?.scrollIntoView({ behavior: "smooth", block: "start" });
-                  }, 50);
-                }}
+              <a
+                href="https://voice.vektiss.com/get-started"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex h-12 items-center gap-2 rounded-md border border-foreground/80 bg-transparent px-6 text-sm font-medium text-foreground transition-colors hover:bg-foreground hover:text-background"
               >
-                See Plans
-              </button>
+                Apply for an implementation call
+              </a>
             </div>
             <div className="mt-5 flex flex-wrap items-center gap-2">
-              {["Done For You", "No Contract", "$45.99/mo"].map((b, i) => (
+              {["Managed implementation", "Custom workflow design", "Ongoing optimization"].map((b, i) => (
                 <span
                   key={b}
                   style={{ animationDelay: `${540 + i * 120}ms` }}
