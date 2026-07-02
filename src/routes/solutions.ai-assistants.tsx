@@ -68,7 +68,7 @@ const comparisonRows = [
   { feature: "Sends Intake Forms", vektiss: "Yes — during the call", human: "Sometimes", voicemail: "Never", vektissPositive: true, humanPositive: true, voicemailPositive: false },
   { feature: "Live Follow-Up Alerts to You", vektiss: "Yes — every call", human: "No", voicemail: "No", vektissPositive: true, humanPositive: false, voicemailPositive: false },
   { feature: "Call Analytics Dashboard", vektiss: "Yes", human: "No", voicemail: "No", vektissPositive: true, humanPositive: false, voicemailPositive: false },
-  { feature: "Monthly Cost", vektiss: "From $45.99", human: "~$3,500+", voicemail: "Free (but costs you deals)", vektissPositive: true, humanPositive: false, voicemailPositive: false },
+  { feature: "Engagement Model", vektiss: "Managed implementation", human: "Payroll + management", voicemail: "None", vektissPositive: true, humanPositive: false, voicemailPositive: false },
 ];
 
 const steps = [
