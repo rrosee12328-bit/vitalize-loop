@@ -502,36 +502,46 @@ function AIAssistantsPage() {
       </section>
 
       {/* Pricing */}
-      <section id="pricing" className="border-t border-border scroll-mt-24">
-
+      <section id="implementation" className="border-t border-border scroll-mt-24">
         <div className="container-editorial py-24 md:py-32">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="eyebrow text-primary">Vektiss Voice Plans</p>
-            <p className="eyebrow mt-3">Pricing</p>
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="eyebrow text-primary">Vektiss Voice Implementation</p>
             <h2 className="mt-6 display-2">
-              Flat rate. No surprises. Cancel anytime.
+              A managed AI front-office system, not a plug-in phone tool.
             </h2>
             <p className="mt-6 text-lg text-muted-foreground">
-              Every plan includes done-for-you setup, 24/7 coverage, and a 30-day
-              money-back guarantee.
+              Vektiss Voice is a managed AI front-office system for businesses that need calls, intake, routing, lead qualification, and customer response handled with speed and consistency.
             </p>
-          </div>
-
-          <div id="pricing-tiers" className="mt-14 scroll-mt-24">
-            <PricingTiers />
+            <p className="mt-4 text-lg text-muted-foreground">
+              This is not a plug-in phone tool. We design, build, test, and manage the workflow around how your business actually communicates with customers.
+            </p>
+            <a
+              href={CALENDLY}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group mt-10 inline-flex h-14 items-center gap-2 rounded-md bg-primary px-8 text-base font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:-translate-y-0.5 hover:opacity-95 hover:shadow-xl"
+            >
+              Apply for an implementation call
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </a>
           </div>
         </div>
       </section>
 
-      {/* Estimator */}
+      {/* Qualification */}
       <section className="border-t border-border bg-surface-elevated">
         <div className="container-editorial py-24 md:py-32">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="eyebrow">Estimate Your Cost</p>
-            <h2 className="mt-6 display-2">See which plan fits your business.</h2>
-          </div>
-          <div className="mt-12">
-            <PricingEstimator />
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="eyebrow text-primary">Who we work with</p>
+            <h2 className="mt-6 display-2">
+              Built for businesses with real operational demand.
+            </h2>
+            <p className="mt-6 text-lg text-muted-foreground">
+              Vektiss is built for companies that already have customer inquiries, inbound calls, lead flow, staff workload, or operational bottlenecks that need to move faster.
+            </p>
+            <p className="mt-4 text-lg text-muted-foreground">
+              We work best with law firms, med spas, clinics, professional service companies, and growing businesses that need AI implemented into their actual workflow — not just added as another tool.
+            </p>
           </div>
         </div>
       </section>
@@ -541,11 +551,10 @@ function AIAssistantsPage() {
         <div className="container-editorial py-24 md:py-28">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="display-2 text-white">
-              Your best employee costs $45.99 a month.
+              A front-office system built around your business.
             </h2>
             <p className="mt-6 text-lg text-white/70">
-              Vektiss Voice — never misses a call, never takes a sick day,
-              never forgets to follow up. Live in 48 hours.
+              Vektiss helps growing businesses build AI-powered systems that communicate faster, operate cleaner, and make smarter decisions.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <a
@@ -554,20 +563,10 @@ function AIAssistantsPage() {
                 rel="noopener noreferrer"
                 className="group inline-flex h-12 items-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
               >
-                Book Your Setup Call
+                Apply for an implementation call
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </a>
-              <a
-                href="#pricing"
-                className="inline-flex h-12 items-center gap-2 rounded-md border border-white/50 bg-transparent px-6 text-sm font-medium text-white transition-colors hover:bg-white hover:text-foreground"
-              >
-                See Vektiss Voice Plans
-                <ArrowRight className="h-4 w-4" />
-              </a>
             </div>
-            <p className="mt-5 text-[13px] text-white/60">
-              30-Day Money-Back Guarantee · No Contract · Cancel Anytime
-            </p>
           </div>
         </div>
       </section>
