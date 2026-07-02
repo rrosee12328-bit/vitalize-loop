@@ -257,41 +257,29 @@ function HomePage() {
         </div>
       </section>
 
-      {/* PHONE ASSISTANT CTA STRIP */}
+      {/* VEKTISS VOICE IMPLEMENTATION */}
       <section id="voice-pricing" className="scroll-mt-20 border-y border-border bg-[#EFF6FF]">
-        <div className="container-editorial py-12 md:py-16">
+        <div className="container-editorial py-16 md:py-20">
           <div className="mx-auto flex max-w-3xl flex-col items-center gap-5 text-center">
-            <p className="eyebrow text-primary">Vektiss Voice Pricing</p>
-            <p className="text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
-              Vektiss Voice. Starting at $45.99/mo.
+            <p className="eyebrow text-primary">Vektiss Voice Implementation</p>
+            <h2 className="display-2">
+              A managed AI front-office system, not a plug-in phone tool.
+            </h2>
+            <p className="max-w-2xl text-base text-muted-foreground md:text-lg">
+              Vektiss Voice is a managed AI front-office system for businesses that need calls, intake, routing, lead qualification, and customer response handled with speed and consistency.
             </p>
-            <p className="max-w-xl text-sm text-muted-foreground md:text-base">
-              Done-for-you setup. 30-day money-back guarantee. No contracts.
+            <p className="max-w-2xl text-base text-muted-foreground md:text-lg">
+              This is not a plug-in phone tool. We design, build, test, and manage the workflow around how your business actually communicates with customers.
             </p>
-            <button
-              type="button"
-              onClick={() => setShowPlans((v) => !v)}
-              aria-expanded={showPlans}
-              aria-controls="voice-plans-panel"
+            <a
+              href="https://voice.vektiss.com/get-started"
+              target="_blank"
+              rel="noopener noreferrer"
               className="group mt-2 inline-flex h-14 items-center gap-2 rounded-md bg-primary px-8 text-base font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:-translate-y-0.5 hover:opacity-95 hover:shadow-xl"
             >
-              {showPlans ? "Hide Plans" : "See Vektiss Voice Plans"}
-              <ChevronDown
-                className={`h-4 w-4 transition-transform ${showPlans ? "rotate-180" : ""}`}
-              />
-            </button>
-          </div>
-
-          <div
-            id="voice-plans-panel"
-            className={`grid transition-all duration-500 ease-in-out ${
-              showPlans ? "mt-12 grid-rows-[1fr] opacity-100" : "mt-0 grid-rows-[0fr] opacity-0"
-            }`}
-            aria-hidden={!showPlans}
-          >
-            <div className="overflow-hidden">
-              <PricingTiers />
-            </div>
+              Apply for an implementation call
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </a>
           </div>
         </div>
       </section>
