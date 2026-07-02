@@ -4,7 +4,7 @@ import { ArrowRight, BarChart3, ListChecks, Flame, MessageSquare, GitBranch, Sma
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { LiveCallDemo } from "@/components/site/ai-assistants/LiveCallDemo";
 import { DashboardPreview } from "@/components/site/ai-assistants/DashboardPreview";
-import { PricingEstimator, PricingTiers } from "@/components/site/ai-assistants/PricingEstimator";
+
 import { VoiceLoopSection } from "@/components/site/VoiceLoopSection";
 import {
   MissedCallIllustration,
