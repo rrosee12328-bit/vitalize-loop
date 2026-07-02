@@ -147,13 +147,8 @@ export function Header() {
           <div className="flex items-center gap-3 md:gap-5">
             {/* Pricing pill */}
             <Link
-              to="/"
-              hash="voice-pricing"
-              onClick={() => {
-                if (typeof window !== "undefined") {
-                  window.dispatchEvent(new CustomEvent("vektiss:open-pricing"));
-                }
-              }}
+              to="/solutions/ai-assistants"
+              hash="implementation"
               className="hidden items-center gap-3 rounded-full border border-slate-900/10 bg-white/60 px-3 py-1.5 transition-colors hover:border-slate-900/20 hover:bg-white/90 md:inline-flex"
             >
               <div className="flex items-center gap-2 border-r border-slate-900/10 pr-2.5">
@@ -162,13 +157,11 @@ export function Header() {
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-[#0088FF] shadow-[0_0_6px_rgba(0,136,255,0.7)]" />
                 </span>
                 <span className="text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-500">
-                  Pricing
+                  Implementation
                 </span>
               </div>
-              <div className="text-[11px] font-medium tabular-nums">
-                <span className="text-slate-400">from</span>
-                <span className="ml-1 text-slate-950">$45.99</span>
-                <span className="text-slate-400">/mo</span>
+              <div className="text-[11px] font-medium tabular-nums text-slate-950">
+                Managed AI front office
               </div>
             </Link>
 
@@ -227,14 +220,9 @@ export function Header() {
                 </Link>
               ))}
               <Link
-                to="/"
-                hash="voice-pricing"
-                onClick={() => {
-                  setOpen(false);
-                  if (typeof window !== "undefined") {
-                    window.dispatchEvent(new CustomEvent("vektiss:open-pricing"));
-                  }
-                }}
+                to="/solutions/ai-assistants"
+                hash="implementation"
+                onClick={() => setOpen(false)}
                 className="mt-3 inline-flex items-center justify-between gap-2 rounded-lg border border-slate-900/10 bg-white/70 px-3 py-2 text-sm font-medium text-slate-950"
               >
                 <span className="inline-flex items-center gap-2">
@@ -243,14 +231,10 @@ export function Header() {
                     <span className="relative inline-flex h-2 w-2 rounded-full bg-[#0088FF]" />
                   </span>
                   <span className="text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-500">
-                    Pricing
+                    Implementation
                   </span>
                 </span>
-                <span className="text-xs tabular-nums">
-                  <span className="text-slate-400">from</span>{" "}
-                  <span className="text-slate-950">$45.99</span>
-                  <span className="text-slate-400">/mo</span>
-                </span>
+                <span className="text-xs text-slate-950">Managed AI front office</span>
               </Link>
               <a
                 href="https://voice.vektiss.com/get-started"

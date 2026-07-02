@@ -1,11 +1,10 @@
 import { createFileRoute, Link, useRouterState } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { useEffect } from "react";
+import { ArrowRight } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 // TechLinesBackground is provided site-wide via SiteLayout
 import { LiveCallDemo } from "@/components/site/ai-assistants/LiveCallDemo";
 import { DashboardPreview } from "@/components/site/ai-assistants/DashboardPreview";
-import { PricingTiers } from "@/components/site/ai-assistants/PricingEstimator";
 import { WhoWeAreHero } from "@/components/site/WhoWeAreHero";
 import { TestimonialsTicker } from "@/components/site/TestimonialsTicker";
 
@@ -30,6 +29,22 @@ export const Route = createFileRoute("/")({
 });
 
 const faqs = [
+  {
+    q: "How much does Vektiss Voice cost?",
+    a: "Vektiss Voice is a custom implementation, not a one-size-fits-all subscription. Implementation starts at $5,000, and monthly management starts at $1,250. Final pricing depends on call volume, departments, integrations, SMS/email workflows, reporting needs, and support level.",
+  },
+  {
+    q: "Why don't you offer cheap monthly plans?",
+    a: "A premium AI front-office system requires discovery, workflow design, knowledge base setup, testing, monitoring, and ongoing optimization. We are not trying to be the cheapest AI phone option. We work with businesses that want a managed system built around how they actually operate.",
+  },
+  {
+    q: "Is Vektiss only an AI phone company?",
+    a: "No. Vektiss builds AI-powered business systems across Voice, Apps, Portals, and Intelligence. Voice is often the entry point, but we can also help businesses build custom workflows, dashboards, client portals, internal tools, and AI-powered decision systems.",
+  },
+  {
+    q: "Who is Vektiss best for?",
+    a: "Vektiss is best for businesses where missed calls, slow response, poor intake, scattered tools, or manual follow-up are costing time or revenue. We are a fit for companies that want AI implemented into their business operations, not businesses looking for the cheapest tool available.",
+  },
   {
     q: "What does Vektiss actually do?",
     a: "Vektiss builds AI-powered business systems that help companies save time, capture leads, and operate with more clarity. That can include Vektiss Voice, email assistants, websites, client portals, internal dashboards, automations, apps, and business media systems.",
@@ -74,14 +89,11 @@ const faqs = [
 
 
 function HomePage() {
-  const [showPlans, setShowPlans] = useState(false);
-  const [showPlansBottom, setShowPlansBottom] = useState(false);
   const hash = useRouterState({ select: (s) => s.location.hash });
 
-  // Auto-expand the pricing panel when navigated to via #voice-pricing
+  // Scroll to #voice-pricing when navigated with that hash
   useEffect(() => {
     if (hash === "voice-pricing") {
-      setShowPlans(true);
       requestAnimationFrame(() => {
         document
           .getElementById("voice-pricing")
@@ -90,19 +102,6 @@ function HomePage() {
     }
   }, [hash]);
 
-  // Also respond when the nav pricing link is clicked while already on this page
-  useEffect(() => {
-    const handler = () => {
-      setShowPlans(true);
-      requestAnimationFrame(() => {
-        document
-          .getElementById("voice-pricing")
-          ?.scrollIntoView({ behavior: "smooth", block: "start" });
-      });
-    };
-    window.addEventListener("vektiss:open-pricing", handler);
-    return () => window.removeEventListener("vektiss:open-pricing", handler);
-  }, []);
 
 
 
@@ -220,23 +219,17 @@ function HomePage() {
                 Learn More
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
-              <button
-                type="button"
-                onClick={() => {
-                  setShowPlans(true);
-                  setTimeout(() => {
-                    document
-                      .getElementById("voice-pricing")
-                      ?.scrollIntoView({ behavior: "smooth", block: "start" });
-                  }, 50);
-                }}
+              <a
+                href="https://voice.vektiss.com/get-started"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex h-12 items-center gap-2 rounded-md border border-foreground/80 bg-transparent px-6 text-sm font-medium text-foreground transition-colors hover:bg-foreground hover:text-background"
               >
-                See Plans
-              </button>
+                Apply for an implementation call
+              </a>
             </div>
             <div className="mt-5 flex flex-wrap items-center gap-2">
-              {["Done For You", "No Contract", "$45.99/mo"].map((b, i) => (
+              {["Managed implementation", "Custom workflow design", "Ongoing optimization"].map((b, i) => (
                 <span
                   key={b}
                   style={{ animationDelay: `${540 + i * 120}ms` }}
@@ -258,41 +251,29 @@ function HomePage() {
         </div>
       </section>
 
-      {/* PHONE ASSISTANT CTA STRIP */}
+      {/* VEKTISS VOICE IMPLEMENTATION */}
       <section id="voice-pricing" className="scroll-mt-20 border-y border-border bg-[#EFF6FF]">
-        <div className="container-editorial py-12 md:py-16">
+        <div className="container-editorial py-16 md:py-20">
           <div className="mx-auto flex max-w-3xl flex-col items-center gap-5 text-center">
-            <p className="eyebrow text-primary">Vektiss Voice Pricing</p>
-            <p className="text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
-              Vektiss Voice. Starting at $45.99/mo.
+            <p className="eyebrow text-primary">Vektiss Voice Implementation</p>
+            <h2 className="display-2">
+              A managed AI front-office system, not a plug-in phone tool.
+            </h2>
+            <p className="max-w-2xl text-base text-muted-foreground md:text-lg">
+              Vektiss Voice is a managed AI front-office system for businesses that need calls, intake, routing, lead qualification, and customer response handled with speed and consistency.
             </p>
-            <p className="max-w-xl text-sm text-muted-foreground md:text-base">
-              Done-for-you setup. 30-day money-back guarantee. No contracts.
+            <p className="max-w-2xl text-base text-muted-foreground md:text-lg">
+              This is not a plug-in phone tool. We design, build, test, and manage the workflow around how your business actually communicates with customers.
             </p>
-            <button
-              type="button"
-              onClick={() => setShowPlans((v) => !v)}
-              aria-expanded={showPlans}
-              aria-controls="voice-plans-panel"
+            <a
+              href="https://voice.vektiss.com/get-started"
+              target="_blank"
+              rel="noopener noreferrer"
               className="group mt-2 inline-flex h-14 items-center gap-2 rounded-md bg-primary px-8 text-base font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:-translate-y-0.5 hover:opacity-95 hover:shadow-xl"
             >
-              {showPlans ? "Hide Plans" : "See Vektiss Voice Plans"}
-              <ChevronDown
-                className={`h-4 w-4 transition-transform ${showPlans ? "rotate-180" : ""}`}
-              />
-            </button>
-          </div>
-
-          <div
-            id="voice-plans-panel"
-            className={`grid transition-all duration-500 ease-in-out ${
-              showPlans ? "mt-12 grid-rows-[1fr] opacity-100" : "mt-0 grid-rows-[0fr] opacity-0"
-            }`}
-            aria-hidden={!showPlans}
-          >
-            <div className="overflow-hidden">
-              <PricingTiers />
-            </div>
+              Apply for an implementation call
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </a>
           </div>
         </div>
       </section>
@@ -317,50 +298,29 @@ function HomePage() {
         </div>
       </section>
 
-      {/* PRE-FAQ PRICING CTA */}
+      {/* QUALIFICATION */}
       <section className="border-t border-border bg-[#EFF6FF]">
-        <div className="container-editorial py-12 md:py-16">
-          <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 text-center">
-            <p className="eyebrow text-primary">Ready when you are</p>
-            <p className="text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
-              Vektiss Voice — plans starting at $45.99/mo.
+        <div className="container-editorial py-20 md:py-28">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="eyebrow text-primary">Who we work with</p>
+            <h2 className="mt-6 display-2">
+              Built for businesses with real operational demand.
+            </h2>
+            <p className="mx-auto mt-6 max-w-2xl text-base text-muted-foreground md:text-lg">
+              Vektiss is built for companies that already have customer inquiries, inbound calls, lead flow, staff workload, or operational bottlenecks that need to move faster.
             </p>
-            <button
-              type="button"
-              onClick={() => {
-                setShowPlansBottom((v) => {
-                  const next = !v;
-                  if (next) {
-                    setTimeout(() => {
-                      document
-                        .getElementById("voice-plans-panel-bottom")
-                        ?.scrollIntoView({ behavior: "smooth", block: "start" });
-                    }, 50);
-                  }
-                  return next;
-                });
-              }}
-              aria-expanded={showPlansBottom}
-              aria-controls="voice-plans-panel-bottom"
-              className="group mt-2 inline-flex h-14 items-center gap-2 rounded-md bg-primary px-8 text-base font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:-translate-y-0.5 hover:opacity-95 hover:shadow-xl"
+            <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground md:text-lg">
+              We work best with law firms, med spas, clinics, professional service companies, and growing businesses that need AI implemented into their actual workflow — not just added as another tool.
+            </p>
+            <a
+              href="https://voice.vektiss.com/get-started"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group mt-8 inline-flex h-12 items-center gap-2 rounded-md bg-primary px-6 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:-translate-y-0.5 hover:opacity-95"
             >
-              {showPlansBottom ? "Hide Plans" : "See Vektiss Voice Plans"}
-              <ChevronDown
-                className={`h-4 w-4 transition-transform ${showPlansBottom ? "rotate-180" : ""}`}
-              />
-            </button>
-          </div>
-
-          <div
-            id="voice-plans-panel-bottom"
-            className={`grid transition-all duration-500 ease-in-out ${
-              showPlansBottom ? "mt-12 grid-rows-[1fr] opacity-100" : "mt-0 grid-rows-[0fr] opacity-0"
-            }`}
-            aria-hidden={!showPlansBottom}
-          >
-            <div className="overflow-hidden">
-              <PricingTiers />
-            </div>
+              Apply for an implementation call
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </a>
           </div>
         </div>
       </section>
