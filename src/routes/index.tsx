@@ -316,50 +316,29 @@ function HomePage() {
         </div>
       </section>
 
-      {/* PRE-FAQ PRICING CTA */}
+      {/* QUALIFICATION */}
       <section className="border-t border-border bg-[#EFF6FF]">
-        <div className="container-editorial py-12 md:py-16">
-          <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 text-center">
-            <p className="eyebrow text-primary">Ready when you are</p>
-            <p className="text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
-              Vektiss Voice — plans starting at $45.99/mo.
+        <div className="container-editorial py-20 md:py-28">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="eyebrow text-primary">Who we work with</p>
+            <h2 className="mt-6 display-2">
+              Built for businesses with real operational demand.
+            </h2>
+            <p className="mx-auto mt-6 max-w-2xl text-base text-muted-foreground md:text-lg">
+              Vektiss is built for companies that already have customer inquiries, inbound calls, lead flow, staff workload, or operational bottlenecks that need to move faster.
             </p>
-            <button
-              type="button"
-              onClick={() => {
-                setShowPlansBottom((v) => {
-                  const next = !v;
-                  if (next) {
-                    setTimeout(() => {
-                      document
-                        .getElementById("voice-plans-panel-bottom")
-                        ?.scrollIntoView({ behavior: "smooth", block: "start" });
-                    }, 50);
-                  }
-                  return next;
-                });
-              }}
-              aria-expanded={showPlansBottom}
-              aria-controls="voice-plans-panel-bottom"
-              className="group mt-2 inline-flex h-14 items-center gap-2 rounded-md bg-primary px-8 text-base font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:-translate-y-0.5 hover:opacity-95 hover:shadow-xl"
+            <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground md:text-lg">
+              We work best with law firms, med spas, clinics, professional service companies, and growing businesses that need AI implemented into their actual workflow — not just added as another tool.
+            </p>
+            <a
+              href="https://voice.vektiss.com/get-started"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group mt-8 inline-flex h-12 items-center gap-2 rounded-md bg-primary px-6 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:-translate-y-0.5 hover:opacity-95"
             >
-              {showPlansBottom ? "Hide Plans" : "See Vektiss Voice Plans"}
-              <ChevronDown
-                className={`h-4 w-4 transition-transform ${showPlansBottom ? "rotate-180" : ""}`}
-              />
-            </button>
-          </div>
-
-          <div
-            id="voice-plans-panel-bottom"
-            className={`grid transition-all duration-500 ease-in-out ${
-              showPlansBottom ? "mt-12 grid-rows-[1fr] opacity-100" : "mt-0 grid-rows-[0fr] opacity-0"
-            }`}
-            aria-hidden={!showPlansBottom}
-          >
-            <div className="overflow-hidden">
-              <PricingTiers />
-            </div>
+              Apply for an implementation call
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </a>
           </div>
         </div>
       </section>
