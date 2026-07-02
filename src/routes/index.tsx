@@ -73,14 +73,11 @@ const faqs = [
 
 
 function HomePage() {
-  const [showPlans, setShowPlans] = useState(false);
-  const [showPlansBottom, setShowPlansBottom] = useState(false);
   const hash = useRouterState({ select: (s) => s.location.hash });
 
-  // Auto-expand the pricing panel when navigated to via #voice-pricing
+  // Scroll to #voice-pricing when navigated with that hash
   useEffect(() => {
     if (hash === "voice-pricing") {
-      setShowPlans(true);
       requestAnimationFrame(() => {
         document
           .getElementById("voice-pricing")
@@ -89,19 +86,6 @@ function HomePage() {
     }
   }, [hash]);
 
-  // Also respond when the nav pricing link is clicked while already on this page
-  useEffect(() => {
-    const handler = () => {
-      setShowPlans(true);
-      requestAnimationFrame(() => {
-        document
-          .getElementById("voice-pricing")
-          ?.scrollIntoView({ behavior: "smooth", block: "start" });
-      });
-    };
-    window.addEventListener("vektiss:open-pricing", handler);
-    return () => window.removeEventListener("vektiss:open-pricing", handler);
-  }, []);
 
 
 
