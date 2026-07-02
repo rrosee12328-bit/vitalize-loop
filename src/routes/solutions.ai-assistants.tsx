@@ -417,7 +417,7 @@ function AIAssistantsPage() {
             <p className="eyebrow text-primary">Why Vektiss Voice</p>
             <h2 className="mt-6 display-2">The math is simple.</h2>
             <p className="mt-6 text-lg text-muted-foreground">
-              A human receptionist costs $3,500/month. Voicemail costs you deals. Vektiss Voice does more than both — for less than your phone bill.
+              A human receptionist costs $3,500/month. Voicemail costs you deals. Vektiss Voice is a managed AI front-office system designed around how your business actually operates.
             </p>
           </div>
 
