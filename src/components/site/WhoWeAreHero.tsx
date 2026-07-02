@@ -28,9 +28,7 @@ export function WhoWeAreHero() {
           </div>
 
           <p className="mx-auto mt-7 max-w-3xl text-lg text-muted-foreground md:text-xl">
-            Operators are drowning in tools. We build the connected infrastructure
-            that runs your business — Voice, Sites, Media, and Intelligence — all
-            in one system, built in-house, built for you.
+            Vektiss helps growing businesses build AI-powered systems that communicate faster, operate cleaner, and make smarter decisions.
           </p>
           <p className="mx-auto mt-5 max-w-2xl text-sm text-muted-foreground/70 md:text-base">
             We didn't hire anyone to build our platform. We built our own AI, our
