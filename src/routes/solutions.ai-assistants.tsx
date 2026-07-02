@@ -469,7 +469,7 @@ function AIAssistantsPage() {
               })}
             </div>
             <p className="mt-4 text-center text-xs text-muted-foreground">
-              Sources: SBA small-business benchmarks. Vektiss Voice pricing starts at $45.99/mo.
+              Sources: SBA small-business benchmarks.
             </p>
           </div>
 
