@@ -1,6 +1,6 @@
 import { createFileRoute, Link, useRouterState } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { useEffect } from "react";
+import { ArrowRight } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 // TechLinesBackground is provided site-wide via SiteLayout
 import { LiveCallDemo } from "@/components/site/ai-assistants/LiveCallDemo";
