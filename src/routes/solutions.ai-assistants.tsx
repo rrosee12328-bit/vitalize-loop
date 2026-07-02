@@ -375,10 +375,12 @@ function AIAssistantsPage() {
                   ))}
                 </div>
                 <a
-                  href="#pricing"
+                  href={CALENDLY}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="mt-8 inline-flex h-12 items-center gap-2 rounded-md border border-white/40 bg-transparent px-6 text-sm font-medium text-white transition-colors hover:bg-white hover:text-foreground"
                 >
-                  See Vektiss Voice Plans
+                  Apply for an implementation call
                   <ArrowRight className="h-4 w-4" />
                 </a>
               </div>
