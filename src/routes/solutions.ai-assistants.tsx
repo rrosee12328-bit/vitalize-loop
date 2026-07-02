@@ -127,10 +127,7 @@ function AIAssistantsPage() {
               <span className="accent-underline">fund your competitors.</span>
             </h1>
             <p className="mt-8 text-lg text-muted-foreground md:text-xl">
-              Vektiss Voice answers every call, routes leads intelligently, sends
-              intake forms, and gives you real-time alerts and analytics on
-              everything callers ask — 24/7, fully managed by Vektiss. No
-              contracts. 30-day money-back guarantee.
+              Vektiss Voice is a managed AI front-office system that answers calls, routes intelligently, sends intake forms, qualifies leads, and gives you full visibility — designed, built, tested, and managed by Vektiss.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <a
@@ -139,19 +136,19 @@ function AIAssistantsPage() {
                 rel="noopener noreferrer"
                 className="group inline-flex h-12 items-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
               >
-                Book Your Setup Call
+                Apply for an implementation call
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </a>
               <a
-                href="#pricing"
+                href="#implementation"
                 className="inline-flex h-12 items-center gap-2 rounded-md border border-foreground/80 bg-transparent px-6 text-sm font-medium text-foreground transition-colors hover:bg-foreground hover:text-background"
               >
-                See Vektiss Voice Plans
+                See how implementation works
                 <ArrowRight className="h-4 w-4" />
               </a>
             </div>
             <div className="mt-5 flex flex-wrap items-center gap-2">
-              {["Done For You", "No Contract", "30-Day Guarantee"].map((b) => (
+              {["Managed Implementation", "Custom Workflow Design", "Ongoing Optimization"].map((b) => (
                 <span
                   key={b}
                   className="inline-flex items-center gap-1.5 rounded-full bg-muted px-3 py-1 text-[12px] font-medium text-foreground/80"
