@@ -167,9 +167,7 @@ export function Header() {
 
             {/* CTA */}
             <a
-              href="https://voice.vektiss.com/get-started"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/apply"
               className="hidden h-9 cursor-pointer items-center whitespace-nowrap rounded-xl bg-[#0088FF] px-5 text-sm font-semibold text-white shadow-[0_4px_16px_-4px_rgba(0,136,255,0.5)] transition-all hover:bg-[#0095FF] hover:shadow-[0_6px_24px_-4px_rgba(0,136,255,0.7)] active:scale-95 lg:inline-flex"
             >
               Get Started
@@ -237,9 +235,7 @@ export function Header() {
                 <span className="text-xs text-slate-950">Managed AI front office</span>
               </Link>
               <a
-                href="https://voice.vektiss.com/get-started"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/apply"
                 onClick={() => setOpen(false)}
                 className="mt-2 inline-flex h-11 items-center justify-center rounded-xl bg-[#0088FF] px-4 text-sm font-semibold text-white shadow-[0_4px_16px_-4px_rgba(0,136,255,0.5)]"
               >

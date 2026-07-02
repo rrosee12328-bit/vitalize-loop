@@ -44,7 +44,7 @@ export function SolutionPage({
             <h1 className="mt-6 display-1">{title}</h1>
             <p className="mt-8 text-lg text-muted-foreground md:text-xl">{lede}</p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <a href="https://voice.vektiss.com/get-started" target="_blank" rel="noopener noreferrer" className="group inline-flex h-12 items-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+              <a href="/apply" className="group inline-flex h-12 items-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
               >
                 Get Started
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -178,7 +178,7 @@ export function SolutionPage({
               </p>
             </div>
             <div className="md:col-span-4 md:text-right">
-              <a href="https://voice.vektiss.com/get-started" target="_blank" rel="noopener noreferrer" className="group inline-flex h-12 items-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+              <a href="/apply" className="group inline-flex h-12 items-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
               >
                 Get Started
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />

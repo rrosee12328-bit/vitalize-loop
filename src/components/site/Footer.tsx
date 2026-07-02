@@ -14,7 +14,7 @@ export function Footer() {
               The systems company for growth-stage operators. We build the connected operating
               infrastructure that runs your business so you can lead it.
             </p>
-            <a href="https://voice.vektiss.com/get-started" target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex h-10 items-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+            <a href="/apply" className="mt-6 inline-flex h-10 items-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
             >
               Get Started
             </a>

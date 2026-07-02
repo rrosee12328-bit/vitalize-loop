@@ -220,9 +220,7 @@ function HomePage() {
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
               <a
-                href="https://voice.vektiss.com/get-started"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/apply"
                 className="inline-flex h-12 items-center gap-2 rounded-md border border-foreground/80 bg-transparent px-6 text-sm font-medium text-foreground transition-colors hover:bg-foreground hover:text-background"
               >
                 Apply for an implementation call
@@ -266,9 +264,7 @@ function HomePage() {
               This is not a plug-in phone tool. We design, build, test, and manage the workflow around how your business actually communicates with customers.
             </p>
             <a
-              href="https://voice.vektiss.com/get-started"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/apply"
               className="group mt-2 inline-flex h-14 items-center gap-2 rounded-md bg-primary px-8 text-base font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:-translate-y-0.5 hover:opacity-95 hover:shadow-xl"
             >
               Apply for an implementation call
@@ -313,9 +309,7 @@ function HomePage() {
               We work best with law firms, med spas, clinics, professional service companies, and growing businesses that need AI implemented into their actual workflow — not just added as another tool.
             </p>
             <a
-              href="https://voice.vektiss.com/get-started"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/apply"
               className="group mt-8 inline-flex h-12 items-center gap-2 rounded-md bg-primary px-6 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:-translate-y-0.5 hover:opacity-95"
             >
               Apply for an implementation call
@@ -367,7 +361,7 @@ function HomePage() {
             </p>
           </div>
           <div className="md:col-span-4 md:text-right">
-            <a href="https://voice.vektiss.com/get-started" target="_blank" rel="noopener noreferrer" className="group inline-flex h-12 items-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+            <a href="/apply" className="group inline-flex h-12 items-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
             >
               Get Started
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
