@@ -38,17 +38,17 @@ export function WhoWeAreHero() {
 
           <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
             <Link
-              to="/solutions"
+              to="/apply"
               className="group inline-flex h-12 items-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-all hover:-translate-y-0.5 hover:shadow-[0_10px_30px_-10px_rgba(37,99,235,0.4)]"
             >
-              See our solutions
+              Book a discovery call
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </Link>
             <Link
-              to="/apply"
-              className="group inline-flex h-12 items-center gap-2 rounded-md border border-border bg-background px-6 text-sm font-medium text-foreground transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-[0_10px_30px_-10px_rgba(37,99,235,0.25)]"
+              to="/solutions"
+              className="group inline-flex h-12 items-center gap-2 rounded-md border border-border bg-white px-6 text-sm font-medium text-slate-950 transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-[0_10px_30px_-10px_rgba(37,99,235,0.25)]"
             >
-              Book a call
+              See our solutions
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </Link>
           </div>
