@@ -5,7 +5,6 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 // TechLinesBackground is provided site-wide via SiteLayout
 import { LiveCallDemo } from "@/components/site/ai-assistants/LiveCallDemo";
 import { DashboardPreview } from "@/components/site/ai-assistants/DashboardPreview";
-import { PricingTiers } from "@/components/site/ai-assistants/PricingEstimator";
 import { WhoWeAreHero } from "@/components/site/WhoWeAreHero";
 import { TestimonialsTicker } from "@/components/site/TestimonialsTicker";
 
