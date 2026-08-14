@@ -1,4 +1,11 @@
-import { Outlet, Link, createRootRoute, HeadContent, Scripts, redirect } from "@tanstack/react-router";
+import {
+  Outlet,
+  Link,
+  createRootRoute,
+  HeadContent,
+  Scripts,
+  redirect,
+} from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
 
@@ -47,10 +54,25 @@ export const Route = createRootRoute({
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Vektiss - The systems company for growth-stage operators" },
-      { name: "description", content: "AI - Powered business systems for growth-stage operators. Project management, AI assistants, client portals, and business media — built and deployed by Vektiss." },
-      { property: "og:description", content: "AI - Powered business systems for growth-stage operators. Project management, AI assistants, client portals, and business media — built and deployed by Vektiss." },
-      { name: "twitter:description", content: "AI - Powered business systems for growth-stage operators. Project management, AI assistants, client portals, and business media — built and deployed by Vektiss." },
+      {
+        name: "twitter:title",
+        content: "Vektiss - The systems company for growth-stage operators",
+      },
+      {
+        name: "description",
+        content:
+          "AI - Powered business systems for growth-stage operators. Project management, AI assistants, client portals, and business media — built and deployed by Vektiss.",
+      },
+      {
+        property: "og:description",
+        content:
+          "AI - Powered business systems for growth-stage operators. Project management, AI assistants, client portals, and business media — built and deployed by Vektiss.",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "AI - Powered business systems for growth-stage operators. Project management, AI assistants, client portals, and business media — built and deployed by Vektiss.",
+      },
       { property: "og:image", content: "https://vektiss.com/og-image.png" },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "640" },
@@ -72,6 +94,11 @@ export const Route = createRootRoute({
 });
 
 function RootShell({ children }: { children: React.ReactNode }) {
+  const metaPixelId = import.meta.env.VITE_META_PIXEL_ID;
+  const metaPixelSnippet = metaPixelId
+    ? `!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod? n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','${metaPixelId}');fbq('track','PageView');`
+    : undefined;
+
   return (
     <html lang="en">
       <head>
@@ -79,6 +106,9 @@ function RootShell({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         {children}
+        {metaPixelSnippet ? (
+          <script dangerouslySetInnerHTML={{ __html: metaPixelSnippet }} />
+        ) : null}
         <Scripts />
       </body>
     </html>
