@@ -4,7 +4,6 @@ import {
   createRootRoute,
   HeadContent,
   Scripts,
-  redirect,
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
@@ -32,9 +31,6 @@ function NotFoundComponent() {
 }
 
 export const Route = createRootRoute({
-  beforeLoad: () => {
-    throw redirect({ href: "https://go.vektiss.com" });
-  },
   head: () => ({
     meta: [
       { charSet: "utf-8" },
