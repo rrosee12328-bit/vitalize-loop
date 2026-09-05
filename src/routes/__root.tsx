@@ -35,6 +35,10 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      {
+        name: "facebook-domain-verification",
+        content: "nkgf69gca7khuo06fxa6f4hvuju01i",
+      },
       { title: "Vektiss - The systems company for growth-stage operators" },
       {
         name: "description",
