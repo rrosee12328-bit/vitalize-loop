@@ -14,6 +14,7 @@ import { Route as TermsRouteImport } from './routes/terms'
 import { Route as SolutionsRouteImport } from './routes/solutions'
 import { Route as SmsConsentRouteImport } from './routes/sms-consent'
 import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as DataDeletionRouteImport } from './routes/data-deletion'
 import { Route as HowWeWorkRouteImport } from './routes/how-we-work'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BookRouteImport } from './routes/book'
@@ -50,6 +51,11 @@ const SmsConsentRoute = SmsConsentRouteImport.update({
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DataDeletionRoute = DataDeletionRouteImport.update({
+  id: '/data-deletion',
+  path: '/data-deletion',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HowWeWorkRoute = HowWeWorkRouteImport.update({
@@ -123,6 +129,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/how-we-work': typeof HowWeWorkRoute
   '/privacy': typeof PrivacyRoute
+  '/data-deletion': typeof DataDeletionRoute
   '/sms-consent': typeof SmsConsentRoute
   '/solutions': typeof SolutionsRouteWithChildren
   '/terms': typeof TermsRoute
@@ -142,6 +149,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/how-we-work': typeof HowWeWorkRoute
   '/privacy': typeof PrivacyRoute
+  '/data-deletion': typeof DataDeletionRoute
   '/sms-consent': typeof SmsConsentRoute
   '/solutions': typeof SolutionsRouteWithChildren
   '/terms': typeof TermsRoute
@@ -162,6 +170,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/how-we-work': typeof HowWeWorkRoute
   '/privacy': typeof PrivacyRoute
+  '/data-deletion': typeof DataDeletionRoute
   '/sms-consent': typeof SmsConsentRoute
   '/solutions': typeof SolutionsRouteWithChildren
   '/terms': typeof TermsRoute
@@ -183,6 +192,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/how-we-work'
     | '/privacy'
+    | '/data-deletion'
     | '/sms-consent'
     | '/solutions'
     | '/terms'
@@ -202,6 +212,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/how-we-work'
     | '/privacy'
+    | '/data-deletion'
     | '/sms-consent'
     | '/solutions'
     | '/terms'
@@ -221,6 +232,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/how-we-work'
     | '/privacy'
+    | '/data-deletion'
     | '/sms-consent'
     | '/solutions'
     | '/terms'
@@ -241,6 +253,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   HowWeWorkRoute: typeof HowWeWorkRoute
   PrivacyRoute: typeof PrivacyRoute
+  DataDeletionRoute: typeof DataDeletionRoute
   SmsConsentRoute: typeof SmsConsentRoute
   SolutionsRoute: typeof SolutionsRouteWithChildren
   TermsRoute: typeof TermsRoute
@@ -284,6 +297,13 @@ declare module '@tanstack/react-router' {
       path: '/privacy'
       fullPath: '/privacy'
       preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/data-deletion': {
+      id: '/data-deletion'
+      path: '/data-deletion'
+      fullPath: '/data-deletion'
+      preLoaderRoute: typeof DataDeletionRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/how-we-work': {
@@ -399,6 +419,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   HowWeWorkRoute: HowWeWorkRoute,
   PrivacyRoute: PrivacyRoute,
+  DataDeletionRoute: DataDeletionRoute,
   SmsConsentRoute: SmsConsentRoute,
   SolutionsRoute: SolutionsRouteWithChildren,
   TermsRoute: TermsRoute,

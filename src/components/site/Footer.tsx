@@ -64,6 +64,8 @@ export function Footer() {
             <span className="hidden text-white/20 md:inline">|</span>
             <Link to="/privacy" className="hover:text-white">Privacy Policy</Link>
             <span className="hidden text-white/20 md:inline">|</span>
+            <Link to="/data-deletion" className="hover:text-white">Data Deletion</Link>
+            <span className="hidden text-white/20 md:inline">|</span>
             <Link to="/terms" className="hover:text-white">Terms of Service</Link>
           </div>
           <p className="font-mono tracking-wider">SYSTEMS · NOT DELIVERABLES</p>

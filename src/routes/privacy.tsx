@@ -57,6 +57,12 @@ function PrivacyPage() {
                   <span className="font-semibold text-foreground">Cookies &amp; Tracking Data:</span>{" "}
                   See Section 6 below.
                 </li>
+                <li>
+                  <span className="font-semibold text-foreground">Messenger Information:</span>{" "}
+                  Page-scoped user identifiers, profile information made available by Meta,
+                  message content, message identifiers, and timestamps when you contact a connected
+                  Facebook Business Page.
+                </li>
               </ul>
             </Section>
 
@@ -69,6 +75,10 @@ function PrivacyPage() {
                 <li>Communicate with you regarding your account or inquiries</li>
                 <li>Send SMS messages you have opted into</li>
                 <li>Improve our website and services</li>
+                <li>
+                  Maintain Messenger conversation context, respond to inquiries, qualify prospects,
+                  and identify when human follow-up is appropriate
+                </li>
                 <li>Comply with legal obligations</li>
               </ul>
             </Section>
